@@ -1,0 +1,3 @@
+deepstar.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+fish.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+jetfire.kruemel.home ansible_python_interpreter=/usr/local/bin/python

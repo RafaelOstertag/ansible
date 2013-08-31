@@ -2,5 +2,7 @@
 - hosts: starchild
   user: root
   roles:
+    - bootstrap-cfengine
     - nfs-client
     - user-host
+    - ldap-client

@@ -1,5 +1,5 @@
 ---
-- hosts: deepstar.kruemel.home
+- hosts: starchild
   user: root
   tasks:
     - name: create /home

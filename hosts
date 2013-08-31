@@ -1,3 +1,18 @@
-deepstar.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-fish.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-jetfire.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+[openbsd]
+fish ansible_python_interpreter=/usr/local/bin/python
+
+[pkgng]
+eventhorizon.dmz ansible_python_interpreter=/usr/local/bin/python
+optimusprime ansible_python_interpreter=/usr/local/bin/python
+jetfire ansible_python_interpreter=/usr/local/bin/python
+viking ansible_python_interpreter=/usr/local/bin/python
+
+[freebsd]
+starchild ansible_python_interpreter=/usr/local/bin/python
+jetfire ansible_python_interpreter=/usr/local/bin/python
+
+[debian]
+neger
+dash
+wheezy
+debian32

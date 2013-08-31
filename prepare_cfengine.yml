@@ -1,0 +1,26 @@
+---
+# Prepare cfengine
+- hosts: starchild
+  user: root
+  tasks:
+    - name: Create CFEngine keys (FreeBSD)
+      command: /usr/local/sbin/cf-key creates=/var/cfengine/ppkeys/localhost.priv
+      when: ansible_os_family == "FreeBSD"
+
+    - name: Copy update.cf
+      copy: src=cfengine/update.cf dest=/var/cfengine/inputs/update.cf force=no
+      when: ansible_os_family == "FreeBSD"
+
+    - name: Copy failsafe.cf
+      copy: src=cfengine/failsafe.cf dest=/var/cfengine/inputs/failsafe.cf force=no
+      when: ansible_os_family == "FreeBSD"
+
+    - name: Enable cf-execd
+      lineinfile: dest=/etc/rc.conf regexp="^cf_execd_enable=" line="cf_execd_enable=\"YES\""
+      notify:
+        - restart cfexecd
+      when: ansible_os_family == "FreeBSD"
+
+  handlers:
+    - name: restart cfexecd
+      service: name=cf-execd state=restarted

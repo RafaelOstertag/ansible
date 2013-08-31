@@ -1,0 +1,15 @@
+---
+- name: FreeBSD | Create CFEngine keys
+  command: /usr/local/sbin/cf-key creates=/var/cfengine/ppkeys/localhost.priv
+
+- name: FreeBSD | Copy update.cf
+  copy: src=cfengine/update.cf dest=/var/cfengine/inputs/update.cf force=no
+
+- name: FreeBSD | Copy failsafe.cf
+  copy: src=cfengine/failsafe.cf dest=/var/cfengine/inputs/failsafe.cf force=no
+
+- name: FreeBSD | Enable cf-execd
+  lineinfile: dest=/etc/rc.conf regexp="^cf_execd_enable=" line="cf_execd_enable=\"YES\""
+  
+  notify:
+    - restart FreeBSD cfexecd

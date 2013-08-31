@@ -1,0 +1,63 @@
+---
+# Creates mount points and fstab entries for FreeBSD NFS clients.
+- name: create /home
+  file: path=/home state=directory
+  
+- name: create /mnt/data
+  file: path=/mnt/data state=directory
+
+- name: create /mnt/iso
+  file: path=/mnt/iso  state=directory
+
+- name: create /mnt/files
+  file: path=/mnt/files state=directory
+
+- name: create /mnt/tank1
+  file: path=/mnt/tank1 state=directory
+
+- name: create /mnt/media2
+  file: path=/mnt/media2 state=directory
+
+- name: create /mnt/config
+  file: path=/mnt/config state=directory
+
+- name: add /tank1 fstab entry
+  lineinfile: dest=/etc/fstab regexp="^gizmo.kruemel.home:/tank1" line="gizmo.kruemel.home:/tank1       /mnt/tank1      nfs     nfsv4,rw"
+
+- name: add /export/data fstab entry
+  lineinfile: dest=/etc/fstab regexp="^gizmo.kruemel.home:/export/data" line="gizmo.kruemel.home:/export/data       /mnt/data      nfs     nfsv4,rw"
+
+- name: add /export/home fstab entry
+  lineinfile: dest=/etc/fstab regexp="^gizmo.kruemel.home:/export/home" line="gizmo.kruemel.home:/export/home       /home      nfs     nfsv4,rw"
+
+- name: add /export/iso fstab entry
+  lineinfile: dest=/etc/fstab regexp="^gizmo.kruemel.home:/export/iso" line="gizmo.kruemel.home:/export/iso       /mnt/iso      nfs     nfsv4,rw"
+
+- name: add /export/files fstab entry
+  lineinfile: dest=/etc/fstab regexp="^gizmo.kruemel.home:/export/files" line="gizmo.kruemel.home:/export/files       /mnt/files      nfs     nfsv4,rw"
+
+- name: add /export/config fstab entry
+  lineinfile: dest=/etc/fstab regexp="^gizmo.kruemel.home:/export/config" line="gizmo.kruemel.home:/export/config       /mnt/config      nfs     nfsv4,rw"
+
+- name: add /export/media2 fstab entry
+  lineinfile: dest=/etc/fstab regexp="^gizmo.kruemel.home:/export/media2" line="gizmo.kruemel.home:/export/media2       /mnt/media2      nfs     nfsv4,rw"
+
+- name: update nfsuserd_options in /etc/rc.conf
+  lineinfile: dest=/etc/rc.conf regexp="^nfsuserd_options=" line="nfsuserd_options=\"-domain kruemel.home\""
+  notify:
+    - restart FreeBSD nfsuserd
+
+- name: update nfsuserd_enable in /etc/rc.conf
+  lineinfile: dest=/etc/rc.conf regexp="^nfsuserd_enable=" line="nfsuserd_enable=\"YES\""
+  notify:
+    - restart FreeBSD nfsuserd
+
+- name: enable nfscbd in /etc/rc.conf
+  lineinfile: dest=/etc/rc.conf regexp="^nfscbd_enable=" line="nfscbd_enable=\"YES\""
+  notify:
+    - restart FreeBSD nfscbd
+
+- name: enable rpcbind in /etc/rc.conf
+  lineinfile: dest=/etc/rc.conf regexp="^rpcbind_enable=" line="rpcbind_enable=\"YES\""
+  notify:
+    - restart FreeBSD rpcbind

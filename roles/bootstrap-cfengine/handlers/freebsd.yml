@@ -1,0 +1,3 @@
+---
+- name: restart FreeBSD cfexecd
+  service: name=cf-execd state=restarted

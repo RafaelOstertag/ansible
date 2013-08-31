@@ -1,0 +1,6 @@
+---
+- hosts: starchild
+  user: root
+  roles:
+    - nfs-client
+    - user-host

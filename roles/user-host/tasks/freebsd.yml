@@ -1,0 +1,9 @@
+---
+# Enable all services used by user software
+- name: FreeBSD | enable cups
+  lineinfile: dest=/etc/rc.conf regexp="^cupsd_enable" line="cupsd_enable=\"YES\""
+- name: FreeBSD | enable dbus
+  lineinfile: dest=/etc/rc.conf regexp="^dbus_enable" line="dbus_enable=\"YES\""
+
+- name: FreeBSD | enable hald
+  lineinfile: dest=/etc/rc.conf regexp="^hald_enable" line="hald_enable=\"YES\""

@@ -1,0 +1,9 @@
+---
+- name: restart FreeBSD nfsuserd
+  service: name=nfsuserd state=restarted
+
+- name: restart FreeBSD nfscbd
+  service: name=nfscbd state=restarted
+
+- name: restart FreeBSD rpcbind
+  service: name=rpcbind state=restarted

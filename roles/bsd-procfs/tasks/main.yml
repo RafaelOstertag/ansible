@@ -1,0 +1,12 @@
+---
+
+- name: Common | create /proc directory
+  file: path=/proc state=directory
+
+- name: FreeBSD | mount procfs
+  mount: state=mounted fstype=procfs opts=rw src=proc name=/proc dump=0 passno=0
+  when: ansible_os_family == "FreeBSD"
+
+- name: NetBSD | mount procfs
+  mount: state=mounted fstype=procfs opts=rw src=proc name=/proc
+  when: ansible_system == "FreeBSD"

@@ -1,8 +1,8 @@
 ---
-- hosts: starchild
+- hosts: netbsd-userhosts
   user: root
   roles:
-    - bootstrap-cfengine
+    - bsd-procfs
     - nfs-client
-    - user-host
     - ldap-client
+    - user-host

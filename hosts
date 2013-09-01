@@ -1,5 +1,7 @@
-[openbsd]
+[openbsd-userhosts]
 fish ansible_python_interpreter=/usr/local/bin/python
+puffy ansible_python_interpreter=/usr/local/bin/python
+openbsd32 ansible_python_interpreter=/usr/local/bin/python
 
 [pkgng]
 eventhorizon.dmz ansible_python_interpreter=/usr/local/bin/python
@@ -7,10 +9,21 @@ optimusprime ansible_python_interpreter=/usr/local/bin/python
 jetfire ansible_python_interpreter=/usr/local/bin/python
 viking ansible_python_interpreter=/usr/local/bin/python
 
-[freebsd]
+[freebsd-userhosts]
 starchild ansible_python_interpreter=/usr/local/bin/python
 jetfire ansible_python_interpreter=/usr/local/bin/python
 aurora ansible_python_interpreter=/usr/local/bin/python
+freebsd32 ansible_python_interpreter=/usr/local/bin/python
+
+[portbuilder]
+gizmo ansible_python_interpreter=/usr/local/bin/python
+aurora ansible_python_interpreter=/usr/local/bin/python
+freebsd32 ansible_python_interpreter=/usr/local/bin/python
+grizzly ansible_python_interpreter=/usr/local/bin/python
+
+[netbsd-userhosts]
+abraxas ansible_python_interpreter=/usr/pkg/bin/python2.7
+netbsd32 ansible_python_interpreter=/usr/pkg/bin/python2.7
 
 [debian]
 neger

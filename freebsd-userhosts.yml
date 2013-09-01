@@ -1,0 +1,9 @@
+---
+- hosts: freebsd-userhosts
+  user: root
+  roles:
+    - bsd-procfs
+    - bootstrap-cfengine
+    - nfs-client
+    - user-host
+    - ldap-client

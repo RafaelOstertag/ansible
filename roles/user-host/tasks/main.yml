@@ -2,3 +2,6 @@
 # $Id$
 - include: freebsd.yml
   when: ansible_os_family == "FreeBSD"
+
+- include: netbsd.yml
+  when: ansible_system == "NetBSD"

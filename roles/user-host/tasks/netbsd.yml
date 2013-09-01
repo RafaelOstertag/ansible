@@ -1,0 +1,49 @@
+---
+- name: NetBSD | install required software
+  shell: "PKG_PATH=ftp://ftp.NetBSD.org/pub/pkgsrc/packages/NetBSD/$(uname -m)/$(uname -r)/All /usr/sbin/pkg_add -u cups dbus fam emacs xfce4 firefox sylpheed"
+  ignore_errors: True
+
+- name: NetBSD | copy dbus rc.d script
+  command: cp -f /usr/pkg/share/examples/rc.d/dbus /etc/rc.d/dbus
+
+- name: NetBSD | enable dbus in /etc/rc.conf
+  lineinfile: dest=/etc/rc.conf regexp="^dbus=" line="dbus=YES"
+
+- name: NetBSD | restart dbus
+  command: /etc/rc.d/dbus restart
+
+- name: NetBSD | copy hal rc.d script
+  command: cp -f /usr/pkg/share/examples/rc.d/hal /etc/rc.d/hal
+
+- name: NetBSD | enable hal in /etc/rc.conf
+  lineinfile: dest=/etc/rc.conf regexp="^hal=" line="hal=YES"
+
+- name: NetBSD | restart hal
+  command: /etc/rc.d/hal restart
+
+- name: NetBSD | prepare fam
+  lineinfile: "dest=/etc/rpc regexp='^sgi_fam' line='sgi_fam    391002    fam    # File Alteration Monitor'"
+
+- name: NetBSD | enable rpcbind
+  lineinfile: dest=/etc/rc.conf regexp="^rpcbind=" line="rpcbind=YES"
+
+- name: NetBSD | restart rpcbind
+  command: /etc/rc.d/rpcbind restart
+
+- name: NetBSD | enable inetd
+  lineinfile: dest=/etc/rc.conf regexp="^inetd=" line="inetd=YES"
+
+- name: NetBSD | add fam to inetd
+  lineinfile: dest=/etc/inetd.conf regexp="^sgi_fam/1-2" line="sgi_fam/1-2 stream rpc/tcp wait root /usr/pkg/sbin/famd famd"
+
+- name: NetBSD | restart inetd
+  command: /etc/rc.d/inetd restart
+
+- name: NetBSD | copy cupsd rc.d script
+  command: cp -f /usr/pkg/share/examples/rc.d/cupsd /etc/rc.d/cupsd
+
+- name: NetBSD | enable cupsd in /etc/rc.conf
+  lineinfile: dest=/etc/rc.conf regexp="^cupsd=" line="cupsd=YES"
+
+- name: NetBSD | restart cups
+  command: /etc/rc.d/cupsd restart

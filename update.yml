@@ -1,13 +1,23 @@
 ---
 # Update all hosts
-- hosts: debian:pkgng
+- hosts: debian:yum:pkgng
   user: root
   tasks:
     - name: Update FreeBSD using pkgng
       command: /usr/sbin/pkg upgrade -y
       when: ansible_os_family == "FreeBSD" and ansible_pkg_mgr == "pkgng"
+      notify:
+        - restart all FreeBSD Services
 
     - name: Updated Debian hosts
       apt: update_cache=yes upgrade=dist
       when: ansible_os_family == "Debian"
+
+    - name: Update yum hosts
+      command: "/bin/yum update -y"
+      when: ansible_distribution == "Fedora"
+
+  handlers:
+    - name: restart all FreeBSD Services
+      shell: 'for f in /usr/local/etc/rc.d/* ; do $f restart ; done'
       

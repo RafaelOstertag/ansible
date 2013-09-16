@@ -4,3 +4,6 @@
 
 - include: netbsd.yml
   when: ansible_system == "NetBSD"
+
+- include: openbsd.yml
+  when: ansible_system == "OpenBSD"

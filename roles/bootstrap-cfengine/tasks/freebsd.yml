@@ -3,10 +3,10 @@
   command: /usr/local/sbin/cf-key creates=/var/cfengine/ppkeys/localhost.priv
 
 - name: FreeBSD | Copy update.cf
-  copy: src=cfengine/update.cf dest=/var/cfengine/inputs/update.cf force=no
+  copy: src=cfengine/update.cf dest=/var/cfengine/inputs/update.cf force=yes
 
 - name: FreeBSD | Copy failsafe.cf
-  copy: src=cfengine/failsafe.cf dest=/var/cfengine/inputs/failsafe.cf force=no
+  copy: src=cfengine/failsafe.cf dest=/var/cfengine/inputs/failsafe.cf force=yes
 
 - name: FreeBSD | Enable cf-execd
   lineinfile: dest=/etc/rc.conf regexp="^cf_execd_enable=" line="cf_execd_enable=\"YES\""

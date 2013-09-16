@@ -1,0 +1,4 @@
+- hosts: openbsd-userhosts
+  user: root
+  roles:
+    - nfs-client

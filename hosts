@@ -2,6 +2,7 @@
 fish ansible_python_interpreter=/usr/local/bin/python
 puffy ansible_python_interpreter=/usr/local/bin/python
 openbsd32 ansible_python_interpreter=/usr/local/bin/python
+deepstar ansible_python_interpreter=/usr/local/bin/python
 
 [pkgng]
 eventhorizon.dmz ansible_python_interpreter=/usr/local/bin/python
@@ -24,6 +25,9 @@ grizzly ansible_python_interpreter=/usr/local/bin/python
 [netbsd-userhosts]
 abraxas ansible_python_interpreter=/usr/pkg/bin/python2.7
 netbsd32 ansible_python_interpreter=/usr/pkg/bin/python2.7
+
+[yum]
+hyperion
 
 [debian]
 neger

@@ -1,0 +1,3 @@
+---
+- name: restart OpenBSD portmap
+  command: "/etc/rc.d/portmap restart"

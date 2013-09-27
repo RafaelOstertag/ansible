@@ -8,14 +8,20 @@
       when: ansible_os_family == "FreeBSD" and ansible_pkg_mgr == "pkgng"
       notify:
         - restart all FreeBSD Services
+      tags:
+        - FreeBSD
 
     - name: Updated Debian hosts
       apt: update_cache=yes upgrade=dist
       when: ansible_os_family == "Debian"
+      tags:
+        - Debian
 
     - name: Update yum hosts
       command: "/bin/yum update -y"
       when: ansible_distribution == "Fedora"
+      tags:
+        - RedHat
 
   handlers:
     - name: restart all FreeBSD Services

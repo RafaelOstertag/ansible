@@ -2,8 +2,13 @@
 # Creates mount points and fstab entries for FreeBSD NFS clients.
 - include: common-createdir.yml
 
-- name: FreeBSD | update nfsuserd_options in /etc/rc.conf
-  lineinfile: dest=/etc/rc.conf regexp="^nfsuserd_options=" line="nfsuserd_options=\"-domain kruemel.home\""
+- name: FreeBSD | update nfsuserd_flags in /etc/rc.conf
+  lineinfile: dest=/etc/rc.conf regexp="^nfsuserd_flags=" line="nfsuserd_flags=\"-domain kruemel.home\""
+  notify:
+    - restart FreeBSD nfsuserd
+
+- name: FreeBSD | remove nfsuserd_options in /etc/rc.conf
+  lineinfile: dest=/etc/rc.conf regexp="^nfsuserd_options=" state=absent
   notify:
     - restart FreeBSD nfsuserd
 

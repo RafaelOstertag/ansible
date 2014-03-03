@@ -4,14 +4,24 @@ puffy ansible_python_interpreter=/usr/local/bin/python
 openbsd32 ansible_python_interpreter=/usr/local/bin/python
 deepstar ansible_python_interpreter=/usr/local/bin/python
 
-[pkgng]
+[pkgng-metal]
 eventhorizon.dmz ansible_python_interpreter=/usr/local/bin/python
 optimusprime ansible_python_interpreter=/usr/local/bin/python
 jetfire ansible_python_interpreter=/usr/local/bin/python
 viking ansible_python_interpreter=/usr/local/bin/python
+gizmo ansible_python_interpreter=/usr/local/bin/python
+
+[pkgng-virtual]
+grimreaper ansible_python_interpreter=/usr/local/bin/python
+ion ansible_python_interpreter=/usr/local/bin/python
+freebsd32 ansible_python_interpreter=/usr/local/bin/python
+foehammer ansible_python_interpreter=/usr/local/bin/python
+
+[pkgng:children]
+pkgng-virtual
+pkgng-metal
 
 [freebsd-userhosts]
-starchild ansible_python_interpreter=/usr/local/bin/python
 jetfire ansible_python_interpreter=/usr/local/bin/python
 aurora ansible_python_interpreter=/usr/local/bin/python
 freebsd32 ansible_python_interpreter=/usr/local/bin/python
@@ -34,3 +44,30 @@ neger
 dash
 wheezy
 debian32
+
+[freebsd]
+jetfire ansible_python_interpreter=/usr/local/bin/python
+eventhorizon.dmz ansible_python_interpreter=/usr/local/bin/python
+gizmo ansible_python_interpreter=/usr/local/bin/python
+optimusprime ansible_python_interpreter=/usr/local/bin/python
+viking ansible_python_interpreter=/usr/local/bin/python
+aurora ansible_python_interpreter=/usr/local/bin/python
+grizzly ansible_python_interpreter=/usr/local/bin/python
+freebsd32 ansible_python_interpreter=/usr/local/bin/python
+
+[openbsd]
+fish ansible_python_interpreter=/usr/local/bin/python
+puffy ansible_python_interpreter=/usr/local/bin/python
+openbsd32 ansible_python_interpreter=/usr/local/bin/python
+deepstar ansible_python_interpreter=/usr/local/bin/python
+yayap.dmz ansible_python_interpreter=/usr/local/bin/python
+gargoyle ansible_python_interpreter=/usr/local/bin/python
+
+[solaris10]
+starchild
+
+[solaris11]
+brutus
+nostromo
+megatron
+starscream.dmz

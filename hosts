@@ -36,6 +36,7 @@ aurora.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 freebsd32.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 ion.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 grimreaper.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+beastie.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 
 [portbuilder]
 beastie.kruemel.home ansible_python_interpreter=/usr/local/bin/python

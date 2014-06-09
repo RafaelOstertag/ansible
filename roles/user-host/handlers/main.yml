@@ -1,0 +1,12 @@
+---
+- name: Restart OpenBSD inetd
+  shell: /etc/rc.d/inetd restart
+
+- name: Restart FreeBSD inetd
+  service: name=inetd state=restarted
+
+- name: Restart FreeBSD cupsd
+  service: name=cupsd state=restarted
+
+- name: Restart FreeBSD cups-browsed
+  service: name=cups_browsed state=restarted

@@ -22,6 +22,9 @@
     - avahi-app
     - nss-pam-ldapd
     - geeqie
+    - amanda-client
+    - pgadmin3
+    - rapidsvn
 
 # Enable all services used by user software
 - name: FreeBSD | enable cups
@@ -38,3 +41,23 @@
 
 - name: FreeBSD | enable hald
   lineinfile: dest=/etc/rc.conf regexp="^hald_enable" line="hald_enable=\"YES\""
+
+- name: FreeBSD | enable amanda tcp
+  lineinfile: dest=/etc/inetd.conf regexp="^amanda[\s]+stream[\s]+tcp[\s]+" line="amanda  stream  tcp     nowait  amanda  /usr/local/libexec/amanda/amandad amandad -auth=bsdtcp"
+  notify:
+    - Restart FreeBSD inetd
+
+- name: FreeBSD | enable amanda tcp6
+  lineinfile: dest=/etc/inetd.conf regexp="^amanda[\s]+stream[\s]+tcp6[\s]+" line="amanda  stream  tcp6     nowait  amanda  /usr/local/libexec/amanda/amandad amandad -auth=bsdtcp"
+  notify:
+    - Restart FreeBSD inetd
+
+- name: FreeBSD | cups config
+  copy: src=cupsd.conf.freebsd dest=/usr/local/etc/cups/cupsd.conf mode=644
+  notify:
+    - Restart FreeBSD cupsd
+
+- name: FreeBSD | cups-browsed config
+  copy: src=cups-browsed.conf.freebsd dest=/usr/local/etc/cups/cups-browsed.conf mode=644
+  notify:
+    - Restart FreeBSD cups-browsed

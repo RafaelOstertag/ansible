@@ -19,6 +19,7 @@
     - gmake
     - login_ldap
     - wget
+    - amanda-client
 
 - name: OpenBSD | ambigous packages
   openbsd_pkg: name={{ item }} state=present
@@ -47,5 +48,20 @@
 - name: OpenBSD | enable portmap
   lineinfile: dest=/etc/rc.conf.local regexp="^portmap_flags" line="portmap_flags=\"\""
 
+- name: OpenBSD | enable inetd
+  lineinfile: dest=/etc/rc.conf.local regexp="^inetd_flags" line="inetd_flags=\"\""
+  notify:
+    - Restart OpenBSD inetd
+
 - name: OpenBSD | enable package scripts
   lineinfile: dest=/etc/rc.conf.local regexp="^pkg_scripts" line="pkg_scripts=\"cf_execd dbus_daemon avahi_daemon cupsd cups_browsed\""
+
+- name: OpenBSD | enable amanda tcp
+  lineinfile: dest=/etc/inetd.conf regexp="^amanda[\s]+stream[\s]+tcp[\s]+" line="amanda  stream  tcp     nowait  operator  /usr/local/amanda/libexec/amanda/amandad amandad -auth=bsdtcp"
+  notify:
+    - Restart OpenBSD inetd
+
+- name: OpenBSD | enable amanda tcp6
+  lineinfile: dest=/etc/inetd.conf regexp="^amanda[\s]+stream[\s]+tcp6[\s]+" line="amanda  stream  tcp6     nowait  operator  /usr/local/amanda/libexec/amanda/amandad amandad -auth=bsdtcp"
+  notify:
+    - Restart OpenBSD inetd

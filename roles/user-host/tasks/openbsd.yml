@@ -1,0 +1,51 @@
+---
+- name: OpenBSD | install package
+  openbsd_pkg: name={{ item }} state=present
+  environment:
+    PKG_PATH: "ftp://ftp.ch.openbsd.org/pub/OpenBSD/{{ ansible_kernel }}/packages/{{ ansible_machine }}/"
+  with_items:
+    - firefox
+    - thunderbird
+    - xombrero
+    - xfce
+    - xfwm4-themes
+    - xfce4-icon-theme
+    - subversion
+    - rsync
+    - python
+    - qdbm
+    - git
+    - cups
+    - gmake
+    - login_ldap
+    - wget
+
+- name: OpenBSD | ambigous packages
+  openbsd_pkg: name={{ item }} state=present
+  environment:
+    PKG_PATH: "ftp://ftp.ch.openbsd.org/pub/OpenBSD/{{ ansible_kernel }}/packages/{{ ansible_machine }}/"
+  when: ansible_kernel == "5.5"
+  with_items:
+    - emacs-24.3p4-gtk3
+    - mutt-1.5.22p0v0
+    - gtar-1.27p0
+    - w3m-0.5.3p2
+    - gnupg-2.0.22p0
+
+- name: OpenBSD | ambigous packages
+  openbsd_pkg: name={{ item }} state=present
+  environment:
+    PKG_PATH: "ftp://ftp.ch.openbsd.org/pub/OpenBSD/{{ ansible_kernel }}/packages/{{ ansible_machine }}/"
+  when: ansible_kernel == "5.4"
+  with_items:
+    - emacs-24.3-gtk3
+    - gtar-1.26p1
+    - w3m-0.5.3p2
+    - mutt-1.5.21p4v0
+    - gnupg-2.0.19p3
+    
+- name: OpenBSD | enable portmap
+  lineinfile: dest=/etc/rc.conf.local regexp="^portmap_flags" line="portmap_flags=\"\""
+
+- name: OpenBSD | enable package scripts
+  lineinfile: dest=/etc/rc.conf.local regexp="^pkg_scripts" line="pkg_scripts=\"cf_execd dbus_daemon avahi_daemon cupsd cups_browsed\""

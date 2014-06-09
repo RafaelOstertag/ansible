@@ -1,7 +1,38 @@
 ---
+- name: FreeBSD | install packages
+  pkgng: name={{ item }} state=present
+  with_items:
+    - fvwm
+    - gnome2-lite
+    - xfce
+    - thunderbird
+    - firefox
+    - xombrero
+    - wireshark
+    - gnupg
+    - sudo
+    - cups
+    - subversion
+    - git
+    - w3m
+    - lynx
+    - mutt
+    - valgrind
+    - gimp
+    - avahi-app
+    - nss-pam-ldapd
+    - geeqie
+
 # Enable all services used by user software
 - name: FreeBSD | enable cups
   lineinfile: dest=/etc/rc.conf regexp="^cupsd_enable" line="cupsd_enable=\"YES\""
+
+- name: FreeBSD | enable cups_browsed
+  lineinfile: dest=/etc/rc.conf regexp="^cups_browsed_enable" line="cups_browsed_enable=\"YES\""
+
+- name: FreeBSD | enable avahi_daemon
+  lineinfile: dest=/etc/rc.conf regexp="^avahi_daemon_enable" line="avahi_daemon_enable=\"YES\""
+
 - name: FreeBSD | enable dbus
   lineinfile: dest=/etc/rc.conf regexp="^dbus_enable" line="dbus_enable=\"YES\""
 

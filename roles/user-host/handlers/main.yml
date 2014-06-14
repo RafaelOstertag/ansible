@@ -5,6 +5,18 @@
 - name: Restart FreeBSD inetd
   service: name=inetd state=restarted
 
+- name: Restart FreeBSD nscd
+  service: name=inetd state=restarted
+
+- name: Restart FreeBSD dbus
+  service: name=dbus state=restarted
+
+- name: Restart FreeBSD hald
+  service: name=hald state=restarted
+
+- name: Restart FreeBSD avahi-daemon
+  service: name=avahi-daemon state=restarted
+
 - name: Restart FreeBSD cupsd
   service: name=cupsd state=restarted
 

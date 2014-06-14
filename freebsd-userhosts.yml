@@ -2,6 +2,7 @@
 - hosts: freebsd-userhosts
   user: root
   roles:
+    - freebsd-pkgng-client
     - bsd-procfs
     - bootstrap-cfengine
     - nfs-client

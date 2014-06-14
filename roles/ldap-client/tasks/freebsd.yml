@@ -1,4 +1,7 @@
 ---
+- name: FreeBSD | install nss-pam-ldapd
+  pkgng: pkg=nss-pam-ldapd state=present
+
 - name: FreeBSD | enable system pam
   copy: src=pam-system-freebsd backup=yes dest=/etc/pam.d/system mode=644
 
@@ -9,10 +12,10 @@
   copy: src=nslcd.conf.freebsd backup=yes dest=/usr/local/etc/nslcd.conf mode=640 group=nslcd
 
 - name: FreeBSD | enable nss ldap group
-  lineinfile: "dest=/etc/nsswitch.conf regexp='^group:' line='group: files ldap'"
+  lineinfile: "dest=/etc/nsswitch.conf regexp='^group:' line='group: cache files ldap'"
 
 - name: FreeBSD | enable nss ldap passwd
-  lineinfile: "dest=/etc/nsswitch.conf regexp='^passwd:' line='passwd: files ldap'"
+  lineinfile: "dest=/etc/nsswitch.conf regexp='^passwd:' line='passwd: cache files ldap'"
 
 - name: FreeBSD | enable nslcd
   lineinfile: dest=/etc/rc.conf regexp="^nslcd_enable" line="nslcd_enable=\"YES\""

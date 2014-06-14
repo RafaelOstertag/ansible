@@ -28,22 +28,19 @@
     - restart FreeBSD rpcbind
 
 - name: FreeBSD | add /tank1 fstab entry
-  mount: state=mounted fstype=nfs opts=nfsv4,rw src=gizmo.kruemel.home:/tank1 name=/mnt/tank1
+  mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/tank1 name=/mnt/tank1
 
 - name: FreeBSD | add /export/data fstab entry
-  mount: state=mounted fstype=nfs opts=nfsv4,rw src=gizmo.kruemel.home:/export/data name=/mnt/data
+  mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/export/data name=/mnt/data
 
 - name: FreeBSD | add /export/home fstab entry
-  mount: state=mounted fstype=nfs opts=nfsv4,rw src=gizmo.kruemel.home:/export/home name=/home
+  mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/export/home name=/home
 
 - name: FreeBSD | add /export/iso fstab entry
-  mount: state=mounted fstype=nfs opts=nfsv4,rw src=gizmo.kruemel.home:/export/iso name=/mnt/iso
+  mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/export/iso name=/mnt/iso
 
 - name: FreeBSD | add /export/files fstab entry
-  mount: state=mounted fstype=nfs opts=nfsv4,rw src=gizmo.kruemel.home:/export/files name=/mnt/files
+  mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/export/files name=/mnt/files
 
 - name: FreeBSD | add /export/config fstab entry
-  mount: state=mounted fstype=nfs opts=nfsv4,rw src=gizmo.kruemel.home:/export/config name=/mnt/config
-
-- name: FreeBSD | add /export/media2 fstab entry
-  mount: state=mounted fstype=nfs opts=nfsv4,rw src=gizmo.kruemel.home:/export/media2 name=/mnt/media2
+  mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/export/config name=/mnt/config

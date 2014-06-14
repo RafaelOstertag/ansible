@@ -18,6 +18,3 @@
 
 - name: NetBSD | add /export/config fstab entry
   mount: state=mounted fstype=nfs opts=rw src=gizmo.kruemel.home:/export/config name=/mnt/config
-
-- name: NetBSD | add /export/media2 fstab entry
-  mount: state=mounted fstype=nfs opts=rw src=gizmo.kruemel.home:/export/media2 name=/mnt/media2

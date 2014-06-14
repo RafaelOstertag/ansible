@@ -1,3 +1,6 @@
 ---
 - name: restart FreeBSD cfexecd
   service: name=cf-execd state=restarted
+
+- name: bootstrap FreeBSD cfengine
+  shell: /usr/local/sbin/cf-agent -If failsafe.cf

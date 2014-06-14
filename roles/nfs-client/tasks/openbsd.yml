@@ -23,6 +23,3 @@
 
 - name: OpenBSD | add /export/config fstab entry
   mount: state=mounted fstype=nfs opts=rw,tcp src=gizmo.kruemel.home:/export/config name=/mnt/config
-
-- name: OpenBSD | add /export/media2 fstab entry
-  mount: state=mounted fstype=nfs opts=rw,tcp src=gizmo.kruemel.home:/export/media2 name=/mnt/media2

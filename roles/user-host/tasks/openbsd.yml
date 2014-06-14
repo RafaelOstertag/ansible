@@ -20,6 +20,8 @@
     - login_ldap
     - wget
     - amanda-client
+    - geany
+    - anjuta
 
 - name: OpenBSD | ambigous packages
   openbsd_pkg: name={{ item }} state=present

@@ -25,6 +25,7 @@
     - amanda-client
     - pgadmin3
     - rapidsvn
+    - libreoffice
 
 # Enable all services used by user software
 - name: FreeBSD | enable dbus

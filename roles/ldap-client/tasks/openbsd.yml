@@ -1,0 +1,26 @@
+---
+- name: OpenBSD | enable ypldap
+  lineinfile: dest=/etc/rc.conf.local regexp="^ypldap_flags=" line="ypldap_flags=\"\""
+
+- name: OpenBSD | enable ypbind
+  lineinfile: dest=/etc/rc.conf.local regexp="^ypbind_flags=" line="ypbind_flags=\"\""
+
+- name: OpenBSD | yp default domain
+  copy: src=yp.defaultdomain.openbsd dest=/etc/defaultdomain
+
+- name: OpenBSD | create yp directory
+  file: dest=/etc/yp state=directory
+
+- name: OpenBSD | yp kruemel.home file
+  copy: src=yp.kruemel.home.openbsd dest=/etc/yp/kruemel.home
+
+- name: OpenBSD | ypldap.conf
+  copy: src=ypldap.conf.openbsd dest=/etc/ypldap.conf
+
+- name: OpenBSD | login.conf for 5.4
+  copy: src=login.conf.openbsd.54 dest=/etc/login.conf
+  when: ansible_kernel == "5.4"
+
+- name: OpenBSD | login.conf for 5.5
+  copy: src=login.conf.openbsd.55 dest=/etc/login.conf
+  when: ansible_kernel == "5.5"

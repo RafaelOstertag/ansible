@@ -67,13 +67,12 @@ ion.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 
 [openbsd]
 kerberos.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+gargoyle.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 puffy.virtual.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 phoebe.virtual.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 merlin.virtual.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 openbsd32.virtual.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 cortana.virtual.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-deepstar.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-gargoyle.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 
 [solaris10]
 starchild.virtual.kruemel.home
@@ -83,3 +82,16 @@ brutus.virtual.kruemel.home
 nostromo.virtual.kruemel.home
 megatron.virtual.kruemel.home
 starscream.dmz.virtual.kruemel.home
+
+[servers]
+jetfire.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+eventhorizon.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+gizmo.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+optimusprime.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+viking.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+brutus.virtual.kruemel.home
+nostromo.virtual.kruemel.home
+megatron.virtual.kruemel.home
+starscream.dmz.virtual.kruemel.home
+kerberos.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+gargoyle.kruemel.home ansible_python_interpreter=/usr/local/bin/python

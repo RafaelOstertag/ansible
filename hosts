@@ -95,3 +95,4 @@ megatron.virtual.kruemel.home
 starscream.dmz.virtual.kruemel.home
 kerberos.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 gargoyle.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+yayap.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python

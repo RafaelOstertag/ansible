@@ -21,4 +21,4 @@
   service: name=cupsd state=restarted
 
 - name: Restart FreeBSD cups-browsed
-  service: name=cups_browsed state=restarted
+  shell: '/usr/local/etc/rc.d/cups_browsed restart </dev/null >/dev/null 2>/dev/null'

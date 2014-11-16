@@ -47,6 +47,26 @@
     - mutt-1.5.21p4v0
     - gnupg-2.0.19p3
     - rsync-3.0.9p3
+
+- name: OpenBSD | add amanda service tcp
+  lineinfile: 'dest=/etc/services regexp="^amanda[\s]+.*/tcp" line="amanda		10080/tcp  #Dump server control"'
+  notify:
+    - Restart OpenBSD inetd
+
+- name: OpenBSD | add amanda service udp
+  lineinfile: 'dest=/etc/services regexp="^amanda[\s]+.*/udp" line="amanda		10080/udp  #Dump server control"'
+  notify:
+    - Restart OpenBSD inetd
+
+- name: OpenBSD | add amandaidx service tcp
+  lineinfile: 'dest=/etc/services regexp="^amandaidx[\s]+" line="amandaidx	10082/tcp  #Amanda indexing"'
+  notify:
+    - Restart OpenBSD inetd
+
+- name: OpenBSD | add amidxtape service tcp
+  lineinfile: 'dest=/etc/services regexp="^amidxtape[\s]+" line="amidxtape	10083/tcp  #Amanda tape indexing"'
+  notify:
+    - Restart OpenBSD inetd
     
 - name: OpenBSD | enable portmap
   lineinfile: dest=/etc/rc.conf.local regexp="^portmap_flags" line="portmap_flags=\"\""

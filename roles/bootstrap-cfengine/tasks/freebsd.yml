@@ -1,6 +1,6 @@
 ---
 - name: FreeBSD | Install cfengine
-  pkgng: pkg=cfengine35 state=present
+  pkgng: pkg=cfengine36 state=present
 
 - name: FreeBSD | Create CFEngine keys
   command: /usr/local/sbin/cf-key creates=/var/cfengine/ppkeys/localhost.priv

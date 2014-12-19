@@ -3,7 +3,7 @@
   pkgng: name={{ item }} state=present
   with_items:
     - fvwm
-    - gnome2-lite
+    - gnome3
     - xfce
     - thunderbird
     - firefox

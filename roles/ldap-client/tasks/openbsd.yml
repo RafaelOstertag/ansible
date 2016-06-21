@@ -1,4 +1,11 @@
 ---
+- name: OpenBSD | install package
+  openbsd_pkg: name={{ item }} state=present
+  environment:
+    PKG_PATH: "ftp://mirror.switch.ch/pub/OpenBSD/{{ ansible_kernel }}/packages/{{ ansible_machine }}/"
+  with_items:
+    - login_ldap
+    
 - name: OpenBSD | enable ypldap
   lineinfile: dest=/etc/rc.conf.local regexp="^ypldap_flags=" line="ypldap_flags=\"\""
 
@@ -15,7 +22,7 @@
   copy: src=yp.kruemel.home.openbsd dest=/etc/yp/kruemel.home
 
 - name: OpenBSD | ypldap.conf
-  copy: src=ypldap.conf.openbsd dest=/etc/ypldap.conf
+  copy: src=ypldap.conf.openbsd dest=/etc/ypldap.conf mode=640 owner=root
 
 - name: OpenBSD | login.conf for {{ ansible_kernel }}
   copy: src=login.conf.openbsd.{{ ansible_kernel }} dest=/etc/login.conf

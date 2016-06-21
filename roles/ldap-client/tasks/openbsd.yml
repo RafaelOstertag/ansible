@@ -17,10 +17,5 @@
 - name: OpenBSD | ypldap.conf
   copy: src=ypldap.conf.openbsd dest=/etc/ypldap.conf
 
-- name: OpenBSD | login.conf for 5.4
-  copy: src=login.conf.openbsd.54 dest=/etc/login.conf
-  when: ansible_kernel == "5.4"
-
-- name: OpenBSD | login.conf for 5.5
-  copy: src=login.conf.openbsd.55 dest=/etc/login.conf
-  when: ansible_kernel == "5.5"
+- name: OpenBSD | login.conf for {{ ansible_kernel }}
+  copy: src=login.conf.openbsd.{{ ansible_kernel }} dest=/etc/login.conf

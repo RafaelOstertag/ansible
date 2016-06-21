@@ -2,7 +2,7 @@
 - name: OpenBSD | install package
   openbsd_pkg: name={{ item }} state=present
   environment:
-    PKG_PATH: "ftp://ftp.ch.openbsd.org/pub/OpenBSD/{{ ansible_kernel }}/packages/{{ ansible_machine }}/"
+    PKG_PATH: "ftp://mirror.switch.ch/pub/OpenBSD/{{ ansible_kernel }}/packages/{{ ansible_machine }}/"
   with_items:
     - firefox
     - thunderbird
@@ -18,55 +18,8 @@
     - gmake
     - login_ldap
     - wget
-    - amanda-client
     - geany
     - anjuta
-
-- name: OpenBSD | ambigous packages
-  openbsd_pkg: name={{ item }} state=present
-  environment:
-    PKG_PATH: "ftp://ftp.ch.openbsd.org/pub/OpenBSD/{{ ansible_kernel }}/packages/{{ ansible_machine }}/"
-  when: ansible_kernel == "5.5"
-  with_items:
-    - emacs-24.3p4-gtk3
-    - mutt-1.5.22p0v0
-    - gtar-1.27p0
-    - w3m-0.5.3p2
-    - gnupg-2.0.22p0
-    - rsync-3.1.0
-
-- name: OpenBSD | ambigous packages
-  openbsd_pkg: name={{ item }} state=present
-  environment:
-    PKG_PATH: "ftp://ftp.ch.openbsd.org/pub/OpenBSD/{{ ansible_kernel }}/packages/{{ ansible_machine }}/"
-  when: ansible_kernel == "5.4"
-  with_items:
-    - emacs-24.3-gtk3
-    - gtar-1.26p1
-    - w3m-0.5.3p2
-    - mutt-1.5.21p4v0
-    - gnupg-2.0.19p3
-    - rsync-3.0.9p3
-
-- name: OpenBSD | add amanda service tcp
-  lineinfile: 'dest=/etc/services regexp="^amanda[\s]+.*/tcp" line="amanda		10080/tcp  #Dump server control"'
-  notify:
-    - Restart OpenBSD inetd
-
-- name: OpenBSD | add amanda service udp
-  lineinfile: 'dest=/etc/services regexp="^amanda[\s]+.*/udp" line="amanda		10080/udp  #Dump server control"'
-  notify:
-    - Restart OpenBSD inetd
-
-- name: OpenBSD | add amandaidx service tcp
-  lineinfile: 'dest=/etc/services regexp="^amandaidx[\s]+" line="amandaidx	10082/tcp  #Amanda indexing"'
-  notify:
-    - Restart OpenBSD inetd
-
-- name: OpenBSD | add amidxtape service tcp
-  lineinfile: 'dest=/etc/services regexp="^amidxtape[\s]+" line="amidxtape	10083/tcp  #Amanda tape indexing"'
-  notify:
-    - Restart OpenBSD inetd
     
 - name: OpenBSD | enable portmap
   lineinfile: dest=/etc/rc.conf.local regexp="^portmap_flags" line="portmap_flags=\"\""
@@ -76,15 +29,15 @@
   notify:
     - Restart OpenBSD inetd
 
-- name: OpenBSD | enable package scripts
-  lineinfile: dest=/etc/rc.conf.local regexp="^pkg_scripts" line="pkg_scripts=\"cf_execd dbus_daemon avahi_daemon cupsd cups_browsed\""
+- name: OpenBSD | enable package scripts dbus_daemon
+  lineinfile: dest=/etc/rc.conf.local regexp="^dbus_daemon" line="dbus_daemon="
 
-- name: OpenBSD | enable amanda tcp
-  lineinfile: dest=/etc/inetd.conf regexp="^amanda[\s]+stream[\s]+tcp[\s]+" line="amanda  stream  tcp     nowait  operator  /usr/local/amanda/libexec/amanda/amandad amandad -auth=bsdtcp"
-  notify:
-    - Restart OpenBSD inetd
+- name: OpenBSD | enable package scripts avahi_daemon
+  lineinfile: dest=/etc/rc.conf.local regexp="^avahi_daemon" line="avahi_daemon="
 
-- name: OpenBSD | enable amanda tcp6
-  lineinfile: dest=/etc/inetd.conf regexp="^amanda[\s]+stream[\s]+tcp6[\s]+" line="amanda  stream  tcp6     nowait  operator  /usr/local/amanda/libexec/amanda/amandad amandad -auth=bsdtcp"
-  notify:
-    - Restart OpenBSD inetd
+- name: OpenBSD | enable package scripts cupsd
+  lineinfile: dest=/etc/rc.conf.local regexp="^cupsd" line="cupsd="
+
+- name: OpenBSD | enable package scripts cups_browsed
+  lineinfile: dest=/etc/rc.conf.local regexp="^cups_browsed" line="cups_browsed="
+

@@ -12,7 +12,7 @@
     - xfce4-icon-theme
     - subversion
     - python
-    - qdbm
+    - tokyocabinet
     - git
     - cups
     - gmake
@@ -20,6 +20,11 @@
     - wget
     - geany
     - anjuta
+    - emacs-24.5p2-gtk3
+    - mutt-1.5.24p5v0
+    - gnupg-2.1.9
+    - jdk-1.8.0.72v0
+
     
 - name: OpenBSD | enable portmap
   lineinfile: dest=/etc/rc.conf.local regexp="^portmap_flags" line="portmap_flags=\"\""

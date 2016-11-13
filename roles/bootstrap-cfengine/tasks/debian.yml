@@ -2,12 +2,15 @@
 - name: Debian | remove cfengine3
   apt: state=absent purge=true name=cfengine3
 
+- name: Debian | install apt-transport-https
+  apt: state=present name=apt-transport-https
+
 - name: Debian | install apt key
-  apt_key: state=present url=http://cfengine.com/pub/gpg.key
+  apt_key: state=present url=https://cfengine-package-repos.s3.amazonaws.com/pub/gpg.key
 
 - name: Debian | add repository
-  lineinfile: regexp="^deb http://cfengine.com/pub/apt" line="deb http://cfengine.com/pub/apt {{ ansible_lsb.codename }} main" state=present dest=/etc/apt/sources.list
-
+  apt_repository: repo="deb https://cfengine-package-repos.s3.amazonaws.com/pub/apt/packages stable main" update_cache=yes state=present
+  
 - name: Debian | add cfengine community
   apt: pkg=cfengine-community state=present update_cache=yes
 

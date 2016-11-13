@@ -34,15 +34,5 @@
   notify:
     - Restart OpenBSD inetd
 
-- name: OpenBSD | enable package scripts dbus_daemon
-  lineinfile: dest=/etc/rc.conf.local regexp="^dbus_daemon" line="dbus_daemon="
-
-- name: OpenBSD | enable package scripts avahi_daemon
-  lineinfile: dest=/etc/rc.conf.local regexp="^avahi_daemon" line="avahi_daemon="
-
-- name: OpenBSD | enable package scripts cupsd
-  lineinfile: dest=/etc/rc.conf.local regexp="^cupsd" line="cupsd="
-
-- name: OpenBSD | enable package scripts cups_browsed
-  lineinfile: dest=/etc/rc.conf.local regexp="^cups_browsed" line="cups_browsed="
-
+- name: OpenBSD | enable package scripts
+  lineinfile: dest=/etc/rc.conf.local regexp="^pkg_scripts" line="pkg_scripts=\"cf_execd messagebus avahi_daemon cupsd cups_browsed\""

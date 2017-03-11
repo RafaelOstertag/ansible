@@ -1,5 +1,4 @@
 [openbsd-userhosts]
-eyeinthesky.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 merlin.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 phoebe.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
 cortana.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python

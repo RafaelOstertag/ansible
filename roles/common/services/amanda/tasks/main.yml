@@ -1,0 +1,29 @@
+---
+
+- name: Amanda dump server control tcp
+  lineinfile:
+    file: /etc/services
+    regexp: "^amanda\s+\d+/tcp.*"
+    line: "amanda	10080/tcp #Dump server control"
+    state: present
+
+- name: Amanda dump server control udp
+  lineinfile:
+    file: /etc/services
+    regexp: "^amanda\s+\d+/udp.*"
+    line: "amanda	10080/udp #Dump server control"
+    state: present
+
+- name: Amanda indexing
+  lineinfile:
+    file: /etc/services
+    regexp: "^amandaidx\s+\d+/tcp.*"
+    line: "amandaidx	10082/tcp  #Amanda indexing"
+    state: present
+
+- name: Amanda tape indexing
+  lineinfile:
+    file: /etc/services
+    regexp: "^amidxtape\s+\d+/tcp.*"
+    line: "amidxtape	10083/tcp  #Amanda tape indexing"
+    state: present

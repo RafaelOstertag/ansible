@@ -2,7 +2,7 @@
 - include: common-createdir.yml
 
 - name: OpenBSD | enable portmap
-  lineinfile: dest=/etc/rc.conf.local regexp="^portmap_flags" line='portmap_flags=""'
+  lineinfile: dest=/etc/rc.conf.local regexp="^portmap_flags" line='portmap_flags=""' create=true
   notify:
     - restart OpenBSD portmap
 

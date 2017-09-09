@@ -1,4 +1,4 @@
-# $Id: weekly.local.openbsd 3720 2011-07-20 18:31:15Z rafisol $
+# $Id$
 #
 # Ansible maintained
 LOGINACCOUNTING=1

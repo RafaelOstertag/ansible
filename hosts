@@ -11,15 +11,9 @@ viking.kruemel.home
 optimusprime.kruemel.home
 jetfire.kruemel.home
 
-[freebsd-servers-lan:vars]
-ansible_python_interpreter=/usr/local/bin/python
-
 [freebsd-servers-dmz]
 eventhorizon.dmz.kruemel.home
 yayap.dmz.kruemel.home
-
-[freebsd-servers-dmz:vars]
-ansible_python_interpreter=/usr/local/bin/python
 
 [freebsd-virtual-hosts]
 aurora.virtual.kruemel.home
@@ -27,14 +21,8 @@ freebsd32.virtual.kruemel.home
 grimreaper.virtual.kruemel.home
 ion.virtual.kruemel.home
 
-[freebsd-virtual-hosts:vars]
-ansible_python_interpreter=/usr/local/bin/python
-
 [freebsd-workstations]
 beastie.kruemel.home
-
-[freebsd-workstations:vars]
-ansible_python_interpreter=/usr/local/bin/python
 
 ;
 ; OpenBSD
@@ -46,17 +34,11 @@ openbsd-servers-lan
 gargoyle.kruemel.home
 kerberos.kruemel.home
 
-[openbsd-servers-lan:vars]
-ansible_python_interpreter=/usr/local/bin/python
-
 [openbsd-virtual-hosts]
 phoebe.virtual.kruemel.home
 merlin.virtual.kruemel.home
 cortana.virtual.kruemel.home
 borg.virtual.kruemel.home
-
-[openbsd-virtual-hosts:vars]
-ansible_python_interpreter=/usr/local/bin/python
 
 ;
 ; Solaris 11
@@ -78,5 +60,3 @@ prune.virtual.kruemel.home
 [solaris-workstations]
 odin.kruemel.home
 
-[solaris-workstations:vars]
-ansible_python_interpreter=/opt/ggl/bin/python2

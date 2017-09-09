@@ -1,0 +1,8 @@
+- name: Add {{ name }} to /etc/services
+  lineinfile:
+    path: /etc/services
+    regexp: "^{{ name }}\\s+\\d+/{{ prot }}.*"
+    line: "{{name}}     {{ prt }}/{{ prot }}"
+    state: present
+  notify:
+    - FreeBSD rebuild services db

@@ -7,7 +7,10 @@
   become_method: pfexec
   roles:
     - common/dotnetrc
-    - common/services/amanda
+    - { role: common/services, name: "amanda", prt: "10080", prot: "tcp" }
+    - { role: common/services, name: "amanda", prt: "10080", prot: "udp" }
+    - { role: common/services, name: "amandaidx", prt: "10082", prot: "tcp" }
+    - { role: common/services, name: "amidxtape", prt: "10083", prot: "tcp" }
     - common/etcfiles
     - common/motd
     - solaris/resolvconf

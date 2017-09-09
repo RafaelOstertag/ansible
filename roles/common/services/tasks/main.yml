@@ -1,4 +1,4 @@
-- name: Add {{ name }} to /etc/services
+- name: Add {{ name }}/{{ prot }} to /etc/services
   lineinfile:
     path: /etc/services
     regexp: "^{{ name }}\\s+\\d+/{{ prot }}.*"

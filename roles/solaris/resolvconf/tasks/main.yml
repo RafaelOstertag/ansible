@@ -4,56 +4,56 @@
 #
 - name: Set domain on lan servers
   when: "'solaris-servers-lan' in group_names"
-  shell: /usr/bin/svcfg -s svc:/network/dns/client setprop config/domain=kruemel.home
+  shell: "{{ svccfg }} -s svc:/network/dns/client setprop config/domain=kruemel.home"
 
 - name: Set domain search on lan servers
   when: "'solaris-servers-lan' in group_names"
-  shell: /usr/bin/svcfg -s svc:/network/dns/client setprop 'config/search=("kruemel.home" "virtual.kruemel.home")'
+  shell: "{{ svccfg }} -s svc:/network/dns/client setprop 'config/search=(\"kruemel.home\" \"virtual.kruemel.home\")'"
 
 #
 # DMZ Servers
 #
 - name: Set domain on dmz servers
   when: "'solaris-servers-dmz' in group_names"
-  shell: /usr/bin/svcfg -s svc:/network/dns/client setprop config/domain=dmz.kruemel.home
+  shell: "{{ svccfg }} -s svc:/network/dns/client setprop config/domain=dmz.kruemel.home"
 
 - name: Set domain search on dmz servers
   when: "'solaris-servers-dmz' in group_names"
-  shell: /usr/bin/svcfg -s svc:/network/dns/client setprop  config/search=dmz.kruemel.home
+  shell: "{{ svccfg }} -s svc:/network/dns/client setprop  config/search=dmz.kruemel.home"
 
 #
 # Workstations
 #
 - name: Set domain on workstations
   when: "'solaris-workstations' in group_names"
-  shell: /usr/bin/svcfg -s svc:/network/dns/client setprop config/domain=kruemel.home
+  shell: "{{ svccfg }} -s svc:/network/dns/client setprop config/domain=kruemel.home"
 
 - name: Set domain search on workstations
   when: "'solaris-workstations' in group_names"
-  shell: /usr/bin/svcfg -s svc:/network/dns/client setprop 'config/search=("kruemel.home" "virtual.kruemel.home")'
+  shell: "{{ svccfg }} -s svc:/network/dns/client setprop 'config/search=(\"kruemel.home\" \"virtual.kruemel.home\")'"
 
 #
 # Virtual Hosts
 #
 - name: Set domain on virtual hosts
   when: "'solaris-virtual-hosts' in group_names"
-  shell: /usr/bin/svcfg -s svc:/network/dns/client setprop config/domain=virtual.kruemel.home
+  shell: "{{ svccfg }} -s svc:/network/dns/client setprop config/domain=virtual.kruemel.home"
 
 - name: Set domain search on virtual hosts
   when: "'solaris-virtual-hosts' in group_names"
-  shell: /usr/bin/svcfg -s svc:/network/dns/client setprop 'config/search=("virtual.kruemel.home" "kruemel.home")'
+  shell: "{{ svccfg }} -s svc:/network/dns/client setprop 'config/search=(\"virtual.kruemel.home\" \"kruemel.home\")'"
 
 #
 # DNS servers are the same for all
 #
 - name: Set DNS servers
-  shell: /usr/bin/svcfg -s svc:/network/dns/client setprop "config/nameserver=(fd3e:be3e:ec34:0::5 fd3e:be3e:ec34:0::4 192.168.100.5)"
+  shell: "{{ svccfg }} -s svc:/network/dns/client setprop \"config/nameserver=(fd3e:be3e:ec34:0::5 fd3e:be3e:ec34:0::4 192.168.100.5)\""
 
 #
 # Always refresh and restart
 #
 - name: Refresh service
-  shell: /usr/bin/svcadm refresh svc:/network/dns/client
+  shell: "{{ svcadm }} refresh svc:/network/dns/client"
 
 - name: Restart service
-  shell: /usr/bin/svcadm restart svc:/network/dns/client
+  shell: "{{ svcadm }} restart svc:/network/dns/client"

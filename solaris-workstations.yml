@@ -4,7 +4,7 @@
   hosts: solaris-workstations
   user: sysadmin
   become: true
-  become_method: pfexec
+  become_method: su
   roles:
     - common/dotnetrc
     - { role: common/services, name: "amanda", prt: "10080", prot: "tcp" }

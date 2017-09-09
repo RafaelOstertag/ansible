@@ -1,0 +1,10 @@
+---
+
+- name: Set {{ name }} sysctl variable
+  lineinfile:
+    path: /etc/sysctl.conf
+    create: true
+    regexp: "^{{ name }}"
+    line: "{{ name }}={{ value }}"
+  notify:
+    - FreeBSD reload sysctl

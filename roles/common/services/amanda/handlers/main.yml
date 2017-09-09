@@ -1,0 +1,5 @@
+---
+
+- name: FreeBSD rebuild services db
+  when: ansible_distribution == "FreeBSD"
+  shell: /usr/sbin/services_mkdb -q

@@ -1,7 +1,7 @@
 ---
 
 - name: FreeBSD Servers
-  hosts: freebsd-servers
+  hosts: freebsd-workstations,freebsd-virtual-hosts
   force_handlers: true
   user: root
   roles:
@@ -13,8 +13,7 @@
     - freebsd/openldap-client-conf
     - freebsd/prefer-ipv6
     - { role: freebsd/rcconf, name: "kern_securelevel_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "kern_securelevel", value: "1" }
-    - { role: freebsd/rcconf, name: "nrpe2_enable", value: "YES" }
+    - { role: freebsd/rcconf, name: "kern_securelevel", value: "0" }
     - { role: freebsd/rcconf, name: "clear_tmp_enable", value: "YES" }
     - { role: freebsd/rcconf, name: "accounting_enable", value: "YES" }
     - { role: freebsd/rcconf, name: "inetd_enable", value: "YES" }
@@ -57,5 +56,6 @@
     - { role: freebsd/periodic, name: "security_status_passwdless_enable", value: "YES" }
     - { role: freebsd/periodic, name: "security_status_passwdless_period", value: "daily" }
     - { role: freebsd/periodic, name: "daily_status_network_enable", value: "YES" }
-    - { role: freebsd/sysctl, name: "security.bsd.see_other_uids", value: "0" }
+    - { role: freebsd/sysctl, name: "security.bsd.see_other_uids", value: "1" }
     - { role: freebsd/sysctl, name: "kern.randompid", value: "100" }
+    - { role: freebsd/sysctl, name: "vfs.usermount", value: "1" }

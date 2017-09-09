@@ -1,0 +1,7 @@
+---
+
+- name: Copy /etc/weekly.local
+  copy:
+    src: weekly.local
+    dest: /etc/weekly.local
+    mode: 0644

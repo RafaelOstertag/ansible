@@ -1,7 +1,7 @@
 ---
 
-- name: OpenBSD Servers
-  hosts: openbsd-servers
+- name: OpenBSD Virtual Hosts
+  hosts: openbsd-virtual-hosts
   force_handlers: true
   user: root
   roles:

@@ -1,0 +1,4 @@
+---
+
+- name: FreeBSD reload ip6addrctl config
+  shell: /usr/sbin/ip6addrctl flush && /usr/sbin/ip6addrctl install /etc/ip6addrctl.conf

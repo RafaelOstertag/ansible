@@ -1,0 +1,9 @@
+---
+
+- name: Set {{ name }} periodic.conf variable
+  lineinfile:
+    path: /etc/periodic.conf
+    create: true
+    regexp: "^{{ name }}"
+    line: "{{ name }}=\"{{ value }}\""
+

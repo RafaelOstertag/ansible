@@ -1,0 +1,21 @@
+---
+
+- name: Test if openldap file exists
+  stat:
+    path: /usr/local/etc/openldap/ldap.conf
+  register: openldap
+
+- name: Copy ldap.conf
+  when: openldap.stat.exists == True and not 'freebsd-servers-dmz' in group_names
+  copy:
+    src: openldap/ldap.conf
+    dest: /usr/local/etc/openldap/ldap.conf
+
+- name: Link ldap.conf for use with sudo
+  when: openldap.stat.exists == True and not 'freebsd-servers-dmz' in group_names
+  file:
+    src: /usr/local/etc/openldap/ldap.conf
+    dest: /usr/local/etc/ldap.conf
+    state: link
+    
+  

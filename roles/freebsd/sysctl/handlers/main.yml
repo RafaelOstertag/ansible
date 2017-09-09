@@ -1,0 +1,4 @@
+---
+
+- name: FreeBSD reload sysctl
+  shell: /sbin/sysctl -f /etc/sysctl.conf

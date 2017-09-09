@@ -1,0 +1,18 @@
+---
+
+- name: Setup ip6addrctl
+  lineinfile:
+    path: /etc/rc.conf
+    regexp: "^ip6addrctl_policy="
+    line: "ip6addrctl_policy=\"AUTO\""
+  notify:
+    - FreeBSD reload ip6addrctl config
+
+# the rules can be taken from /etc/rc.d/ip6addrctl and adjusted accordingly.
+- name: Copy ip6addrctl
+  copy:
+    src: ip6addrctl.conf
+    dest: /etc/ip6addrctl.conf
+    mode: 0644
+  notify:
+    - FreeBSD reload ip6addrctl config

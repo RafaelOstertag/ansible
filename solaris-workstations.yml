@@ -1,0 +1,14 @@
+---
+
+- name: Solaris Workstations
+  hosts: solaris-workstations
+  user: sysadmin
+  become: true
+  become_method: pfexec
+  roles:
+    - common/dotnetrc
+    - common/services/amanda
+    - common/etcfiles
+    - common/motd
+    - solaris/resolvconf
+    - solaris/openldap-client-conf

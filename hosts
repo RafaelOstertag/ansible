@@ -1,13 +1,9 @@
+;
+; FreeBSD
+;
 [freebsd-servers:children]
 freebsd-servers-dmz
 freebsd-servers-lan
-
-[freebsd-servers-dmz]
-eventhorizon.dmz.kruemel.home
-yayap.dmz.kruemel.home
-
-[freebsd-servers-dmz:vars]
-ansible_python_interpreter=/usr/local/bin/python
 
 [freebsd-servers-lan]
 gizmo.kruemel.home
@@ -17,6 +13,34 @@ jetfire.kruemel.home
 
 [freebsd-servers-lan:vars]
 ansible_python_interpreter=/usr/local/bin/python
+
+[freebsd-servers-dmz]
+eventhorizon.dmz.kruemel.home
+yayap.dmz.kruemel.home
+
+[freebsd-servers-dmz:vars]
+ansible_python_interpreter=/usr/local/bin/python
+
+[freebsd-virtual-hosts]
+aurora.virtual.kruemel.home
+freebsd32.virtual.kruemel.home
+grimreaper.virtual.kruemel.home
+ion.virtual.kruemel.home
+
+[freebsd-virtual-hosts:vars]
+ansible_python_interpreter=/usr/local/bin/python
+
+[freebsd-workstations]
+beastie.kruemel.home
+
+[freebsd-workstations:vars]
+ansible_python_interpreter=/usr/local/bin/python
+
+;
+; OpenBSD
+;
+[openbsd-servers:children]
+openbsd-servers-lan
 
 [openbsd-servers-lan]
 gargoyle.kruemel.home
@@ -34,17 +58,25 @@ borg.virtual.kruemel.home
 [openbsd-virtual-hosts:vars]
 ansible_python_interpreter=/usr/local/bin/python
 
-[freebsd-virtual-hosts]
-aurora.virtual.kruemel.home
-freebsd32.virtual.kruemel.home
-grimreaper.virtual.kruemel.home
-ion.virtual.kruemel.home
+;
+; Solaris 11
+;
+[solaris-servers:children]
+solaris-servers-lan
+solaris-servers-dmz
 
-[freebsd-virtual-hosts:vars]
-ansible_python_interpreter=/usr/local/bin/python
+[solaris-servers-lan]
+brutus.kruemel.home
+megatron.kruemel.home
 
-[freebsd-workstations]
-beastie.kruemel.home
+[solaris-servers-dmz]
+starscream.dmz.kruemel.home
 
-[freebsd-workstations:vars]
-ansible_python_interpreter=/usr/local/bin/python
+[solaris-virtual-hosts]
+prune.virtual.kruemel.home
+
+[solaris-workstations]
+odin.kruemel.home
+
+[solaris-workstations:vars]
+ansible_python_interpreter=/opt/ggl/bin/python2

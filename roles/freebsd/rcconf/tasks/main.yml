@@ -1,0 +1,9 @@
+---
+
+- name: Set {{ name }} rc.conf variable
+  lineinfile:
+    path: /etc/rc.conf
+    create: true
+    regexp: "^{{ name }}"
+    line: "{{ name }}=\"{{ value }}\""
+

@@ -1,0 +1,11 @@
+---
+
+- name: FreeBSD Servers
+  hosts: freebsd-servers
+  user: root
+  roles:
+    - common/dotnetrc
+    - common/services/amanda
+    - common/etcfiles
+    - common/motd
+    - freebsd/resolvconf

@@ -3,4 +3,3 @@
   roles:
     - nfs-client
     - ldap-client
-    - user-host

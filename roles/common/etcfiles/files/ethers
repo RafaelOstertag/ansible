@@ -1,0 +1,57 @@
+# $Id: ethers 7021 2017-03-11 21:24:43Z rafi $
+#
+#
+# !!!! This file is maintained by ansible !!!!
+00:0d:b9:34:0d:2c	gargoyle
+00:0d:b9:34:0d:2d	gargoyle-inet
+00:0d:b9:34:0d:2e	gargoyle-dmz
+00:e0:81:c1:81:fc	gizmo
+e0:cb:4e:b7:2a:f5	beastie
+00:0d:b9:0d:d7:fc	kerberos
+00:0d:b9:34:10:90	yayap
+00:0d:b9:34:10:91	yayap-re1
+00:0d:b9:34:10:92	yayap-re2
+04:f0:21:0a:62:96	yayap-athn0
+00:0d:b9:0d:e4:98	viking
+00:0d:b9:0d:cb:a8	optimusprime
+02:08:20:30:7c:23	nostromo
+08:00:20:99:fd:2a	deepstar
+00:25:90:13:b6:0d	odin
+00:25:90:13:b6:0e	odin-sc
+00:11:6b:f0:1a:15	switchy
+00:11:6b:f2:49:e1	switchy2
+00:18:f3:67:eb:a4	eventhorizon
+00:04:76:9d:41:f3	jetfire
+02:08:20:b5:b9:ba	megatron
+02:08:20:17:42:85	starscream
+04:4b:80:80:80:03	brutus
+08:00:20:bb:07:8a	starchild
+# Virtual Machines
+08:00:27:7d:d5:8a	windowsxp1
+08:00:27:d7:26:78	dash
+08:00:27:af:69:06	abraxas
+08:00:27:04:72:32	neger
+08:00:27:7d:cb:a9	win07
+08:00:27:ab:6e:ca	aurora
+08:00:27:e8:78:0d	solarisx86-1
+08:00:27:7c:45:a3	prune
+08:00:27:05:ca:4d	solarisx86-2
+08:00:27:d0:84:dd	solarisx86-3
+08:00:27:ac:22:62	sol11x86
+08:00:27:d4:b5:e9	sol11x86-2
+08:00:27:f1:20:85	phoebe
+08:00:27:61:36:14	hyperion
+08:00:27:08:2f:a1	thor
+08:00:27:21:b0:ec	debian32
+08:00:27:44:93:7a	freebsd32
+08:00:27:54:25:31	netbsd32
+08:00:27:91:67:f7	indiana
+08:00:27:03:5d:66	wheezy
+08:00:27:be:29:4b	puffy
+08:00:27:d6:9d:b5	merlin
+08:00:27:F7:36:3E	grimreaper
+08:00:27:52:a5:6d	constellation
+08:00:27:5c:c3:e6	nimitz
+08:00:27:7f:1e:e1	ion
+08:00:27:af:b5:07	cortana
+08:00:27:2d:9f:20	borg

@@ -1,0 +1,29 @@
+---
+
+- name: Setup /etc/resolv.conf on lan server
+  when: "'freebsd-servers-lan' in group_names"
+  copy:
+    src: resolv.conf.freebsd.server.lan
+    dest: /etc/resolv.conf
+    mode: 0644
+
+- name: Setup /etc/resolv.conf on dmz server
+  when: "'freebsd-servers-dmz' in group_names"
+  copy:
+    src: resolv.conf.freebsd.server.dmz
+    dest: /etc/resolv.conf
+    mode: 0644
+
+- name: Setup /etc/resolv.conf on virtual host
+  when: "'freebsd-virtual-hosts' in group_names"
+  copy:
+    src: resolv.conf.freebsd.virtual.host
+    dest: /etc/resolv.conf
+    mode: 0644
+
+- name: Setup /etc/resolv.conf on workstations
+  when: "'freebsd-workstations' in group_names"
+  copy:
+    src: resolv.conf.freebsd.workstation
+    dest: /etc/resolv.conf
+    mode: 0644

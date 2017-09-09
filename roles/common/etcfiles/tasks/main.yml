@@ -1,0 +1,7 @@
+---
+
+- name: Copy /etc/ethers
+  copy: src=ethers dest=/etc/ethers mode=0644
+
+- name: Copy /etc/networks
+  copy: src=networks dest=/etc/networks mode=0644

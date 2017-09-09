@@ -1,0 +1,11 @@
+---
+
+- name: OpenBSD Servers
+  hosts: openbsd-servers
+  user: root
+  roles:
+    - common/dotnetrc
+    - common/services/amanda
+    - common/etcfiles
+    - common/motd
+    - openbsd/resolvconf

@@ -1,97 +1,50 @@
-[openbsd-userhosts]
-merlin.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-phoebe.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-cortana.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-borg.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+[freebsd-servers:children]
+freebsd-servers-dmz
+freebsd-servers-lan
 
-[openbsd-buildhosts]
-merlin.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-phoebe.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-cortana.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-borg.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+[freebsd-servers-dmz]
+eventhorizon.dmz.kruemel.home
+yayap.dmz.kruemel.home
 
-[pkgng-metal]
-yayap.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-eventhorizon.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-optimusprime.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-jetfire.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-viking.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-gizmo.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-beastie ansible_python_interpreter=/usr/local/bin/python
+[freebsd-servers-dmz:vars]
+ansible_python_interpreter=/usr/local/bin/python
 
-[pkgng-virtual]
-grimreaper.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-ion.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-freebsd32.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-aurora.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+[freebsd-servers-lan]
+gizmo.kruemel.home
+viking.kruemel.home
+optimusprime.kruemel.home
+jetfire.kruemel.home
 
-[pkgng:children]
-pkgng-virtual
-pkgng-metal
+[freebsd-servers-lan:vars]
+ansible_python_interpreter=/usr/local/bin/python
 
-[freebsd-userhosts]
-aurora.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-freebsd32.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-ion.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-grimreaper.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-beastie.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+[openbsd-servers-lan]
+gargoyle.kruemel.home
+kerberos.kruemel.home
 
-[portbuilder]
-beastie.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+[openbsd-servers-lan:vars]
+ansible_python_interpreter=/usr/local/bin/python
 
-[netbsd-userhosts]
-abraxas.virtual.kruemel.home ansible_python_interpreter=/usr/pkg/bin/python2.7
-netbsd32.virtual.kruemel.home ansible_python_interpreter=/usr/pkg/bin/python2.7
+[openbsd-virtual-hosts]
+phoebe.virtual.kruemel.home
+merlin.virtual.kruemel.home
+cortana.virtual.kruemel.home
+borg.virtual.kruemel.home
 
-[yum]
-hyperion.virtual.kruemel.home
+[openbsd-virtual-hosts:vars]
+ansible_python_interpreter=/usr/local/bin/python
 
-[debian]
-neger.virtual.kruemel.home
-dash.virtual.kruemel.home
-wheezy.virtual.kruemel.home
-debian32.virtual.kruemel.home
+[freebsd-virtual-hosts]
+aurora.virtual.kruemel.home
+freebsd32.virtual.kruemel.home
+grimreaper.virtual.kruemel.home
+ion.virtual.kruemel.home
 
-[freebsd]
-jetfire.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-eventhorizon.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-gizmo.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-optimusprime.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-viking.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-aurora.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-yayap.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-freebsd32.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-grimreaper.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-ion.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+[freebsd-virtual-hosts:vars]
+ansible_python_interpreter=/usr/local/bin/python
 
-[openbsd]
-kerberos.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-gargoyle.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-phoebe.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-merlin.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-cortana.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-borg.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-eyeinthesky.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+[freebsd-workstations]
+beastie.kruemel.home
 
-[solaris10]
-starchild.virtual.kruemel.home
-
-[solaris11]
-brutus.virtual.kruemel.home
-nostromo.virtual.kruemel.home
-megatron.virtual.kruemel.home
-starscream.dmz.virtual.kruemel.home
-
-[servers]
-jetfire.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-eventhorizon.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-gizmo.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-optimusprime.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-viking.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-brutus.virtual.kruemel.home
-nostromo.virtual.kruemel.home
-megatron.virtual.kruemel.home
-starscream.dmz.virtual.kruemel.home
-kerberos.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-gargoyle.kruemel.home ansible_python_interpreter=/usr/local/bin/python
-yayap.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python
+[freebsd-workstations:vars]
+ansible_python_interpreter=/usr/local/bin/python

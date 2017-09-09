@@ -1,0 +1,30 @@
+---
+
+- name: Setup /etc/resolv.conf on lan servers
+  when: "'openbsd-servers-lan' in group_names"
+  copy:
+    src: resolv.conf.openbsd.server.lan
+    dest: /etc/resolv.conf
+    mode: 0644
+
+- name: Setup /etc/resolv.conf on dmz servers
+  when: "'openbsd-servers-lan' in group_names"
+  copy:
+    src: resolv.conf.openbsd.server.dmz
+    dest: /etc/resolv.conf
+    mode: 0644
+
+- name: Setup /etc/resolv.conf on virtual host
+  when: "'openbsd-virtual-hosts' in group_names"
+  copy:
+    src: resolv.conf.openbsd.virtual.host
+    dest: /etc/resolv.conf
+    mode: 0644
+
+- name: Setup /etc/resolv.conf on workstation
+  when: "'openbsd-workstations' in group_names"
+  copy:
+    src: resolv.conf.openbsd.workstation
+    dest: /etc/resolv.conf
+    mode: 0644
+  

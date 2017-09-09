@@ -1,0 +1,7 @@
+---
+
+- name: Create /etc/motd
+  template:
+    src: motd
+    dest: /etc/motd
+    mode: 0644

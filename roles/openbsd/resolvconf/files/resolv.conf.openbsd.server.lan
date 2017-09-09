@@ -1,0 +1,8 @@
+lookup file bind
+domain  kruemel.home
+search  kruemel.home
+family	inet6 inet4
+nameserver      fd3e:be3e:ec34:0::5
+nameserver      fd3e:be3e:ec34:0::4
+nameserver      192.168.100.5
+nameserver      192.168.100.4

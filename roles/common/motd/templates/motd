@@ -1,0 +1,23 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+Ansible maintained host
+
+Host: {{ ansible_fqdn }}
+Arch: {{ ansible_architecture }}
+OS: {{ ansible_distribution }} {{ ansible_distribution_release }}
+
+IPv4 Addresses:
+---------------
+{% for ipv4 in ansible_all_ipv4_addresses %}
+{{ ipv4 }}
+{% endfor %}
+
+IPv6 Addresses:
+---------------
+{% for ipv6 in ansible_all_ipv6_addresses %}
+{{ ipv6 }}
+{% endfor %}
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*

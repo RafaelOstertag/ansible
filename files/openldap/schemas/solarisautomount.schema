@@ -1,0 +1,6 @@
+# This relies on solarisattr.schema                                                                                                                                    #
+# taken from /usr/lib/ldap/idsconfig and adjusted to be parsed by openldap
+#
+# Rafael Ostertag
+objectclass ( 1.3.6.1.1.1.2.16 NAME 'automountMap' SUP 'top' MUST (objectclass $ automountMapName) MAY (description))
+objectclass ( 1.3.6.1.1.1.2.17 NAME 'automount' SUP 'top' MUST (objectclass $ automountKey $ automountInformation ) MAY (description))

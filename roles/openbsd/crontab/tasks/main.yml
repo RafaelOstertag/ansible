@@ -1,0 +1,27 @@
+---
+
+- name: Add check aide daily
+  when: "'openbsd-servers' in group_names"
+  cron:
+    name: Aide check daily
+    state: present
+    job: "/usr/local/bin/aide --check | mailx -s \"Aide on {{ ansible_fqdn }}\" root"
+    weekday: "Mon-Sat"
+    day: "*"
+    minute: "12"
+    hour: "05"
+    month: "*"
+
+- name: Add update aide weekly
+  when: "'openbsd-servers' in group_names"
+  cron:
+    name: Aide update weekly
+    state: present
+    job: "/usr/local/bin/aide --update | mailx -s \"Aide on {{ ansible_fqdn }}\" root ; mv /var/db/aide.db.new /var/db/aide.db"
+    weekday: "Sun"
+    day: "*"
+    minute: "12"
+    hour: "05"
+    month: "*"
+
+    

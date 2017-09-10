@@ -9,3 +9,19 @@
     mode: 0644
   notify:
     - FreeBSD restart nrpe
+
+- name: Copy nagios plugins
+  copy:
+    src: "nagios/plugins/{{ item }}"
+    dest: "/usr/local/libexec/nagios/{{ item }}"
+    owner: nagios
+    group: nagios
+    mode: 0755
+  with_items:
+    - check_crl
+    - check_portaudit
+    - check_solaris_smf
+    - check_zfs
+    - check_fb_gmirror
+    - check_proc_pid
+    - check_solsvc

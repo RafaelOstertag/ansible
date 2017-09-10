@@ -1,0 +1,75 @@
+# $Id: sudoers 7022 2017-03-11 21:33:00Z rafi $
+#
+# sudoers file.
+#
+# This file MUST be edited with the 'visudo' command as root.
+# Failure to use 'visudo' may result in syntax or file permission errors
+# that prevent sudo from running.
+#
+# See the sudoers man page for the details on how to write a sudoers file.
+#
+
+# Host alias specification
+Host_Alias	SERVERS	= gizmo.kruemel.home, gargoyle.kruemel.home, yayap.dmz.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, megatron.kruemel.home, starscream.dmz.kruemel.home, nostromo.kruemel.home, jetfire.kruemel.home, eventhorizon.dmz.kruemel.home, nostromo, brutus, brutus.kruemel.home, kerberos.kruemel.home
+Host_Alias	OPENBSD = gargoyle.kruemel.home, kerberos.kruemel.home
+Host_Alias	FREEBSD = gizmo.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, nostromo.kruemel.home, jetfire.kruemel.home, eventhorizon.dmz.kruemel.home, yayap.dmz.kruemel.home
+Host_Alias	SOLARIS = megatron.kruemel.home,megatron,starscream.dmz.kruemel.home,starscream,nostromo,nostromo.kruemel.home,brutus,brutus.kruemel.home,thumper,thumper.kruemel.home
+Host_Alias	SOLARIS11 = megatron,starscream,nostromo,brutus,thumper
+
+# User alias specification
+
+# Cmnd alias specification
+
+# Defaults specification
+# Uncomment if needed to preserve environmental variables related to the
+# FreeBSD pkg_* utilities and fetch.
+#Defaults	env_keep += "PKG_PATH PKG_DBDIR PKG_TMPDIR TMPDIR PACKAGEROOT PACKAGESITE PKGDIR FTP_PASSIVE_MODE"
+
+# Additionally uncomment if needed to preserve environmental variables
+# related to portupgrade.
+#Defaults	env_keep += "PORTSDIR PORTS_INDEX PORTS_DBDIR PACKAGES PKGTOOLS_CONF"
+
+# Those come from OpenBSD
+Defaults env_keep +="DESTDIR DISTDIR EDITOR FETCH_CMD FLAVOR FTPMODE GROUP MAKE"
+Defaults env_keep +="MAKECONF MULTI_PACKAGES NOMAN OKAY_FILES OWNER PKG_CACHE"
+Defaults env_keep +="PKG_DBDIR PKG_DESTDIR PKG_PATH PKG_TMPDIR PORTSDIR"
+Defaults env_keep +="RELEASEDIR SHARED_ONLY SSH_AUTH_SOCK SUBPACKAGE VISUAL"
+Defaults env_keep +="WRKOBJDIR"
+
+Defaults	!logfile
+Defaults	always_set_home
+Defaults	authenticate
+Defaults	fqdn
+Defaults	ignore_dot
+Defaults	mail_always
+Defaults	mail_badpass
+Defaults	mail_no_host
+Defaults	mail_no_perms
+Defaults	mail_no_user
+Defaults	mailsub="*** SUDO on %h ***"
+Defaults	mailto=root
+Defaults	passprompt="[sudo] password for %p:"
+Defaults	syslog=auth
+Defaults	syslog_badpri=alert
+Defaults	syslog_goodpri=debug
+# This for nrpe since mailq on openBSD requires root privileges, but we don't want mail for each call
+Defaults!/usr/local/libexec/nagios/check_mailq	!mail_always
+Defaults!/opt/ggl/libexec/nagios/check_mailq	!mail_always
+# This is for nrpe since check_file_age requires sometime root privileges, but we don't want mail for each call
+Defaults!/usr/local/libexec/nagios/check_file_age	!mail_always
+Defaults!/usr/local/libexec/nagios/check_procs	!mail_always
+Defaults!/opt/ggl/libexec/nagios/check_file_age	!mail_always
+
+# Runas alias specification
+
+# User privilege specification
+%staff	SERVERS=(root) ALL,(amanda) /usr/local/sbin/am*
+root	ALL=(ALL) SETENV: ALL
+
+# Those are for solaris 11
+sysadmin SOLARIS11=(root) ALL
+
+# This for nrpe since mailq on openBSD requires root privileges.
+_nrpe  OPENBSD=(root) NOPASSWD: /usr/local/libexec/nagios/check_mailq, /usr/local/libexec/nagios/check_file_age
+nagios FREEBSD=(root) NOPASSWD: /usr/local/libexec/nagios/check_file_age, /usr/local/libexec/nagios/check_procs
+nagios SOLARIS=(root) NOPASSWD: /opt/ggl/libexec/nagios/check_file_age, /opt/ggl/libexec/nagios/check_mailq

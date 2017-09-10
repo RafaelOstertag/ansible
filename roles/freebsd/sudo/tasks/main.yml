@@ -1,0 +1,10 @@
+---
+
+- name: Copy sudoers file
+  when: "'freebsd-servers' in group_names"
+  file:
+    src: sudo/sudoers
+    dest: /usr/local/etc/sudoers
+    mode: 0440
+    owner: root
+    group: wheel

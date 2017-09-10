@@ -1,0 +1,10 @@
+---
+
+- name: Copy sudoers file
+  when: "'solaris-servers' in group_names"
+  file:
+    src: sudo/sudoers
+    dest: /etc/opt/ggl/sudoers
+    mode: 0440
+    owner: root
+    group: root

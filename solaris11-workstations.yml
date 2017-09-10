@@ -1,7 +1,7 @@
 ---
 
 - name: Solaris Workstations
-  hosts: solaris-workstations
+  hosts: solaris-workstations:solaris-virtual-hosts
   user: sysadmin
   become: true
   become_method: su

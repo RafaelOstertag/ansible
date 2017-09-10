@@ -4,6 +4,6 @@
   lineinfile:
     path: /etc/rc.conf
     create: true
-    regexp: "^{{ name }}"
+    regexp: "^{{ name }}="
     line: "{{ name }}=\"{{ value }}\""
 

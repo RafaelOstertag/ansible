@@ -1,0 +1,6 @@
+---
+
+- name: OpenBSD restart inetd
+  service:
+    name: inetd
+    state: restarted

@@ -1,0 +1,6 @@
+---
+
+# By default, all hosts are amanda clients. Use host specific vars to disable
+amanda_client: True
+# By default, no host is an amanda server. Use host specific vars to enable
+amanda_server: False

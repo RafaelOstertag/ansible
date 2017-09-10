@@ -1,0 +1,21 @@
+---
+
+- name: Add amanda tcp ipv6 to inetd.conf
+  lineinfile:
+    path: /etc/inetd.conf
+    state: present
+    create: True
+    regexp: "^amanda\\s+stream\\s+tcp6\\s+"
+    line: "amanda       stream  tcp6    nowait  operator        /usr/local/amanda/libexec/amanda/amandad amandad -auth=bsdtcp"
+  notify:
+    - OpenBSD restart inetd
+
+- name: Add amanda tcp ipv4 to inetd.conf
+  lineinfile:
+    path: /etc/inetd.conf
+    state: present
+    create: True
+    regexp: "^amanda\\s+stream\\s+tcp\\s+"
+    line: "amanda       stream  tcp4    nowait  operator        /usr/local/amanda/libexec/amanda/amandad amandad -auth=bsdtcp"
+  notify:
+    - OpenBSD restart inetd

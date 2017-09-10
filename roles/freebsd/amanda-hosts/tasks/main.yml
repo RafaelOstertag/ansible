@@ -1,0 +1,9 @@
+---
+
+- name: Copy amanda hosts to amanda clients
+  when: 'amanda_server == False'
+  copy:
+    src: amanda/amandahosts.client
+    dest: /usr/local/var/amanda/.amandahosts
+    mode: 0600
+    owner: amanda

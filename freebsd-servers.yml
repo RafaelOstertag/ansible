@@ -63,3 +63,10 @@
     - { role: freebsd/periodic, name: "daily_status_network_enable", value: "YES" }
     - { role: freebsd/sysctl, name: "security.bsd.see_other_uids", value: "0" }
     - { role: freebsd/sysctl, name: "kern.randompid", value: "100" }
+    - freebsd/aide
+    - common/amanda-client
+    - freebsd/amanda-hosts
+    - freebsd/amanda-enable
+    - common/crontab
+    - freebsd/crontab
+    - freebsd/kerberos

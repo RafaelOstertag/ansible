@@ -1,6 +1,6 @@
 ---
 
-- name: FreeBSD Servers
+- name: FreeBSD Workstations
   hosts: freebsd-workstations,freebsd-virtual-hosts
   force_handlers: true
   user: root
@@ -63,3 +63,9 @@
     - { role: freebsd/sysctl, name: "security.bsd.see_other_uids", value: "1" }
     - { role: freebsd/sysctl, name: "kern.randompid", value: "100" }
     - { role: freebsd/sysctl, name: "vfs.usermount", value: "1" }
+    - common/amanda-client
+    - freebsd/amanda-hosts
+    - freebsd/amanda-enable
+    - common/crontab
+    - freebsd/crontab
+    - freebsd/kerberos

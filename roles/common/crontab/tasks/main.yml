@@ -1,0 +1,12 @@
+---
+
+- name: Add autodoc
+  cron:
+    name: Autodoc
+    state: present
+    job: /usr/local/bin/autodoc
+    day: "*"
+    minute: 0
+    hour: 23
+    month: "*"
+    weekday: "*"

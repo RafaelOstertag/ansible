@@ -8,7 +8,7 @@
     mode: 0644
 
 - name: Setup /etc/resolv.conf on dmz servers
-  when: "'openbsd-servers-lan' in group_names"
+  when: "'openbsd-servers-dmz' in group_names"
   copy:
     src: resolv.conf.openbsd.server.dmz
     dest: /etc/resolv.conf

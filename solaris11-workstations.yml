@@ -1,9 +1,10 @@
 ---
 
-- name: OpenBSD Servers
-  hosts: openbsd-servers
-  force_handlers: true
-  user: root
+- name: Solaris Workstations
+  hosts: solaris-workstations
+  user: sysadmin
+  become: true
+  become_method: su
   roles:
     - common/dotnetrc
     - { role: common/services, name: "amanda", prt: "10080", prot: "tcp" }
@@ -12,14 +13,10 @@
     - { role: common/services, name: "amidxtape", prt: "10083", prot: "tcp" }
     - common/etcfiles
     - common/motd
-    - openbsd/resolvconf
-    - openbsd/setup-weekly
-    - { role: openbsd/rcconflocal, name: inetd_flags, value: "" }
-    - { role: openbsd/rcconflocal, name: smtpd_flags, value: "" }
-    - { role: openbsd/rcconflocal, name: ntpd_flags, value: "-s" }
+    - solaris/resolvconf
+    - solaris/openldap-client-conf
     - common/amanda-client
-    - openbsd/amanda-hosts
-    - openbsd/amanda-enable
+    - solaris/amanda-hosts
     - common/crontab
-    - openbsd/crontab
-    
+    - solaris/crontab
+    - solaris/kerberos

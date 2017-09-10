@@ -1,0 +1,19 @@
+---
+
+- name: Create directory for exclude.gtar
+  file:
+    path: /usr/local/etc/amanda
+    state: directory
+
+- name: Copy exclude.gtar
+  copy:
+    src: exclude.gtar
+    dest: /usr/local/etc/amanda/exclude.gtar
+    mode: 0644
+
+- name: Copy security.conf
+  when: 'ansible_distribution == "FreeBSD"'
+  copy:
+    src: security.conf
+    dest: /usr/local/etc/amanda/security.conf
+    mode: 0644

@@ -17,3 +17,8 @@
     - { role: openbsd/rcconflocal, name: inetd_flags, value: "" }
     - { role: openbsd/rcconflocal, name: smtpd_flags, value: "" }
     - { role: openbsd/rcconflocal, name: ntpd_flags, value: "-s" }
+    - common/amanda-client
+    - openbsd/amanda-hosts
+    - openbsd/amanda-enable
+    - common/crontab
+    - openbsd/crontab

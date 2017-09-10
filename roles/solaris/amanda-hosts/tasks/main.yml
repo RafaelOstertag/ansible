@@ -1,0 +1,9 @@
+---
+
+- name: Copy amanda hosts to amanda clients
+  when: 'amanda_server == False'
+  copy:
+    src: amanda/amandahosts.client
+    dest: /.amandahosts
+    mode: 0600
+    owner: amanda

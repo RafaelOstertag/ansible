@@ -1,7 +1,7 @@
 ---
 
-- name: Solaris Workstations
-  hosts: solaris-workstations
+- name: Solaris Servers
+  hosts: solaris-servers
   user: sysadmin
   become: true
   become_method: su
@@ -15,3 +15,9 @@
     - common/motd
     - solaris/resolvconf
     - solaris/openldap-client-conf
+    - solaris/aide
+    - common/amanda-client
+    - solaris/amanda-hosts
+    - common/crontab
+    - solaris/crontab
+    - solaris/kerberos

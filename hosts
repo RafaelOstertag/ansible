@@ -50,6 +50,7 @@ solaris-servers-dmz
 [solaris-servers-lan]
 brutus.kruemel.home
 megatron.kruemel.home
+nostromo.kruemel.home
 
 [solaris-servers-dmz]
 starscream.dmz.kruemel.home

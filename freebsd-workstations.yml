@@ -69,3 +69,4 @@
     - common/crontab
     - freebsd/crontab
     - freebsd/kerberos
+    - freebsd/ntp

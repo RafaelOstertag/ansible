@@ -1,0 +1,6 @@
+---
+
+- name: OpenBSD restart ntpd
+  service:
+    name: ntpd
+    state: restarted

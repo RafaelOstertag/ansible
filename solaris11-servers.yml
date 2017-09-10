@@ -24,3 +24,4 @@
     - solaris/logwatch
     - solaris/nagios-nrpe-config
     - solaris/sudo
+    - solaris/ntp

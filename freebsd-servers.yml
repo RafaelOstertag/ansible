@@ -74,3 +74,4 @@
     - freebsd/logwatch
     - freebsd/nagios-nrpe-config
     - freebsd/sudo
+    - freebsd/ntp

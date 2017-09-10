@@ -20,3 +20,4 @@
     - common/crontab
     - solaris/crontab
     - solaris/kerberos
+    - solaris/ntp

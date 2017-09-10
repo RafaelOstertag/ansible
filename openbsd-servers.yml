@@ -25,3 +25,4 @@
     - openbsd/logwatch
     - openbsd/nagios-nrpe-config
     - openbsd/sudo
+    - openbsd/ntp

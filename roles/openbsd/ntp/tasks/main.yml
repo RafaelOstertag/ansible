@@ -1,0 +1,9 @@
+---
+
+- name: Copy ntp config file
+  copy:
+    src: ntpd.conf
+    dest: /etc/ntpd.conf
+    mode: 0644
+  notify:
+    - OpenBSD restart ntpd

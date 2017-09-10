@@ -30,12 +30,3 @@
     state: present
   notify:
     - Solaris restart sshd
-
-- name: Update sshd config part II
-  lineinfile:
-    path: /etc/ssh/sshd_config
-    regexp: "^GSSAPICleanupCredentials\\s+"
-    line: "GSSAPICleanupCredentials yes"
-    state: present
-  notify:
-    - Solaris restart sshd

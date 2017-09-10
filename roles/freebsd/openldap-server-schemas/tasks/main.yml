@@ -1,0 +1,18 @@
+---
+
+- name: Copy openldap schemas
+  when: "ldap_server"
+  copy:
+    src: "openldap/schemas/{{ item }}"
+    dest: "/usr/local/etc/openldap/schema/{{ item }}"
+    mode: 0644
+    owner: root
+  with_items:
+    - mozilla.schema
+    - sendmail.schema
+    - solarisattr.schema
+    - solarisautomount.schema
+    - solarisproject.schema
+    - sudoers.schema
+    - extension.schema
+    

@@ -22,4 +22,5 @@
     - openbsd/amanda-enable
     - common/crontab
     - openbsd/crontab
-    
+    - openbsd/logwatch
+

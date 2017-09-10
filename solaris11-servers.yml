@@ -21,3 +21,4 @@
     - common/crontab
     - solaris/crontab
     - solaris/kerberos
+    - solaris/logwatch

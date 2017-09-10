@@ -70,3 +70,5 @@
     - common/crontab
     - freebsd/crontab
     - freebsd/kerberos
+    - freebsd/openldap-server-schemas
+    - freebsd/logwatch

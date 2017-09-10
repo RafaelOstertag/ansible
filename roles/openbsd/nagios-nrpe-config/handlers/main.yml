@@ -1,0 +1,6 @@
+---
+
+- name: OpenBSD restart nrpe
+  service:
+    name: nrpe
+    state: restarted

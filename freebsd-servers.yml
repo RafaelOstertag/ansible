@@ -72,3 +72,4 @@
     - freebsd/kerberos
     - freebsd/openldap-server-schemas
     - freebsd/logwatch
+    - freebsd/nagios-nrpe-config

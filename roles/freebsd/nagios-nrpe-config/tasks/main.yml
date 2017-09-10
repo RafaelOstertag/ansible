@@ -1,0 +1,11 @@
+---
+
+- name: Copy nrpe.cfg
+  copy:
+    src: nrpe.cfg
+    dest: /usr/local/etc/nrpe.cfg
+    owner: nagios
+    group: nagios
+    mode: 0644
+  notify:
+    - FreeBSD restart nrpe

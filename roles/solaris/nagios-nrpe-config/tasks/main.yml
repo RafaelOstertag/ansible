@@ -1,0 +1,11 @@
+---
+
+- name: Copy nrpe.cfg
+  copy:
+    src: nrpe.cfg
+    dest: /etc/opt/ggl/nagios/nrpe.cfg
+    owner: nagios
+    group: nagios
+    mode: 0644
+  notify:
+    - Solaris restart nrpe

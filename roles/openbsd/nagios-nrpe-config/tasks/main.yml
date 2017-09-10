@@ -1,0 +1,11 @@
+---
+
+- name: Copy nrpe.cfg
+  copy:
+    src: nrpe.cfg
+    dest: /etc/nrpe.cfg
+    owner: _nrpe
+    group: _nrpe
+    mode: 0644
+  notify:
+    - OpenBSD restart nrpe

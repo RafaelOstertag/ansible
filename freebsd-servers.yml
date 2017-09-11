@@ -67,3 +67,5 @@
     - freebsd/nagios-nrpe-config
     - freebsd/sudo
     - freebsd/ntp
+    - freebsd/mailserver
+    - freebsd/mailserver-smarthost

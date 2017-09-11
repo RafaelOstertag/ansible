@@ -11,7 +11,7 @@
 - name: Copy SSL public key to /etc/mail/tls
   copy:
     src: "ssl/pub/{{ ansible_fqdn }}.crt"
-    dest: "/etc/mail/tls/{{ ansible_fqdn }}.crt"
+    dest: "/etc/mail/tls/{{ ansible_fqdn }}.cert"
     owner: root
     group: wheel
     mode: 0644
@@ -24,7 +24,7 @@
     dest: "/etc/mail/tls/{{ ansible_fqdn }}.key"
     owner: root
     group: wheel
-    mode: 0644
+    mode: 0640
   notify:
     - OpenBSD restart smtpd
 

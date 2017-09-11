@@ -15,7 +15,7 @@
     path: /etc/inetd.conf
     state: present
     create: True
-    regexp: "^amanda\\s+stream\\s+tcp\\s+"
+    regexp: "^amanda\\s+stream\\s+tcp4\\s+"
     line: "amanda       stream  tcp4    nowait  operator        /usr/local/amanda/libexec/amanda/amandad amandad -auth=bsdtcp"
   notify:
     - OpenBSD restart inetd

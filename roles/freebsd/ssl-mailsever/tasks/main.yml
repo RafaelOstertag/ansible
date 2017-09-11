@@ -1,0 +1,51 @@
+---
+
+- name: create /etc/mail/tls
+  file:
+    path: /etc/mail/tls
+    mode: 0755
+    owner: root
+    group: wheel
+    state: directory
+
+- name: Copy SSL client public key to /etc/mail/tls
+  copy:
+    path: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: "/etc/mail/tls/client.cert"
+    mode: 0644
+    owner: root
+    group: smmsp
+  notify:
+    - FreeBSD restart sendmail
+
+- name: Copy SSL server public key to /etc/mail/tls
+  copy:
+    path: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: "/etc/mail/tls/server.cert"
+    mode: 0644
+    owner: root
+    group: smmsp
+  notify:
+    - FreeBSD restart sendmail
+
+- name: Copy SSL client private key to /etc/mail/tls
+  copy:
+    path: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: "/etc/mail/tls/client.key"
+    mode: 0640
+    owner: root
+    group: smmsp
+  notify:
+    - FreeBSD restart sendmail
+
+- name: Copy SSL server private key to /etc/mail/tls
+  copy:
+    path: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: "/etc/mail/tls/server.key"
+    mode: 0640
+    owner: root
+    group: smmsp
+  notify:
+    - FreeBSD restart sendmail
+    
+    

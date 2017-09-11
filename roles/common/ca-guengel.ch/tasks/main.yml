@@ -1,0 +1,25 @@
+---
+
+- name: Create /etc/ssl
+  file:
+    path: /etc/ssl
+    state: directory
+
+- name: Copy CA guengel.ch
+  copy:
+    src: ssl/guengel.ch.pem
+    dest: /etc/ssl/guengel.ch.pem
+    mode: 0644
+
+- name: Copy CRL guengel.ch
+  copy:
+    src: ssl/guengel.ch.crl
+    dest: /etc/ssl/guengel.ch.crl
+    mode: 0644
+    
+- name: Copy CRL guengel.ch (DER Format)
+  copy:
+    src: ssl/guengel.ch.crl
+    dest: /etc/ssl/guengel.ch.crl
+    mode: 0644
+    

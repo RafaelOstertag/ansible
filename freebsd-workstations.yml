@@ -6,10 +6,6 @@
   user: root
   roles:
     - common/dotnetrc
-    - { role: common/services, name: "amanda", prt: "10080", prot: "tcp" }
-    - { role: common/services, name: "amanda", prt: "10080", prot: "udp" }
-    - { role: common/services, name: "amandaidx", prt: "10082", prot: "tcp" }
-    - { role: common/services, name: "amidxtape", prt: "10083", prot: "tcp" }
     - common/etcfiles
     - common/motd
     - freebsd/resolvconf
@@ -20,10 +16,6 @@
     - { role: freebsd/rcconf, name: "kern_securelevel", value: "0" }
     - { role: freebsd/rcconf, name: "clear_tmp_enable", value: "YES" }
     - { role: freebsd/rcconf, name: "accounting_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "inetd_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "ntpdate_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "ntpdate_hosts", value: "1.pool.ntp.org" }
-    - { role: freebsd/rcconf, name: "ntpd_sync_on_start", value: "YES" }
     - { role: freebsd/rcconf, name: "sshd_enable", value: "YES" }
     - { role: freebsd/rcconf, name: "gssd_enable", value: "YES" }
     - { role: freebsd/rcconf, name: "gssd_flags", value: "-h" }

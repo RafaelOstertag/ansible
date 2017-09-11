@@ -1,0 +1,8 @@
+---
+
+dependencies:
+  - { role: common/services, name: "amanda", prt: "10080", prot: "tcp" }
+  - { role: common/services, name: "amanda", prt: "10080", prot: "udp" }
+  - { role: common/services, name: "amandaidx", prt: "10082", prot: "tcp" }
+  - { role: common/services, name: "amidxtape", prt: "10083", prot: "tcp" }
+  - { role: freebsd/rcconf, name: "inetd_enable", value: "YES" }

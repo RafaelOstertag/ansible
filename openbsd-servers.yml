@@ -6,17 +6,10 @@
   user: root
   roles:
     - common/dotnetrc
-    - { role: common/services, name: "amanda", prt: "10080", prot: "tcp" }
-    - { role: common/services, name: "amanda", prt: "10080", prot: "udp" }
-    - { role: common/services, name: "amandaidx", prt: "10082", prot: "tcp" }
-    - { role: common/services, name: "amidxtape", prt: "10083", prot: "tcp" }
     - common/etcfiles
     - common/motd
     - openbsd/resolvconf
     - openbsd/setup-weekly
-    - { role: openbsd/rcconflocal, name: inetd_flags, value: "" }
-    - { role: openbsd/rcconflocal, name: smtpd_flags, value: "" }
-    - { role: openbsd/rcconflocal, name: ntpd_flags, value: "-s" }
     - common/amanda-client
     - openbsd/amanda-hosts
     - openbsd/amanda-enable
@@ -26,3 +19,5 @@
     - openbsd/nagios-nrpe-config
     - openbsd/sudo
     - openbsd/ntp
+    - openbsd/ssl-mailserver
+    - openbsd/mailserver

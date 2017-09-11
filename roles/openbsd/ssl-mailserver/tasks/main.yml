@@ -1,0 +1,30 @@
+---
+
+- name: Create /etc/mail/tls
+  file:
+    path: /etc/mail/tls
+    owner: root
+    group: wheel
+    mode: 0750
+    state: directory
+
+- name: Copy SSL public key to /etc/mail/tls
+  copy:
+    src: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: "/etc/mail/tls/{{ ansible_fqdn }}.crt"
+    owner: root
+    group: wheel
+    mode: 0644
+  notify:
+    - OpenBSD restart smtpd
+
+- name: Copy SSL private key to /etc/mail/tls
+  copy:
+    src: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: "/etc/mail/tls/{{ ansible_fqdn }}.key"
+    owner: root
+    group: wheel
+    mode: 0644
+  notify:
+    - OpenBSD restart smtpd
+

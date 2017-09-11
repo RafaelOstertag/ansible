@@ -1,0 +1,6 @@
+---
+
+- name: OpenBSD restart smtpd
+  service:
+    name: smtpd
+    state: restarted

@@ -1,11 +1,11 @@
 divert(-1)
 #
-# $Id: freebsd_submit.mc 4038 2012-09-23 12:28:13Z rafisol $
+# $Id$
 #
 # !!!! This file is maintained by Ansible !!!!
 #
 divert(0)dnl
-VERSIONID(`$Id: freebsd_submit.mc 4038 2012-09-23 12:28:13Z rafisol $')dnl
+VERSIONID(`$Id$')dnl
 define(`confCF_VERSION', `Submit')dnl
 define(`__OSTYPE__',`')dnl dirty hack to keep proto.m4 from complaining
 define(`_USE_DECNET_SYNTAX_', `1')dnl support DECnet

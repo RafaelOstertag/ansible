@@ -1,11 +1,11 @@
 divert(-1)
 #
-# $Id: freebsd.mc 4034 2012-09-16 14:45:13Z rafisol $
+# $Id$
 #
 # !!!! This file is maintained by Ansible !!!!
 #
 divert(0)dnl
-VERSIONID(`$Id: freebsd.mc 4034 2012-09-16 14:45:13Z rafisol $')dnl
+VERSIONID(`$Id$')dnl
 OSTYPE(freebsd6)dnl
 FEATURE(`no_default_msa')dnl
 DAEMON_OPTIONS(`Name=IPv4, Family=inet, Addr=127.0.0.1')dnl

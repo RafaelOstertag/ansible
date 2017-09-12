@@ -17,10 +17,10 @@
 
 - name: Guarantee /usr/local/etc/pkg/repos
   file:
-    src: /usr/local/etc/pkg/repos
+    path: /usr/local/etc/pkg/repos
     state: directory
 
 - name: Copy guengel.ch pkgrepo config
   template:
-    path: pkg-repo-guengel.ch.conf
+    src: pkg-repo-guengel.ch.conf
     dest: /usr/local/etc/pkg/repos/guengel.ch.conf

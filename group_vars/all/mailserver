@@ -2,3 +2,5 @@
 
 # Set to True for the smart host to avoid using default config
 smart_host: False
+# Set to True when using opencsw sendmail
+opencsw_sendmail: False

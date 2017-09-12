@@ -69,3 +69,4 @@
     - freebsd/ntp
     - freebsd/mailserver
     - freebsd/mailserver-smarthost
+    - freebsd/guengel-pkgrepo

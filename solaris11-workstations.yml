@@ -21,3 +21,4 @@
     - solaris/crontab
     - solaris/kerberos
     - solaris/ntp
+    - solaris/ssl-mailserver

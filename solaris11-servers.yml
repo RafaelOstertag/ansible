@@ -25,3 +25,4 @@
     - solaris/nagios-nrpe-config
     - solaris/sudo
     - solaris/ntp
+    - solaris/ssl-mailserver

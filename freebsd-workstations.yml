@@ -63,3 +63,4 @@
     - freebsd/kerberos
     - freebsd/ntp
     - freebsd/mailserver
+    - freebsd/guengel-pkgrepo

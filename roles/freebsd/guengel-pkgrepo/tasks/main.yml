@@ -1,0 +1,26 @@
+---
+
+- name: Cleanup old stuff part I
+  file:
+    path: "/etc/pkg/{{ item }}"
+    state: absent
+  with_items:
+    - pkg.fb10-amd64-server.conf
+    - pkg.fb10-i386-server.conf
+
+- name: Cleanup old stuff part II
+  file:
+    path: "/usr/local/etc/pkg/repos/{{ item }}"
+    state: absent
+  with_items:
+    - fb11-amd64-client.conf
+
+- name: Guarantee /usr/local/etc/pkg/repos
+  file:
+    src: /usr/local/etc/pkg/repos
+    state: directory
+
+- name: Copy guengel.ch pkgrepo config
+  template:
+    path: pkg-repo-guengel.ch.conf
+    dest: /usr/local/etc/pkg/repos/guengel.ch.conf

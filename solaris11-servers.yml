@@ -26,3 +26,4 @@
     - solaris/sudo
     - solaris/ntp
     - solaris/ssl-mailserver
+    - common/scripts

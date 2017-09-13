@@ -21,3 +21,4 @@
     - openbsd/ntp
     - openbsd/ssl-mailserver
     - openbsd/mailserver
+    - common/scripts

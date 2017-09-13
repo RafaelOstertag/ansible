@@ -69,4 +69,7 @@
     - freebsd/ntp
     - freebsd/mailserver
     - freebsd/mailserver-smarthost
-    - freebsd/guengel-pkgrepo
+    - role: freebsd/guengel-pkgrepo
+      tags:
+        - repo
+    - common/scripts

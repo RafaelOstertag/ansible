@@ -22,3 +22,4 @@
     - solaris/kerberos
     - solaris/ntp
     - solaris/ssl-mailserver
+    - common/scripts

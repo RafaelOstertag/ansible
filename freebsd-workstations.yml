@@ -63,4 +63,7 @@
     - freebsd/kerberos
     - freebsd/ntp
     - freebsd/mailserver
-    - freebsd/guengel-pkgrepo
+    - role: freebsd/guengel-pkgrepo
+      tags:
+        - repo
+    - common/scripts

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-trap { rm -f vaultpass } EXIT
+trap "rm -f vaultpass" EXIT
 
 echo "Enter vault password"
 stty -echo

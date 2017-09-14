@@ -9,9 +9,3 @@
   copy:
     src: openldap/ldap.conf
     dest: /etc/opt/ggl/ldap.conf
-
-- name: Link ldap.conf for sudo
-  file:
-    src: /etc/opt/ggl/ldap.conf
-    dest: /etc/opt/ggl/ldap.sudo.conf
-    state: link

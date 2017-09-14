@@ -1,10 +1,15 @@
 ---
 
 - name: Copy sudoers file
-  when: "'openbsd-servers' in group_names"
   file:
     src: sudo/sudoers
     dest: /etc/sudoers
     mode: 0440
     owner: root
     group: wheel
+
+- name: Remove sudoers from nsswitch
+  lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: "^sudoers:"
+    state: absent

@@ -1,7 +1,7 @@
 ---
 
 - name: Copy sudoers file
-  file:
+  copy:
     src: sudo/sudoers
     dest: /etc/opt/ggl/sudoers
     mode: 0440
@@ -10,5 +10,5 @@
 
 - name: remove ldap.conf for sudo
   file:
-    src: /etc/opt/ggl/ldap.sudo.conf
+    path: /etc/opt/ggl/ldap.sudo.conf
     state: absent

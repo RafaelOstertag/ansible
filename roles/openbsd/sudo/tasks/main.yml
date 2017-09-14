@@ -1,7 +1,7 @@
 ---
 
 - name: Copy sudoers file
-  file:
+  copy:
     src: sudo/sudoers
     dest: /etc/sudoers
     mode: 0440

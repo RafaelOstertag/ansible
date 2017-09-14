@@ -6,4 +6,5 @@
     create: true
     regexp: "^{{ name }}="
     line: "{{ name }}=\"{{ value }}\""
+    state: present
 

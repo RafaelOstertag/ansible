@@ -1,0 +1,4 @@
+---
+
+# Install ssh keys when true
+install_sshkeys_administrators: True

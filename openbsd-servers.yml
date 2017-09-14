@@ -22,3 +22,4 @@
     - openbsd/ssl-mailserver
     - openbsd/mailserver
     - common/scripts
+    - common/ssh-keys

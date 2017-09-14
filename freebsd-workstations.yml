@@ -12,8 +12,7 @@
     - freebsd/openldap-client-conf
     - freebsd/prefer-ipv6
     - freebsd/disable-default-pkgrepo
-    - { role: freebsd/rcconf, name: "kern_securelevel_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "kern_securelevel", value: "0" }
+    - { role: freebsd/set-security-level, enable_secure_level: False, secure_level: "1" }
     - { role: freebsd/rcconf, name: "clear_tmp_enable", value: "YES" }
     - { role: freebsd/rcconf, name: "accounting_enable", value: "YES" }
     - { role: freebsd/rcconf, name: "sshd_enable", value: "YES" }
@@ -67,3 +66,4 @@
       tags:
         - repo
     - common/scripts
+    - common/ssh-keys

@@ -5,6 +5,7 @@
     dest: /operator
     mode: 0700
     owner: operator
+    state: directory
 
 - name: Copy amanda hosts to amanda clients
   when: 'amanda_server == False'

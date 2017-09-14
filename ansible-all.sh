@@ -10,7 +10,9 @@ stty echo
 echo "$password" > vaultpass
 unset password
 
+echo "Commencing run"
+
 for f in freebsd-servers.yml freebsd-workstations.yml openbsd-servers.yml openbsd-virtual-hosts. solaris11-servers.yml solaris11-workstations.yml
 do
-    ansible -i hosts --vault-password-file=vaultpass "$f"
+    ansible-playbook -i hosts --vault-password-file=vaultpass "$f"
 done

@@ -15,6 +15,7 @@ Host_Alias	OPENBSD = gargoyle.kruemel.home, kerberos.kruemel.home
 Host_Alias	FREEBSD = gizmo.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, nostromo.kruemel.home, jetfire.kruemel.home, eventhorizon.dmz.kruemel.home, yayap.dmz.kruemel.home
 Host_Alias	SOLARIS = megatron.kruemel.home,megatron,starscream.dmz.kruemel.home,starscream,nostromo,nostromo.kruemel.home,brutus,brutus.kruemel.home,thumper,thumper.kruemel.home
 Host_Alias	SOLARIS11 = megatron,starscream,nostromo,brutus,thumper
+Host_Alias	FREEBSD_WKS = beastie.kruemel.home,odin.kruemel.home
 
 # User alias specification
 
@@ -65,6 +66,7 @@ Defaults!/opt/ggl/libexec/nagios/check_file_age	!mail_always
 # User privilege specification
 %staff	SERVERS=(root) ALL,(amanda) /usr/local/sbin/am*
 root	ALL=(ALL) SETENV: ALL
+rafi	FREEBSD_WKS=(root) ALL
 
 # Those are for solaris 11
 sysadmin SOLARIS11=(root) ALL

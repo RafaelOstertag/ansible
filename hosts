@@ -23,6 +23,7 @@ ion.virtual.kruemel.home
 
 [freebsd-workstations]
 beastie.kruemel.home
+odin.kruemel.home
 
 ;
 ; OpenBSD
@@ -59,5 +60,5 @@ starscream.dmz.kruemel.home
 prune.virtual.kruemel.home
 
 [solaris-workstations]
-odin.kruemel.home
+
 

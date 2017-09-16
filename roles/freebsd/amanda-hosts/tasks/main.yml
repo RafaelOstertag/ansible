@@ -9,11 +9,30 @@
   # user might not exist yet
   ignore_errors: true
 
+- name: Create /var/db/amanda
+  when: 'not amanda_server'
+  file:
+    path: /var/db/amanda
+    mode: 0750
+    owner: amanda
+    state: directory
+  ignore_errors: true
+
 - name: Copy amanda hosts to amanda clients
   when: 'amanda_server == False'
   copy:
     src: amanda/amandahosts.client
     dest: /usr/local/var/amanda/.amandahosts
+    mode: 0600
+    owner: amanda
+  ignore_errors: true
+
+
+- name: Copy amanda hosts to amanda clients
+  when: 'amanda_server == False'
+  copy:
+    src: amanda/amandahosts.client
+    dest: /var/db/amanda/.amandahosts
     mode: 0600
     owner: amanda
   ignore_errors: true

@@ -265,3 +265,5 @@
         name: common/ssh-keys
     - include_role:
         name: freebsd/sudo
+    - include_role:
+        name: freebsd/root-ssh-config

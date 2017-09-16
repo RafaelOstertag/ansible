@@ -1,0 +1,11 @@
+Host *.kruemel.home
+        GSSAPIAuthentication yes
+        GSSAPIDelegateCredentials yes
+
+Host *.virtual.kruemel.home
+        GSSAPIAuthentication yes
+        GSSAPIDelegateCredentials yes
+
+Host *.dmz.kruemel.home
+        GSSAPIAuthentication yes
+        GSSAPIDelegateCredentials yes

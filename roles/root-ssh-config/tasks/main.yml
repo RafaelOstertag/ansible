@@ -1,0 +1,17 @@
+---
+
+- name: Guarantee directory
+  file:
+    path: /root/.ssh
+    mode: 0640
+    owner: root
+    group: wheel
+    state: directory
+
+- name: Copy root config
+  copy:
+    src: ssh_root_config
+    dest: /root/.ssh/config
+    mode: 0640
+    owner: root
+    group: wheel

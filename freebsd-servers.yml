@@ -74,3 +74,5 @@
     - common/scripts
     - common/ssh-keys
     - freebsd/root-ssh-config
+    - freebsd/procfs
+    - freebsd/fdescfs

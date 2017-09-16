@@ -1,0 +1,17 @@
+---
+
+- name: Create mount point for fdescfs
+  file:
+    path: /dev/fd
+    state: directory
+
+- name: Mount fdescfs
+  mount:
+    state: mounted
+    dump: 0
+    fstype: fdescfs
+    opts: rw
+    passno: 0
+    path: /dev/fd
+    src: fdescfs
+        

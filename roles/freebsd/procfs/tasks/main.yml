@@ -1,0 +1,7 @@
+---
+
+- name: Create /proc
+  file: path=/proc state=directory
+
+- name: Mount procfs
+  mount: state=mounted fstype=procfs opts=rw src=proc name=/proc dump=0 passno=0

@@ -267,3 +267,7 @@
         name: freebsd/sudo
     - include_role:
         name: freebsd/root-ssh-config
+    - include_role:
+        name: freebsd/procfs
+    - include_role:
+        name: freebsd/fdescfs

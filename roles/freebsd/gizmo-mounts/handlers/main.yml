@@ -1,0 +1,16 @@
+---
+
+- name: FreeBSD restart nfscbd
+  service:
+    name: nfscbd
+    state: restarted
+
+- name: FreeBSD restart nfsuserd
+  service:
+    name: nfsuserd
+    state: restarted
+
+- name: FreeBSD restart rpcbind
+  service:
+    name: rpcbind
+    state: restarted

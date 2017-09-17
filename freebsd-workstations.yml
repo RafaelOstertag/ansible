@@ -271,3 +271,5 @@
         name: freebsd/procfs
     - include_role:
         name: freebsd/fdescfs
+    - include_role:
+        name: freebsd/gizmo-mounts

@@ -6,6 +6,7 @@ freebsd-servers-dmz
 freebsd-servers-lan
 
 [freebsd-servers-lan]
+beastie.kruemel.home
 gizmo.kruemel.home
 viking.kruemel.home
 optimusprime.kruemel.home
@@ -22,7 +23,6 @@ grimreaper.virtual.kruemel.home
 ion.virtual.kruemel.home
 
 [freebsd-workstations]
-beastie.kruemel.home
 odin.kruemel.home
 
 ;

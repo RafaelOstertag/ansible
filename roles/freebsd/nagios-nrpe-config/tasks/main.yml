@@ -1,5 +1,10 @@
 ---
 
+- name: Install nagios nrpe
+  pkgng:
+    name: nrpe
+    state: present
+
 - name: Copy nrpe.cfg
   copy:
     src: nrpe.cfg

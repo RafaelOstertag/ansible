@@ -1,5 +1,10 @@
 ---
 
+- name: Install amanda client
+  pkgng:
+    name: amanda-client
+    state: present
+
 - name: Add amanda tcp ipv6 to inetd.conf
   lineinfile:
     path: /etc/inetd.conf

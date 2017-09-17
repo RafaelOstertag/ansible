@@ -4,75 +4,270 @@
   hosts: freebsd-servers
   force_handlers: true
   user: root
-  roles:
-    - common/dotnetrc
-    - common/etcfiles
-    - common/motd
-    - freebsd/resolvconf
-    - freebsd/openldap-client-conf
-    - freebsd/prefer-ipv6
-    - freebsd/disable-default-pkgrepo
-    - { role: freebsd/set-security-level, enable_secure_level: True, secure_level: "1" }
-    - { role: freebsd/rcconf, name: "nrpe2_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "clear_tmp_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "accounting_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "sshd_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "gssd_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "gssd_flags", value: "-h" }
-    - { role: freebsd/rcconf, name: "ip6addrctl_enable", value: "YES" }
-    - { role: freebsd/rcconf, name: "syslogd_flags", value: "-ss" }
-    - { role: freebsd/rcconf, name: "tcp_extensions", value: "YES" }
-    - { role: freebsd/rcconf, name: "sendmail_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "daily_status_disks_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "daily_status_disks_df_flags", value: "-h" }
-    - { role: freebsd/periodic, name: "daily_status_mailq_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "daily_status_ntpd_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "weekly_noid_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "daily_accounting_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "monthly_accounting_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "daily_status_security_portaudit_enable", value: "NO" }
-    - { role: freebsd/periodic, name: "daily_status_security_pkgaudit_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "daily_status_include_submit_mailq", value: "YES" }
-    - { role: freebsd/periodic, name: "security_status_chkmounts_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "security_status_chkmounts_period", value: "daily" }
-    - { role: freebsd/periodic, name: "security_status_chkuid0_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "security_status_chkuid0_period", value: "daily" }
-    - { role: freebsd/periodic, name: "security_status_logincheck_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "security_status_logincheck_period", value: "daily" }
-    - { role: freebsd/periodic, name: "security_status_kernelmsg_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "security_status_kernelmsg_period", value: "daily" }
-    - { role: freebsd/periodic, name: "security_status_loginfail_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "security_status_loginfail_period", value: "daily" }
-    - { role: freebsd/periodic, name: "security_status_tcpwrap_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "security_status_tcpwrap_period", value: "daily" }
-    - { role: freebsd/periodic, name: "security_status_chkportsum_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "security_status_chkportsum_period", value: "daily" }
-    - { role: freebsd/periodic, name: "security_status_neggrpperm_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "security_status_neggrpperm_period", value: "daily" }
-    - { role: freebsd/periodic, name: "security_status_passwdless_enable", value: "YES" }
-    - { role: freebsd/periodic, name: "security_status_passwdless_period", value: "daily" }
-    - { role: freebsd/periodic, name: "daily_status_network_enable", value: "YES" }
-    - { role: freebsd/sysctl, name: "security.bsd.see_other_uids", value: "0" }
-    - { role: freebsd/sysctl, name: "kern.randompid", value: "100" }
-    - freebsd/aide
-    - common/amanda-client
-    - freebsd/amanda-hosts
-    - freebsd/amanda-enable
-    - common/crontab
-    - freebsd/crontab
-    - freebsd/kerberos
-    - freebsd/openldap-server-schemas
-    - freebsd/logwatch
-    - freebsd/nagios-nrpe-config
-    - freebsd/sudo
-    - freebsd/ntp
-    - freebsd/mailserver
-    - freebsd/mailserver-smarthost
-    - role: freebsd/guengel-pkgrepo
+  tasks:
+    - include_role:
+        name: common/dotnetrc
+    - include_role:
+        name: common/etcfiles
+    - include_role:
+        name: common/motd
+    - include_role:
+        name: freebsd/resolvconf
+    - include_role:
+        name: freebsd/openldap-client-conf
+    - include_role:
+        name: freebsd/prefer-ipv6
+    - include_role:
+        name: freebsd/disable-default-pkgrepo
+    - include_role:
+        name: freebsd/set-security-level
+      vars:
+        enable_secure_level: True
+        secure_level: "1"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "nrpe2_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "clear_tmp_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "accounting_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "sshd_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "gssd_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "gssd_flags"
+        value: "-h"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "ip6addrctl_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "syslogd_flags"
+        value: "-ss"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "tcp_extensions"
+        value: "YES"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "sendmail_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "daily_status_disks_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "daily_status_disks_df_flags"
+        value: "-h"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "daily_status_mailq_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "daily_status_ntpd_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "weekly_noid_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "daily_accounting_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "monthly_accounting_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "daily_status_security_portaudit_enable"
+        value: "NO"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "daily_status_security_pkgaudit_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "daily_status_include_submit_mailq"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_chkmounts_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_chkmounts_period"
+        value: "daily"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_chkuid0_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_chkuid0_period"
+        value: "daily"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_logincheck_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_logincheck_period"
+        value: "daily"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_kernelmsg_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_kernelmsg_period"
+        value: "daily"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_loginfail_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_loginfail_period"
+        value: "daily"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_tcpwrap_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_tcpwrap_period"
+        value: "daily"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_chkportsum_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_chkportsum_period"
+        value: "daily"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_neggrpperm_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_neggrpperm_period"
+        value: "daily"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_passwdless_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_passwdless_period"
+        value: "daily"
+    - include_role:
+        name: freebsd/periodic
+      vars:
+        name: "daily_status_network_enable"
+        value: "YES"
+    - include_role:
+        name: freebsd/sysctl
+      vars:
+        name: "security.bsd.see_other_uids"
+        value: "0"
+    - include_role:
+        name: freebsd/sysctl
+      vars:
+        name: "kern.randompid"
+        value: "100"
+    - include_role:
+        name: freebsd/aide
+    - include_role:
+        name: common/amanda-client
+    - include_role:
+        name: freebsd/amanda-hosts
+    - include_role:
+        name: freebsd/amanda-enable
+    - include_role:
+        name: common/crontab
+    - include_role:
+        name: freebsd/crontab
+    - include_role:
+        name: freebsd/kerberos
+    - include_role:
+        name: freebsd/openldap-server-schemas
+    - include_role:
+        name: freebsd/logwatch
+    - include_role:
+        name: freebsd/nagios-nrpe-config
+    - include_role:
+        name: freebsd/sudo
+    - include_role:
+        name: freebsd/ntp
+    - include_role:
+        name: freebsd/mailserver
+    - include_role:
+        name: freebsd/mailserver-smarthost
+    - include_role:
+        name: freebsd/guengel-pkgrepo
       tags:
         - repo
-    - common/scripts
-    - common/ssh-keys
-    - freebsd/root-ssh-config
-    - freebsd/procfs
-    - freebsd/fdescfs
+    - include_role:
+        name: common/scripts
+    - include_role:
+        name: common/ssh-keys
+    - include_role:
+        name: freebsd/root-ssh-config
+    - include_role:
+        name: freebsd/procfs
+    - include_role:
+        name: freebsd/fdescfs

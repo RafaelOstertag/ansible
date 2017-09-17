@@ -1,0 +1,63 @@
+---
+
+- name: Install required package
+  pkgng:
+    name: nss-pam-ldapd
+    state: present
+  notify:
+    - FreeBSD restart nslcd
+
+- name: Enable nslcd
+  lineinfile:
+    dest: /etc/rc.conf
+    regexp: "^nslcd_enable"
+    line: "nslcd_enable=\"YES\""
+    state: present
+  notify:
+    - FreeBSD restart nslcd
+
+- name: Copy nscld.conf
+  copy:
+    src: nslcd.conf
+    dest: /usr/local/etc/nslcd.conf
+    mode: 0640
+    group: nslcd
+    owner: nslcd
+  notify:
+    - FreeBSD restart nslcd
+
+- name: Enable ldap group in nsswitch.conf
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: '^group:'
+    line: 'group: files ldap'
+    state: present
+
+- name: Enable ldap group in nsswitch.conf
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: '^passwd:'
+    line: 'passwd: files ldap'
+    state: present
+
+- name: Enable ldap in pam config (auth)
+  lineinfile:
+    path: "/etc/pam.d/{{ item }}"
+    state: present
+    regexp: "^auth\\s+sufficient\\s+/usr/local/lib/pam_ldap\\.so"
+    line: "auth		sufficient	/usr/local/lib/pam_ldap.so no_warn try_first_pass minimum_uid=1000"
+    insertbefore: "^auth\\s+required\\s+pam_unix\\.so"
+  with_items:
+    - system
+    - sshd
+
+- name: Enable ldap in pam config (account)
+  lineinfile:
+    path: "/etc/pam.d/{{ item }}"
+    state: present
+    regexp: "^account\\s+sufficient\\s+/usr/local/lib/pam_ldap\\.so"
+    line: "account		sufficient	/usr/local/lib/pam_ldap.so minimum_uid=1000"
+    insertbefore: "^account\\s+required\\s+pam_unix\\.so"
+  with_items:
+    - system
+    - sshd

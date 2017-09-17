@@ -273,3 +273,5 @@
         name: freebsd/fdescfs
     - include_role:
         name: freebsd/gizmo-mounts
+    - include_role:
+        name: freebsd/enable-ldap-login

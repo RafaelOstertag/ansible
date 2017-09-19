@@ -15,7 +15,7 @@ Host_Alias	OPENBSD = gargoyle.kruemel.home, kerberos.kruemel.home
 Host_Alias	FREEBSD = gizmo.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, nostromo.kruemel.home, jetfire.kruemel.home, eventhorizon.dmz.kruemel.home, yayap.dmz.kruemel.home
 Host_Alias	SOLARIS = megatron.kruemel.home,megatron,starscream.dmz.kruemel.home,starscream,nostromo,nostromo.kruemel.home,brutus,brutus.kruemel.home,thumper,thumper.kruemel.home
 Host_Alias	SOLARIS11 = megatron,starscream,nostromo,brutus,thumper
-Host_Alias	FREEBSD_WKS = beastie.kruemel.home,odin.kruemel.home
+Host_Alias	FREEBSD_WKS = odin.kruemel.home
 
 # User alias specification
 
@@ -42,7 +42,8 @@ Defaults	always_set_home
 Defaults	authenticate
 Defaults	fqdn
 Defaults	ignore_dot
-Defaults	mail_always
+# On FreeBSD, it make sudo fail silently.
+#Defaults	mail_always
 Defaults	mail_badpass
 Defaults	mail_no_host
 Defaults	mail_no_perms
@@ -53,13 +54,6 @@ Defaults	passprompt="[sudo] password for %p:"
 Defaults	syslog=auth
 Defaults	syslog_badpri=alert
 Defaults	syslog_goodpri=debug
-# This for nrpe since mailq on openBSD requires root privileges, but we don't want mail for each call
-Defaults!/usr/local/libexec/nagios/check_mailq	!mail_always
-Defaults!/opt/ggl/libexec/nagios/check_mailq	!mail_always
-# This is for nrpe since check_file_age requires sometime root privileges, but we don't want mail for each call
-Defaults!/usr/local/libexec/nagios/check_file_age	!mail_always
-Defaults!/usr/local/libexec/nagios/check_procs	!mail_always
-Defaults!/opt/ggl/libexec/nagios/check_file_age	!mail_always
 
 # Runas alias specification
 

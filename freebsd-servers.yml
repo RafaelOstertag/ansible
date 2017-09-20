@@ -20,11 +20,6 @@
     - include_role:
         name: freebsd/disable-default-pkgrepo
     - include_role:
-        name: freebsd/set-security-level
-      vars:
-        enable_secure_level: True
-        secure_level: "1"
-    - include_role:
         name: freebsd/rcconf
       vars:
         name: "nrpe2_enable"
@@ -271,3 +266,9 @@
         name: freebsd/procfs
     - include_role:
         name: freebsd/fdescfs
+    # Keep this role here, it allows the procfs and fdescfs to succeed.
+    - include_role:
+        name: freebsd/set-security-level
+      vars:
+        enable_secure_level: True
+        secure_level: "1"

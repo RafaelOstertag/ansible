@@ -17,3 +17,11 @@
     user: root
     manage_dir: yes
   with_items: '{{ ssh_keys_administrators }}'
+
+- name: Remove ssh keys unconditionally
+  authorized_key:
+    state: absent
+    key: '{{ item }}'
+    user: root
+    managed_dir: yes
+  with_items: '{{ delete_ssh_keys_administrators }}'

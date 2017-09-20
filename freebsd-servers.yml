@@ -18,6 +18,18 @@
     - include_role:
         name: freebsd/prefer-ipv6
     - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "ipv6_static_routes"
+        value: "dmz6"
+      when: "'freebsd-servers-dmz' not in group_names"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
+        name: "ipv6_route_dmz"
+        value: "-net fd3e:be3e:ec34:1:: -prefixlen 64 fd3e:be3e:ec34::2"
+      when: "'freebsd-servers-dmz' not in group_names"
+    - include_role:
         name: freebsd/disable-default-pkgrepo
     - include_role:
         name: freebsd/rcconf
@@ -234,8 +246,6 @@
         name: freebsd/amanda-enable
     - include_role:
         name: common/crontab
-    - include_role:
-        name: freebsd/crontab
     - include_role:
         name: freebsd/kerberos
     - include_role:

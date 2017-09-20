@@ -248,8 +248,6 @@
     - include_role:
         name: common/crontab
     - include_role:
-        name: freebsd/crontab
-    - include_role:
         name: freebsd/kerberos
     - include_role:
         name: freebsd/ntp

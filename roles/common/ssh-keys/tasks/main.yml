@@ -23,5 +23,5 @@
     state: absent
     key: '{{ item }}'
     user: root
-    managed_dir: yes
+    manage_dir: yes
   with_items: '{{ delete_ssh_keys_administrators }}'

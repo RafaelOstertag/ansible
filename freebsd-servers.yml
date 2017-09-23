@@ -46,6 +46,11 @@
     - include_role:
         name: freebsd/rcconf
       vars:
+        name: "snmpd_enable"
+        value: "NO"
+    - include_role:
+        name: freebsd/rcconf
+      vars:
         name: "nrpe2_enable"
         value: "YES"
     - include_role:

@@ -41,5 +41,7 @@
 ./zones/*/root/system
 ./zones/nostromo/root/var/opt/csw/munin/run
 ./zones/nostromo/root/var/opt/csw/nagios/spool
+./usr/jails/*/dev
+./usr/jails/*/proc
 ./poudriere
 ./cache/php

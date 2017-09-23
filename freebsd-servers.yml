@@ -34,7 +34,7 @@
     - include_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_dmz"
+        name: "ipv6_route_dmz6"
         value: "-net fd3e:be3e:ec34:1:: -prefixlen 64 fd3e:be3e:ec34::2"
       when: "'freebsd-servers-dmz' not in group_names"
     - include_role:

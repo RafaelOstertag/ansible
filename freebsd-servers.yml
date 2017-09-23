@@ -11,6 +11,14 @@
         name: common/etcfiles
     - include_role:
         name: common/motd
+    # Keep this on top. Other roles might use pkgng
+    - include_role:
+        name: freebsd/disable-default-pkgrepo
+    # Keep this on top. Other roles might use pkgng
+    - include_role:
+        name: freebsd/guengel-pkgrepo
+      tags:
+        - repo
     - include_role:
         name: freebsd/resolvconf
     - include_role:
@@ -41,8 +49,6 @@
         name: "ipv6_route_lan6"
         value: "-net fd3e:be3e:ec34:0:: -prefixlen 64 fd3e:be3e:ec34:1::1"
       when: "'freebsd-servers-dmz' in group_names"
-    - include_role:
-        name: freebsd/disable-default-pkgrepo
     - include_role:
         name: freebsd/rcconf
       vars:
@@ -254,11 +260,13 @@
       vars:
         name: "security.bsd.see_other_uids"
         value: "0"
+      when: "not jail"
     - include_role:
         name: freebsd/sysctl
       vars:
         name: "kern.randompid"
         value: "100"
+      when: "not jail"
     - include_role:
         name: freebsd/aide
     - include_role:
@@ -286,10 +294,6 @@
         name: freebsd/mailserver
     - include_role:
         name: freebsd/mailserver-smarthost
-    - include_role:
-        name: freebsd/guengel-pkgrepo
-      tags:
-        - repo
     - include_role:
         name: common/scripts
     - include_role:

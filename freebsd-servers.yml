@@ -270,11 +270,11 @@
     - include_role:
         name: freebsd/aide
     - include_role:
+        name: freebsd/amanda-enable
+    - include_role:
         name: common/amanda-client
     - include_role:
         name: freebsd/amanda-hosts
-    - include_role:
-        name: freebsd/amanda-enable
     - include_role:
         name: common/crontab
     - include_role:

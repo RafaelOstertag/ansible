@@ -20,8 +20,8 @@
     job: "/usr/local/bin/aide --check | mailx -s \"Aide on {{ ansible_fqdn }}\" root"
     weekday: "Mon-Sat"
     day: "*"
-    minute: "05"
-    hour: "12"
+    minute: "12"
+    hour: "05"
     month: "*"
 
 - name: Add update aide weekly

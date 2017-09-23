@@ -1,0 +1,4 @@
+---
+
+# Is host in a FreeBSD jail?
+jail: False

@@ -103,13 +103,13 @@
       vars:
         name: "daily_status_disks_enable"
         value: "YES"
-      when: "'freebsd-jails' not in group_names"
+      when: "not jail"
     - include_role:
         name: freebsd/periodic
       vars:
         name: "daily_status_disks_df_flags"
         value: "-h"
-      when: "'freebsd-jails' not in group_names"
+      when: "not jail"
     - include_role:
         name: freebsd/periodic
       vars:
@@ -120,7 +120,7 @@
       vars:
         name: "daily_status_ntpd_enable"
         value: "YES"
-      when: "'freebsd-jails' not in group_names"
+      when: "not jail"
     - include_role:
         name: freebsd/periodic
       vars:
@@ -156,13 +156,13 @@
       vars:
         name: "security_status_chkmounts_enable"
         value: "YES"
-      when: "'freebsd-jails' not in group_names"
+      when: "not jail"
     - include_role:
         name: freebsd/periodic
       vars:
         name: "security_status_chkmounts_period"
         value: "daily"
-      when: "'freebsd-jails' not in group_names"
+      when: "not jail"
     - include_role:
         name: freebsd/periodic
       vars:
@@ -188,7 +188,7 @@
       vars:
         name: "security_status_kernelmsg_enable"
         value: "YES"
-      when: "'freebsd-jails' not in group_names"
+      when: "not jail"
     - include_role:
         name: freebsd/periodic
       vars:
@@ -281,7 +281,7 @@
         name: freebsd/sudo
     - include_role:
         name: freebsd/ntp
-      when: "'freebsd-jails' not in group_names"
+      when: "not jail"
     - include_role:
         name: freebsd/mailserver
     - include_role:
@@ -298,14 +298,14 @@
         name: freebsd/root-ssh-config
     - include_role:
         name: freebsd/procfs
-      when: "'freebsd-jails' not in group_names"
+      when: "not jail"
     - include_role:
         name: freebsd/fdescfs
-      when: "'freebsd-jails' not in group_names"
+      when: "not jail"
     # Keep this role here, it allows the procfs and fdescfs to succeed.
     - include_role:
         name: freebsd/set-security-level
       vars:
         enable_secure_level: True
         secure_level: "1"
-      when: "'freebsd-jails' not in group_names"
+      when: "not jail"

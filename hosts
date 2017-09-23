@@ -11,6 +11,7 @@ gizmo.kruemel.home
 viking.kruemel.home
 optimusprime.kruemel.home
 jetfire.kruemel.home
+nostromo.kruemel.home
 
 [freebsd-servers-dmz]
 eventhorizon.dmz.kruemel.home
@@ -51,7 +52,6 @@ solaris-servers-dmz
 [solaris-servers-lan]
 brutus.kruemel.home
 megatron.kruemel.home
-nostromo.kruemel.home
 
 [solaris-servers-dmz]
 starscream.dmz.kruemel.home

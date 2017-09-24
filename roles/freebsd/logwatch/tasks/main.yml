@@ -41,3 +41,13 @@
   with_items:
     - dhcpd.conf
 
+- name: Add logwatch cron entry
+  cron:
+    name: Logwatch daily
+    state: present
+    job: /usr/local/sbin/logwatch.pl --detail 10 --range Yesterday --mailto root --output mail
+    weekday: "*"
+    day: "*"
+    minute: 1
+    hour: 0
+    month: "*"

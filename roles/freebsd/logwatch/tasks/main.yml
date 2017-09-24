@@ -1,5 +1,10 @@
 ---
 
+- name: Install logwatch
+  pkg:
+    name: logwatch
+    state: present
+
 - name: Create logwatch logfiles configuration dir
   file:
     path: /usr/local/etc/logwatch/logfiles

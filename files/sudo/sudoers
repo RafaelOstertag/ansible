@@ -12,9 +12,9 @@
 # Host alias specification
 Host_Alias	SERVERS	= gizmo.kruemel.home, gargoyle.kruemel.home, yayap.dmz.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, megatron.kruemel.home, starscream.dmz.kruemel.home, nostromo.kruemel.home, jetfire.kruemel.home, eventhorizon.dmz.kruemel.home, nostromo, brutus, brutus.kruemel.home, kerberos.kruemel.home, beastie.kruemel.home
 Host_Alias	OPENBSD = gargoyle.kruemel.home, kerberos.kruemel.home
-Host_Alias	FREEBSD = gizmo.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, nostromo.kruemel.home, jetfire.kruemel.home, eventhorizon.dmz.kruemel.home, yayap.dmz.kruemel.home, beastie.kruemel.home
+Host_Alias	FREEBSD = gizmo.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, nostromo.kruemel.home, jetfire.kruemel.home, eventhorizon.dmz.kruemel.home, yayap.dmz.kruemel.home, beastie.kruemel.home, megatron.kruemel.home
 Host_Alias	SOLARIS = megatron.kruemel.home,megatron,starscream.dmz.kruemel.home,starscream,nostromo,nostromo.kruemel.home,brutus,brutus.kruemel.home,thumper,thumper.kruemel.home
-Host_Alias	SOLARIS11 = megatron,starscream,nostromo,brutus,thumper
+Host_Alias	SOLARIS11 = starscream,nostromo,brutus,thumper
 Host_Alias	FREEBSD_WKS = odin.kruemel.home
 
 # User alias specification

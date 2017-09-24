@@ -1,5 +1,10 @@
 ---
 
+- name: Install sudo
+  pkgng:
+    name: sudo
+    state: present
+
 - name: Copy sudoers file
   copy:
     src: sudo/sudoers

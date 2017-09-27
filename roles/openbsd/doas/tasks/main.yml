@@ -1,0 +1,9 @@
+---
+
+- name: Copy doas.conf
+  copy:
+    src: doas.conf
+    dest: /etc/doas.conf
+    mode: 0600
+    owner: root
+    group: wheel

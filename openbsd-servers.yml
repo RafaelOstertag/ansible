@@ -23,3 +23,4 @@
     - openbsd/mailserver
     - common/scripts
     - common/ssh-keys
+    - openbsd/doas

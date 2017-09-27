@@ -1,12 +1,9 @@
 ---
 
-- name: Copy sudoers file
-  copy:
-    src: sudo/sudoers
-    dest: /etc/sudoers
-    mode: 0440
-    owner: root
-    group: wheel
+- name: Remove sudoers file
+  file:
+    path: /etc/sudoers
+    state: absent
 
 - name: Remove sudoers from nsswitch
   lineinfile:

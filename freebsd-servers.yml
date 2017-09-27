@@ -306,6 +306,10 @@
     - include_role:
         name: freebsd/fdescfs
       when: "not jail"
+    # This role is used to make some nagios plugins work, since it
+    # also links python to /usr/bin
+    - include_role:
+        name: freebsd/install-python
     # Keep this role here, it allows the procfs and fdescfs to succeed.
     - include_role:
         name: freebsd/set-security-level

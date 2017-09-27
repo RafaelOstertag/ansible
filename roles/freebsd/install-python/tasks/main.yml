@@ -1,0 +1,12 @@
+---
+
+- name: Install python
+  pkg:
+    name: python
+    state: present
+
+- name: Link /usr/local/bin/python to /usr/bin/python
+  file:
+    state: link
+    src: /usr/local/bin/python
+    dest: /usr/bin/python

@@ -17,6 +17,7 @@ megatron.kruemel.home
 [freebsd-servers-dmz]
 eventhorizon.dmz.kruemel.home
 yayap.dmz.kruemel.home
+starscream.dmz.kruemel.home
 
 [freebsd-virtual-hosts]
 aurora.virtual.kruemel.home
@@ -54,7 +55,7 @@ solaris-servers-dmz
 brutus.kruemel.home
 
 [solaris-servers-dmz]
-starscream.dmz.kruemel.home
+
 
 [solaris-virtual-hosts]
 prune.virtual.kruemel.home

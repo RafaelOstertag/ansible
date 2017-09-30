@@ -27,3 +27,16 @@
   shell: "cd /etc/mail ; make all ; make install"
   notify:
     - FreeBSD restart sendmail
+    
+- name: Create /root/bin
+  file:
+    path: /root/bin
+    state: directory
+    
+- name: Copy smtpauth.sh build file
+  copy:
+    src: freebsd/smtpauth.sh
+    dest: /root/bin/smtpauth.sh
+    mode: 750
+    owner: root
+    group: wheel

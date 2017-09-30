@@ -1,0 +1,11 @@
+---
+
+dependencies:
+  - { role: common/ca-guengel.ch }
+  - { role: freebsd/rcconf, name: "spamd_enable", value: "YES" }
+  - { role: freebsd/rcconf, name: "spamd_flags", value: "-u spamd -H /var/spool/spamd" }
+  - { role: freebsd/rcconf, name: "spamass_milter_enable", value: "YES" }
+  - { role: freebsd/rcconf, name: "clamav_milter_enable", value: "YES" }
+  - { role: freebsd/rcconf, name: "clamav_milter_socket", value: "/var/run/clamav/clmilter.sock" }
+  - { role: freebsd/rcconf, name: "clamav_clamd_enable", value: "YES" }
+  - { role: freebsd/rcconf, name: "clamav_freshclam_enable", value: "YES" }

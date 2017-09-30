@@ -1,0 +1,80 @@
+# Maintained by Ansible
+#
+# sendmail(8) access database.  Rebuild by running as root:
+#   makemap hash /etc/mail/access < /etc/mail/access
+#
+# See /usr/share/sendmail/README for a description of this file
+# under the "access_db" feature.
+#
+Spam:postmaster@        FRIEND
+Spam:abuse@             FRIEND
+Spam:spam@              FRIEND
+#
+# Blacklisted users
+#
+#Connect:rampellsoft.com 554 Email directly, not through didtheyreadit.com
+reject@                 REJECT
+#cyberpromo.com REJECT
+#From:MAILER-DAEMON@store2.netvisao.pt REJECT
+#
+# Block invalid IPs
+#
+Connect:0               REJECT
+Connect:169.254 REJECT
+Connect:192.0.2 REJECT
+Connect:224             REJECT
+Connect:255             REJECT
+Connect:.corbina.ru	REJECT
+Connect:.pl		REJECT
+Connect:93.155.244.124	REJECT
+Connect:82.201.198.20	REJECT
+# Those fucking poles
+pl			REJECT
+# Those are in order to prevent messages to the postmaster because
+# user doesnt exist
+To:online@		ERROR: 550 Mailbox disabled
+To:zcflf		ERROR: 550 Mailbox disabled
+To:vdkatxy		ERROR: 550 Mailbox disabled
+To:vqflvw		ERROR: 550 Mailbox disabled
+To:qyabyc		ERROR: 550 Mailbox disabled
+To:1@			ERROR: 550 Mailbox disabled
+To:454517ea.4080607@	ERROR: 550 Mailbox disabled
+To:45460462.6090802@	ERROR: 550 Mailbox disabled
+To:45467945.7000004@	ERROR: 550 Mailbox disabled
+To:45560a4d.4090709@	ERROR: 550 Mailbox disabled
+To:454a687f.4040100@	ERROR: 550 Mailbox disabled
+To:a1aaa1azzzz1zaaaaa@	ERROR: 550 Mailbox disabled
+To:akstcguengelmnsdgs@	ERROR: 550 Mailbox disabled
+To:dekaiguengel1@	ERROR: 550 Mailbox disabled
+To:dekaiguengel@	ERROR: 550 Mailbox disabled
+To:guengel1@		ERROR: 550 Mailbox disabled
+To:guengeld@		ERROR: 550 Mailbox disabled
+To:guengeldd@		ERROR: 550 Mailbox disabled
+To:guengeln@		ERROR: 550 Mailbox disabled
+To:guengelnn@		ERROR: 550 Mailbox disabled
+To:guengelq@		ERROR: 550 Mailbox disabled
+To:iamjustsendingthisleter@	ERROR: 550 Mailbox disabled
+To:iamjustsendingthisletter@	ERROR: 550 Mailbox disabled
+To:rafi1@		ERROR: 550 Mailbox disabled
+To:rafid@		ERROR: 550 Mailbox disabled
+To:rafidd@		ERROR: 550 Mailbox disabled
+To:rafin@		ERROR: 550 Mailbox disabled
+To:rafinn@		ERROR: 550 Mailbox disabled
+To:rafiq@		ERROR: 550 Mailbox disabled
+To:thisisjusttestleter@ ERROR: 550 Mailbox disabled
+To:thisisjusttestletter@ ERROR: 550 Mailbox disabled
+To:tux@			ERROR: 550 Mailbox disabled
+To:tux1@		ERROR: 550 Mailbox disabled
+To:tuxd@		ERROR: 550 Mailbox disabled
+To:tuxdd@		ERROR: 550 Mailbox disabled
+To:tuxn@		ERROR: 550 Mailbox disabled
+To:tuxnn@		ERROR: 550 Mailbox disabled
+To:tuxq@		ERROR: 550 Mailbox disabled
+To:gz@			ERROR: 550 Mailbox disabled
+To:uengel@		ERROR: 550 Mailbox disabled
+To:webmasterd@		ERROR: 550 Mailbox disabled
+To:engel@		ERROR: 550 Mailbox disabled
+To:webmasterdd@		ERROR: 550 Mailbox disabled
+#
+#CertIssuer:/C=CH/ST=Aargau/O=guengel.ch/CN=Rafael+20Ostertag/emailAddress=rafi@guengel.ch	RELAY
+CertIssuer:/C=CH/ST=Thurgau/L=Kefikon/O=guengel.ch/CN=CA+20guengel.ch/emailAddress=postmaster@guengel.ch	RELAY

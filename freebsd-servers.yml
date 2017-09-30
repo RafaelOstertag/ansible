@@ -317,3 +317,6 @@
         enable_secure_level: True
         secure_level: "1"
       when: "not jail"
+    - include_role:
+        name: freebsd/edge-mailserver
+      when: 'edge_mailserver'

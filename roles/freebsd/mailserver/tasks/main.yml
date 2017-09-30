@@ -1,19 +1,19 @@
 ---
 
 - name: Copy sendmail server config to non-smarthost
-  when: 'not smart_host'
+  when: 'not smart_host and not edge_mailserver'
   copy:
     src: sendmail.mc
     dest: "/etc/mail/{{ ansible_fqdn }}.mc"
 
 - name: Copy sendmail submit config to non-smarthost
-  when: 'not smart_host'
+  when: 'not smart_host and not edge_mailserver'
   copy:
     src: submit.mc
     dest: "/etc/mail/{{ ansible_fqdn }}.submit.mc"
 
 - name: Unconditionally rebuild configuration
-  when: 'not smart_host'
+  when: 'not smart_host and not edge_mailserver'
   shell: "cd /etc/mail; make all ; make install"
   notify:
     - FreeBSD restart sendmail

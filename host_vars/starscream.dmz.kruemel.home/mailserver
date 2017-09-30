@@ -2,3 +2,6 @@
 
 # Set to True when using opencsw sendmail
 opencsw_sendmail: True
+edge_mailserver: True
+# External name of the edge_mailserver
+external_name: smtp.guengel.ch

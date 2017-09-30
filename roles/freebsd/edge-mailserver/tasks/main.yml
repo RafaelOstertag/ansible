@@ -1,0 +1,207 @@
+---
+
+- name: Install clamav
+  pkgng:
+    name: clamav-milter
+    state: present
+  notify:
+    - FreeBSD restart clamav
+    - FreeBSD restart freshclam
+    - FreeBSD restart clamav-milter
+
+- name: Install spamassassin
+  pkgng:
+    name: spamass-milter,spamassassin
+    state: present
+  notify:
+    - FreeBSD restart spamassassin
+    - FreeBSD restart spamass-milter
+
+- name: Install fetchmail
+  pkgng:
+    name: fetchmail
+    state: present
+
+- name: Set MilterSocket
+  lineinfile:
+    path: /usr/local/etc/clamav-milter.conf
+    regexp: "^MilterSocket\\s+"
+    line: MilterSocket /var/run/clamav/clmilter.sock
+  notify:
+    - FreeBSD restart clamav-milter
+
+- name: Set MilterSocketMode
+  lineinfile:
+    path: /usr/local/etc/clamav-milter.conf
+    regexp: "^MilterSocketMode\\s+"
+    line: MilterSocketMode 0660
+  notify:
+    - FreeBSD restart clamav-milter
+
+- name: Set ClamdSocket
+  lineinfile:
+    path: /usr/local/etc/clamav-milter.conf
+    regexp: "^ClamdSocket\\s+"
+    line: "ClamdSocket unix:/var/run/clamav/clamd.sock"
+  notify:
+    - FreeBSD restart clamav-milter
+
+- name: Set Clamav local socket
+  lineinfile:
+    path: /usr/local/etc/clamd.conf
+    regexp: "^LocalSocket\\s+"
+    line: "LocalSocket /var/run/clamav/clamd.sock"
+  notify:
+    - FreeBSD restart clamav
+
+- name: Spamassassin update cron job
+  cron:
+    name: Spamassassin update
+    state: present
+    job: "/usr/local/bin/sa-update && service sa-spamd restart"
+    weekday: "*"
+    day: "*"
+    minute: 0
+    hour: 2
+    month: "*"
+
+- name: Cron job for Mail queue quarantine
+  cron:
+    name: Mailq quarantine
+    state: present
+    job: "mailq -qQ | mailx -s \"Mailq quarantine on {{ ansible_fqdn }}\" root" 
+    weekday: "*"
+    day: "*"
+    minute: 0
+    hour: 2
+    month: "*"
+
+- name: Fetchmail for spam learning
+  cron:
+    name: Fetchmail for spam learning
+    user: spamd
+    job: "fetchmail -s sa-learn.spam ; fetchmail -s sa-learn.ham"
+    weekday: "*"
+    day: "*"
+    minute: 1
+    hour: "*"
+    month: "*"
+
+- name: Copy fetchmail configuration
+  template:
+    src: dot.fetchmailrc
+    dest: /var/spool/spamd/.fetchmailrc
+    owner: spamd
+    group: spamd
+    mode: 0600
+
+- name: Copy sendmail files
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/mail/{{ item }}"
+  with_items:
+    - access
+    - aliases
+    - local-host-names
+    - trusted-users
+
+- name: Copy sendmail configuration
+  template:
+    src: sendmail.mc
+    dest: "/etc/mail/{{ ansible_fqdn }}.mc"
+
+- name: Copy submit configuration
+  template:
+    src: submit.mc
+    dest: "/etc/mail/{{ ansible_fqdn }}.submit.mc"
+
+- name: Copy spamassassin configuration
+  copy:
+    src: local.cf
+    dest: /usr/local/etc/mail/spamassassin/local.cf
+
+- name: Make tls directory
+  file:
+    path: /etc/mail/tls
+    mode: 0755
+    owner: root
+    group: smmsp
+    state: directory
+
+- name: Copy SSL public keys
+  copy:
+    src: "ssl/pub/{{ external_name }}.crt"
+    dest: "/etc/mail/tls/host.cert"
+    mode: 0644
+    owner: root
+    group: smmsp
+
+- name: Copy SSL private keys
+  copy:
+    src: "ssl/priv/{{ external_name }}.key"
+    dest: "/etc/mail/tls/host.key"
+    mode: 0640
+    owner: root
+    group: smmsp
+
+- name: Make auth directory
+  file:
+    path: /etc/mail/auth
+    mode: 0755
+    owner: root
+    group: smmsp
+    state: directory
+
+- name: Copy client-info file
+  template:
+    src: client-info
+    dest: /etc/mail/auth/client-info
+  register: authinfo
+
+- name: Update client-info
+  when: authinfo.changed
+  shell: "cd /etc/mail/auth ; makemap hash client-info < client-info"
+
+- name: Unconditionally rebuild sendmail configuration
+  shell: "cd /etc/mail && make all && make install"
+
+    
+- name: Unconditionally restart sendmail
+  service:
+    name: sendmail
+    state: restarted
+
+- name: Set sendmail cflags for sasl
+  lineinfile:
+    path: /etc/make.conf
+    create: true
+    regexp: "^SENDMAIL_CFLAGS="
+    line: "SENDMAIL_CFLAGS=-I/usr/local/include/sasl -DSASL"
+
+- name: Set sendmail ldflags for sasl
+  lineinfile:
+    path: /etc/make.conf
+    create: true
+    regexp: "^SENDMAIL_LDFLAGS="
+    line: "SENDMAIL_LDFLAGS=-L/usr/local/lib"
+
+- name: Set sendmail ldadd for sasl
+  lineinfile:
+    path: /etc/make.conf
+    create: true
+    regexp: "^SENDMAIL_LDADD"
+    line: "SENDMAIL_LDADD=-lsasl2"
+
+- name: Create /root/bin
+  file:
+    path: /root/bin
+    state: directory
+    
+- name: Copy smtpauth.sh build file
+  copy:
+    src: freebsd/smtpauth.sh
+    dest: /root/bin/smtpauth.sh
+    mode: 750
+    owner: root
+    group: wheel
+

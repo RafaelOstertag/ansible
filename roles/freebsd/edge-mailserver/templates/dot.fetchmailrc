@@ -1,0 +1,17 @@
+poll sa-learn.spam via gizmo.kruemel.home
+     protocol imap
+     username "spamlearning"
+     password "{{ spamlearning_password }}"
+     with sslcertfile "/etc/ssl/guengel.ch.pem"
+     and with ssl and with nokeep and with no rewrite
+     and with sslcertck and fetchall
+     and with mda "/usr/local/bin/sa-learn --spam" and with folder "spamlearning.spam"
+     
+poll sa-learn.ham via gizmo.kruemel.home
+     protocol imap
+     username "spamlearning"
+     password "{{ spamlearning_password }}"
+     with sslcertfile "/etc/ssl/guengel.ch.pem"
+     and with ssl and with nokeep and with no rewrite
+     and with sslcertck and fetchall
+     and with mda "/usr/local/bin/sa-learn --ham" and with folder "spamlearning.ham"

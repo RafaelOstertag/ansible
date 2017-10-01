@@ -9,6 +9,7 @@
     - common/etcfiles
     - common/motd
     - common/mailmon
+    - openbsd/setup-pkg-path
     - openbsd/resolvconf
     - openbsd/setup-weekly
     - common/amanda-client

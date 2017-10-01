@@ -8,6 +8,7 @@
     - common/dotnetrc
     - common/etcfiles
     - common/motd
+    - openbsd/setup-pkg-path
     - openbsd/resolvconf
     - openbsd/setup-weekly
     - common/amanda-client

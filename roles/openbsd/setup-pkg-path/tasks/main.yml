@@ -1,0 +1,16 @@
+---
+
+- name: Set PKG_PATH
+  lineinfile:
+    path: /root/.profile
+    regexp: "^PKG_PATH="
+    state: present
+    line: "PKG_PATH=ftp://mirror.switch.ch/pub/OpenBSD/`uname -r`/packages/`machine -a`/"
+
+- name: Export PKG_PATH
+  lineinfile:
+    path: /root/.profile
+    state: present
+    regexp: "^export\\s+PKG_PATH"
+    line: "export PKG_PATH"
+    inserafter: EOF

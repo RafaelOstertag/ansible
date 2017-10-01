@@ -4,7 +4,7 @@
   cron:
     name: Mailmon job
     state: present
-    job: "usr/bin/mailx -s \"[monitor] {{ ansible_fqdn }} `date \\+\\%s`\" monitor@kruemel.home < /dev/null >/dev/null 2>&1"
+    job: "/usr/bin/mailx -s \"[monitor] {{ ansible_fqdn }} `date \\+\\%s`\" monitor@kruemel.home < /dev/null >/dev/null 2>&1"
     weekday: "*"
     day: "*"
     minute: "00,15,30,45"

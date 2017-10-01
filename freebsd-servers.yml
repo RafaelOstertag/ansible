@@ -11,6 +11,8 @@
         name: common/etcfiles
     - include_role:
         name: common/motd
+      - include_role:
+        name: common/mailmon
     # Keep this on top. Other roles might use pkgng
     - include_role:
         name: freebsd/disable-default-pkgrepo

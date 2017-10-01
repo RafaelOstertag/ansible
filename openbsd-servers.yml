@@ -8,6 +8,7 @@
     - common/dotnetrc
     - common/etcfiles
     - common/motd
+    - common/mailmon
     - openbsd/resolvconf
     - openbsd/setup-weekly
     - common/amanda-client

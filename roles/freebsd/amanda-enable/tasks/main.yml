@@ -14,6 +14,7 @@
     line: "amanda       stream  tcp6    nowait  amanda  /usr/local/libexec/amanda/amandad amandad -auth=bsdtcp"
   notify:
     - FreeBSD restart inetd
+  when: 'not amanda_server'
 
 - name: Add amanda tcp ipv4 to inetd.conf
   lineinfile:
@@ -24,3 +25,4 @@
     line: "amanda       stream  tcp     nowait  amanda  /usr/local/libexec/amanda/amandad amandad -auth=bsdtcp"
   notify:
     - FreeBSD restart inetd
+  when: 'not amanda_server'

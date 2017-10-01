@@ -1,0 +1,5 @@
+---
+
+dependencies:
+  - { role: openbsd/rcconflocal, name: "ypldap_flags", value: "" }
+  - { role: openbsd/rcconflocal, name: "ypbind_flags", value: "" }

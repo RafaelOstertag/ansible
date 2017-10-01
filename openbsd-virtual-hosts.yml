@@ -8,16 +8,18 @@
     - common/dotnetrc
     - common/etcfiles
     - common/motd
+    - common/scripts
+    - common/ssh-keys
+    - common/crontab
     - openbsd/setup-pkg-path
     - openbsd/resolvconf
     - openbsd/setup-weekly
     - common/amanda-client
     - openbsd/amanda-hosts
     - openbsd/amanda-enable
-    - common/crontab
     - openbsd/crontab
     - openbsd/ntp
     - openbsd/ssl-mailserver
     - openbsd/mailserver
-    - common/scripts
-    - common/ssh-keys
+    - openbsd/enable-ldap-login
+    

@@ -1,0 +1,39 @@
+---
+
+- name: Install package
+  openbsd_pkg: name={{ item }} state=present
+  with_items:
+    - login_ldap
+
+- name: YP default domain
+  copy: src=defaultdomain dest=/etc/defaultdomain
+
+- name: Create yp directory
+  file: dest=/etc/yp state=directory
+
+- name: YP kruemel.home file
+  copy: src=yp.kruemel.home dest=/etc/yp/kruemel.home
+
+- name: ypldap.conf
+  copy: src=ypldap.conf dest=/etc/ypldap.conf mode=640 owner=root
+
+- name: setup /etc/login.conf
+  blockinfile:
+    path: /etc/login.conf
+    block: "{{ lookup('file', 'login.conf.block') }}"
+    state: present
+    insertafter: EOF
+
+- name: Add user to /etc/passwd
+  lineinfile:
+    path: /etc/passwd
+    regexp: "^\\+:"
+    state: present
+    line: "+:*:0:0:::"
+
+- name: Add user to /etc/master.passwd
+  lineinfile:
+    path: /etc/master.passwd
+    regexp: "^\\+:"
+    state: present
+    line: "+:*::::::::"

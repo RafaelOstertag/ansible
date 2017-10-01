@@ -13,4 +13,4 @@
     state: present
     regexp: "^export\\s+PKG_PATH"
     line: "export PKG_PATH"
-    inserafter: EOF
+    insertafter: EOF

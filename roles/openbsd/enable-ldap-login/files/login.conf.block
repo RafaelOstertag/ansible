@@ -1,0 +1,12 @@
+ldap:\
+        :auth=-ldap:\
+        :x-ldap-server=optimusprime.kruemel.home,636,ssl:\
+        :x-ldap-serveralt0=viking.kruemel.home,636,ssl:\
+        :x-ldap-basedn=ou=People,ou=auth,dc=kruemel,dc=home:\
+        :x-ldap-filter=(&(objectclass=posixAccount)(uid=%u)):\
+        :x-ldap-binddn=cn=proxyagent,dc=kruemel,dc=home:\
+        :x-ldap-bindpw=7gJlk]M!*e:\
+        :x-ldap-uscope=sub:\
+        :x-ldap-gscope=sub:\
+        :x-ldap-cacert=/etc/ssl/guengel.ch.pem:\
+        :tc=default:

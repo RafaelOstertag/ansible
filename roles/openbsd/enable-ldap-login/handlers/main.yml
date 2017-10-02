@@ -1,0 +1,4 @@
+---
+
+- name: OpenBSD make cap db
+  shell: "cap_mkdb /etc/login.conf"

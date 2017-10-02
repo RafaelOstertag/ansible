@@ -23,6 +23,8 @@
     block: "{{ lookup('file', 'login.conf.block') }}"
     state: present
     insertafter: EOF
+  notify:
+    - OpenBSD make cap db
 
 - name: Add user to /etc/passwd
   lineinfile:

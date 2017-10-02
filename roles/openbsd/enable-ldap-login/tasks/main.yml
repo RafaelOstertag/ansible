@@ -26,16 +26,19 @@
   notify:
     - OpenBSD make cap db
 
-- name: Add user to /etc/passwd
-  lineinfile:
-    path: /etc/passwd
-    regexp: "^\\+:"
-    state: present
-    line: "+:*:0:0:::"
-
 - name: Add user to /etc/master.passwd
   lineinfile:
     path: /etc/master.passwd
     regexp: "^\\+:"
     state: present
     line: "+:*::::::::"
+  notify:
+    - OpenBSD make password db
+
+- name: Add group to /etc/group
+  lineinfile:
+    path: /etc/group
+    regexp: "^\\+:"
+    state: present
+    line: "+:*::"
+  

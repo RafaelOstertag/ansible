@@ -2,3 +2,6 @@
 
 - name: OpenBSD make cap db
   shell: "cap_mkdb /etc/login.conf"
+
+- name: OpenBSD make password db
+  shell: "pwd_mkdb -p /etc/master.passwd"

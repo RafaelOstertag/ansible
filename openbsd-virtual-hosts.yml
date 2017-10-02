@@ -22,4 +22,5 @@
     - openbsd/ssl-mailserver
     - openbsd/mailserver
     - openbsd/enable-ldap-login
+    - openbsd/gizmo-mounts
     

@@ -1,44 +1,44 @@
 ---
 
-- name: FreeBSD | update nfsuserd_flags in /etc/rc.conf
+- name: update nfsuserd_flags in /etc/rc.conf
   lineinfile: dest=/etc/rc.conf regexp="^nfsuserd_flags=" line="nfsuserd_flags=\"-domain kruemel.home\""
   notify:
     - FreeBSD restart nfsuserd
 
-- name: FreeBSD | remove nfsuserd_options in /etc/rc.conf
+- name: remove nfsuserd_options in /etc/rc.conf
   lineinfile: dest=/etc/rc.conf regexp="^nfsuserd_options=" state=absent
   notify:
     - FreeBSD restart nfsuserd
 
-- name: FreeBSD | update nfsuserd_enable in /etc/rc.conf
+- name: update nfsuserd_enable in /etc/rc.conf
   lineinfile: dest=/etc/rc.conf regexp="^nfsuserd_enable=" line="nfsuserd_enable=\"YES\""
   notify:
     - FreeBSD restart nfsuserd
 
-- name: FreeBSD | enable nfscbd in /etc/rc.conf
+- name: enable nfscbd in /etc/rc.conf
   lineinfile: dest=/etc/rc.conf regexp="^nfscbd_enable=" line="nfscbd_enable=\"YES\""
   notify:
     - FreeBSD restart nfscbd
 
-- name: FreeBSD | enable rpcbind in /etc/rc.conf
+- name: enable rpcbind in /etc/rc.conf
   lineinfile: dest=/etc/rc.conf regexp="^rpcbind_enable=" line="rpcbind_enable=\"YES\""
   notify:
     - FreeBSD restart rpcbind
 
-- name: FreeBSD | add /tank1 fstab entry
+- name: add /tank1 fstab entry
   mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/tank1 name=/mnt/tank1
 
-- name: FreeBSD | add /export/data fstab entry
+- name: add /export/data fstab entry
   mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/export/data name=/mnt/data
 
-- name: FreeBSD | add /export/home fstab entry
+- name: add /export/home fstab entry
   mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/export/home name=/home
 
-- name: FreeBSD | add /export/iso fstab entry
+- name: add /export/iso fstab entry
   mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/export/iso name=/mnt/iso
 
-- name: FreeBSD | add /export/files fstab entry
+- name: add /export/files fstab entry
   mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/export/files name=/mnt/files
 
-- name: FreeBSD | add /export/config fstab entry
+- name: add /export/config fstab entry
   mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=gizmo.kruemel.home:/export/config name=/mnt/config

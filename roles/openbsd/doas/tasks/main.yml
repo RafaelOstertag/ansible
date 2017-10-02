@@ -7,3 +7,4 @@
     mode: 0600
     owner: root
     group: wheel
+    validate: /usr/bin/doas -C %s

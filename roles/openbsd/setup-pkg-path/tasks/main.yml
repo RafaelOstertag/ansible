@@ -1,11 +1,16 @@
 ---
 
+- name: Exists /etc/installurl?
+  stat: path=/etc/installurl
+  register: installurl
+
 - name: Set PKG_PATH
   lineinfile:
     path: /root/.profile
     regexp: "^PKG_PATH="
     state: present
     line: "PKG_PATH=ftp://mirror.switch.ch/pub/OpenBSD/`uname -r`/packages/`machine -a`/"
+  when: 'not installurl.stat.exists'
 
 - name: Export PKG_PATH
   lineinfile:
@@ -14,3 +19,13 @@
     regexp: "^export\\s+PKG_PATH"
     line: "export PKG_PATH"
     insertafter: EOF
+  when: 'not installurl.stat.exists'
+
+- name: Copy installurl
+  copy:
+    src: installurl
+    dest: /etc/installurl
+    mode: 0644
+    owner: root
+    group: wheel
+  when: 'installurl.stat.exists'

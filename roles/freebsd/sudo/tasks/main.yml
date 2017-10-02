@@ -12,7 +12,7 @@
     mode: 0440
     owner: root
     group: wheel
-    validate: /usr/sbin/visudo -cf %s
+    validate: /usr/local/sbin/visudo -cf %s
 
 - name: Remove sudoers from nsswitch
   lineinfile:

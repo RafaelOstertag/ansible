@@ -14,3 +14,36 @@
     dest: /operator/.amandahosts
     mode: 0600
     owner: operator
+
+- name: Touch amanda-security file
+  when: 'amanda_server == False'
+  file:
+    path: /etc/amanda-security.conf
+    state: touch
+    mode: 0640
+    owner: root
+    group: operator
+
+- name: Create /var/amanda
+  when: 'amanda_server == False'
+  file:
+    path: /var/amanda
+    state: directory
+    mode: 0700
+    owner: operator
+
+- name: Create /var/amanda/gnutar-lists
+  when: 'amanda_server == False'
+  file:
+    path: /var/amanda/gnutar-lists
+    state: directory
+    mode: 0700
+    owner: operator
+
+- name: Copy .amanda-wks-include.gtar
+  when: "amanda_server == False and 'openbsd-virtual-hosts' in group_names"
+  copy:
+    src: dot.amanda-wks-include.gtar
+    dest: /.amanda-wks-include.gtar
+    owner: operator
+    mode: 0600

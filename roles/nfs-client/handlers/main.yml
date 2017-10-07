@@ -1,4 +1,0 @@
----
-- include: freebsd.yml
-
-- include: openbsd.yml

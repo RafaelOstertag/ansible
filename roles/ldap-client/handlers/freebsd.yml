@@ -1,3 +1,0 @@
----
-- name: restart FreeBSD nslcd
-  service: name=nslcd state=restarted

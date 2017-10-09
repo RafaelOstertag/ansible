@@ -11,9 +11,20 @@
     dest: /usr/local/etc/amanda/exclude.gtar
     mode: 0644
 
-- name: Copy security.conf
-  when: 'ansible_distribution == "FreeBSD"'
-  copy:
-    src: security.conf
-    dest: /usr/local/etc/amanda/security.conf
-    mode: 0644
+- name: Touch amanda-security file FreeBSD
+  when: 'not amanda_server and ansible_distribution == "FreeBSD"'
+  file:
+    path: /usr/local/etc/amanda/security.conf
+    state: touch
+    owner: root
+    group: amanda
+    mode: 0640
+
+- name: Touch amanda-security file OpenBSD
+  when: 'not amanda_server and ansible_distribution == "OpenBSD"'
+  file:
+    path: /etc/amanda-security.conf
+    state: touch
+    mode: 0640
+    owner: root
+    group: operator

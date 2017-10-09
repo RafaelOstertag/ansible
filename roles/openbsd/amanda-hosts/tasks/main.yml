@@ -15,15 +15,6 @@
     mode: 0600
     owner: operator
 
-- name: Touch amanda-security file
-  when: 'amanda_server == False'
-  file:
-    path: /etc/amanda-security.conf
-    state: touch
-    mode: 0640
-    owner: root
-    group: operator
-
 - name: Create /var/amanda
   when: 'amanda_server == False'
   file:

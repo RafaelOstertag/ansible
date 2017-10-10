@@ -1,0 +1,19 @@
+---
+
+- name: Update all FreeBSD hosts
+  user: root
+  hosts: freebsd-servers:freebsd-virtual-hosts:freebsd-workstations
+  tasks:
+    - name: Update all packages
+      script: scripts/freebsd/updateallpkg.sh
+      register: var
+
+    - name: Stdout
+      debug:
+        msg: "{{ var.stdout_lines }}"
+
+    - name: Stderr
+      debug:
+        msg: "{{ var.stderr }}"
+        
+

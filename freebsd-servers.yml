@@ -22,6 +22,8 @@
       tags:
         - repo
     - include_role:
+        name: freebsd/freebsd-update-cron
+    - include_role:
         name: freebsd/resolvconf
     - include_role:
         name: freebsd/openldap-client-conf

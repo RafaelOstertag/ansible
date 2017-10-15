@@ -16,11 +16,19 @@
     - fb11-amd64-client.conf
 
 - name: Guarantee /usr/local/etc/pkg/repos
+  when: "'freebsd-user-hosts' not in group_names'"
   file:
     path: /usr/local/etc/pkg/repos
     state: directory
 
 - name: Copy guengel.ch pkgrepo config
+  when: "'freebsd-user-hosts' not in group_names'"
   template:
     src: pkg-repo-guengel.ch.conf
     dest: /usr/local/etc/pkg/repos/guengel.ch.conf
+
+- name: Disable guengel pkgrepo on user hosts
+  when: "'freebsd-user-hosts' in group_names'"
+  file:
+    path: /usr/local/etc/pkg/repos/guengel.ch.conf
+    state: absent

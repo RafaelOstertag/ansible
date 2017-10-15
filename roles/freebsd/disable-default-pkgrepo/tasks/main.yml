@@ -17,7 +17,7 @@
     mode: 0644
 
 - name: Enable FreeBSD pkg repo on user hosts
-  when: "'freebsd-user-hosts' not in group_names'"
+  when: "'freebsd-user-hosts' in group_names'"
   file:
     dest: /usr/local/etc/pkg/repos/FreeBSD.conf
     state: absent

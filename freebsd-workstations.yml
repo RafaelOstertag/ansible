@@ -1,7 +1,7 @@
 ---
 
 - name: FreeBSD Workstations
-  hosts: freebsd-workstations,freebsd-virtual-hosts
+  hosts: freebsd-user-hosts
   force_handlers: true
   user: root
   tasks:

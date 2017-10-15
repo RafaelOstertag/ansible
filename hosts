@@ -19,6 +19,10 @@ eventhorizon.dmz.kruemel.home
 yayap.dmz.kruemel.home
 starscream.dmz.kruemel.home
 
+[freebsd-user-hosts:children]
+freebsd-virtual-hosts
+freebsd-workstations
+
 [freebsd-virtual-hosts]
 aurora.virtual.kruemel.home
 freebsd32.virtual.kruemel.home

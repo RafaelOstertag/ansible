@@ -7,6 +7,6 @@
     job: "/usr/sbin/freebsd-update cron"
     weekday: "*"
     day: "*"
-    minute: "22"
-    hour: "05"
+    minute: "05"
+    hour: "22"
     month: "*"

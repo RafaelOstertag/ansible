@@ -4,6 +4,7 @@
 
 pkg update
 pkg upgrade -y
+pkg clean -y
 
 for f in /usr/local/etc/rc.d/*
 do

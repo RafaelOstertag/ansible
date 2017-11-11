@@ -1,5 +1,0 @@
----
-- hosts: debian
-  user: root
-  roles:
-    - bootstrap-cfengine

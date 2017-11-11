@@ -1,5 +1,0 @@
----
-- hosts: freebsd-userhosts:openbsd-userhosts
-  user: root
-  roles:
-    - user-host

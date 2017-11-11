@@ -1,8 +1,0 @@
----
-- hosts: netbsd-userhosts
-  user: root
-  roles:
-    - bsd-procfs
-    - nfs-client
-    - ldap-client
-    - user-host

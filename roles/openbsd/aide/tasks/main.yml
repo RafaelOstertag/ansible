@@ -1,9 +1,22 @@
 ---
 
-- name: Copy aide.conf
-  copy:
-    dest: /etc/aide.conf
-    src: aide/aide.conf
-    mode: 0400
-    owner: root
-    group: operator
+- name: Delete aide.conf
+  file:
+    path: /etc/aide.conf
+    state: absent
+
+- name: Remove check aide daily
+  cron:
+    name: Aide check daily
+    state: absent
+
+- name: Remove update aide weekly
+  cron:
+    name: Aide update weekly
+    state: absent
+
+- name: Remove aide package
+  openbsd_pkg:
+    name: aide
+    state: absent
+

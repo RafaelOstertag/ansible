@@ -1,36 +1,26 @@
 ---
 
-- name: Install aide
+- name: Remove aide
   pkgng:
     name: aide
-    state: present
+    state: absent
 
-- name: Copy aide.conf
-  copy:
-    dest: /usr/local/etc/aide.conf
-    src: aide/aide.conf
-    mode: 0400
-    owner: root
-    group: wheel
+- name: Delete aide.conf
+  file:
+    path: /usr/local/etc/aide.conf
+    state: absent
 
-- name: Add check aide daily
+- name: Delete aide database
+  file:
+    path: /var/db/aide
+    state: absent
+    
+- name: Remove check aide daily
   cron:
     name: Aide check daily
-    state: present
-    job: "/usr/local/bin/aide --check | mailx -s \"Aide on {{ ansible_fqdn }}\" root"
-    weekday: "Mon-Sat"
-    day: "*"
-    minute: "12"
-    hour: "05"
-    month: "*"
+    state: absent
 
-- name: Add update aide weekly
+- name: Remove update aide weekly
   cron:
     name: Aide update weekly
-    state: present
-    job: "/usr/local/bin/aide --update | mailx -s \"Aide on {{ ansible_fqdn }}\" root ; mv /var/db/aide/databases/aide.db.new /var/db/aide/databases/aide.db"
-    weekday: "Sun"
-    day: "*"
-    minute: "12"
-    hour: "05"
-    month: "*"
+    state: absent

@@ -17,7 +17,6 @@
     - common/amanda-client
     - openbsd/amanda-hosts
     - openbsd/amanda-enable
-    - openbsd/crontab
     - openbsd/ntp
     - openbsd/ssl-mailserver
     - openbsd/mailserver

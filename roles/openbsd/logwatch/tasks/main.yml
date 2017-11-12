@@ -1,35 +1,17 @@
 ---
 
-- name: Create logwatch logfiles configuration dir
+- name: Remove logwatch configuration dir
   file:
-    path: /etc/logwatch/conf/logfiles
-    state: directory
-    mode: 0755
+    path: /etc/logwatch
+    state: absent
 
-- name: Create logwatch services configuration dir
+- name: Remove logwatch
   file:
-    path: /etc/logwatch/conf/services
-    state: directory
-    mode: 0755
+    path: /usr/local/share/logwatch
+    state: absent
 
-- name: Copy logwatch logfiles configuration
-  copy:
-    src: "logfiles/{{ item }}"
-    dest: /etc/logwatch/conf/logfiles/{{ item }}
-    mode: 0644
-  with_items:
-    - cron.conf
-    - daemon.conf
-    - maillog.conf
-    - messages.conf
-    - secure.conf
-    - syslog.conf
-    
-- name: Copy logwatch services configuration
-  copy:
-    src: "services/{{ item }}"
-    dest: /etc/logwatch/conf/services/{{ item }}
-    mode: 0644
-  with_items:
-    - dhcpd.conf
-    - named.conf
+- name: Remove binary link
+  file:
+    path: /usr/sbin/logwatch
+    state: absent
+  

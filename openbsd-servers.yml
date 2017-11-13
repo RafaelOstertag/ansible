@@ -5,15 +5,18 @@
   force_handlers: true
   user: root
   roles:
+    - common/scripts
+    - common/ssh-keys
     - common/dotnetrc
     - common/etcfiles
     - common/motd
     - common/mailmon
     - common/crontab
+    - common/amanda-client
+    - openbsd/syspatch
     - openbsd/setup-pkg-path
     - openbsd/resolvconf
     - openbsd/setup-weekly
-    - common/amanda-client
     - openbsd/amanda-hosts
     - openbsd/amanda-enable
     - openbsd/aide
@@ -23,6 +26,5 @@
     - openbsd/ntp
     - openbsd/ssl-mailserver
     - openbsd/mailserver
-    - common/scripts
-    - common/ssh-keys
     - openbsd/doas
+    - openbsd/disable-sndio

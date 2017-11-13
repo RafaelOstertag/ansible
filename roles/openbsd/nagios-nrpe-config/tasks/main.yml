@@ -24,4 +24,4 @@
     - check_zfs
     - check_fb_gmirror
     - check_proc_pid
-    - check_solsvc
+    - check_openbsd_secure_level

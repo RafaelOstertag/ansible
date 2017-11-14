@@ -11,12 +11,13 @@
     - common/scripts
     - common/ssh-keys
     - common/crontab
-    - openbsd/setup-pkg-path
-    - openbsd/resolvconf
-    - openbsd/setup-weekly
     - common/amanda-client
     - openbsd/amanda-hosts
     - openbsd/amanda-enable
+    - openbsd/setup-pkg-path
+    - openbsd/resolvconf
+    - openbsd/setup-weekly
+    - openbsd/syspatch
     - openbsd/ntp
     - openbsd/ssl-mailserver
     - openbsd/mailserver

@@ -26,8 +26,6 @@ freebsd-workstations
 [freebsd-virtual-hosts]
 aurora.virtual.kruemel.home
 freebsd32.virtual.kruemel.home
-grimreaper.virtual.kruemel.home
-ion.virtual.kruemel.home
 
 [freebsd-workstations]
 odin.kruemel.home
@@ -45,8 +43,6 @@ kerberos.kruemel.home
 [openbsd-virtual-hosts]
 phoebe.virtual.kruemel.home
 merlin.virtual.kruemel.home
-cortana.virtual.kruemel.home
-borg.virtual.kruemel.home
 
 ;
 ; Solaris 11

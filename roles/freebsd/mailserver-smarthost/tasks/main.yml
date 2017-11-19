@@ -33,6 +33,6 @@
   copy:
     src: freebsd/smtpauth.sh
     dest: /root/bin/smtpauth.sh
-    mode: 750
+    mode: 0750
     owner: root
     group: wheel

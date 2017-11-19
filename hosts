@@ -63,3 +63,8 @@ prune.virtual.kruemel.home
 [solaris-workstations]
 
 
+[kubes]
+kube04
+kube03
+kube02
+kube01

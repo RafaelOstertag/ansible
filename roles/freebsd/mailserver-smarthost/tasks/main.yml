@@ -1,19 +1,16 @@
 ---
 
 - name: Copy sendmail server config
-  when: 'smart_host'
   copy:
     src: sendmail.mc
     dest: "/etc/mail/{{ ansible_fqdn }}.mc"
     
 - name: Copy sendmail submission config
-  when: 'smart_host'
   copy:
     src: submit.mc
     dest: "/etc/mail/{{ ansible_fqdn }}.submit.mc"
 
 - name: Copy config files
-  when: 'smart_host'
   copy:
     src: "{{ item }}"
     dest: "/etc/mail/{{ item }}"
@@ -23,7 +20,6 @@
     - local-host-names
 
 - name: Unconditionally rebuild sendmail config
-  when: 'smart_host'
   shell: "cd /etc/mail ; make all ; make install"
   notify:
     - FreeBSD restart sendmail

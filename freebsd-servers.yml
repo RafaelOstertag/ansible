@@ -296,8 +296,10 @@
       when: "not jail"
     - import_role:
         name: freebsd/mailserver
+      when: 'not smart_host and not edge_mailserver'
     - import_role:
         name: freebsd/mailserver-smarthost
+      when: "smart_host"
     - import_role:
         name: common/scripts
     - import_role:

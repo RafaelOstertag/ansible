@@ -1,0 +1,5 @@
+---
+
+# This is here, so that the variable is globally available, and we
+# don't have to test for the existence of it.
+enable_zfs_scrub: False

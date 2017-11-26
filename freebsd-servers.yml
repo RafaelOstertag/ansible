@@ -326,3 +326,6 @@
     - import_role:
         name: freebsd/edge-mailserver
       when: 'edge_mailserver'
+    - import_role:
+        name: freebsd/zfs-scrub
+      when: "enable_zfs_scrub"

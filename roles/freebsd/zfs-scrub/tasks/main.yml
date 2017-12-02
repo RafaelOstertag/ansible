@@ -1,0 +1,12 @@
+---
+
+- name: Add zfs scrub crontab entry
+  cron:
+    name: ZFS scrub
+    state: present
+    job: "/sbin/zpool scrub zroot"
+    weekday: 6
+    day: "*"
+    minute: 6
+    hour: 19
+    month: "*"

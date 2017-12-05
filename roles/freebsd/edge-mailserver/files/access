@@ -30,6 +30,7 @@ Connect:93.155.244.124	REJECT
 Connect:82.201.198.20	REJECT
 # Those fucking poles
 pl			REJECT
+techmania.ch		REJECT
 # Those are in order to prevent messages to the postmaster because
 # user doesnt exist
 To:online@		ERROR: 550 Mailbox disabled

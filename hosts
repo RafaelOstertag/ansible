@@ -44,25 +44,6 @@ kerberos.kruemel.home
 phoebe.virtual.kruemel.home
 merlin.virtual.kruemel.home
 
-;
-; Solaris 11
-;
-[solaris-servers:children]
-solaris-servers-lan
-solaris-servers-dmz
-
-[solaris-servers-lan]
-brutus.kruemel.home
-
-[solaris-servers-dmz]
-
-
-[solaris-virtual-hosts]
-prune.virtual.kruemel.home
-
-[solaris-workstations]
-
-
 [kubes]
 kube04
 kube03

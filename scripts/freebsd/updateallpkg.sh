@@ -2,7 +2,7 @@
 #
 # $Id$
 
-pkg update
+pkg update -f
 pkg upgrade -y
 pkg clean -y
 

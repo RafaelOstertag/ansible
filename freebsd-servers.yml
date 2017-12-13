@@ -154,8 +154,13 @@
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_security_pkgaudit_enable"
+        name: "security_status_pkgaudit_enable"
         value: "YES"
+    - import_role:
+        name: freebsd/periodic
+      vars:
+        name: "security_status_pkgaudit_period"
+        value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:

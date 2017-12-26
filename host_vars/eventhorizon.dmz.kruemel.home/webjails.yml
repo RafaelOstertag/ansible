@@ -1,0 +1,30 @@
+---
+
+web_domain: web.kruemel.home
+web_jail_arch: i386
+web_jail_release: 11.1-RELEASE
+web_jails:
+  - name: bugzilla
+    loIPv6: "fd3e:be3e:ec34:ffff::2"
+    IPv6: "fd3e:be3e:ec34:2::2"
+  - name: docuwiki
+    loIPv6: "fd3e:be3e:ec34:ffff::3"
+    IPv6: "fd3e:be3e:ec34:2::3"
+  - name: wiki
+    loIPv6: "fd3e:be3e:ec34:ffff::4"
+    IPv6: "fd3e:be3e:ec34:2::4"
+  - name: webmail
+    loIPv6: "fd3e:be3e:ec34:ffff::5"
+    IPv6: "fd3e:be3e:ec34:2::5"
+  - name: www
+    loIPv6: "fd3e:be3e:ec34:ffff::6"
+    IPv6: "fd3e:be3e:ec34:2::6"
+  - name: realm
+    loIPv6: "fd3e:be3e:ec34:ffff::7"
+    IPv6: "fd3e:be3e:ec34:2::7"
+  - name: anic
+    loIPv6: "fd3e:be3e:ec34:ffff::8"
+    IPv6: "fd3e:be3e:ec34:2::8"
+  - name: solaris
+    loIPv6: "fd3e:be3e:ec34:ffff::9"
+    IPv6: "fd3e:be3e:ec34:2::9"

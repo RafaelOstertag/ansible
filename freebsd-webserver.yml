@@ -1,0 +1,33 @@
+---
+
+- name: FreeBSD Web Jail Server
+  hosts: eventhorizon.dmz.kruemel.home
+  force_handlers: true
+  user: root
+  tasks:
+    - import_role:
+        name: webserver/jailsetup
+        
+    - include_role:
+        name: webserver/jail-installation
+      vars:
+        jail_name: "{{ item.name }}"
+      with_items: "{{ web_jails }}"
+
+    - include_role:
+        name: webserver/sendmail-setup
+      vars:
+        jail_name: "{{ item.name }}"
+        jail_loIP: "{{ item.loIPv6 }}"
+        # This is required when we have to launch temporary jails
+        jail_IP: "{{ item.IPv6 }}"
+      with_items: "{{ web_jails }}"
+
+    - include_role:
+        name: webserver/apache-installation
+      vars:
+        jail_name: "{{ item.name }}"
+        jail_IP: "{{ item.IPv6 }}"
+      with_items: "{{ web_jails }}"
+      tags:
+        - apache

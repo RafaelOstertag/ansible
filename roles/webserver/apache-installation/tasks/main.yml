@@ -1,0 +1,47 @@
+---
+
+- name: Is jail {{ jail_name }} running
+  shell: "jls -j {{ jail_name }}"
+  register: jail_running
+  ignore_errors: true
+
+- name: Start jail {{ jail_name }} temporary
+  shell: "jail -cmr path=/var/www/jails/{{ jail_name }} allow.mount mount.devfs ip6.addr={{ jail_IP }} persist host.hostname={{ jail_name }}.{{ web_domain }} name={{ jail_name }} exec.fib=1 ip4=disable"
+  when: "jail_running.rc == 1"
+
+- name: Install apache 24 to {{ jail_name }}
+  shell: "setfib 1 jexec {{ jail_name }} env ASSUME_ALWAYS_YES=yes pkg install -y apache24"
+
+- name: Tear down temporary jail {{ jail_name }}
+  shell: "jail -r {{ jail_name }}"
+  when: "jail_running.rc == 1"
+
+- name: Copy server certificate to {{ jail_name }}
+  copy:
+    src: "ssl/pub/{{ jail_name }}.{{ web_domain }}.crt"
+    dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/apache24/server.crt"
+    owner: root
+    group: wheel
+    mode: 0644
+    
+- name: Copy server key to {{ jail_name }}
+  copy:
+    src: "ssl/priv/{{ jail_name }}.{{ web_domain }}.key"
+    dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/apache24/server.key"
+    owner: root
+    group: wheel
+    mode: 0600
+
+- name: Enable apache24 in {{ jail_name }}
+  lineinfile:
+    path: "/var/www/jails/{{ jail_name }}/etc/rc.conf.d/apache24"
+    create: yes
+    regexp: ^apache24_enable
+    line: "apache24_enable=\"YES\""
+
+- name: Enable http_accept apache24 in {{ jail_name }}
+  lineinfile:
+    path: "/var/www/jails/{{ jail_name }}/etc/rc.conf.d/apache24"
+    create: yes
+    regexp: ^apache24_http_accept
+    line: "apache24_http_accept_enable=\"YES\""

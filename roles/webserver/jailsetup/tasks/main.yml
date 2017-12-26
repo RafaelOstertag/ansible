@@ -1,0 +1,8 @@
+---
+
+- name: Copy jail configuration
+  copy:
+    src: jail.conf
+    dest: /etc/jail.conf
+
+

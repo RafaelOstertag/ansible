@@ -1,0 +1,83 @@
+---
+
+- name: Make sendmail tls dir in {{ jail_name }}
+  file:
+    state: directory
+    path: "/var/www/jails/{{ jail_name }}/etc/mail/tls"
+    mode: 0755
+    owner: root
+    group: wheel
+  
+
+- name: Copy server certificate to {{ jail_name }}
+  copy:
+    src: "ssl/pub/{{ jail_name }}.{{ web_domain }}.crt"
+    dest: "/var/www/jails/{{ jail_name }}/etc/mail/tls/server.cert"
+    owner: root
+    group: wheel
+    mode: 0644
+    
+- name: Copy server key to {{ jail_name }}
+  copy:
+    src: "ssl/priv/{{ jail_name }}.{{ web_domain }}.key"
+    dest: "/var/www/jails/{{ jail_name }}/etc/mail/tls/server.key"
+    owner: root
+    group: smmsp
+    mode: 0640
+
+- name: Copy client certificate to {{ jail_name }}
+  copy:
+    src: "ssl/pub/{{ jail_name }}.{{ web_domain }}.crt"
+    dest: "/var/www/jails/{{ jail_name }}/etc/mail/tls/client.cert"
+    owner: root
+    group: wheel
+    mode: 0644
+    
+- name: Copy client key to {{ jail_name }}
+  copy:
+    src: "ssl/priv/{{ jail_name }}.{{ web_domain }}.key"
+    dest: "/var/www/jails/{{ jail_name }}/etc/mail/tls/client.key"
+    owner: root
+    group: smmsp
+    mode: 0640
+
+- name: Copy sendmail server config to web jail {{ jail_name }}
+  template:
+    src: sendmail.mc
+    dest: "/var/www/jails/{{ jail_name }}/etc/mail/{{ jail_name }}.{{ web_domain }}.mc"
+
+- name: Copy sendmail submit config to web jail {{ jail_name }}
+  template:
+    src: submit.mc
+    dest: "/var/www/jails/{{ jail_name }}/etc/mail/{{ jail_name }}.{{ web_domain }}.submit.mc"
+
+- name: Allow relaying from jail local address in {{ jail_name }}
+  lineinfile:
+    path: "/var/www/jails/{{ jail_name }}/etc/mail/access"
+    create: yes
+    line: "Connect:{{ jail_name }}.local.kruemel.home   RELAY"
+    state: present
+
+- name: Is jail {{ jail_name }} running
+  shell: "jls -j {{ jail_name }}"
+  register: jail_running
+  ignore_errors: true
+
+- name: Start jail {{ jail_name }} temporary
+  shell: "jail -cmr path=/var/www/jails/{{ jail_name }} allow.mount mount.devfs ip6.addr={{ jail_IP }} persist host.hostname={{ jail_name }}.{{ web_domain }} name={{ jail_name }} exec.fib=1 ip4=disable"
+  when: "jail_running.rc == 1"
+
+- name: Rebuild sendmail configuration in {{ jail_name }}
+  shell: "setfib 1 jexec {{ jail_name }} make -C /etc/mail all install"
+
+
+- name: Tear down temporary jail {{ jail_name }}
+  shell: "jail -r {{ jail_name }}"
+  when: "jail_running.rc == 1"
+
+- name: Enable sendmail in {{ jail_name }}
+  lineinfile:
+    path: "/var/www/jails/{{ jail_name }}/etc/rc.conf.d/sendmail"
+    create: yes
+    regexp: ^sendmail
+    line: "sendmail_enable=\"YES\""

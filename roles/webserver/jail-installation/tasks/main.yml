@@ -1,0 +1,56 @@
+---
+
+- name: Prepare jail {{ jail_name }}
+  file:
+    state: directory
+    path: "/var/www/jails/{{ jail_name }}"
+
+- name: Is jail {{ jail_name }} installed
+  stat:
+    path: "/var/www/jails/{{ jail_name }}/etc"
+  register: jail_installed
+
+- name: Install jail {{ jail_name }}
+  when: not jail_installed.stat.exists
+  unarchive:
+    dest: "/var/www/jails/{{ jail_name }}"
+    src: "http://ftp.freebsd.org/pub/FreeBSD/releases/{{web_jail_arch}}/{{web_jail_release}}/base.txz"
+    remote_src: yes
+
+- name: Copy CA to {{ jail_name }}
+  copy:
+    src: ssl/guengel.ch.pem
+    dest: "/var/www/jails/{{ jail_name }}/etc/ssl"
+
+- name: Copy CRL to {{ jail_name }}
+  copy:
+    src: ssl/guengel.ch.crl
+    dest: "/var/www/jails/{{ jail_name }}/etc/ssl"
+
+- name: Copy resolv.conf to {{ jail_name }}
+  template:
+    src: resolv.conf
+    dest: "/var/www/jails/{{ jail_name }}/etc/resolv.conf"
+
+- name: Set timezone on {{ jail_name }}
+  file:
+    state: link
+    force: true
+    src: /usr/share/zoneinfo/Europe/Zurich
+    dest: "/var/www/jails/{{ jail_name }}/etc/localtime"
+
+- name: Setup pkg repo directory in {{ jail_name }}
+  file:
+    state: directory
+    dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/pkg/repos"
+
+- name: Disable standard repository in {{ jail_name }}
+  copy:
+    src: FreeBSD.conf
+    dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/pkg/repos/FreeBSD.conf"
+
+- name: Enable guengel.ch repository in {{ jail_name }}
+  copy:
+    src: guengel.ch.conf
+    dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/pkg/repos/guengel.ch.conf"
+  

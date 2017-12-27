@@ -15,6 +15,8 @@
     - server_status.conf
     - ssi.conf
     - ssl.conf
+    - setenv.conf
+    - mime.conf
   loop_control:
     loop_var: file_item
   notify:

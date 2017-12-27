@@ -71,16 +71,23 @@
       vars:
         name: "sendmail_enable"
         value: "YES"
+        
     - import_role:
         name:  freebsd/rcconf
       vars:
         name: "ipv6_static_routes"
-        value: "dmz6"
+        value: "dmz6 web1"
     - import_role:
         name:  freebsd/rcconf
       vars:
         name: "ipv6_route_dmz6"
         value: "-net fd3e:be3e:ec34:1:: -prefixlen 64 fd3e:be3e:ec34::2"
+    - import_role:
+        name: freebsd/rcconf
+      vars:
+        name: "ipv6_route_web6"
+        value: "-net fd3e:be3e:ec34:2:: -prefixlen 64 fd3e:be3e:ec34::2"
+        
     - import_role:
         name: freebsd/periodic
       vars:

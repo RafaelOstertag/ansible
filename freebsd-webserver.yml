@@ -18,6 +18,15 @@
       tags:
         - jails
 
+    - include_role:
+        name: webserver/jail-syslogd
+      vars:
+        jail_name: "{{ item.name }}"
+      with_items: "{{ web_jails }}"
+      tags:
+        - jails
+        - syslogd
+
     - import_role:
         name: webserver/nginx
       tags:

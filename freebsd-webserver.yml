@@ -7,15 +7,22 @@
   tasks:
     - import_role:
         name: webserver/jailsetup
-
-    - import_role:
-        name: webserver/nginx
-        
+      tags:
+        - jails
+       
     - include_role:
         name: webserver/jail-installation
       vars:
         jail_name: "{{ item.name }}"
       with_items: "{{ web_jails }}"
+      tags:
+        - jails
+
+    - import_role:
+        name: webserver/nginx
+      tags:
+        - nginx
+        - reverse-proxy
 
     - include_role:
         name: webserver/sendmail-setup
@@ -25,9 +32,20 @@
         # This is required when we have to launch temporary jails
         jail_IP: "{{ item.IPv6 }}"
       with_items: "{{ web_jails }}"
+      tags:
+        - sendmail
 
     - include_role:
         name: webserver/apache-installation
+      vars:
+        jail_name: "{{ item.name }}"
+        jail_IP: "{{ item.IPv6 }}"
+      with_items: "{{ web_jails }}"
+      tags:
+        - apache
+
+    - include_role:
+        name: webserver/apache-configuration
       vars:
         jail_name: "{{ item.name }}"
         jail_IP: "{{ item.IPv6 }}"

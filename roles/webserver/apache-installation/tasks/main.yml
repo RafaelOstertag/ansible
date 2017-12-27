@@ -32,6 +32,16 @@
     group: wheel
     mode: 0600
 
+- name: Remove sample cgi scripts in {{ jail_name }}
+  file:
+    dest: "/var/www/jails/{{ jail_name }}/usr/local/www/apache24/cgi-bin/{{ file_item }}"
+    state: absent
+  with_items:
+    - printenv
+    - test-cgi
+  loop_control:
+    loop_var: file_item
+
 - name: Enable apache24 in {{ jail_name }}
   lineinfile:
     path: "/var/www/jails/{{ jail_name }}/etc/rc.conf.d/apache24"

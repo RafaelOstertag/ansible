@@ -7,6 +7,9 @@
   tasks:
     - import_role:
         name: webserver/jailsetup
+
+    - import_role:
+        name: webserver/nginx
         
     - include_role:
         name: webserver/jail-installation

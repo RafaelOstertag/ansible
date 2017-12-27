@@ -1,0 +1,22 @@
+---
+
+- name: Install nginx
+  pkgng:
+    name: nginx
+    state: present
+
+- name: Enable nginx
+  lineinfile:
+    dest: /etc/rc.conf
+    regexp: ^nginx_enable
+    line: nginx_enable="YES"
+    state: present
+
+- name: Copy configuration
+  copy:
+    src: nginx.conf
+    dest: /usr/local/etc/nginx/nginx.conf
+  notify:
+    - Restart nginx
+
+

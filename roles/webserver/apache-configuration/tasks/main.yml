@@ -17,6 +17,7 @@
     - ssl.conf
     - setenv.conf
     - mime.conf
+    - remote_ip.conf
   loop_control:
     loop_var: file_item
   notify:

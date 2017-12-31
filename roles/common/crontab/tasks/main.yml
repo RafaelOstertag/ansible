@@ -1,9 +1,9 @@
 ---
 
-- name: Add autodoc
+- name: Remove autodoc
   cron:
     name: Autodoc
-    state: present
+    state: absent
     job: /usr/local/bin/autodoc
     day: "*"
     minute: 0

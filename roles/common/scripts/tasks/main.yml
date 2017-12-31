@@ -1,11 +1,9 @@
 ---
 
-- name: Copy scripts
-  copy:
-    src: "{{ item }}"
-    dest: /usr/local/bin
-    mode: 0755
-    owner: root
+- name: Remove Autodoc scripts
+  file:
+    dest: "/usr/local/bin/{{ item }}"
+    state: absent
   with_items:
     - autodoc
     - autodoc_import

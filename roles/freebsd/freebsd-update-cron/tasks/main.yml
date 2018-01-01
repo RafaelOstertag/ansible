@@ -4,7 +4,7 @@
   cron:
     name: FreeBSD update
     state: present
-    job: "/usr/sbin/freebsd-update cron -t"
+    job: "/usr/sbin/freebsd-update cron -t root >/dev/null"
     weekday: "*"
     day: "*"
     minute: "05"

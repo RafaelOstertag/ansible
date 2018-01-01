@@ -1,4 +1,4 @@
 ---
 
-- name: Install root's .netrc
-  copy: src=dot.netrc dest=/root/.netrc mode=0600
+- name: Delete root's .netrc
+  file: dest=/root/.netrc state=absent

@@ -2,7 +2,7 @@
 
 - name: Install nagios nrpe
   pkgng:
-    name: nrpe
+    name: nrpe3
     state: present
 
 - name: Copy nrpe.cfg

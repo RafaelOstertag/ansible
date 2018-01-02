@@ -2,5 +2,5 @@
 
 - name: FreeBSD restart nrpe
   service:
-    name: nrpe2
+    name: nrpe3
     state: restarted

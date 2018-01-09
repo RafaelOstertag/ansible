@@ -19,4 +19,8 @@
   notify:
     - Restart nginx
 
+- name: Configure newsyslog
+  copy:
+    src: nginx-newsyslog.conf
+    dest: /usr/local/etc/newsyslog.conf.d/nginx.conf
 

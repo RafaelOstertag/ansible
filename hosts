@@ -49,3 +49,12 @@ kube04
 kube03
 kube02
 kube01
+
+;
+; Jenkins Slaves
+;
+[jenkins-slaves]
+dash.virtual.kruemel.home
+merlin.virtual.kruemel.home
+odin.kruemel.home
+abraxas.virtual.kruemel.home

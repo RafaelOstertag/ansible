@@ -1,0 +1,26 @@
+---
+
+- name: Jenkins Slaves
+  hosts: jenkins-slaves
+  user: root
+  tasks:
+    - name: Create slave user
+      user:
+        comment: Jenkins Slave User
+        createhome: yes
+        generate_ssh_key: yes
+        name: jenkins
+        state: present
+        system: no
+        home: /var/cache/jenkins-slave
+
+    - name: Slurp user ssh public key
+      slurp:
+        src: /var/cache/jenkins-slave/.ssh/id_rsa.pub
+      register: ssh_pub
+    - name: Enable ssh login with key
+      authorized_key:
+        manage_dir: yes
+        user: jenkins
+        state: present
+        key: "{{ ssh_pub['content'] | b64decode }}"

@@ -103,13 +103,7 @@ munin:			root
 
 anic.ostertag:		anic
 guengel:		rafi
-guengel2:		rafi
-guengel3:		rafi
-guengel4:		rafi
-guengel5:		rafi
-guengel6:		rafi
-guengel7:		rafi
-rafisol:		rafi
+
 kiwi:			anic
 mogwai:			anic
 rafael.ostertag:	rafi
@@ -117,3 +111,5 @@ rafinb:			rafi
 rafilx:			rafi
 rafisolx:		rafi
 yapet:			rafi
+# This is the account used by github to access bugzilla
+github:	      	      	rafi

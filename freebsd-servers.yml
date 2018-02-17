@@ -420,3 +420,7 @@
     - import_role:
         name: freebsd/zfs-scrub
       when: "enable_zfs_scrub"
+    - import_role:
+        name: common/agentsmith-certificate
+      tags:
+        - agentsmith

@@ -1,0 +1,31 @@
+---
+
+- name: Create ssl directory
+  when: 'agentsmith_cert'
+  file:
+    path: /etc/agentsmith/ssl
+    mode: 0700
+    owner: root
+    group: wheel
+    state: directory
+  notify:
+    - Restart agentsmith
+      
+
+- name: Copy agentmsith certificate
+  when: 'agentsmith_cert'
+  copy:
+    src: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: "/etc/agentsmith/ssl/{{ ansible_fqdn }}.crt"
+    mode: 0600
+  notify:
+    - Restart agentsmith
+
+- name: Copy agentmsith key
+  when: 'agentsmith_cert'
+  copy:
+    src: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: "/etc/agentsmith/ssl/{{ ansible_fqdn }}.key"
+    mode: 0600
+  notify:
+    - Restart agentsmith

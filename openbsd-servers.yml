@@ -28,3 +28,4 @@
     - openbsd/mailserver
     - openbsd/doas
     - openbsd/disable-sndio
+    - common/agentsmith-certificate

@@ -54,3 +54,13 @@
     src: guengel.ch.conf
     dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/pkg/repos/guengel.ch.conf"
   
+- name: Add freebsd-update cronjob for {{ jail_name }}
+  cron:
+    name: "FreeBSD update {{ jail_name }}"
+    state: present
+    job: "/usr/sbin/freebsd-update -b /var/www/jails/{{ jail_name }} cron -t root >/dev/null"
+    weekday: "*"
+    day: "*"
+    minute: "06"
+    hour: "22"
+    month: "*"

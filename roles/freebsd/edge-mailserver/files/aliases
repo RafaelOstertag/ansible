@@ -113,3 +113,5 @@ rafisolx:		rafi
 yapet:			rafi
 # This is the account used by github to access bugzilla
 github:	      	      	rafi
+# Burn emails
+burn1			rafi

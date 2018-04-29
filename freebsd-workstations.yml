@@ -29,229 +29,229 @@
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "clear_tmp_enable"
+        rcvar: "clear_tmp_enable"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "accounting_enable"
+        rcvar: "accounting_enable"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "sshd_enable"
+        rcvar: "sshd_enable"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "gssd_enable"
+        rcvar: "gssd_enable"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "gssd_flags"
+        rcvar: "gssd_flags"
         value: "-h"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ip6addrctl_enable"
+        rcvar: "ip6addrctl_enable"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "syslogd_flags"
+        rcvar: "syslogd_flags"
         value: "-ss"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "tcp_extensions"
+        rcvar: "tcp_extensions"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "sendmail_enable"
+        rcvar: "sendmail_enable"
         value: "YES"
         
     - import_role:
         name:  freebsd/rcconf
       vars:
-        name: "ipv6_static_routes"
+        rcvar: "ipv6_static_routes"
         value: "dmz6 web1"
     - import_role:
         name:  freebsd/rcconf
       vars:
-        name: "ipv6_route_dmz6"
+        rcvar: "ipv6_route_dmz6"
         value: "-net fd3e:be3e:ec34:1:: -prefixlen 64 fd3e:be3e:ec34::2"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_web6"
+        rcvar: "ipv6_route_web6"
         value: "-net fd3e:be3e:ec34:2:: -prefixlen 64 fd3e:be3e:ec34::2"
         
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_disks_enable"
+        varname: "daily_status_disks_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_disks_df_flags"
+        varname: "daily_status_disks_df_flags"
         value: "-h"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_mailq_enable"
+        varname: "daily_status_mailq_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_ntpd_enable"
+        varname: "daily_status_ntpd_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "weekly_noid_enable"
+        varname: "weekly_noid_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_accounting_enable"
+        varname: "daily_accounting_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "monthly_accounting_enable"
+        varname: "monthly_accounting_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_security_portaudit_enable"
+        varname: "daily_status_security_portaudit_enable"
         value: "NO"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_pkgaudit_enable"
+        varname: "security_status_pkgaudit_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_pkgaudit_period"
+        varname: "security_status_pkgaudit_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_include_submit_mailq"
+        varname: "daily_status_include_submit_mailq"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkmounts_enable"
+        varname: "security_status_chkmounts_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkmounts_period"
+        varname: "security_status_chkmounts_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkuid0_enable"
+        varname: "security_status_chkuid0_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkuid0_period"
+        varname: "security_status_chkuid0_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_logincheck_enable"
+        varname: "security_status_logincheck_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_logincheck_period"
+        varname: "security_status_logincheck_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_kernelmsg_enable"
+        varname: "security_status_kernelmsg_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_kernelmsg_period"
+        varname: "security_status_kernelmsg_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_loginfail_enable"
+        varname: "security_status_loginfail_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_loginfail_period"
+        varname: "security_status_loginfail_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_tcpwrap_enable"
+        varname: "security_status_tcpwrap_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_tcpwrap_period"
+        varname: "security_status_tcpwrap_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkportsum_enable"
+        varname: "security_status_chkportsum_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkportsum_period"
+        varname: "security_status_chkportsum_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_neggrpperm_enable"
+        varname: "security_status_neggrpperm_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_neggrpperm_period"
+        varname: "security_status_neggrpperm_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_passwdless_enable"
+        varname: "security_status_passwdless_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_passwdless_period"
+        varname: "security_status_passwdless_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_network_enable"
+        varname: "daily_status_network_enable"
         value: "YES"
     - import_role:
         name: freebsd/sysctl
       vars:
-        name: "security.bsd.see_other_uids"
+        varname: "security.bsd.see_other_uids"
         value: "1"
     - import_role:
         name: freebsd/sysctl
       vars:
-        name: "kern.randompid"
+        varname: "kern.randompid"
         value: "100"
     - import_role:
         name: freebsd/sysctl
       vars:
-        name: "vfs.usermount"
+        varname: "vfs.usermount"
         value: "1"
     - import_role:
         name: freebsd/amanda-enable

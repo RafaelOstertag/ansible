@@ -32,111 +32,111 @@
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_static_routes"
+        rcvar: "ipv6_static_routes"
         value: "dmz6 web6"
       when: "'freebsd-servers-dmz' not in group_names"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_dmz6"
+        rcvar: "ipv6_route_dmz6"
         value: "-net fd3e:be3e:ec34:1:: -prefixlen 64 fd3e:be3e:ec34::2"
       when: "'freebsd-servers-dmz' not in group_names"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_web6"
+        rcvar: "ipv6_route_web6"
         value: "-net fd3e:be3e:ec34:2:: -prefixlen 64 fd3e:be3e:ec34::2"
       when: "'freebsd-servers-dmz' not in group_names"
       
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_static_routes"
+        rcvar: "ipv6_static_routes"
         value: "lan6"
       when: "'freebsd-servers-dmz' in group_names and not jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lan6"
+        rcvar: "ipv6_route_lan6"
         value: "-net fd3e:be3e:ec34:0:: -prefixlen 64 fd3e:be3e:ec34:1::1"
       when: "'freebsd-servers-dmz' in group_names and not jail_webserver"
   
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_static_routes"
+        rcvar: "ipv6_static_routes"
         value: "lan6 web1 lo2 lo3 lo4 lo5 lo6 lo7 lo8 lo9 lo10 lo11"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lan6"
+        rcvar: "ipv6_route_lan6"
         value: "-net fd3e:be3e:ec34:0:: -prefixlen 64 fd3e:be3e:ec34:1::1 -fib 0"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_web1"
+        rcvar: "ipv6_route_web1"
         value: "-net fd3e:be3e:ec34:0:: -prefixlen 64 fd3e:be3e:ec34:2::1 -fib 1"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lo2"
+        rcvar: "ipv6_route_lo2"
         value: "-host fd3e:be3e:ec34:ffff::2 -prefixlen 128 fd3e:be3e:ec34:ffff::2 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lo3"
+        rcvar: "ipv6_route_lo3"
         value: "-host fd3e:be3e:ec34:ffff::3 -prefixlen 128 fd3e:be3e:ec34:ffff::3 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lo4"
+        rcvar: "ipv6_route_lo4"
         value: "-host fd3e:be3e:ec34:ffff::4 -prefixlen 128 fd3e:be3e:ec34:ffff::4 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lo5"
+        rcvar: "ipv6_route_lo5"
         value: "-host fd3e:be3e:ec34:ffff::5 -prefixlen 128 fd3e:be3e:ec34:ffff::5 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lo6"
+        rcvar: "ipv6_route_lo6"
         value: "-host fd3e:be3e:ec34:ffff::6 -prefixlen 128 fd3e:be3e:ec34:ffff::6 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lo7"
+        rcvar: "ipv6_route_lo7"
         value: "-host fd3e:be3e:ec34:ffff::7 -prefixlen 128 fd3e:be3e:ec34:ffff::7 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lo8"
+        rcvar: "ipv6_route_lo8"
         value: "-host fd3e:be3e:ec34:ffff::8 -prefixlen 128 fd3e:be3e:ec34:ffff::8 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lo9"
+        rcvar: "ipv6_route_lo9"
         value: "-host fd3e:be3e:ec34:ffff::9 -prefixlen 128 fd3e:be3e:ec34:ffff::9 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lo10"
+        rcvar: "ipv6_route_lo10"
         value: "-host fd3e:be3e:ec34:ffff::10 -prefixlen 128 fd3e:be3e:ec34:ffff::10 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ipv6_route_lo11"
+        rcvar: "ipv6_route_lo11"
         value: "-host fd3e:be3e:ec34:ffff::11 -prefixlen 128 fd3e:be3e:ec34:ffff::11 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
 
@@ -144,13 +144,13 @@
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "snmpd_enable"
+        rcvar: "snmpd_enable"
         value: "NO"
         
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "nrpe3_enable"
+        rcvar: "nrpe3_enable"
         value: "YES"
     - name: Remove old nrpe2_enable
       lineinfile:
@@ -160,216 +160,216 @@
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "clear_tmp_enable"
+        rcvar: "clear_tmp_enable"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "accounting_enable"
+        rcvar: "accounting_enable"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "sshd_enable"
+        rcvar: "sshd_enable"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "gssd_enable"
+        rcvar: "gssd_enable"
         value: "NO"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "gssd_flags"
+        rcvar: "gssd_flags"
         value: "-h"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "ip6addrctl_enable"
+        rcvar: "ip6addrctl_enable"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "syslogd_flags"
+        rcvar: "syslogd_flags"
         value: "-ss"
       # the jail server requires remote logging
       when: 'not jail_webserver'
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "tcp_extensions"
+        rcvar: "tcp_extensions"
         value: "YES"
     - import_role:
         name: freebsd/rcconf
       vars:
-        name: "sendmail_enable"
+        rcvar: "sendmail_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_disks_enable"
+        varname: "daily_status_disks_enable"
         value: "YES"
       when: "not jail"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_disks_df_flags"
+        varname: "daily_status_disks_df_flags"
         value: "-h"
       when: "not jail"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_mailq_enable"
+        varname: "daily_status_mailq_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_ntpd_enable"
+        varname: "daily_status_ntpd_enable"
         value: "YES"
       when: "not jail"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "weekly_noid_enable"
+        varname: "weekly_noid_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_accounting_enable"
+        varname: "daily_accounting_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "monthly_accounting_enable"
+        varname: "monthly_accounting_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_security_portaudit_enable"
+        varname: "daily_status_security_portaudit_enable"
         value: "NO"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_pkgaudit_enable"
+        varname: "security_status_pkgaudit_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_pkgaudit_period"
+        varname: "security_status_pkgaudit_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_include_submit_mailq"
+        varname: "daily_status_include_submit_mailq"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkmounts_enable"
+        varname: "security_status_chkmounts_enable"
         value: "YES"
       when: "not jail"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkmounts_period"
+        varname: "security_status_chkmounts_period"
         value: "daily"
       when: "not jail"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkuid0_enable"
+        varname: "security_status_chkuid0_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkuid0_period"
+        varname: "security_status_chkuid0_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_logincheck_enable"
+        varname: "security_status_logincheck_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_logincheck_period"
+        varname: "security_status_logincheck_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_kernelmsg_enable"
+        varname: "security_status_kernelmsg_enable"
         value: "YES"
       when: "not jail"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_kernelmsg_period"
+        varname: "security_status_kernelmsg_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_loginfail_enable"
+        varname: "security_status_loginfail_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_loginfail_period"
+        varname: "security_status_loginfail_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_tcpwrap_enable"
+        varname: "security_status_tcpwrap_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_tcpwrap_period"
+        varname: "security_status_tcpwrap_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkportsum_enable"
+        varname: "security_status_chkportsum_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_chkportsum_period"
+        varname: "security_status_chkportsum_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_neggrpperm_enable"
+        varname: "security_status_neggrpperm_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_neggrpperm_period"
+        varname: "security_status_neggrpperm_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_passwdless_enable"
+        varname: "security_status_passwdless_enable"
         value: "YES"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "security_status_passwdless_period"
+        varname: "security_status_passwdless_period"
         value: "daily"
     - import_role:
         name: freebsd/periodic
       vars:
-        name: "daily_status_network_enable"
+        varname: "daily_status_network_enable"
         value: "YES"
     - import_role:
         name: freebsd/sysctl
       vars:
-        name: "security.bsd.see_other_uids"
+        varname: "security.bsd.see_other_uids"
         value: "0"
       when: "not jail"
     - import_role:
         name: freebsd/sysctl
       vars:
-        name: "kern.randompid"
+        varname: "kern.randompid"
         value: "100"
       when: "not jail"
     - import_role:

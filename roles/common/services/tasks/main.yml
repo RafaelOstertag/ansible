@@ -1,8 +1,8 @@
-- name: Add {{ name }}/{{ prot }} to /etc/services
+- name: Add {{ svcname }}/{{ prot }} to /etc/services
   lineinfile:
     path: /etc/services
-    regexp: "^{{ name }}\\s+\\d+/{{ prot }}.*"
-    line: "{{name}}     {{ prt }}/{{ prot }}"
+    regexp: "^{{ svcname }}\\s+\\d+/{{ prot }}.*"
+    line: "{{svcname}}     {{ prt }}/{{ prot }}"
     state: present
   notify:
     - FreeBSD rebuild services db

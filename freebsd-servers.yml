@@ -376,10 +376,16 @@
         name: freebsd/aide
     - import_role:
         name: freebsd/amanda-enable
+      tags:
+        - amanda
     - import_role:
         name: common/amanda-client
+      tags:
+        - amanda
     - import_role:
         name: freebsd/amanda-hosts
+      tags:
+        - amanda
     - import_role:
         name: common/crontab
     - import_role:

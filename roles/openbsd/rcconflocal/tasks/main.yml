@@ -1,9 +1,9 @@
 ---
 
-- name: Set {{ name }} rc.conf.local variable
+- name: Set {{ rcvar }} rc.conf.local variable
   lineinfile:
     path: /etc/rc.conf.local
     create: true
-    regexp: "^{{ name }}="
-    line: "{{ name }}=\"{{ value }}\""
+    regexp: "^{{ rcvar }}="
+    line: "{{ rcvar }}=\"{{ value }}\""
 

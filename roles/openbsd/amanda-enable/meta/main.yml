@@ -1,7 +1,7 @@
 ---
 
 dependencies:
-  - { role: openbsd/rcconflocal, name: "inetd_flags", value: "" }
+  - { role: openbsd/rcconflocal, rcvar: "inetd_flags", value: "" }
   - { role: common/services, svcname: "amanda", prt: "10080", prot: "tcp" }
   - { role: common/services, svcname: "amanda", prt: "10080", prot: "udp" }
   - { role: common/services, svcname: "amandaidx", prt: "10082", prot:    "tcp" }

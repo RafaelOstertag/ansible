@@ -1,6 +1,6 @@
 ---
 
 dependencies:
-  - { role: openbsd/rcconflocal, name: "smtpd_flags", value: "" }
-  - { role: openbsd/rcconflocal, name: "sendmail_flags", value: "NO" }
+  - { role: openbsd/rcconflocal, rcvar: "smtpd_flags", value: "" }
+  - { role: openbsd/rcconflocal, rcvar: "sendmail_flags", value: "NO" }
   - { role: openbsd/ssl-mailserver }

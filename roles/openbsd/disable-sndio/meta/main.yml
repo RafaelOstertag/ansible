@@ -1,4 +1,4 @@
 ---
 
 dependencies:
-  - { role: openbsd/rcconflocal, name: "sndiod_flags", value: "NO" }
+  - { role: openbsd/rcconflocal, rcvar: "sndiod_flags", value: "NO" }

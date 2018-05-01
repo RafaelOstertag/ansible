@@ -1,4 +1,4 @@
 ---
 
 dependencies:
-  - { role: openbsd/rcconflocal, name: "ntpd_flags", value: "-s" }
+  - { role: openbsd/rcconflocal, rcvar: "ntpd_flags", value: "-s" }

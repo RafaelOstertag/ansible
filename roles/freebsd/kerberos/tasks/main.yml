@@ -14,6 +14,7 @@
     dest: /etc/krb5.keytab
     mode: 0600
     owner: root
+    decrypt: true
 
 - name: Root login kerberos
   copy:

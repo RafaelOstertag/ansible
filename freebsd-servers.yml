@@ -390,8 +390,8 @@
         name: common/crontab
     - import_role:
         name: freebsd/kerberos
-	tags:
-          - kerberos
+      tags:
+        - kerberos
     - import_role:
         name: freebsd/openldap-server-schemas
     - import_role:

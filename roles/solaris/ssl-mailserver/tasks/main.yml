@@ -29,6 +29,7 @@
     owner: root
     group: smmsp
     mode: 0640
+    decrypt: true
   notify:
     - Solaris restart smtp
     - Solaris restart sendmail-client

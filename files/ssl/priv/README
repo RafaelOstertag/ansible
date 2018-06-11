@@ -1,1 +1,1 @@
-Host keys are not kept in the svn repository
+Add private keys encrypted with ansible-vault.

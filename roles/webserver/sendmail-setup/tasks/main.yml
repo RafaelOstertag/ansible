@@ -24,6 +24,7 @@
     owner: root
     group: smmsp
     mode: 0640
+    decrypt: true
 
 - name: Copy client certificate to {{ jail_name }}
   copy:
@@ -40,6 +41,7 @@
     owner: root
     group: smmsp
     mode: 0640
+    decrypt: true
 
 - name: Copy sendmail server config to web jail {{ jail_name }}
   template:

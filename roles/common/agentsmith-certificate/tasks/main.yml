@@ -27,5 +27,6 @@
     src: "ssl/priv/{{ ansible_fqdn }}.key"
     dest: "/etc/agentsmith/ssl/{{ ansible_fqdn }}.key"
     mode: 0600
+    decrypt: true
   notify:
     - Restart agentsmith

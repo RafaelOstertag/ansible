@@ -27,5 +27,6 @@
     mode: 0600
     owner: ldap
     group: wheel
+    decrypt: true
   notify:
     - FreeBSD restart slapd

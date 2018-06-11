@@ -25,6 +25,7 @@
     owner: root
     group: wheel
     mode: 0640
+    decrypt: true
   notify:
     - OpenBSD restart smtpd
 

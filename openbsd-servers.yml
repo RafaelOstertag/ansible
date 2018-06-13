@@ -6,7 +6,9 @@
   user: root
   roles:
     - common/scripts
-    - common/ssh-keys
+    - name: common/ssh-keys
+      tags:
+        - ssh-keys
     - common/dotnetrc
     - common/etcfiles
     - common/motd

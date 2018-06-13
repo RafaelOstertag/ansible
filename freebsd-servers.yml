@@ -415,6 +415,8 @@
         name: common/scripts
     - import_role:
         name: common/ssh-keys
+      tags:
+        ssh-keys
     - import_role:
         name: freebsd/root-ssh-config
     - import_role:

@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# Check if FreeBSD gmirror has issues
+#
+# $Id$
+if [ -f /usr/local/libexec/nagios/utils.sh ]
+then
+	. /usr/local/libexec/nagios/utils.sh
+elif [ -f /opt/csw/libexec/nagios-plugins/utils.sh ]
+then
+	. /opt/csw/libexec/nagios-plugins/utils.sh
+else
+	echo "utils.sh not found"
+	exit 3
+fi
+ECHO=echo
+
+issues=`/sbin/gmirror status | awk '/^[^[:space:]+]/ && NR > 1 && NF = 3 && $2 != "COMPLETE" { print $2 ":" $1 }'`
+if [ $? -ne 0 ]
+then
+    ${ECHO} "Error condition"
+    exit ${STATE_UNKNOWN}
+fi
+
+if [ -n "${issues}" ]
+then
+    ${ECHO} "${issues}"
+    exit ${STATE_CRITICAL}
+fi
+
+${ECHO} "OK"
+exit ${STATE_OK}

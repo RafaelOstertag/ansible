@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+#
+# $Id$
+
+import sys
+from datetime import datetime, timedelta, time
+import subprocess
+import getopt
+
+def help():
+    print """
+
+  check_crl [-h] -f <crl> -w <days> -c <days>
+
+    """
+
+def check_crl(filename, warning, critical):
+    output = subprocess.Popen(["openssl", "crl", "-noout", "-nextupdate", "-in", filename], stdout=subprocess.PIPE).communicate()[0]
+    assert output != None, "output empty"
+    nextupdate = datetime.strptime(output.strip("\n").split("=")[1], "%b %d %H:%M:%S %Y %Z")
+    daysremain = nextupdate - datetime.now()
+    if daysremain < timedelta(days=critical):
+        print "CRITICAL: CRL %s expires in %s" % (filename, daysremain)
+        sys.exit(2)
+    elif daysremain < timedelta(days=warning):
+        print "WARNING: CRL %s expires in %s" % (filename, daysremain)
+        sys.exit(1)
+
+    print "OK: CRL %s expires in %s" % (filename, daysremain)
+    sys.exit(0)
+
+def main():
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "f:w:c:h")
+    except getopt.GetoptError, err:
+        # print help information and exit:
+        print str(err) # will print something like "option -a not recognized"
+        usage()
+        sys.exit(2)
+    warning = 0
+    critical = 0
+    crlfile = ""
+    for o, a in opts:
+        if o == "-h":
+            help()
+            sys.exit(0)
+        elif o == "-f":
+            crlfile = a
+        elif o == "-w":
+            warning = int(a)
+        elif o == "-c":
+            critical = int(a)
+        else:
+            assert False, "unhandled option"
+
+    if warning < critical:
+        print "warning is smaller than critical"
+        sys.exit(3)
+
+    check_crl(crlfile, warning, critical)
+
+if __name__ == "__main__":
+    main()

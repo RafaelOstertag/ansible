@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# Check if FreeBSD pkg audit shows issues.
+#
+# $Id$
+
+if [ -f /usr/local/libexec/nagios/utils.sh ]
+then
+	. /usr/local/libexec/nagios/utils.sh
+elif [ -f /opt/csw/libexec/nagios-plugins/utils.sh ]
+then
+	. /opt/csw/libexec/nagios-plugins/utils.sh
+else
+	echo "utils.sh not found"
+	exit 3
+fi
+
+
+if [ ! -x /usr/local/sbin/pkg ]
+then
+	echo "pkg not found"
+	exit 3
+fi
+
+/usr/local/sbin/pkg audit | grep '^0 problem' > /dev/null 2>&1
+if [ $? -ne 0 ]
+then
+	echo "Security problems in packages"
+	exit ${STATE_WARNING}
+fi
+
+echo "OK"
+exit ${STATE_OK}

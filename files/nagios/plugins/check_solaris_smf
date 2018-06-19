@@ -1,0 +1,373 @@
+#!/bin/sh
+#
+# Nagios plugin to check Solaris 10 SMF service status.
+#
+# $Id$
+#
+# Copyright (C) 2008  Hannu Kivimäki / CSC - Scientific Computing Ltd.
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+
+# ------------------------------ SETTINGS --------------------------------------
+
+# External commands
+CMD_AWK="/usr/bin/awk"
+CMD_SVCS="/usr/bin/svcs"
+
+# Nagios plugin return values
+STATE_OK=0
+STATE_WARNING=1
+STATE_CRITICAL=2
+STATE_UNKNOWN=3
+STATE_TEXT=""
+STATE_TEXT_FAULTY=""
+
+# Default values
+FMRI_COUNT=0
+FAULTY_FMRI_COUNT=0
+WARN_ALL=""
+CRIT_ALL=""
+WARNING=0
+CRITICAL=0
+ERRORS_ONLY=0
+VERBOSE=0
+
+# Constants for helping with options -owc and default return values.
+# These can be summed to figure out which options were given.
+#
+CONST_BIT_O=1
+CONST_BIT_W=2
+CONST_BIT_C=4
+
+
+# ------------------------------ FUNCTIONS -------------------------------------
+
+printInfo() {
+    echo "Nagios plugin to check Solaris 10 SMF service status."
+    echo "Copyright (C) 2008  Hannu Kivimäki / CSC - Scientific Computing Ltd."
+}
+
+printHelp() {
+    echo
+    echo "Usage: `basename $0` [-e] -f <fmri> [-o <states>] [-w <states>] [-c <states>] [-f <fmri2>...]"
+    echo "       `basename $0` [-w <states>] [-c <states>]"
+    echo
+    echo "  -e  errors only - if something is wrong, show just errorneous FMRIs, not all"
+    echo "  -f  FMRI (fault management resource identifier)"
+    echo "  -o  ok service states"
+    echo "  -w  warning service states"
+    echo "  -c  critical service states"
+    echo "  -h  this help screen"
+    echo "  -l  license info"
+    echo "  -v  verbose output (for debugging)"
+    echo "  -V  version info"
+    echo
+    echo "Service states should be given as comma separated list of"
+    echo "DGD|DIS|LRC|MNT|OFF|ON|UN:"
+    echo
+    echo "  DGD = degraded"
+    echo "  DIS = disabled"
+    echo "  LRC = legacy rc*.d"
+    echo "  MNT = maintenance"
+    echo "  OFF = offline"
+    echo "  ON  = online"
+    echo "  UN  = uninitialized"
+    echo
+    echo "See smf(5) man page for more information on service states."
+    echo
+    echo "With FMRIs (-f), if the current SMF service state does not match"
+    echo "any of the states given in command line (-owc), the plugin default"
+    echo "return value for that service is determined as follows:"
+    echo
+    echo "  options   default"
+    echo "  -------   --------"
+    echo "  <none>    OK"
+    echo "   -o       WARNING"
+    echo "   -ow      CRITICAL"
+    echo "   -oc      WARNING"
+    echo "   -owc     UNKNOWN (confusing situation for plugin)"
+    echo "   -w       OK"
+    echo "   -c       OK"
+    echo "   -wc      OK"
+    echo
+    echo "If multiple FMRIs are specified, plugin will use the most"
+    echo "severe return value (e.g. one service OK and other CRITICAL"
+    echo "will result in CRITICAL)."
+    echo
+    echo "If an FMRI does not match any service, plugin will return UNKNOWN."
+    echo
+    echo "If no FMRIs are given, all SMF services are compared against"
+    echo "warning and/or critical states (-wc)."
+    echo
+    echo "Examples:"
+    echo
+    echo "`basename $0` -f svc:/network/http:apache2 -o ON -w DIS"
+    echo "  Will return OK if Apache2 is online, WARNING if service is"
+    echo "  in disabled state, defaults to CRITICAL."
+    echo
+    echo "`basename $0` -f svc:/network/http:apache2 -c DGD,MNT,OFF"
+    echo "  Will return CRITICAL if Apache2 is in degraded, maintenance"
+    echo "  or offline state, defaults to OK."
+    echo
+    echo "`basename $0` -w MNT -c DGD,OFF"
+    echo "  Will return CRITICAL if any services are in degraded or offline"
+    echo "  state, WARNING if any services are in maintenance state,"
+    echo "  defaults to OK."
+    echo
+
+}
+
+printLicense() {
+    echo
+    echo "This program is free software; you can redistribute it and/or"
+    echo "modify it under the terms of the GNU General Public License"
+    echo "as published by the Free Software Foundation; either version 2"
+    echo "of the License, or (at your option) any later version."
+    echo
+    echo "This program is distributed in the hope that it will be useful,"
+    echo "but WITHOUT ANY WARRANTY; without even the implied warranty of"
+    echo "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the"
+    echo "GNU General Public License for more details."
+    echo
+    echo "You should have received a copy of the GNU General Public License"
+    echo "along with this program; if not, write to the Free Software"
+    echo "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA."
+    echo
+}
+
+printVersion() {
+    echo
+    echo "\$Id$"
+    echo
+}
+
+# Checks command line options (pass $@ as parameter).
+# FMRIs and their service states are stored in
+#
+#   FMRI_[1..n]   = FMRI itself
+#   OK_[1..n]     = OK service states for FMRI_[1..n]
+#   WARN_[1..n]   = WARNING service states for FMRI_[1..n]
+#   CRIT_[1..n]   = CRITICAL service states for FMRI_[1..n]
+#   BITSUM_[1..n] = Sum telling which ones of options -owc were defined
+#                   for service FMRI_[1..n]
+#
+checkOptions() {
+    if [ $# -eq 0 ]; then
+        printInfo
+        printHelp
+        exit $STATE_UNKNOWN
+    fi
+
+    while getopts ef:o:w:c:lhvV OPT $@; do
+            case $OPT in
+                e) ERRORS_ONLY=1
+                   ;;
+                f) FMRI_COUNT=`expr $FMRI_COUNT + 1`
+                   eval FMRI_${FMRI_COUNT}=$OPTARG
+                   eval BITSUM_${FMRI_COUNT}=0
+                   ;;
+                o) # OK states
+                   opt_states=`echo $OPTARG | tr '[:lower:]' '[:upper:]' | tr ',' ' '`
+                   validateStates "$opt_states"
+                   eval OK_${FMRI_COUNT}=\"$opt_states\"
+                   eval temp_sum=\$BITSUM_${FMRI_COUNT}
+                   eval BITSUM_${FMRI_COUNT}=`expr $temp_sum + $CONST_BIT_O`
+                   ;;
+                w) # WARNING states
+                   opt_states=`echo $OPTARG | tr '[:lower:]' '[:upper:]' | tr ',' ' '`
+                   validateStates "$opt_states"
+                   if [ $FMRI_COUNT -gt 0 ]; then
+                       eval WARN_${FMRI_COUNT}=\"$opt_states\"
+                       eval temp_sum=\$BITSUM_${FMRI_COUNT}
+                       eval BITSUM_${FMRI_COUNT}=`expr $temp_sum + $CONST_BIT_W`
+                   else
+                       WARN_ALL="$opt_states"
+                   fi
+                   ;;
+                c) # CRITICAL states
+                   opt_states=`echo $OPTARG | tr '[:lower:]' '[:upper:]' | tr ',' ' '`
+                   validateStates "$opt_states"
+                   if [ $FMRI_COUNT -gt 0 ]; then
+                       eval CRIT_${FMRI_COUNT}=\"$opt_states\"
+                       eval temp_sum=\$BITSUM_${FMRI_COUNT}
+                       eval BITSUM_${FMRI_COUNT}=`expr $temp_sum + $CONST_BIT_C`
+                   else
+                       CRIT_ALL="$opt_states"
+                   fi
+                   ;;
+                l) printInfo
+                   printLicense
+                   exit $STATE_UNKNOWN
+                   ;;
+                h) printInfo
+                   printHelp
+                   exit $STATE_UNKNOWN
+                   ;;
+                v) VERBOSE=1
+                   ;;
+                V) printInfo
+                   printVersion
+                   exit $STATE_UNKNOWN
+                   ;;
+                ?) printInfo
+                   printHelp
+                   exit $STATE_UNKNOWN
+                   ;;
+            esac
+    done
+}
+
+# Validates service state abbreviations. Pass $OPTARG from checkOptions().
+#
+validateStates() {
+    for state in $*; do
+        case $state in
+            DGD|DIS|LRC|MNT|OFF|ON|UN) ;;
+            *) echo "Error: invalid service state $state."
+               echo "Valid states are: DGD|DIS|LRC|MNT|OFF|ON|UN"
+               exit $STATE_UNKNOWN
+               ;;
+        esac
+    done
+}
+
+
+# ----------------------------- MAIN PROGRAM -----------------------------------
+
+checkOptions $@
+
+if [ $FMRI_COUNT -gt 0 ]; then
+    # At least one FMRI was specified with -f. Loop through services
+    # and check states.
+    #
+    i=1
+    while [ $i -le $FMRI_COUNT ]; do
+        eval FMRI=\$FMRI_$i
+        eval OK=\$OK_$i
+        eval WARN=\$WARN_$i
+        eval CRIT=\$CRIT_$i
+        eval BITSUM=\$BITSUM_$i
+        FMRI_FAULTY=0
+
+        if [ $VERBOSE -eq 1 ]; then
+            echo "Executing $CMD_SVCS -Ho STA $FMRI..."
+        fi
+        current_state=`$CMD_SVCS -Ho STA $FMRI 2>/dev/null`
+        if [ $? -ne 0 ]; then
+            echo "SMF SVCS UNKNOWN - FMRI $FMRI does not match any service instance."
+            exit $STATE_UNKNOWN
+        fi
+
+        # Check if current state matches one of the states given in options.
+        #
+        if [ "`echo \"$OK\" | grep $current_state`" = "" ]; then
+            if [ "`echo \"$WARN\" | grep $current_state`" != "" ]; then
+                WARNING=1
+                FMRI_FAULTY=1
+
+            elif [ "`echo \"$CRIT\" | grep $current_state`" != "" ]; then
+                CRITICAL=1
+                FMRI_FAULTY=1
+
+            else
+                # No match, determine the default value (see also printHelp()).
+                #
+                case $BITSUM in
+                    1) # -o,   $CONST_BIT_O
+                       WARNING=1
+                       FMRI_FAULTY=1
+                       ;;
+                    2) # -w,   $CONST_BIT_W
+                       # OK
+                       ;;
+                    3) # -ow,  $CONST_BIT_O + $CONST_BIT_W
+                       CRITICAL=1
+                       FMRI_FAULTY=1
+                       ;;
+                    4) # -c,   $CONST_BIT_C
+                       # OK
+                       ;;
+                    5) # -oc,  $CONST_BIT_0 + $CONST_BIT_C
+                       WARNING=1
+                       FMRI_FAULTY=1
+                       ;;
+                    6) # -wc,  $CONST_BIT_W + $CONST_BIT_C
+                       # OK
+                       ;;
+                    7) # -owc, $CONST_BIT_O + $CONST_BIT_W + $CONST_BIT_C
+                       echo "SMF SVCS UNKNOWN - check plugin state options for FMRI $FMRI"
+                       exit $STATE_UNKNOWN
+                       ;;
+                esac
+            fi
+        fi
+
+        STATE_TEXT="${STATE_TEXT}$FMRI $current_state"
+        if [ $i -lt $FMRI_COUNT ]; then
+            STATE_TEXT="$STATE_TEXT; "
+        fi
+
+        if [ $FMRI_FAULTY -eq 1 ]; then
+            FAULTY_FMRI_COUNT=`expr $FAULTY_FMRI_COUNT + 1`
+            if [ $FAULTY_FMRI_COUNT -gt 1 ]; then
+                STATE_TEXT_FAULTY="$STATE_TEXT_FAULTY; "
+            fi
+            STATE_TEXT_FAULTY="${STATE_TEXT_FAULTY}$FMRI $current_state"
+        fi
+
+        i=`expr $i + 1`
+    done
+
+    if [ $ERRORS_ONLY -eq 1 ] && [ $FAULTY_FMRI_COUNT -gt 0 ]; then
+        STATE_TEXT=$STATE_TEXT_FAULTY
+    fi
+
+else
+    # No FMRIs specified with -f. Check if there are any services with
+    # $WARN_ALL (-w) or $CRIT_ALL (-c) states.
+    #
+    if [ "$CRIT_ALL" != "" ]; then
+        state_regexp=`echo $CRIT_ALL | tr ' ' '|'`
+        STATE_TEXT=`$CMD_SVCS -Hao FMRI,STA | awk "/($state_regexp)$/{printf(\"%s %s; \", \\$1, \\$2)}"`
+        if [ "$STATE_TEXT" != "" ]; then
+            CRITICAL=1
+        fi
+    fi
+    if [ $CRITICAL -ne 1 ] && [ "$WARN_ALL" != "" ]; then
+        state_regexp=`echo $WARN_ALL | tr ' ' '|'`
+        STATE_TEXT=`$CMD_SVCS -Hao FMRI,STA | awk "/($state_regexp)$/{printf(\"%s %s; \", \\$1, \\$2)}"`
+        if [ "$STATE_TEXT" != "" ]; then
+            WARNING=1
+        fi
+    fi
+    if [ $CRITICAL -ne 1 ] && [ $WARNING -ne 1 ]; then
+        STATE_TEXT="no services with status $CRIT_ALL $WARN_ALL"
+    fi
+fi
+
+# All done, print service status info and exit.
+#
+if [ $CRITICAL -eq 1 ]; then
+    echo "SMF SVCS CRITICAL - $STATE_TEXT"
+    exit $STATE_CRITICAL
+fi
+if [ $WARNING -eq 1 ]; then
+    echo "SMF SVCS WARNING - $STATE_TEXT"
+    exit $STATE_WARNING
+fi
+
+echo "SMF SVCS OK - $STATE_TEXT"
+exit $STATE_OK

@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# Check if a Solaris service is in maintenance state
+#
+# $Id$
+
+if [ -f /usr/local/libexec/nagios/utils.sh ]
+then
+    . /usr/local/libexec/nagios/utils.sh
+elif [ -f /opt/ggl/libexec/nagios/utils.sh ]
+then
+    . /opt/ggl/libexec/nagios/utils.sh
+else
+    echo "utils.sh not found"
+    exit 3
+fi
+
+if [ "`uname -s`" -ne "SunOS" ]
+then
+    exit ${STATE_UNKNOWN}
+fi
+
+SVCS="`/usr/bin/svcs -x | /usr/bin/grep '^svc:'`"
+if [ -z "${SVCS}"  ]
+then
+    ${ECHO} OK
+    exit ${STATE_OK}
+fi
+
+NUM="`echo "${SVCS}" | /usr/bin/wc -l | /usr/bin/awk '{ print $1 }'`"
+SVCS="`echo "${SVCS}" | /usr/bin/awk '{ print $1 }' | /usr/bin/tr '\n' ', '`"
+
+
+
+echo "${NUM} services are in maintenance: ${SVCS}"
+exit ${STATE_WARNING}

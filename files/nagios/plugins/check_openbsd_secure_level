@@ -1,0 +1,14 @@
+#!/bin/sh
+
+. /usr/local/libexec/nagios/utils.sh
+
+secure_level=`sysctl kern.securelevel | cut -f 2 -d ' '`
+
+if [ $secure_level -lt 1 ]
+then
+	echo "Securelevel below 1: $secure_level"
+	exit $STATE_CRITICAL
+fi
+
+echo "Ok"
+exit $STATE_OK

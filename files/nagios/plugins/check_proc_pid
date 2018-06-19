@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# If daemon with a given pid file is running
+#
+# $Id$
+
+if [ -f /usr/local/libexec/nagios/utils.sh ]
+then
+    . /usr/local/libexec/nagios/utils.sh
+elif [ -f /opt/ggl/libexec/nagios/utils.sh ]
+then
+    . /opt/ggl/libexec/nagios/utils.sh
+else
+    echo "utils.sh not found"
+    exit 3
+fi
+
+if [ ! -f "$1" ]
+then
+    echo "CRITICAL: pid file ${1} does not exist"
+    exit ${STATE_CRITICAL}
+fi
+
+PID="`head -1 ${1}`"
+if [ ! -d /proc/${PID} ]
+then
+    echo "CRITICAL: Process with PID ${PID} not running"
+    exit ${STATE_CRITICAL}
+fi
+
+echo "Process with PID ${PID} running"
+exit ${STATE_OK}

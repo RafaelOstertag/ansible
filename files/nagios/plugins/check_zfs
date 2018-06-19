@@ -1,0 +1,62 @@
+#!/bin/sh
+#
+# Check the ZFS status
+#
+# $Id$
+
+if [ -f /usr/local/libexec/nagios/utils.sh ]
+then
+    . /usr/local/libexec/nagios/utils.sh
+elif [ -f /opt/ggl/libexec/nagios/utils.sh ]
+then
+    . /opt/ggl/libexec/nagios/utils.sh
+else
+    echo "utils.sh not found"
+    exit 3
+fi
+
+if [ "`uname -s`" -ne "SunOS" -o "`uname -s`" -ne "FreeBSD" ]
+then
+    exit ${STATE_UNKNOWN}
+fi
+
+TMPFILE="`mktemp -t nagios.check_zfs.XXXXXXX`"
+if [ $? -ne 0 ]
+then
+    echo "ERROR: Temp file could not be created" 1>&2
+    exit ${STATE_UNKNOWN}
+fi
+
+zpool status -x > "${TMPFILE}" 2>/dev/null
+if [ $? -ne 0  ]
+then
+    echo "ERROR: Error calling zpool"
+    exit ${STATE_UNKNOWN}
+fi
+
+PSTATE="`head -1 "${TMPFILE}"`"
+if [ $? -ne 0 ]
+then
+    rm -f "${TMPFILE}"
+    echo "ERROR: Error reading temp file"
+    exit ${STATE_UNKNOWN}
+fi
+
+if [ "${PSTATE}" = "all pools are healthy" ]
+then
+    rm -f "${TMPFILE}"
+    echo "OK"
+    exit ${STATE_OK}
+fi
+
+UNHEALTHY="`awk 'BEGIN { OFS=":" ; ORS="," } /pool:/ { poolname=$2 } /state:/ && $2 != "ONLINE" { print poolname,$2 } ' "${TMPFILE}"`"
+if [ $? -ne 0 ]
+then
+    rm -f "${TMPFILE}"
+    echo "ERROR: error awk'ing temp file"
+    exit ${STATE_UNKNOWN}
+fi
+echo "CRITICAL: ${UNHEALTHY}"
+rm -f "${TMPFILE}"
+
+exit ${STATE_CRITICAL}

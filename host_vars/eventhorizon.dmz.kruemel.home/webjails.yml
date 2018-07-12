@@ -2,7 +2,7 @@
 
 web_domain: web.kruemel.home
 web_jail_arch: i386
-web_jail_release: 11.1-RELEASE
+web_jail_release: 11.2-RELEASE
 web_jails:
   - name: bugzilla
     loIPv6: "fd3e:be3e:ec34:ffff::2"

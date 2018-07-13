@@ -1,0 +1,13 @@
+---
+
+- name: Copy jail configuration
+  copy:
+    src: "{{ ansible_fqdn }}/jail.conf" 
+    dest: /etc/jail.conf
+
+- name: Enable jail
+  lineinfile:
+    dest: /etc/rc.conf
+    regexp: ^jail_enable
+    line: jail_enable="YES"
+    state: present

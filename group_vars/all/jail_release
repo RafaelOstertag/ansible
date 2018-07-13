@@ -1,0 +1,5 @@
+# -*- yaml -*-
+---
+
+# FreeBSD release used to install jails
+jail_release: 11.2-RELEASE

@@ -1,3 +1,6 @@
 *.retry
+*~
+.#*
+#*
 vaultpass.static
 ansible.cfg

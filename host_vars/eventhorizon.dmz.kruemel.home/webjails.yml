@@ -3,7 +3,8 @@
 # The release version of the jails is set in group_vars/all/jail_release
 
 web_domain: web.kruemel.home
-web_jail_arch: i386
+jail_root_directory: /var/www/jails
+jail_arch: i386
 web_jails:
   - name: bugzilla
     loIPv6: "fd3e:be3e:ec34:ffff::2"

@@ -1,21 +1,5 @@
 ---
-
-- name: Prepare jail {{ jail_name }}
-  file:
-    state: directory
-    path: "/var/www/jails/{{ jail_name }}"
-
-- name: Is jail {{ jail_name }} installed
-  stat:
-    path: "/var/www/jails/{{ jail_name }}/etc"
-  register: jail_installed
-
-- name: Install jail {{ jail_name }}
-  when: not jail_installed.stat.exists
-  unarchive:
-    dest: "/var/www/jails/{{ jail_name }}"
-    src: "http://ftp.freebsd.org/pub/FreeBSD/releases/{{web_jail_arch}}/{{jail_release}}/base.txz"
-    remote_src: yes
+# Depends on jails/installation role
 
 - name: Copy CA to {{ jail_name }}
   copy:

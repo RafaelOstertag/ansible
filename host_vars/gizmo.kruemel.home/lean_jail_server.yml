@@ -1,0 +1,8 @@
+---
+
+jail_root_directory: /usr/jails
+jail_arch: amd64
+
+lean_jails:
+  - git
+  - nexus

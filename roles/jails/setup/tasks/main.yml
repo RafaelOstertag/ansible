@@ -1,0 +1,6 @@
+---
+
+- name: Setup resolv.conf in jail {{ jail_name }}
+  copy:
+    src: "{{ ansible_fqdn }}/resolv.conf"
+    dest: "{{jail_root_directory}}/{{ jail_name }}/etc/"

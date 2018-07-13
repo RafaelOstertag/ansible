@@ -1,0 +1,21 @@
+---
+
+- name: FreeBSD Lean Jails
+  hosts: lean-jail-servers
+  force_handlers: true
+  user: root
+  tasks:
+    - import_role:
+        name: jails/host-setup
+       
+    - include_role:
+        name: jails/installation
+      vars:
+        jail_name: "{{ item }}"
+      with_items: "{{ lean_jails }}"
+
+    - include_role:
+        name: jails/setup
+      vars:
+        jail_name: "{{ item }}"
+      with_items: "{{ lean_jails }}"

@@ -4,3 +4,8 @@
   copy:
     src: "{{ ansible_fqdn }}/resolv.conf"
     dest: "{{jail_root_directory}}/{{ jail_name }}/etc/"
+
+- name: Execute host specific jail tasks post/{{ ansible_fqdn }}-{{jail_name}}.yml
+  include: "post/{{ ansible_fqdn }}-{{jail_name}}.yml"
+  when:  ('roles/jails/setup/tasks/post/' + ansible_fqdn + '-' + jail_name + '.yml') is file
+

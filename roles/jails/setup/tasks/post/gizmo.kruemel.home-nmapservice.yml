@@ -1,4 +1,8 @@
 ---
 
-- name: Create nmapservice user
+- name: Install nmap in {{ jail_name }} jail
+  pkgng:
+    name: nmap
+    state: present
+    chroot: "{{jail_root_directory}}/{{ jail_name }}"
   

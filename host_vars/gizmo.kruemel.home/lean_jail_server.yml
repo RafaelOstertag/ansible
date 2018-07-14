@@ -7,3 +7,4 @@ lean_jails:
   - git
   - nexus
   - nmapservice
+  - rundeck

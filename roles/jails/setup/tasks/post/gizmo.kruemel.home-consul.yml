@@ -1,0 +1,15 @@
+---
+
+- name: Install consul in {{ jail_name }} jail
+  pkgng:
+    name: consul
+    state: present
+    chroot: "{{jail_root_directory}}/{{ jail_name }}"
+
+- name: Enable consul in {{ jail_name }} jail
+  lineinfile:
+    path: "{{jail_root_directory}}/{{ jail_name }}/etc/rc.conf"
+    create: yes
+    state: present
+    regexp: ^consul_enable=.*
+    line: consul_enable="YES"

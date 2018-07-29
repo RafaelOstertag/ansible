@@ -9,3 +9,4 @@ lean_jails:
   - nmapservice
   - lastseenservice
   - rundeck
+  - consul

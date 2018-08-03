@@ -10,3 +10,4 @@ lean_jails:
   - lastseenservice
   - rundeck
   - consul
+  - nmapserviceproxy

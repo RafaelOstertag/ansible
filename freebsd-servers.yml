@@ -65,7 +65,7 @@
         name: freebsd/rcconf
       vars:
         rcvar: "ipv6_static_routes"
-        value: "lan6 web1 lo2 lo3 lo4 lo5 lo6 lo7 lo8 lo9 lo10 lo11 lo12"
+        value: "lan6 web1 lo2 lo5 lo6 lo8 lo9 lo10 lo11 lo12"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf
@@ -88,18 +88,6 @@
     - import_role:
         name: freebsd/rcconf
       vars:
-        rcvar: "ipv6_route_lo3"
-        value: "-host fd3e:be3e:ec34:ffff::3 -prefixlen 128 fd3e:be3e:ec34:ffff::3 -fib 1 -iface"
-      when: "'freebsd-servers-dmz' in group_names and jail_webserver"
-    - import_role:
-        name: freebsd/rcconf
-      vars:
-        rcvar: "ipv6_route_lo4"
-        value: "-host fd3e:be3e:ec34:ffff::4 -prefixlen 128 fd3e:be3e:ec34:ffff::4 -fib 1 -iface"
-      when: "'freebsd-servers-dmz' in group_names and jail_webserver"
-    - import_role:
-        name: freebsd/rcconf
-      vars:
         rcvar: "ipv6_route_lo5"
         value: "-host fd3e:be3e:ec34:ffff::5 -prefixlen 128 fd3e:be3e:ec34:ffff::5 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
@@ -108,12 +96,6 @@
       vars:
         rcvar: "ipv6_route_lo6"
         value: "-host fd3e:be3e:ec34:ffff::6 -prefixlen 128 fd3e:be3e:ec34:ffff::6 -fib 1 -iface"
-      when: "'freebsd-servers-dmz' in group_names and jail_webserver"
-    - import_role:
-        name: freebsd/rcconf
-      vars:
-        rcvar: "ipv6_route_lo7"
-        value: "-host fd3e:be3e:ec34:ffff::7 -prefixlen 128 fd3e:be3e:ec34:ffff::7 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"
     - import_role:
         name: freebsd/rcconf

@@ -36,6 +36,7 @@
           - docbook-xsl
           - gettext
           - gettext-tools
+          - git
           - gmake
           - libtool
           - libxslt
@@ -55,6 +56,7 @@
           - docbook-xsl
           - g++
           - gettext
+          - git
           - libcppunit-dev
           - libpcre3-dev
           - libtool
@@ -73,6 +75,7 @@
           - docbook-xsl
           - gettext
           - gettext-tools
+          - git
           - gmake
           - jdk
           - libtool
@@ -93,6 +96,7 @@
           - docbook-xsl
           - gettext
           - gettext-tools
+          - git
           - gmake
           - libtool
           - libxslt

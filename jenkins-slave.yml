@@ -18,9 +18,85 @@
       slurp:
         src: /var/cache/jenkins-slave/.ssh/id_rsa.pub
       register: ssh_pub
+      
     - name: Enable ssh login with key
       authorized_key:
         manage_dir: yes
         user: jenkins
         state: present
         key: "{{ ssh_pub['content'] | b64decode }}"
+
+    - name: FreeBSD packages
+      when: "ansible_distribution == 'FreeBSD'"
+      pkgng:
+        name:
+          - autoconf
+          - automake
+          - cppunit
+          - docbook-xsl
+          - gettext
+          - gettext-tools
+          - gmake
+          - libtool
+          - libxslt
+          - openjdk8
+          - pcre
+          - pkgconf
+          - w3m
+        state: present
+
+    - name: Linux packages
+      when: "ansible_distribution == 'Debian'"
+      apt:
+        name:
+          - autoconf
+          - automake
+          - autopoint
+          - docbook-xsl
+          - g++
+          - gettext
+          - libcppunit-dev
+          - libpcre3-dev
+          - libtool
+          - openjdk-8-jdk
+          - w3m
+          - xsltproc
+        state: present
+
+    - name: OpenBSD packages
+      when: "ansible_distribution == 'OpenBSD'"
+      openbsd_pkg:
+        name:
+          - autoconf
+          - automake
+          - cppunit
+          - docbook-xsl
+          - gettext
+          - gettext-tools
+          - gmake
+          - jdk
+          - libtool
+          - libxslt
+          - pcre
+          - w3m
+        state: present
+
+    - name: NetBSD packages
+      when: "ansible_distribution == 'NetBSD'"
+      pkgin:
+        update_cache: yes
+        clean: yes
+        name:
+          - autoconf
+          - automake
+          - cppunit
+          - docbook-xsl
+          - gettext
+          - gettext-tools
+          - gmake
+          - libtool
+          - libxslt
+          - openjdk8
+          - pcre
+          - w3m
+        state: present

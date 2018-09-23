@@ -9,7 +9,7 @@
     path: /root/.profile
     regexp: "^PKG_PATH="
     state: present
-    line: "PKG_PATH=ftp://mirror.switch.ch/pub/OpenBSD/`uname -r`/packages/`machine -a`/"
+    line: "PKG_PATH=https://cdn.openbsd.org/pub/OpenBSD/`uname -r`/packages/`machine -a`/"
   when: 'not installurl.stat.exists'
 
 - name: Export PKG_PATH

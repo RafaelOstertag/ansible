@@ -71,7 +71,7 @@
       when: "ansible_distribution == 'OpenBSD'"
       openbsd_pkg:
         name:
-          - autoconf
+          - autoconf-2.62p2
           - automake
           - cppunit
           - docbook-xsl
@@ -83,7 +83,7 @@
           - libtool
           - libxslt
           - pcre
-          - w3m
+          - w3m-0.5.3p6
           - argon2
         state: present
 

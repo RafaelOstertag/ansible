@@ -71,8 +71,8 @@
       when: "ansible_distribution == 'OpenBSD'"
       openbsd_pkg:
         name:
-          - autoconf-2.62p2
-          - automake
+          - autoconf-2.69p2
+          - automake-1.15.1
           - cppunit
           - docbook-xsl
           - gettext

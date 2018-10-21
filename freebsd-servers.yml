@@ -434,3 +434,7 @@
         name: common/agentsmith-certificate
       tags:
         - agentsmith
+    - import_role:
+        name: freebsd/javacerts
+      tags:
+        - javacerts

@@ -1,0 +1,16 @@
+---
+
+- name: Is keytool installed
+  stat:
+    path: /usr/local/bin/keytool
+  register: keytool    
+
+- name: Install guengel.ch in java certs
+  java_cert:
+    cert_alias: guengel.ch
+    cert_path: /etc/ssl/guengel.ch.pem
+    keystore_create: false
+    keystore_pass: changeit
+    keystore_path: /usr/local/openjdk8/jre/lib/security/cacerts
+    state: present
+  when: keytool.stat.exists

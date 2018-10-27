@@ -15,9 +15,6 @@ web_jails:
   - name: www
     loIPv6: "fd3e:be3e:ec34:ffff::6"
     IPv6: "fd3e:be3e:ec34:2::6"
-  - name: anic
-    loIPv6: "fd3e:be3e:ec34:ffff::8"
-    IPv6: "fd3e:be3e:ec34:2::8"
   - name: solaris
     loIPv6: "fd3e:be3e:ec34:ffff::9"
     IPv6: "fd3e:be3e:ec34:2::9"

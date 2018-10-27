@@ -100,12 +100,6 @@
     - import_role:
         name: freebsd/rcconf
       vars:
-        rcvar: "ipv6_route_lo8"
-        value: "-host fd3e:be3e:ec34:ffff::8 -prefixlen 128 fd3e:be3e:ec34:ffff::8 -fib 1 -iface"
-      when: "'freebsd-servers-dmz' in group_names and jail_webserver"
-    - import_role:
-        name: freebsd/rcconf
-      vars:
         rcvar: "ipv6_route_lo9"
         value: "-host fd3e:be3e:ec34:ffff::9 -prefixlen 128 fd3e:be3e:ec34:ffff::9 -fib 1 -iface"
       when: "'freebsd-servers-dmz' in group_names and jail_webserver"

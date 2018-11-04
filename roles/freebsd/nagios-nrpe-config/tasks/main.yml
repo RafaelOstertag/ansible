@@ -31,3 +31,4 @@
     - check_proc_pid
     - check_solsvc
     - check_freebsd_secure_level
+    - check_freebsd_jail

@@ -2,9 +2,10 @@
 #
 
 
-result=`jls -j "$1"`
+result=`jls -j "$1" 2>&1`
 if [ $? -ne 0 ]
 then
+    echo "$result"
     exit 1
 fi
 

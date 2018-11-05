@@ -382,6 +382,8 @@
         name: freebsd/logwatch
     - import_role:
         name: freebsd/nagios-nrpe-config
+      tags:
+        - nagios
     - import_role:
         name: freebsd/sudo
     - import_role:

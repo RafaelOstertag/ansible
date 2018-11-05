@@ -1,85 +1,13 @@
-#!/usr/local/bin/bash
-#
-# check_freebsd_jails - nagios plugin
-#
-# Copyright (C) 2008, 2009 Björn Becker,
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-#
-#
-# Problems write to: bjoern.(.at.).becker-home.org
-#
-# 14.12.2009 Version 0.1
-#
-#
-# This tool tests if a jail is running
+#!/bin/sh
 #
 
-#vars 
-path_jls='/usr/sbin/jls'
-command=$1
-IFS=$'\n'
 
-# function help
-function help
-{
-    echo -en "$0 - Bjoern Becker (Version 0.1 - 14.12.09)\n"
-    echo -en "Usage: $0 <show|jailname>\n"
-
-    exit 3
-}
-
-# call help
-if [ "$1" == "" -o "$1" == "-h" ]
-then 
-    help
-fi
-
-# check and call jls
-if [ -r $path_jls ]
+result=`jls -j "$1" | sed 1d`
+if [ $? -ne 0 ]
 then
-    jls=`$path_jls`
-else
-    echo -en "jls is not in $path_jls\n"
-fi
-
-# test jails
-for jail in $jls
-do
-    tmp=`echo $jail | tr -s " " ","`
-    jid=`echo $tmp | cut -d, -f 2`
-    ip=`echo $tmp | cut -d, -f 3`
-    name=`echo $tmp | cut -d, -f 4`
-    path=`echo $tmp | cut -d, -f 5`
-
-    if [ "$command" == "show" ] 
-    then
-        echo $jid $ip $name $path
-    else
-	if [ "$name" == "$command" ] 
-	then
-	    echo -en "Jail $name ($ip) is running under JID $jid in $path\n"
-	    exit 0 
-	fi
-    fi
-done
-
-# show command
-if [ "$command" != "show" ] 
-then
-    echo "$command is not running"
     exit 1
 fi
+
+echo $result
+exit 0
 

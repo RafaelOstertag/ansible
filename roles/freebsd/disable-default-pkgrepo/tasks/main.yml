@@ -1,7 +1,6 @@
 ---
 
 - name: create /usr/local/etc/pkg/repos
-  when: "ansible_distribution_major_version == '11'"
   file:
     dest: /usr/local/etc/pkg/repos
     state: directory
@@ -10,14 +9,7 @@
     group: wheel
 
 - name: Disable FreeBSD pkg repo
-  when: "ansible_distribution_major_version == '11'"
   copy:
     src: FreeBSD.conf
     dest: /usr/local/etc/pkg/repos
     mode: 0644
-
-- name: Enable FreeBSD pkg repo on user hosts
-  when: "ansible_distribution_major_version != '11'"
-  file:
-    dest: /usr/local/etc/pkg/repos/FreeBSD.conf
-    state: absent

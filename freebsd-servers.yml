@@ -434,3 +434,8 @@
         name: freebsd/javacerts
       tags:
         - javacerts
+    - import_role:
+        name: freebsd/cyrus-certificate
+      tags:
+        - cyrus
+        - imapd

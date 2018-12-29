@@ -1,0 +1,7 @@
+---
+
+- name: FreeBSD restart cyrus
+  service:
+    name: imapd
+    state: restarted
+    

@@ -2,7 +2,7 @@
 
 - name: Copy smtpd.conf
   template:
-    src: smtpd.conf
+    src: "smtpd.conf.{{ ansible_distribution_version }}"
     dest: /etc/mail/smtpd.conf
     mode: 0640
     owner: root

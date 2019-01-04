@@ -72,7 +72,6 @@
 - name: Rebuild sendmail configuration in {{ jail_name }}
   shell: "setfib 1 jexec {{ jail_name }} make -C /etc/mail all install"
 
-
 - name: Tear down temporary jail {{ jail_name }}
   shell: "jail -r {{ jail_name }}"
   when: "jail_running.rc == 1"

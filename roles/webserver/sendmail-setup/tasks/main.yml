@@ -1,5 +1,13 @@
 ---
 
+- name: Copy aliases to {{ jail_name }}
+  copy:
+    src: aliases
+    dest: "/var/www/jails/{{ jail_name }}/etc/mail/aliases"
+    mode: 644
+    owner: root
+    group: wheel
+
 - name: Make sendmail tls dir in {{ jail_name }}
   file:
     state: directory
@@ -7,7 +15,6 @@
     mode: 0755
     owner: root
     group: wheel
-  
 
 - name: Copy server certificate to {{ jail_name }}
   copy:

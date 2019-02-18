@@ -6,33 +6,33 @@ freebsd-servers-dmz
 freebsd-servers-lan
 
 [freebsd-servers-lan]
-beastie.kruemel.home
-gizmo.kruemel.home
-viking.kruemel.home
-optimusprime.kruemel.home
-jetfire.kruemel.home
-nostromo.kruemel.home
-megatron.kruemel.home
-jenkins.kruemel.home
+beastie.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
+gizmo.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
+viking.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
+optimusprime.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
+jetfire.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
+nostromo.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
+megatron.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
+jenkins.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
 
 [freebsd-servers-dmz]
-eventhorizon.dmz.kruemel.home
-yayap.dmz.kruemel.home
-starscream.dmz.kruemel.home
+eventhorizon.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
+yayap.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
+starscream.dmz.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
 
 [freebsd-user-hosts:children]
 freebsd-virtual-hosts
 freebsd-workstations
 
 [freebsd-virtual-hosts]
-aurora.virtual.kruemel.home
-freebsd32.virtual.kruemel.home
+aurora.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
+freebsd32.virtual.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
 
 [freebsd-workstations]
-odin.kruemel.home
+odin.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
 
 [lean-jail-servers]
-gizmo.kruemel.home
+gizmo.kruemel.home ansible_python_interpreter=/usr/local/bin/python2.7
 
 ;
 ; OpenBSD

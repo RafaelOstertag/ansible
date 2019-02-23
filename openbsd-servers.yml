@@ -24,6 +24,8 @@
     - openbsd/aide
     - openbsd/logwatch
     - openbsd/nagios-nrpe-config
+      tags:
+        - nagios
     - openbsd/sudo
     - openbsd/ntp
     - openbsd/ssl-mailserver

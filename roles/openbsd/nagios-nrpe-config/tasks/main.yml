@@ -12,8 +12,8 @@
 
 - name: Make tls cert directory
   file:
-    dest: /etc/nrpe.d/tls
-    state: present
+    path: /etc/nrpe.d/tls
+    state: directory
     owner: _nrpe
     group: _nrpe
     mode: 0750

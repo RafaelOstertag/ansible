@@ -2,3 +2,4 @@
 
 dependencies:
   - { role: common/ca-guengel.ch }
+  - { role: openbsd/rcconflocal, rcvar: "nrpe_flags", value: "-c /etc/nrpe.cfg" }

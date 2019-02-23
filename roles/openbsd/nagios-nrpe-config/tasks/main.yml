@@ -10,6 +10,35 @@
   notify:
     - OpenBSD restart nrpe
 
+- name: Make tls cert directory
+  file:
+    dest: /etc/nrpe.d/tls
+    state: present
+    owner: _nrpe
+    group: _nrpe
+    mode: 0750
+
+- name: Copy SSL public key to /etc/nrpe.d/tls
+  copy:
+    src: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: "/etc/nrpe.d/tls/server.cert"
+    mode: 0644
+    owner: _nrpe
+    group: _nrpe
+  notify:
+    - OpenBSD restart nrpe
+
+- name: Copy SSL private key to /etc/nrpe.d/tls
+  copy:
+    src: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: "/etc/nrpe.d/tls/server.key"
+    mode: 0600
+    owner: _nrpe
+    group: _nrpe
+    decrypt: true
+  notify:
+    - OpenBSD restart nrpe
+
 - name: Copy nagios plugins
   copy:
     src: "nagios/plugins/{{ item }}"

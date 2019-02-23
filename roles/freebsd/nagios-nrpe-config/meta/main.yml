@@ -1,5 +1,5 @@
 ---
 
 dependencies:
-  - { role: common/ca-guengel-ch }
+  - { role: common/ca-guengel.ch }
   - { role: freebsd/guengel-pkgrepo }

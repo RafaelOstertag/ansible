@@ -23,7 +23,7 @@
     - openbsd/amanda-enable
     - openbsd/aide
     - openbsd/logwatch
-    - openbsd/nagios-nrpe-config
+    - name: openbsd/nagios-nrpe-config
       tags:
         - nagios
     - openbsd/sudo

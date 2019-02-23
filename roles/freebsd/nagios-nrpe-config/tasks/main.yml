@@ -5,6 +5,35 @@
     name: nrpe3
     state: present
 
+- name: Make tls cert directory
+  file:
+    dest: /usr/local/etc/nrpe.d/tls
+    state: present
+    owner: nagios
+    group: nagios
+    mode: 0750
+
+- name: Copy SSL public key to /usr/local/etc/nrpe.d/tls
+  copy:
+    src: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: "/usr/local/etc/nrpe.d/tls/server.cert"
+    mode: 0644
+    owner: nagios
+    group: nagios
+  notify:
+    - FreeBSD restart nrpe
+
+- name: Copy SSL private key to /usr/local/etc/nrpe.d/tls
+  copy:
+    src: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: "/usr/local/etc/nrpe.d/tls/server.key"
+    mode: 0600
+    owner: nagios
+    group: nagios
+    decrypt: true
+  notify:
+    - FreeBSD restart nrpe
+
 - name: Copy nrpe.cfg
   copy:
     src: nrpe.cfg

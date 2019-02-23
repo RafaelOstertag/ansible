@@ -7,8 +7,8 @@
 
 - name: Make tls cert directory
   file:
-    dest: /usr/local/etc/nrpe.d/tls
-    state: present
+    path: /usr/local/etc/nrpe.d/tls
+    state: directory
     owner: nagios
     group: nagios
     mode: 0750

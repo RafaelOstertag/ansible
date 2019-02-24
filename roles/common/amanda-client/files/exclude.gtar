@@ -1,3 +1,4 @@
+./account
 ./amanda
 ./amandatapes
 ./cache/php
@@ -29,5 +30,6 @@
 ./tmp
 ./usr/jails/*/dev
 ./usr/jails/*/proc
+./var/account
 ./var/amanda
 ./video

@@ -6,6 +6,13 @@
     state: directory
 
 - name: Copy guengel.ch pkgrepo config
+  when: "use_guengel_repository"
   template:
     src: pkg-repo-guengel.ch.conf
     dest: /usr/local/etc/pkg/repos/guengel.ch.conf
+
+- name: Remove guengel.ch pkgrepo config
+  when: "not use_guengel_repository"
+  file:
+    path: /usr/local/etc/pkg/repos/guengel.ch.conf
+    state: absent

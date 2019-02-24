@@ -1,3 +1,6 @@
 ---
 
 ansible_python_interpreter: /usr/local/bin/python2.7
+
+# Use guengel repository
+use_guengel_repository: False

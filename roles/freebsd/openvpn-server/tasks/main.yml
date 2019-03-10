@@ -1,0 +1,69 @@
+---
+
+- name: Install OpenVPN
+  pkgng:
+    name: openvpn
+    state: present
+  notify:
+    - FreeBSD restart OpenVPN
+
+- name: Copy OpenVPN configuration
+  copy:
+    src: server.conf
+    dest: /usr/local/etc/openvpn/server.conf
+    mode: 0640
+    owner: _openvpn
+    group: _openvpn
+  notify:
+    - FreeBSD restart OpenVPN
+
+- name: Create SSL directory
+  file:
+    name: /usr/local/etc/openvpn/ssl
+    state: directory
+    mode: 0750
+    owner: _openvpn
+    group: _openvpn
+  notify:
+    - FreeBSD restart OpenVPN
+
+- name: Copy OpenSSL Server Key
+  copy:
+    src: ssl/priv/vpn.guengel.ch.key
+    dest: /usr/local/etc/openvpn/ssl/server.key
+    mode: 0600
+    owner: _openvpn
+    group: _openvpn
+    decrypt: true
+  notify:
+    - FreeBSD restart OpenVPN
+
+- name: Copy OpenSSL Server Certificate
+  copy:
+    src: ssl/pub/vpn.guengel.ch.crt
+    dest: /usr/local/etc/openvpn/ssl/server.crt
+    mode: 0600
+    owner: _openvpn
+    group: _openvpn
+  notify:
+    - FreeBSD restart OpenVPN
+
+- name: Create directory for CRL
+  file:
+    name: /var/openvpn/etc/ssl
+    mode: 0750
+    owner: _openvpn
+    group: _openvpn
+    state: directory
+  notify:
+    - FreeBSD restart OpenVPN
+
+- name: Copy Guengel CRL
+  copy:
+    src: ssl/guengel.ch.crl
+    dest: /var/openvpn/etc/ssl/guengel.ch.crl
+    mode: 0644
+    owner: _openvpn
+    group: _openvpn
+  notify:
+    - FreeBSD restart OpenVPN

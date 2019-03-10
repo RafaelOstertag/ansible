@@ -439,3 +439,9 @@
       tags:
         - cyrus
         - imapd
+    - import_role:
+        name: freebsd/openvpn-server
+      tags:
+        - openvpn
+      when: 'openvpn_host'
+        

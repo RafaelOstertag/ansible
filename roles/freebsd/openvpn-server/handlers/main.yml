@@ -1,0 +1,6 @@
+---
+
+- name: FreeBSD restart OpenVPN
+  service:
+    name: openvpn
+    state: restarted

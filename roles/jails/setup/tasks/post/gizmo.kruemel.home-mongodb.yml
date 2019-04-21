@@ -1,0 +1,16 @@
+---
+
+- name: Install mongodb in {{ jail_name }} jail
+  pkgng:
+    name: mongodb40
+    state: present
+    chroot: "{{jail_root_directory}}/{{ jail_name }}"
+
+- name: Enable mongod in {{ jail_name }} jail
+  lineinfile:
+    path: "{{jail_root_directory}}/{{ jail_name }}/etc/rc.conf"
+    create: yes
+    state: present
+    regexp: ^mongod_enable=.*
+    line: mongod_enable="YES"
+

@@ -11,3 +11,4 @@ lean_jails:
   - rundeck
   - consul
   - nmapserviceproxy
+  - mongodb

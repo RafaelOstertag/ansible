@@ -12,3 +12,4 @@ lean_jails:
   - consul
   - nmapserviceproxy
   - mongodb
+  - kafka

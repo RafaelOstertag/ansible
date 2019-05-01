@@ -1,0 +1,35 @@
+---
+
+- name: Install java in {{ jail_name }} jail
+  pkgng:
+    name: openjdk11
+    state: present
+    chroot: "{{jail_root_directory}}/{{ jail_name }}"
+
+- name: Create group 'app' in {{ jail_name }} jail
+  shell: "pw -R {{jail_root_directory}}/{{ jail_name }} group show app || pw -R {{jail_root_directory}}/{{ jail_name }} group add -n app -g 5000"
+
+- name: Create group 'app' in {{ jail_name }} jail
+  shell: "pw -R {{jail_root_directory}}/{{ jail_name }} user show app || pw -R {{jail_root_directory}}/{{ jail_name }} user add -n app -u 5000 -c 'Application User' -g app -d {{jail_root_directory}}/{{ jail_name }}/opt/app -s /bin/sh" 
+
+- name: Create opt directory in {{ jail_name }} jail
+  file:
+    state: directory
+    path: "{{jail_root_directory}}/{{ jail_name }}/opt"
+    mode: 0755
+    owner: root
+    group: wheel
+
+- name: Create app directory in {{ jail_name }} jail
+  file:
+    state: directory
+    path: "{{jail_root_directory}}/{{ jail_name }}/opt/{{ directory }}"
+    mode: 0755
+    owner: 5000
+    group: 5000
+  loop:
+    - app
+    - app/var
+    - app/var/log
+  loop_control:
+    loop_var: directory

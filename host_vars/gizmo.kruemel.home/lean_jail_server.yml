@@ -13,3 +13,5 @@ lean_jails:
   - nmapserviceproxy
   - mongodb
   - kafka
+  - funnel-persistence
+  - funnel-retriever

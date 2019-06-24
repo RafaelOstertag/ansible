@@ -9,3 +9,5 @@ thin_jails:
   - nmapservice
   - funnel-persistence
   - funnel-retriever
+  - funnel-chronos
+  - funnel-rest

@@ -1,0 +1,6 @@
+{{thin_jail_root_directory}}/thin-base/etc {{thin_jail_root_directory}}/{{thin_jail_name}}/etc nullfs ro 0 0
+{{thin_jail_root_directory}}/thin-base/bin {{thin_jail_root_directory}}/{{thin_jail_name}}/bin nullfs ro 0 0
+{{thin_jail_root_directory}}/thin-base/usr {{thin_jail_root_directory}}/{{thin_jail_name}}/usr nullfs ro 0 0
+{{thin_jail_root_directory}}/thin-base/libexec {{thin_jail_root_directory}}/{{thin_jail_name}}/libexec nullfs ro 0 0
+{{thin_jail_root_directory}}/thin-base/lib {{thin_jail_root_directory}}/{{thin_jail_name}}/lib nullfs ro 0 0
+{{thin_jail_root_directory}}/thin-base/var {{thin_jail_root_directory}}/{{thin_jail_name}}/var nullfs ro 0 0

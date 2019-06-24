@@ -34,6 +34,9 @@ odin.kruemel.home
 [lean-jail-servers]
 gizmo.kruemel.home
 
+[thin-jail-servers]
+gizmo.kruemel.home
+
 ;
 ; OpenBSD
 ;

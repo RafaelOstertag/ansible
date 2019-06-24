@@ -1,0 +1,11 @@
+---
+
+thin_jail_root_directory: /usr/jails
+thin_jail_arch: amd64
+
+thin_jails:
+  - lastseenservice
+  - nmapserviceproxy
+  - nmapservice
+  - funnel-persistence
+  - funnel-retriever

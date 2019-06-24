@@ -1,0 +1,87 @@
+---
+
+- name: Prepare thin-jail directory thin-base
+  file:
+    state: directory
+    path: "{{thin_jail_root_directory}}/thin-base"
+
+- name: Is thin-base installed
+  stat:
+    path: "{{thin_jail_root_directory}}/thin-base/etc"
+  register: thin_base_installed
+
+- name: Install jail thin-base
+  when: not thin_base_installed.stat.exists
+  unarchive:
+    dest: "{{thin_jail_root_directory}}/thin-base"
+    src: "http://ftp.freebsd.org/pub/FreeBSD/releases/{{jail_arch}}/{{jail_release}}/base.txz"
+    remote_src: yes
+
+- name: Setup resolv.conf in thin jail base
+  copy:
+    src: "{{ ansible_fqdn }}/resolv.conf"
+    dest: "{{thin_jail_root_directory}}/thin-base/etc/"
+
+- name: Setup time zone in thin jail base
+  file:
+    path: "{{thin_jail_root_directory}}/thin-base/etc/localtime"
+    src: /usr/share/zoneinfo/Europe/Zurich
+    state: link
+
+- name: Update thin jail list
+  template:
+    src: thin.jails.list
+    dest: "{{ thin_jail_root_directory }}/thin.jails.list"
+
+- name: Install app helper scripts
+  copy:
+    src: "{{ item }}"
+    dest: "{{ thin_jail_root_directory }}/thin-base/usr/local/bin/{{ item }}"
+    mode: 0755
+    owner: root
+    group: wheel
+  loop:
+    - runapp.sh
+    - runjava11app.sh
+    - runjava8app.sh
+
+- name: Install java 11 in thin jail base
+  pkgng:
+    name: openjdk11
+    state: present
+    chroot: "{{thin_jail_root_directory}}/thin-base"
+
+- name: Install java 8 in thin jail base
+  pkgng:
+    name: openjdk8
+    state: present
+    chroot: "{{thin_jail_root_directory}}/thin-base"
+
+
+# Nmap is used by nmapservice
+- name: Install nmap in thin jail base
+  pkgng:
+    name: nmap
+    state: present
+    chroot: "{{thin_jail_root_directory}}/thin-base"
+
+
+- name: Create group 'app' in thin jail base
+  shell: "pw -R {{thin_jail_root_directory}}/thin-base group show app || pw -R {{thin_jail_root_directory}}/thin-base group add -n app -g 5000"
+
+- name: Create group 'app' in thin jail base
+  shell: "pw -R {{thin_jail_root_directory}}/thin-base user show app || pw -R {{thin_jail_root_directory}}/thin-base user add -n app -u 5000 -c 'Application User' -g app -d /opt/app -s /bin/sh" 
+
+- name: Create thin jail fstabs
+  template:
+    src: fstab.jail
+    dest: "{{thin_jail_root_directory}}/thin-base/etc/fstab.jail.{{ thin_jail_name }}"
+    mode: 0644
+    owner: root
+    group: wheel
+  loop: "{{ thin_jails }}"
+  loop_control:
+    loop_var: thin_jail_name
+
+- name: Setup Thin Jails
+  include_tasks: thin-jails.yml

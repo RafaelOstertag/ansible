@@ -6,12 +6,7 @@ jail_arch: amd64
 lean_jails:
   - git
   - nexus
-  - nmapservice
-  - lastseenservice
   - rundeck
   - consul
-  - nmapserviceproxy
   - mongodb
   - kafka
-  - funnel-persistence
-  - funnel-retriever

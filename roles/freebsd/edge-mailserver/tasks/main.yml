@@ -61,8 +61,8 @@
     job: "/usr/local/bin/sa-update && service sa-spamd restart"
     weekday: "*"
     day: "*"
-    minute: 0
-    hour: 2
+    minute: "0"
+    hour: "2"
     month: "*"
 
 - name: Cron job for Mail queue quarantine
@@ -72,8 +72,8 @@
     job: "mailq -qQ | mailx -s \"Mailq quarantine on {{ ansible_fqdn }}\" root" 
     weekday: "*"
     day: "*"
-    minute: 0
-    hour: 2
+    minute: "0"
+    hour: "2"
     month: "*"
 
 - name: Fetchmail for spam learning
@@ -83,7 +83,7 @@
     job: "fetchmail -s sa-learn.spam ; fetchmail -s sa-learn.ham"
     weekday: "*"
     day: "*"
-    minute: 1
+    minute: "1"
     hour: "*"
     month: "*"
 

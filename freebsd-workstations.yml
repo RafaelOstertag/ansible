@@ -268,8 +268,6 @@
       tags:
         - repo
     - import_role:
-        name: common/scripts
-    - import_role:
         name: common/ssh-keys
     - import_role:
         name: freebsd/sudo

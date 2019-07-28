@@ -5,7 +5,6 @@
   force_handlers: true
   user: root
   roles:
-    - common/scripts
     - name: common/ssh-keys
       tags:
         - ssh-keys

@@ -9,11 +9,8 @@
     - name: common/ssh-keys
       tags:
         - ssh-keys
-    - common/dotnetrc
     - common/etcfiles
     - common/motd
-    - common/mailmon
-    - common/crontab
     - common/amanda-client
     - openbsd/syspatch
     - openbsd/setup-pkg-path
@@ -21,8 +18,6 @@
     - openbsd/setup-weekly
     - openbsd/amanda-hosts
     - openbsd/amanda-enable
-    - openbsd/aide
-    - openbsd/logwatch
     - name: openbsd/nagios-nrpe-config
       tags:
         - nagios

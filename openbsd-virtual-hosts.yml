@@ -5,12 +5,10 @@
   force_handlers: true
   user: root
   roles:
-    - common/dotnetrc
     - common/etcfiles
     - common/motd
     - common/scripts
     - common/ssh-keys
-    - common/crontab
     - common/amanda-client
     - openbsd/amanda-hosts
     - openbsd/amanda-enable

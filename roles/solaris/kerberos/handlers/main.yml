@@ -1,6 +1,0 @@
----
-
-- name: Solaris restart sshd
-  service:
-    name: svc:/network/ssh:default
-    state: restarted

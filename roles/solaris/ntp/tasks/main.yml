@@ -1,9 +1,0 @@
----
-
-- name: Copy ntp config file
-  copy:
-    src: ntp.conf
-    dest: /etc/inet/ntp.conf
-    mode: 0644
-  notify:
-    - Solaris restart ntp

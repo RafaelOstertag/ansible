@@ -1,9 +1,0 @@
----
-
-- name: Copy aide.conf
-  copy:
-    dest: /etc/opt/ggl/aide.conf
-    src: aide/aide.conf
-    mode: 0400
-    owner: root
-    group: sys

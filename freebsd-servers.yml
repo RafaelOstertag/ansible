@@ -6,13 +6,9 @@
   user: root
   tasks:
     - import_role:
-        name: common/dotnetrc
-    - import_role:
         name: common/etcfiles
     - import_role:
         name: common/motd
-    - import_role:
-        name: common/mailmon
     # Keep this on top. Other roles might use pkgng
     - import_role:
         name: freebsd/disable-default-pkgrepo
@@ -355,8 +351,6 @@
         value: "100"
       when: "not jail"
     - import_role:
-        name: freebsd/aide
-    - import_role:
         name: freebsd/amanda-enable
       tags:
         - amanda
@@ -369,8 +363,6 @@
       tags:
         - amanda
     - import_role:
-        name: common/crontab
-    - import_role:
         name: freebsd/kerberos
       tags:
         - kerberos
@@ -378,8 +370,6 @@
         name: freebsd/openldap-server-schemas
     - import_role:
         name: freebsd/openldap-server-ssl
-    - import_role:
-        name: freebsd/logwatch
     - import_role:
         name: freebsd/nagios-nrpe-config
       tags:

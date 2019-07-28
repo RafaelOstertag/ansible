@@ -1,4 +1,0 @@
----
-
-- name: Delete root's .netrc
-  file: dest=/root/.netrc state=absent

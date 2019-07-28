@@ -1,6 +1,0 @@
----
-
-- name: Remove crontab entry
-  cron:
-    name: Mailmon job
-    state: absent

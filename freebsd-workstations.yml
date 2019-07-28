@@ -6,8 +6,6 @@
   user: root
   tasks:
     - import_role:
-        name: common/dotnetrc
-    - import_role:
         name: common/etcfiles
     - import_role:
         name: common/motd
@@ -259,8 +257,6 @@
         name: common/amanda-client
     - import_role:
         name: freebsd/amanda-hosts
-    - import_role:
-        name: common/crontab
     - import_role:
         name: freebsd/kerberos
     - import_role:

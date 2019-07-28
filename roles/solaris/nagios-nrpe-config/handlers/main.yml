@@ -1,6 +1,0 @@
----
-
-- name: Solaris restart nrpe
-  service:
-    name: svc:/site/application/nrpe:default
-    state: restarted

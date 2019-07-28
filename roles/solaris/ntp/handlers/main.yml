@@ -1,6 +1,0 @@
----
-
-- name: Solaris restart ntp
-  service:
-    name: svc:/network/ntp:default
-    state: restarted

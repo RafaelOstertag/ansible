@@ -20,4 +20,8 @@
     - openbsd/mailserver
     - openbsd/enable-ldap-login
     - openbsd/gizmo-mounts
+    - name: openbsd/build-host
+      tags:
+        - build-host
+    
     

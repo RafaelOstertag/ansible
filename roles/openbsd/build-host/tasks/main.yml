@@ -1,0 +1,12 @@
+---
+
+- name: Create /usr/local/src
+  file:
+    name: /usr/local/src
+    state: directory
+  
+- name: Copy build script
+  copy:
+    src: build.sh
+    dest: /usr/local/src/build.sh
+    mode: 0755

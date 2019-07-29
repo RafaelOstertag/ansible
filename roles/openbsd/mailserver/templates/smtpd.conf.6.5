@@ -1,0 +1,11 @@
+pki {{ ansible_fqdn }} cert "/etc/mail/tls/{{ ansible_fqdn }}.cert"
+pki {{ ansible_fqdn }} key "/etc/mail/tls/{{ ansible_fqdn }}.key"
+ca {{ ansible_fqdn }} cert "/etc/ssl/guengel.ch.pem"
+
+listen on lo0 inet6 tls pki {{ ansible_fqdn }}
+
+table aliases file:/etc/mail/aliases
+
+action "relay" relay host smtp+tls://gizmo.kruemel.home
+
+match from local for any action "relay"

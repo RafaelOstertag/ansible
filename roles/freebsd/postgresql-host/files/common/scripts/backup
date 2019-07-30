@@ -1,0 +1,24 @@
+#!/bin/sh
+TMPPATH=/var/db/postgres/backups/
+
+umask 077
+if [ ! -d $TMPPATH ]
+then
+        mkdir $TMPPATH
+fi
+
+echo "Backing up PostgreSQL..."
+echo "Start: `date`"
+echo "Full Dump"
+/usr/local/bin/pg_dumpall -o -U postgres | /usr/bin/bzip2 -9 -c > $TMPPATH/fulldump.sql.bz2
+echo "Globals only"
+/usr/local/bin/pg_dumpall -U postgres -g | /usr/bin/bzip2 -9 -c > $TMPPATH/globals.sql.bz2
+dbs=`/usr/local/bin/psql -q -U postgres -c "SELECT datname FROM pg_database WHERE datname!='template0'" -d template1 -A -t`
+for d in $dbs
+do
+        /usr/bin/printf " $d" 
+        /usr/local/bin/pg_dump -U postgres -b -F c -f $TMPPATH/$d.dump $d
+done
+echo ""
+
+echo "End: `date`"

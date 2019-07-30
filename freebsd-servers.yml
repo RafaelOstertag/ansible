@@ -432,4 +432,11 @@
       tags:
         - openvpn
       when: 'openvpn_host'
+    - import_role:
+        name: freebsd/postgresql-host
+      when: 'postgresql_host'
+      tags:
+        - postgres
+        - postgresql
+        - pg
         

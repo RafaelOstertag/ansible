@@ -15,9 +15,12 @@ def help():
     """)
 
 def check_crl(filename, warning, critical):
-    output = subprocess.Popen(["openssl", "crl", "-noout", "-nextupdate", "-in", filename], stdout=subprocess.PIPE).communicate()[0]
+    output = subprocess.Popen(["openssl", "crl", "-noout", "-nextupdate", "-in", filename], stdout=subprocess.PIPE, text=True).communicate()[0]
     assert output != None, "output empty"
-    nextupdate = datetime.strptime(output.strip("\n").split("=")[1], "%b %d %H:%M:%S %Y %Z")
+
+    nextupdate_str = output.strip("\n").split("=")[1]
+
+    nextupdate = datetime.strptime(nextupdate_str, "%b %d %H:%M:%S %Y %Z")
     daysremain = nextupdate - datetime.now()
     if daysremain < timedelta(days=critical):
         print("CRITICAL: CRL %s expires in %s" % (filename, daysremain))
@@ -32,7 +35,7 @@ def check_crl(filename, warning, critical):
 def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:], "f:w:c:h")
-    except (getopt.GetoptError as err):
+    except getopt.GetoptError as err:
         # print help information and exit:
         print(str(err)) # will print something like "option -a not recognized"
         usage()

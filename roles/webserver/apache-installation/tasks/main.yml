@@ -43,6 +43,12 @@
   loop_control:
     loop_var: file_item
 
+# We include it, but the installation doesn't find it
+- name: Remove mpm fallback configuration in {{ jail_name }}
+  file:
+    dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/apache24/modules.d/000_mpm_prefork_fallback.conf"
+    state: absent
+
 - name: Enable apache24 in {{ jail_name }}
   lineinfile:
     path: "/var/www/jails/{{ jail_name }}/etc/rc.conf.d/apache24"

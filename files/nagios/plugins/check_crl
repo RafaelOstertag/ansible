@@ -8,11 +8,11 @@ import subprocess
 import getopt
 
 def help():
-    print """
+    print("""
 
   check_crl [-h] -f <crl> -w <days> -c <days>
 
-    """
+    """)
 
 def check_crl(filename, warning, critical):
     output = subprocess.Popen(["openssl", "crl", "-noout", "-nextupdate", "-in", filename], stdout=subprocess.PIPE).communicate()[0]
@@ -20,13 +20,13 @@ def check_crl(filename, warning, critical):
     nextupdate = datetime.strptime(output.strip("\n").split("=")[1], "%b %d %H:%M:%S %Y %Z")
     daysremain = nextupdate - datetime.now()
     if daysremain < timedelta(days=critical):
-        print "CRITICAL: CRL %s expires in %s" % (filename, daysremain)
+        print("CRITICAL: CRL %s expires in %s" % (filename, daysremain))
         sys.exit(2)
     elif daysremain < timedelta(days=warning):
-        print "WARNING: CRL %s expires in %s" % (filename, daysremain)
+        print("WARNING: CRL %s expires in %s" % (filename, daysremain))
         sys.exit(1)
 
-    print "OK: CRL %s expires in %s" % (filename, daysremain)
+    print("OK: CRL %s expires in %s" % (filename, daysremain))
     sys.exit(0)
 
 def main():
@@ -54,7 +54,7 @@ def main():
             assert False, "unhandled option"
 
     if warning < critical:
-        print "warning is smaller than critical"
+        print("warning is smaller than critical")
         sys.exit(3)
 
     check_crl(crlfile, warning, critical)

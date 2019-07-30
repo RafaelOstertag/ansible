@@ -23,8 +23,6 @@
   notify:
     - "Restart jail {{ jail_name }}"
 
-      
-
 - name: Copy apache configuration to {{ jail_name }}
   copy:
     src: "{{ jail_name }}.conf"

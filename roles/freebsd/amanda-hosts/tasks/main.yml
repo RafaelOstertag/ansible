@@ -38,7 +38,7 @@
   ignore_errors: true
 
 - name: Copy amanda include to virtual hosts
-  when: "not amanda_server and 'freebsd-virtual-hosts' in group_names"
+  when: "not amanda_server and 'freebsd_virtual_hosts' in group_names"
   copy:
     src: dot.amanda-wks-include.gtar
     dest: /.amanda-wks-include.gtar

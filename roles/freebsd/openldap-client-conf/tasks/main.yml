@@ -6,7 +6,7 @@
   register: openldap
 
 - name: Copy ldap.conf
-  when: openldap.stat.exists == True and not 'freebsd-servers-dmz' in group_names
+  when: openldap.stat.exists == True and not 'freebsd_servers_dmz' in group_names
   copy:
     src: openldap/ldap.conf
     dest: /usr/local/etc/openldap/ldap.conf

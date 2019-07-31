@@ -32,7 +32,7 @@
     owner: operator
 
 - name: Copy .amanda-wks-include.gtar
-  when: "amanda_server == False and 'openbsd-virtual-hosts' in group_names"
+  when: "amanda_server == False and 'openbsd_virtual_hosts' in group_names"
   copy:
     src: dot.amanda-wks-include.gtar
     dest: /.amanda-wks-include.gtar

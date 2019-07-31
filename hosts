@@ -1,11 +1,11 @@
 ;
 ; FreeBSD
 ;
-[freebsd-servers:children]
-freebsd-servers-dmz
-freebsd-servers-lan
+[freebsd_servers:children]
+freebsd_servers_dmz
+freebsd_servers_lan
 
-[freebsd-servers-lan]
+[freebsd_servers_lan]
 beastie.kruemel.home
 gizmo.kruemel.home
 viking.kruemel.home
@@ -15,39 +15,39 @@ nostromo.kruemel.home
 megatron.kruemel.home
 jenkins.kruemel.home
 
-[freebsd-servers-dmz]
+[freebsd_servers_dmz]
 eventhorizon.dmz.kruemel.home
 yayap.dmz.kruemel.home
 starscream.dmz.kruemel.home
 
-[freebsd-user-hosts:children]
-freebsd-virtual-hosts
-freebsd-workstations
+[freebsd_user_hosts:children]
+freebsd_virtual_hosts
+freebsd_workstations
 
-[freebsd-virtual-hosts]
+[freebsd_virtual_hosts]
 aurora.virtual.kruemel.home
 freebsd32.virtual.kruemel.home
 
-[freebsd-workstations]
+[freebsd_workstations]
 odin.kruemel.home
 
-[lean-jail-servers]
+[lean_jail_servers]
 gizmo.kruemel.home
 
-[thin-jail-servers]
+[thin_jail_servers]
 gizmo.kruemel.home
 
 ;
 ; OpenBSD
 ;
-[openbsd-servers:children]
-openbsd-servers-lan
+[openbsd_servers:children]
+openbsd_servers_lan
 
-[openbsd-servers-lan]
+[openbsd_servers_lan]
 gargoyle.kruemel.home
 kerberos.kruemel.home
 
-[openbsd-virtual-hosts]
+[openbsd_virtual_hosts]
 phoebe.virtual.kruemel.home
 merlin.virtual.kruemel.home
 
@@ -60,7 +60,7 @@ kube01
 ;
 ; Jenkins Slaves
 ;
-[jenkins-slaves]
+[jenkins_slaves]
 dash.virtual.kruemel.home
 merlin.virtual.kruemel.home
 odin.kruemel.home

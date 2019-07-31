@@ -1,7 +1,7 @@
 ---
 
 - name: FreeBSD Lean Jails
-  hosts: lean-jail-servers
+  hosts: lean_jail_servers
   force_handlers: true
   user: root
   tasks:

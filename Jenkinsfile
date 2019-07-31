@@ -12,7 +12,7 @@ pipeline {
 		sh """
 for pb in *.yml
 do
-  ansible-playbook -i hosts --syntax-check \$pb || exit 1
+  ansible-playbook-3.7 -i hosts --syntax-check \$pb || exit 1
 done	
 """
             }

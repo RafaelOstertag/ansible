@@ -83,7 +83,7 @@
           - libtool
           - libxslt
           - pcre
-          - w3m-0.5.3p6
+          - w3m-0.5.3p7
           - argon2
         state: present
 

@@ -41,6 +41,7 @@
           - libtool
           - libxslt
           - openjdk8
+          - openjdk11
           - pcre
           - pkgconf
           - w3m
@@ -61,7 +62,7 @@
           - libcppunit-dev
           - libpcre3-dev
           - libtool
-          - openjdk-8-jdk
+          - openjdk-11-jdk
           - w3m
           - xsltproc
           - libargon2-0-dev

@@ -15,7 +15,12 @@ def help():
     """)
 
 def check_crl(filename, warning, critical):
-    output = subprocess.Popen(["openssl", "crl", "-noout", "-nextupdate", "-in", filename], stdout=subprocess.PIPE, text=True).communicate()[0]
+    try:
+        # Python 3.7+
+        output = subprocess.Popen(["openssl", "crl", "-noout", "-nextupdate", "-in", filename], stdout=subprocess.PIPE, text=True).communicate()[0]
+    except TypeError:
+        # Python <3.7
+        output = subprocess.Popen(["openssl", "crl", "-noout", "-nextupdate", "-in", filename], stdout=subprocess.PIPE).communicate()[0]
     assert output != None, "output empty"
 
     nextupdate_str = output.strip("\n").split("=")[1]

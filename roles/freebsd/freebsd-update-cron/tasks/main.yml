@@ -3,10 +3,4 @@
 - name: Add freebsd-update cron
   cron:
     name: FreeBSD update
-    state: present
-    job: "/usr/sbin/freebsd-update cron -t root >/dev/null"
-    weekday: "*"
-    day: "*"
-    minute: "05"
-    hour: "22"
-    month: "*"
+    state: absent

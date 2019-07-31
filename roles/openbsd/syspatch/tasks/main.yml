@@ -1,18 +1,6 @@
 ---
 
-- name: Exists syspatch?
-  stat:
-    path: /usr/sbin/syspatch
-  register: syspatch
-
-- name: Add syspatch check
-  when: 'syspatch.stat.exists'
+- name: Remove syspatch check
   cron:
     name: Syspatch check
-    state: present
-    job: "/usr/sbin/syspatch -c"
-    weekday: "*"
-    day: "*"
-    minute: "04"
-    hour: "04"
-    month: "*"
+    state: absent

@@ -23,21 +23,30 @@
     src: /usr/share/zoneinfo/Europe/Zurich
     dest: "/var/www/jails/{{ jail_name }}/etc/localtime"
 
+- name: Use official FreeBSD repository in {{ jail_name }}
+  file:
+    state: absent
+    dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/pkg/repos"
+  when: "useOfficialRepo"
+
 - name: Setup pkg repo directory in {{ jail_name }}
   file:
     state: directory
     dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/pkg/repos"
-
+  when: "not useOfficialRepo"
+ 
 - name: Disable standard repository in {{ jail_name }}
   copy:
     src: FreeBSD.conf
-    dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/pkg/repos/FreeBSD.conf"
+    dest: "/var/www/jails/{{ jail_name  }}/usr/local/etc/pkg/repos/FreeBSD.conf"
+  when: "not useOfficialRepo"
 
 - name: Enable guengel.ch repository in {{ jail_name }}
   copy:
     src: guengel.ch.conf
     dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/pkg/repos/guengel.ch.conf"
-  
+  when: "not useOfficialRepo"
+ 
 - name: Add freebsd-update cronjob for {{ jail_name }}
   cron:
     name: "FreeBSD update {{ jail_name }}"

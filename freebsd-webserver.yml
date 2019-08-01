@@ -14,6 +14,7 @@
         name: webserver/jail-installation
       vars:
         jail_name: "{{ item.name }}"
+        useOfficialRepo: "{{ not item.requireLdap }}"
       with_items: "{{ web_jails }}"
       tags:
         - jails

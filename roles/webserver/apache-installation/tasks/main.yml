@@ -1,20 +1,10 @@
 ---
 
-- name: Is jail {{ jail_name }} running
-  shell: "jls -j {{ jail_name }}"
-  register: jail_running
-  ignore_errors: true
-
-- name: Start jail {{ jail_name }} temporary
-  shell: "jail -cmr path=/var/www/jails/{{ jail_name }} allow.mount mount.devfs ip6.addr={{ jail_IP }} persist host.hostname={{ jail_name }}.{{ web_domain }} name={{ jail_name }} exec.fib=1 ip4=disable"
-  when: "jail_running.rc == 1"
-
 - name: Install apache 24 to {{ jail_name }}
-  shell: "setfib 1 jexec {{ jail_name }} env ASSUME_ALWAYS_YES=yes pkg install -y apache24"
-
-- name: Tear down temporary jail {{ jail_name }}
-  shell: "jail -r {{ jail_name }}"
-  when: "jail_running.rc == 1"
+  pkgng:
+    name: apache24
+    chroot: "/var/www/jails/{{ jail_name }}"
+    state: present
 
 - name: Copy server certificate to {{ jail_name }}
   copy:

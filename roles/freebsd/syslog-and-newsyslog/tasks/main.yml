@@ -1,5 +1,14 @@
 ---
 
+- name: Create syslog snippets dir
+  file:
+    path: "/usr/local/etc/syslog.d"
+    state: directory
+    mode: 0755
+    owner: root
+    group: wheel
+  when: "(ansible_fqdn + '/syslog.d') is directory"
+
 - name: Copy syslog snippets
   copy:
     src: "{{ item }}"
@@ -11,6 +20,15 @@
     - "{{ ansible_fqdn }}/syslog.d/*.conf"
   notify:
   - Restart FreeBSD syslog
+
+- name: Create syslog snippets dir
+  file:
+    path: "/usr/local/etc/newsyslog.conf.d"
+    state: directory
+    mode: 0755
+    owner: root
+    group: wheel
+  when: "(ansible_fqdn + '/newsyslog.d') is directory" 
 
 - name: Copy newsyslog snippets
   copy:

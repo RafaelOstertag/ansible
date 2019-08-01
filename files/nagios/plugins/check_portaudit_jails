@@ -4,6 +4,7 @@
 set -u
 
 PKG="/usr/local/sbin/pkg"
+SUDO="/usr/local/bin/sudo"
 THIN_JAILS_LIST=/usr/jails/thin.jails.list
 
 if [ -f /usr/local/libexec/nagios/utils.sh ]
@@ -31,7 +32,7 @@ do
     then
 	continue
     fi
-    response=`sudo ${PKG} -j $j audit -F`
+    response=`${SUDO} ${PKG} -j $j audit -F`
     echo "${response}" | grep '^0 problem' > /dev/null 2>&1
     if [ $? -ne 0 ]
     then
@@ -42,7 +43,7 @@ done
 
 if [ -f "${THIN_JAILS_LIST}" ]
 then
-    response=`sudo ${PKG} -c /usr/jails/thin-base audit -F`
+    response=`${SUDO} ${PKG} -c /usr/jails/thin-base audit -F`
     echo "${response}" | grep '^0 problem' > /dev/null 2>&1
     if [ $? -ne 0 ]
     then

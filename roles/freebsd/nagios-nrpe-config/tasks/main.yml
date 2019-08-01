@@ -51,13 +51,4 @@
     owner: nagios
     group: nagios
     mode: 0755
-  with_items:
-    - check_crl
-    - check_portaudit
-    - check_solaris_smf
-    - check_zfs
-    - check_fb_gmirror
-    - check_proc_pid
-    - check_solsvc
-    - check_freebsd_secure_level
-    - check_freebsd_jails
+  loop: "{{ custom_nagios_plugins }}"

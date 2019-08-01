@@ -380,6 +380,8 @@
         - nagios
     - import_role:
         name: freebsd/sudo
+      tags:
+        - sudo
     - import_role:
         name: freebsd/ntp
       when: "not jail"

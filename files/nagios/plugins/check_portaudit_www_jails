@@ -1,0 +1,47 @@
+#!/bin/sh
+#
+# Check if FreeBSD pkg audit shows issues for running jails.
+#
+# As opposed to check_portaudit_jails, it does a `pkg -c ...`. This is
+# due to the fact that www jails don't support IPv4.
+set -u
+
+PKG="/usr/local/sbin/pkg"
+THIN_JAILS_LIST=/usr/jails/thin.jails.list
+
+if [ -f /usr/local/libexec/nagios/utils.sh ]
+then
+	. /usr/local/libexec/nagios/utils.sh
+elif [ -f /opt/csw/libexec/nagios-plugins/utils.sh ]
+then
+	. /opt/csw/libexec/nagios-plugins/utils.sh
+else
+	echo "utils.sh not found"
+	exit 3
+fi
+
+if [ ! -x "${PKG}" ]
+then
+	echo "${PKG} not found"
+	exit 3
+fi
+
+alloutput="OK"
+overall_state=${STATE_OK}
+for j in /var/www/jails/*
+do
+    if ! [ -d "$j" ]
+    then
+	continue
+    fi
+    response=`sudo ${PKG} -c $j audit -F`
+    echo "${response}" | grep '^0 problem' > /dev/null 2>&1
+    if [ $? -ne 0 ]
+    then
+	alloutput="${alloutput}${response}"
+	overall_state=${STATE_WARNING}
+    fi
+done
+
+echo ${alloutput}
+exit ${overall_state}

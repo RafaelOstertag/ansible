@@ -1,0 +1,55 @@
+#!/bin/sh
+#
+# Check if FreeBSD pkg audit shows issues for running jails.
+set -u
+
+PKG="/usr/local/sbin/pkg"
+THIN_JAILS_LIST=/usr/jails/thin.jails.list
+
+if [ -f /usr/local/libexec/nagios/utils.sh ]
+then
+	. /usr/local/libexec/nagios/utils.sh
+elif [ -f /opt/csw/libexec/nagios-plugins/utils.sh ]
+then
+	. /opt/csw/libexec/nagios-plugins/utils.sh
+else
+	echo "utils.sh not found"
+	exit 3
+fi
+
+if [ ! -x "${PKG}" ]
+then
+	echo "${PKG} not found"
+	exit 3
+fi
+
+alloutput="OK"
+overall_state=${STATE_OK}
+for j in `jls -N name`
+do
+    if grep ^$j\$ "${THIN_JAILS_LIST}" >/dev/null 2>&1
+    then
+	continue
+    fi
+    response=`${FIB} sudo ${PKG} -j $j audit -F`
+    echo "${response}" | grep '^0 problem' > /dev/null 2>&1
+    if [ $? -ne 0 ]
+    then
+	alloutput="${alloutput}${response}"
+	overall_state=${STATE_WARNING}
+    fi
+done
+
+if [ -f "${THIN_JAILS_LIST}" ]
+then
+    response=`${FIB} sudo ${PKG} -c /usr/jails/thin-base audit -F`
+    echo "${response}" | grep '^0 problem' > /dev/null 2>&1
+    if [ $? -ne 0 ]
+    then
+	alloutput="${alloutput}${response}"
+	overall_state=${STATE_WARNING}
+    fi
+fi
+
+echo ${alloutput}
+exit ${overall_state}

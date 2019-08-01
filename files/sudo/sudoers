@@ -65,5 +65,5 @@ rafi	FREEBSD_WKS=(root) ALL
 sysadmin SOLARIS11=(root) ALL
 
 # This for nrpe since mailq on openBSD requires root privileges.
-nagios FREEBSD=(root) NOPASSWD: /usr/local/libexec/nagios/check_file_age, /usr/local/libexec/nagios/check_procs, /usr/local/libexec/nagios/check_proc_pid 
+nagios FREEBSD=(root) NOPASSWD: /usr/local/libexec/nagios/check_file_age, /usr/local/libexec/nagios/check_procs, /usr/local/libexec/nagios/check_proc_pid, /usr/local/sbin/pkg -j * audit -F, /usr/local/sbin/pkg -c * audit -F
 nagios SOLARIS=(root) NOPASSWD: /opt/ggl/libexec/nagios/check_file_age, /opt/ggl/libexec/nagios/check_mailq

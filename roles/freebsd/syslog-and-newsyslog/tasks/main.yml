@@ -1,5 +1,14 @@
 ---
 
+- name: Disable logging to /dev/console for serial ttys
+  lineinfile:
+    path: /etc/syslog.conf
+    regexp: '^\*.err;kern.warning;auth.notice;mail.crit'
+    state: absent
+  when: serial_tty
+  notify:
+    - Restart FreeBSD syslog
+
 - name: Create syslog snippets dir
   file:
     path: "/usr/local/etc/syslog.d"
@@ -7,7 +16,6 @@
     mode: 0755
     owner: root
     group: wheel
-  when: "(ansible_fqdn + '/syslog.d') is directory"
 
 - name: Copy syslog snippets
   copy:
@@ -19,7 +27,18 @@
   with_fileglob:
     - "{{ ansible_fqdn }}/syslog.d/*.conf"
   notify:
-  - Restart FreeBSD syslog
+    - Restart FreeBSD syslog
+
+- name: Create empty log files from snippet name
+  file:
+    path: "/var/log/{{ item | basename | regex_replace('\\..*$') }}"
+    state: file
+    owner: root
+    group: wheel
+  with_fileglob:
+    - "{{ ansible_fqdn }}/syslog.d/*.conf"
+  notify:
+    - Restart FreeBSD syslog
 
 - name: Create syslog snippets dir
   file:
@@ -28,7 +47,6 @@
     mode: 0755
     owner: root
     group: wheel
-  when: "(ansible_fqdn + '/newsyslog.d') is directory" 
 
 - name: Copy newsyslog snippets
   copy:

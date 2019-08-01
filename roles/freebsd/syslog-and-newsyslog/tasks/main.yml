@@ -1,0 +1,24 @@
+---
+
+- name: Copy syslog snippets
+  copy:
+    src: "{{ item }}"
+    dest: "/usr/local/etc/syslog.d/{{ item | basename }}"
+    mode: 0660
+    owner: root
+    group: wheel
+  with_fileglob:
+    - "{{ ansible_fqdn }}/syslog.d/*.conf"
+  notify:
+  - Restart FreeBSD syslog
+
+- name: Copy newsyslog snippets
+  copy:
+    src: "{{ item }}"
+    dest: "/usr/local/etc/newsyslog.conf.d/{{ item | basename }}"
+    mode: 0600
+    owner: root
+    group: wheel
+  with_fileglob:
+    - "{{ ansible_fqdn }}/newsyslog.d/*.conf"
+  

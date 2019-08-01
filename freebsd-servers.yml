@@ -447,4 +447,7 @@
         - postgres
         - postgresql
         - pg
-        
+    - import_role:
+        name: freebsd/syslog-and-newsyslog
+      tags:
+        - syslog

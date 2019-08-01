@@ -9,6 +9,10 @@
         name: common/etcfiles
     - import_role:
         name: common/motd
+    - import_role:
+        name: common/ssh-keys
+      tags:
+        ssh-keys
     # Keep this on top. Other roles might use pkgng
     - import_role:
         name: freebsd/disable-default-pkgrepo
@@ -379,16 +383,23 @@
     - import_role:
         name: freebsd/ntp
       when: "not jail"
+
     - import_role:
         name: freebsd/mailserver
       when: 'not smart_host and not edge_mailserver'
+      tags:
+        - mailserver
     - import_role:
         name: freebsd/mailserver-smarthost
       when: "smart_host"
-    - import_role:
-        name: common/ssh-keys
       tags:
-        ssh-keys
+        - mailserver
+    - import_role:
+        name: freebsd/edge-mailserver
+      when: 'edge_mailserver'
+      tags:
+        - mailserver
+
     - import_role:
         name: freebsd/root-ssh-config
     - import_role:
@@ -408,9 +419,6 @@
         enable_secure_level: True
         secure_level: "1"
       when: "not jail"
-    - import_role:
-        name: freebsd/edge-mailserver
-      when: 'edge_mailserver'
     - import_role:
         name: freebsd/zfs-scrub
       when: "enable_zfs_scrub"

@@ -22,10 +22,12 @@ then
 	exit 3
 fi
 
-/usr/local/sbin/pkg audit | grep '^0 problem' > /dev/null 2>&1
+response=`/usr/local/sbin/pkg audit`
+
+echo "$response" | grep '^0 problem' > /dev/null 2>&1
 if [ $? -ne 0 ]
 then
-	echo "Security problems in packages"
+	echo "$response"
 	exit ${STATE_WARNING}
 fi
 

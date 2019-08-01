@@ -31,7 +31,7 @@ do
     then
 	continue
     fi
-    response=`${FIB} sudo ${PKG} -j $j audit -F`
+    response=`sudo ${PKG} -j $j audit -F`
     echo "${response}" | grep '^0 problem' > /dev/null 2>&1
     if [ $? -ne 0 ]
     then
@@ -42,7 +42,7 @@ done
 
 if [ -f "${THIN_JAILS_LIST}" ]
 then
-    response=`${FIB} sudo ${PKG} -c /usr/jails/thin-base audit -F`
+    response=`sudo ${PKG} -c /usr/jails/thin-base audit -F`
     echo "${response}" | grep '^0 problem' > /dev/null 2>&1
     if [ $? -ne 0 ]
     then

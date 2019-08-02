@@ -39,6 +39,16 @@
     dest: "/var/www/jails/{{ jail_name }}/usr/local/etc/apache24/modules.d/000_mpm_prefork_fallback.conf"
     state: absent
 
+- name: Enable www group to write to data directory
+  file:
+    state: directory
+    dest: "/var/www/jails/{{ jail_name }}/usr/local/www/apache24/data"
+    mode: 0775
+    owner: root
+    group: www
+  when: "groupWriteable"
+    
+
 - name: Enable apache24 in {{ jail_name }}
   lineinfile:
     path: "/var/www/jails/{{ jail_name }}/etc/rc.conf.d/apache24"

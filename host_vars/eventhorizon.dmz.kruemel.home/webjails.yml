@@ -10,27 +10,34 @@ web_jails:
     loIPv6: "fd3e:be3e:ec34:ffff::2"
     IPv6: "fd3e:be3e:ec34:2::2"
     requireLdap: False
+    groupWriteable: False
   - name: webmail
     loIPv6: "fd3e:be3e:ec34:ffff::5"
     IPv6: "fd3e:be3e:ec34:2::5"
     requireLdap: True
+    groupWriteable: False
   - name: www
     loIPv6: "fd3e:be3e:ec34:ffff::6"
     IPv6: "fd3e:be3e:ec34:2::6"
     requireLdap: False
+    groupWriteable: True
   - name: solaris
     loIPv6: "fd3e:be3e:ec34:ffff::9"
     IPv6: "fd3e:be3e:ec34:2::9"
-    requireLdap: False    
+    requireLdap: False
+    groupWriteable: False
   - name: yapet
     loIPv6: "fd3e:be3e:ec34:ffff::10"
     IPv6: "fd3e:be3e:ec34:2::10"
     requireLdap: False
+    groupWriteable: True
   - name: agentsmith
     loIPv6: "fd3e:be3e:ec34:ffff::11"
     IPv6: "fd3e:be3e:ec34:2::11"
     requireLdap: False
+    groupWriteable: True
   - name: portscanner
     loIPv6: "fd3e:be3e:ec34:ffff::12"
     IPv6: "fd3e:be3e:ec34:2::12"
     requireLdap: False
+    groupWriteable: False

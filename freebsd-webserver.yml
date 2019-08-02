@@ -50,6 +50,7 @@
       vars:
         jail_name: "{{ item.name }}"
         jail_IP: "{{ item.IPv6 }}"
+        groupWriteable: "{{ item.groupWriteable }}"
       with_items: "{{ web_jails }}"
       tags:
         - apache

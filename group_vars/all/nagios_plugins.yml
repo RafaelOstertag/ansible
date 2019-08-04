@@ -2,6 +2,7 @@
 
 custom_nagios_plugins:
   - check_crl
+  - check_external_ip
   - check_fb_gmirror
   - check_freebsd_jails
   - check_freebsd_secure_level

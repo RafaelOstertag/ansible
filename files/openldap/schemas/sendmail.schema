@@ -5,7 +5,6 @@
 # forth in the LICENSE file which can be found at the top level of
 # the sendmail distribution.
 #
-# $Id$
 
 # Note that this schema is experimental at this point as it has had little
 # public review.  Therefore, it may change in future versions.  Feedback

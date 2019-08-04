@@ -2,7 +2,6 @@
 #
 # Check if FreeBSD pkg audit shows issues.
 #
-# $Id$
 
 if [ -f /usr/local/libexec/nagios/utils.sh ]
 then

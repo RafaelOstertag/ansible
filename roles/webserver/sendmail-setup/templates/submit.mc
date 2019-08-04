@@ -1,6 +1,5 @@
 divert(-1)
 #
-# $Id: submit.mc 7087 2017-09-11 20:02:57Z rafi $
 #
 # !!!! This file is maintained by Ansible !!!!
 #

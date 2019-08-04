@@ -1,6 +1,5 @@
 #!/usr/local/bin/python3
 #
-# $Id$
 
 import sys
 from datetime import datetime, timedelta, time

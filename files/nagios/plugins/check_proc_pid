@@ -2,7 +2,6 @@
 #
 # If daemon with a given pid file is running
 #
-# $Id$
 
 if [ -f /usr/local/libexec/nagios/utils.sh ]
 then

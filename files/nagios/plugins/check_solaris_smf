@@ -2,9 +2,8 @@
 #
 # Nagios plugin to check Solaris 10 SMF service status.
 #
-# $Id$
 #
-# Copyright (C) 2008  Hannu Kivimäki / CSC - Scientific Computing Ltd.
+# Copyright (C) 2008  Hannu Kivimï¿½ki / CSC - Scientific Computing Ltd.
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -57,7 +56,7 @@ CONST_BIT_C=4
 
 printInfo() {
     echo "Nagios plugin to check Solaris 10 SMF service status."
-    echo "Copyright (C) 2008  Hannu Kivimäki / CSC - Scientific Computing Ltd."
+    echo "Copyright (C) 2008  Hannu Kivimï¿½ki / CSC - Scientific Computing Ltd."
 }
 
 printHelp() {

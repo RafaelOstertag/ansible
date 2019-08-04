@@ -2,7 +2,6 @@
 #
 # Check if FreeBSD gmirror has issues
 #
-# $Id$
 if [ -f /usr/local/libexec/nagios/utils.sh ]
 then
 	. /usr/local/libexec/nagios/utils.sh

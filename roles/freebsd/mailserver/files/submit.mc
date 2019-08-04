@@ -1,6 +1,5 @@
 divert(-1)
 #
-# $Id$
 #
 # !!!! This file is maintained by Ansible !!!!
 #

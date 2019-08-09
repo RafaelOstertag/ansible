@@ -11,6 +11,17 @@
   loop_control:
     loop_var: thin_jail_name
 
+- name: Mark as thin jail
+  file:
+    path: "{{thin_jail_root_directory}}/{{thin_jail_name}}/.thin-jail"
+    state: touch
+    mode: 0444
+    owner: root
+    group: wheel
+  loop: "{{ thin_jails }}"
+  loop_control:
+    loop_var: thin_jail_name
+
 - name: Create thin jail tmp directories
   file:
     state: directory

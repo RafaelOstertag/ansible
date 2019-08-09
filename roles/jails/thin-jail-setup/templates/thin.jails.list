@@ -1,3 +1,0 @@
-{% for thin_jail in thin_jails %}
-{{thin_jail}}
-{% endfor %}

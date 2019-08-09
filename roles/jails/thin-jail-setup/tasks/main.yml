@@ -28,11 +28,6 @@
     src: /usr/share/zoneinfo/Europe/Zurich
     state: link
 
-- name: Update thin jail list
-  template:
-    src: thin.jails.list
-    dest: "{{ thin_jail_root_directory }}/thin.jails.list"
-
 - name: Install app helper scripts
   copy:
     src: "{{ item }}"
@@ -71,7 +66,7 @@
 
 - name: Create group 'app' in thin jail base
   shell: "pw -R {{thin_jail_root_directory}}/thin-base user show app || pw -R {{thin_jail_root_directory}}/thin-base user add -n app -u 5000 -c 'Application User' -g app -d /opt/app -s /bin/sh" 
-
+  
 - name: Create thin jail fstabs
   template:
     src: fstab.jail

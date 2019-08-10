@@ -4,7 +4,10 @@
   pkgng:
     name: strongswan
     state: present
-  notify: Restart FreeBSD strongswan
+  notify: 
+    - Restart FreeBSD strongswan
+    - Terminate connection
+    - Initiate connection
 
 - name: Enable StrongSwan at startup
   copy:
@@ -13,7 +16,10 @@
     mode: 0644
     owner: root
     group: wheel
-  notify: Restart FreeBSD strongswan
+  notify: 
+    - Restart FreeBSD strongswan
+    - Terminate connection
+    - Initiate connection
 
 - name: Create StrongSwan configuration
   template:
@@ -22,4 +28,18 @@
     mode: 0640
     owner: root
     group: wheel
-  notify: Restart FreeBSD strongswan
+  notify: 
+    - Restart FreeBSD strongswan
+    - Terminate connection
+    - Initiate connection
+
+- name: Initiate connection upon startup
+  lineinfile:
+    path: /etc/rc.local
+    create: true
+    regex: "^/usr/local/sbin/swanctl\\s+--initiate.*"
+    line: "/usr/local/sbin/swanctl --initiate --ike home"
+    mode: 0755
+    owner: root
+    group: wheel
+

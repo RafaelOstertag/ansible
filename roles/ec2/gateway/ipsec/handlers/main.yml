@@ -4,3 +4,10 @@
   service:
     name: strongswan
     state: restarted
+
+- name: Terminate connection
+  command: 'swanctl --terminate --ike home'
+  ignore_errors: true
+
+- name: Initiate connection
+  command: 'swanctl --initiate --ike home'

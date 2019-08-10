@@ -7,7 +7,10 @@
     mode: 0644
     owner: root
     group: wheel
-  notify: Restart FreeBSD strongswan
+  notify: 
+    - Restart FreeBSD strongswan
+    - Terminate connection
+    - Initiate connection
 
 - name: Copy host certificate
   copy:
@@ -16,7 +19,10 @@
     mode: 0644
     owner: root
     group: wheel
-  notify: Restart FreeBSD strongswan
+  notify: 
+    - Restart FreeBSD strongswan
+    - Terminate connection
+    - Initiate connection
 
 - name: Copy host key
   copy:
@@ -25,4 +31,7 @@
     mode: 0600
     owner: root
     group: wheel
-  notify: Restart FreeBSD strongswan
+  notify: 
+    - Restart FreeBSD strongswan
+    - Terminate connection
+    - Initiate connection

@@ -2,7 +2,6 @@
 
 - name: EC2 Gateways
   hosts: ec2_gateways
-  force_handlers: true
   become: yes
 
   tasks:

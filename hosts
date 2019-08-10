@@ -61,7 +61,7 @@ kube01
 ; Jenkins Slaves
 ;
 [jenkins_slaves]
-dash.virtual.kruemel.home
+dash.virtual.kruemel.home  ansible_python_interpreter=/usr/bin/python
 merlin.virtual.kruemel.home
 odin.kruemel.home
 abraxas.virtual.kruemel.home

@@ -19,7 +19,7 @@
   copy:
     src: rc.conf.d/named
     dest: /usr/local/etc/rc.conf.d/named
-    mode: 06400
+    mode: 0644
     owner: root
     group: wheel
   notify:

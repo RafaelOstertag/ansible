@@ -4,7 +4,7 @@
   copy:
     src: master/named.conf
     dest: /usr/local/etc/namedb/named.conf
-    mode: 0640
+    mode: 0644
     owner: root
     group: wheel
   notify:
@@ -14,7 +14,7 @@
   copy:
     src: "master/zones/master/{{ item }}"
     dest: "/usr/local/etc/namedb/master/{{ item }}"
-    mode: 0640
+    mode: 0644
     owner: root
     group: wheel
   loop:

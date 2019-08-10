@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Backup to gizmo
+
+/usr/local/bin/rsync \
+    -a \
+    --delete \
+    --exclude .snap \
+    --password-file /usr/local/etc/rsync/rsync.secret \
+    /data/ ec2-backup-web@gizmo.kruemel.home::ec2-backup-web/

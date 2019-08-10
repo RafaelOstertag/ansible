@@ -14,6 +14,7 @@
         name: ec2/common/rsync
       tags:
         - rsync
+        - backup
     - import_role:
         name: ec2/gateway/ipsec
       tags:
@@ -43,3 +44,8 @@
         name: ec2/web/rsync-credentials
       tags:
         - rsync
+        - backup
+    - import_role:
+        name: ec2/web/backup
+      tags:
+        - backup

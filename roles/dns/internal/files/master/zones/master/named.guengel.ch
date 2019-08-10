@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 6h	; 6 hours
 @	IN SOA	optimusprime.guengel.ch. postmaster.guengel.ch. (
-				201810280; serial
+				201908100; serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
@@ -28,7 +28,7 @@ eventhorizon	IN	A	192.168.103.3
 			AAAA	fd3e:be3e:ec34:1::3
 yayap		IN	A	192.168.103.2
 			AAAA	fd3e:be3e:ec34:1::2
-www		IN	CNAME	eventhorizon.guengel.ch.
+www		IN	CNAME	ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.
 webmail		IN	CNAME	eventhorizon.guengel.ch.
 imap		IN	CNAME	gizmo.guengel.ch.
 smtp		IN	CNAME	starscream.guengel.ch.

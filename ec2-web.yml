@@ -17,6 +17,14 @@
       become: yes
       become_user: root
     - import_role:
+        name: ec2/gateway/hostsfile
+      tags:
+        - vpn
+        - ipsec
+        - tunnel
+      become: yes
+      become_user: root
+    - import_role:
         name: ec2/storage/data
       tags:
         - storage

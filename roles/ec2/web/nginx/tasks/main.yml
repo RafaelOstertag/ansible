@@ -14,9 +14,15 @@
     owner: root
     group: www
 
-- name: Create vhosts
+- name: Create default configuration vhosts
   include_tasks: vhosts.yml
   loop: "{{ nginx_domains }}"
+  loop_control:
+    loop_var: server_name
+
+- name: Create custom domain configurations
+  include_tasks: custom_domains.yml
+  loop: "{{ nginx_custom_domains }}"
   loop_control:
     loop_var: server_name
 

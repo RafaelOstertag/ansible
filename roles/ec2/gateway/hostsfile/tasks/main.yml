@@ -1,0 +1,8 @@
+---
+
+- name: Add jenkins.kruemel.home to hosts file
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    line: "192.168.100.21 jenkins.kruemel.home"
+

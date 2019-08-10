@@ -1,6 +1,6 @@
 ---
 
-- name: Create vhost data directory {{ server_name }}
+- name: Create vhost data directory for custom {{ server_name }}
   file:
     path: "/data/www/{{ server_name }}"
     state: directory
@@ -10,9 +10,9 @@
   notify:
     - Restart nginx
 
-- name: Create vhost configuration for {{ server_name }}
-  template:
-    src: vhost.conf
+- name: Copy custom vhost configuration for {{ server_name }}
+  copy:
+    src: "custom_domains/{{ server_name }}.conf"
     dest: "/usr/local/etc/nginx/vhosts/{{ server_name }}.conf"
     mode: 0640
     owner: root

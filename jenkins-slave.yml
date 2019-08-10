@@ -33,19 +33,25 @@
           - autoconf
           - automake
           - cppunit
+          # When building agentsmith web page
           - docbook-xsl
           - gettext
           - gettext-tools
           - git
           - gmake
+          # When building agentsmith web page
+          - hs-pandoc
+          - libargon2
           - libtool
           - libxslt
-          - openjdk8
           - openjdk11
+          - openjdk8
           - pcre
           - pkgconf
+          - tidy-html5
+          # When building agentsmith web page
+          - tidy4
           - w3m
-          - libargon2
         state: present
 
     - name: Linux packages

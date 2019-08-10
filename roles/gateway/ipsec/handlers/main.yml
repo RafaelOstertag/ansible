@@ -4,3 +4,9 @@
   service:
     name: iked
     state: restarted
+
+- name: Check firewall syntax
+  command: "pfctl -nf /etc/pf.conf"
+
+- name: Load firewall configuration
+  command: "pfctl -f /etc/pf.conf"

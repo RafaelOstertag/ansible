@@ -18,9 +18,21 @@
   loop:
     - pf.conf
     - pf.conf.d/dmz.conf
-    - pf.conf.d/ec2.vpn.conf
     - pf.conf.d/macros.conf
     - pf.conf.d/web.conf
   notify:
-    - Check syntax
+    - Check firewall syntax
     - Load firewall configuration
+
+  # This file is installed by the gateway/ipsec role. But we have to create
+  # it because pf.conf depends on it.
+- name: Touch ec2 related files
+  file:
+    path: "/etc/pf.conf.d/{{ item }}"
+    state: touch
+    mode: 0640
+    owner: root
+    group: wheel
+  loop:
+    - ec2.macros.conf
+    - ec2.vpn.conf

@@ -1,0 +1,20 @@
+---
+
+- name: Install iked configuration
+  template:
+    src: iked.conf
+    dest: /etc/iked.conf
+    mode: 0600
+    owner: root
+    group: wheel
+  notify:
+    - Restart OpenBSD iked
+
+- name: Enable iked
+  lineinfile:
+    path: /etc/rc.conf.local
+    create: true
+    regexp: "^iked_flags="
+    line: "iked_flags=\"-6\""
+  notify:
+    - Restart OpenBSD iked

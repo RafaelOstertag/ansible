@@ -1,6 +1,6 @@
 ---
 
-- name: Check syntax
+- name: Check firewall syntax
   command: "pfctl -nf /etc/pf.conf"
 
 - name: Load firewall configuration

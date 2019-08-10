@@ -1,0 +1,23 @@
+---
+
+- name: Install ec2.macros.conf
+  template:
+    src: firewall/ec2.macros.conf
+    dest: /etc/pf.conf.d/ec2.macros.conf
+    mode: 0640
+    owner: root
+    group: wheel
+  notify:
+    - Check firewall syntax
+    - Load firewall configuration
+
+- name: Install ec2.vpn.conf
+  copy:
+    src: firewall/ec2.vpn.conf
+    dest: /etc/pf.conf.d/ec2.vpn.conf
+    mode: 0640
+    owner: root
+    group: wheel
+  notify:
+    - Check firewall syntax
+    - Load firewall configuration

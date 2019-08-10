@@ -6,7 +6,7 @@
     state: restarted
 
 - name: Terminate connection
-  command: 'swanctl --terminate --ike home'
+  shell: 'swanctl --terminate --ike home || true'
   ignore_errors: true
 
 - name: Initiate connection

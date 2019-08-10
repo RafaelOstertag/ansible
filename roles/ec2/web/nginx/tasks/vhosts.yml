@@ -1,0 +1,22 @@
+---
+
+- name: Create vhost data directory {{ server_name }}
+  file:
+    path: "/data/www/{{ server_name }}"
+    state: directory
+    mode: 0770
+    owner: www
+    group: www
+  notify:
+    - Restart nginx
+
+- name: Create vhost configuration for {{ server_name }}
+  template:
+    src: vhost.conf
+    dest: "/usr/local/etc/nginx/vhosts/{{ server_name }}.conf"
+    mode: 0640
+    owner: root
+    group: www
+  notify:
+    - Restart nginx
+

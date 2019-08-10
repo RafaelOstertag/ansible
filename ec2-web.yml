@@ -2,7 +2,6 @@
 
 - name: EC2 Web
   hosts: ec2_web
-  become: yes
 
   tasks:
     - import_role:
@@ -15,4 +14,18 @@
         - vpn
         - ipsec
         - tunnel
+      become: yes
+      become_user: root
+    - import_role:
+        name: ec2/storage/data
+      tags:
+        - storage
+      become: yes
+      become_user: root
+    - import_role:
+        name: ec2/web/nginx
+      tags:
+        - nginx
+        - www
+      become: yes
       become_user: root

@@ -1,0 +1,17 @@
+---
+
+- name: Create data mountpoint
+  file:
+    path: /data
+    state: directory
+    owner: root
+    group: wheel
+    mode: 0755
+
+- name: Mount data storage
+  mount:
+    boot: yes
+    fstype: ufs
+    path: /data
+    src: /dev/gpt/data
+    state: mounted

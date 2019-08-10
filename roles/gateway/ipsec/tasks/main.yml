@@ -1,12 +1,14 @@
 ---
 
 - name: Install iked configuration
-  copy:
+  template:
     src: iked.conf
     dest: /etc/iked.conf
     mode: 0600
     owner: root
     group: wheel
+  notify:
+    - Restart OpenBSD iked
 
 - name: Enable iked
   lineinfile:

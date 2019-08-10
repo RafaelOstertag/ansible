@@ -1,0 +1,84 @@
+; Maintained by Ansible
+
+$TTL 1d
+@	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
+				201810270; serial
+				3h	; refresh
+				6h	; retry
+				1w	; expire
+				1h	; minimum
+				)
+		IN	NS	optimusprime.kruemel.home.
+		IN	NS	viking.kruemel.home.
+1		IN	PTR	gizmo.kruemel.home.
+; jetfire is .3 because of the IPv6 address. ::2 is taken
+; by gargoyle
+3		IN	PTR	jetfire.kruemel.home.
+4		IN	PTR	viking.kruemel.home.
+5		IN	PTR	optimusprime.kruemel.home.
+;6 free
+7		IN	PTR	megatron.kruemel.home.
+;8 free
+;9 free
+;10 free
+11		IN	PTR	kerberos.kruemel.home.
+21		IN	PTR	jenkins.kruemel.home.
+100		IN	PTR	beastie.kruemel.home.
+101		IN	PTR	odin.kruemel.home.
+102		IN	PTR	nostromo.kruemel.home.
+250		IN	PTR	bumblebee.kruemel.home.
+251		IN	PTR	switch2.kruemel.home.
+252		IN	PTR	switchy.kruemel.home.
+253		IN	PTR	odin-sc.kruemel.home.
+254		IN	PTR	gargoyle.kruemel.home.
+; Virtual clients
+200		IN	PTR	dash.virtual.kruemel.home.
+201		IN	PTR	cortana.virtual.kruemel.home.
+202		IN	PTR	sid.virtual.kruemel.home.
+203		IN	PTR	abraxas.virtual.kruemel.home.
+;204 free
+;205 free
+;206 free
+;207 free
+;208 free
+;209 free
+210		IN	PTR	neger.virtual.kruemel.home.
+;211 free
+;212 free
+;213 free
+;214 free
+;215 free
+216		IN	PTR	aurora.virtual.kruemel.home.
+;217 free
+;218 free
+;219 free
+;220 free
+;221 free
+222		IN	PTR	phoebe.virtual.kruemel.home.
+;223
+;224
+225		IN	PTR	freebsd32.virtual.kruemel.home.
+;226 free
+227		IN	PTR	netbsd32.virtual.kruemel.home.
+;228
+;229 free
+230		IN	PTR	merlin.virtual.kruemel.home.
+;231 free
+;232 free
+;233 free
+;234 free
+;235 free
+;236 free
+;235 free
+;236 free
+;237 free
+;238 free
+;239 free
+;240 free
+241		IN	PTR	kube01.virtual.kruemel.home.
+242		IN	PTR	kube02.virtual.kruemel.home.
+243		IN	PTR	kube03.virtual.kruemel.home.
+244		IN	PTR	kube04.virtual.kruemel.home.
+; Generated entries for dhcp client
+$GENERATE 40-59	$	IN	PTR	pxeboot-$.dhcp.kruemel.home.
+$GENERATE 60-80	$	IN	PTR	dhclient-$.dhcp.kruemel.home.

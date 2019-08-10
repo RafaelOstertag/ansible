@@ -1,0 +1,15 @@
+---
+
+- name: Install bind
+  include_tasks: bind.yml
+
+- name: Common configuration
+  include_tasks: common.yml
+
+- name: Internal Master DNS
+  include_tasks: master.yml
+  when: dns_master
+
+- name: Internal Slave DNS
+  include_tasks: slave.yml
+  when: not dns_master

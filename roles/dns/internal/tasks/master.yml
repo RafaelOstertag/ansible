@@ -1,0 +1,35 @@
+---
+
+- name: Install master configuration
+  copy:
+    src: master/named.conf
+    dest: /usr/local/etc/namedb/named.conf
+    mode: 0640
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD bind
+
+- name: Install master zones
+  copy:
+    src: "master/zones/master/{{ item }}"
+    dest: "/usr/local/etc/namedb/master/{{ item }}"
+    mode: 0640
+    owner: root
+    group: wheel
+  loop:
+    - named.192.168
+    - named.192.168.100
+    - named.192.168.103
+    - named.dmz.kruemel.home
+    - named.fd3e.be3e.ec34.0
+    - named.fd3e.be3e.ec34.1
+    - named.fd3e.be3e.ec34.2
+    - named.fd3e.be3e.ec34.ffff
+    - named.guengel.ch
+    - named.kruemel.home
+    - named.local.kruemel.home
+    - named.virtual.kruemel.home
+    - named.web.kruemel.home
+  notify:
+    - Restart FreeBSD bind

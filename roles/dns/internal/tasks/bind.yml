@@ -1,0 +1,26 @@
+---
+
+- name: Install bind
+  pkgng:
+    name: bind914
+    state: present
+  notify:
+    - Restart FreeBSD bind
+
+- name: Create /usr/local/etc/rc.conf.d
+  file:
+    path: /usr/local/etc/rc.conf.d
+    state: directory
+    mode: 0755
+    owner: root
+    group: wheel
+
+- name: Enable bind
+  copy:
+    src: rc.conf.d/named
+    dest: /usr/local/etc/rc.conf.d/named
+    mode: 06400
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD bind

@@ -1,0 +1,9 @@
+---
+
+- name: FreeBSD DNS Servers
+  user: root
+  hosts:
+    - optimusprime.kruemel.home
+    - viking.kruemel.home
+  roles:
+    - dns/internal

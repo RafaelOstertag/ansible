@@ -1,0 +1,14 @@
+; Maintained by Ansible
+$TTL	86400
+@	IN	SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
+		      201102201         ; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			  86400 )	; Negative Cache TTL
+;
+100.168.192.in-addr.arpa.	IN	NS	optimusprime.kruemel.home.
+100.168.192.in-addr.arpa.	IN	NS	viking.kruemel.home.
+101.168.192.in-addr.arpa.	IN	NS	yayap.dmz.kruemel.home.
+102.168.192.in-addr.arpa.	IN	NS	yayap.dmz.kruemel.home.
+@	IN	NS	localhost.

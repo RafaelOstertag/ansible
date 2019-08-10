@@ -1,0 +1,15 @@
+; Maintained by Ansible
+$TTL 1d
+@	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
+				201108011; serial
+				3h	; refresh
+				6h	; retry
+				1w	; expire
+				1h	; minimum
+				)
+		IN	NS	optimusprime.kruemel.home.
+		IN	NS	viking.kruemel.home.
+1		IN	PTR	gargoyle.dmz.kruemel.home.
+2		IN	PTR	yayap.dmz.kruemel.home.
+3		IN	PTR	eventhorizon.dmz.kruemel.home.
+4		IN	PTR	starscream.dmz.kruemel.home.

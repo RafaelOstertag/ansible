@@ -1,0 +1,12 @@
+---
+
+- name: Copy common master zone files
+  copy:
+    src: "common/zones/master/{{ item }}"
+    dest: /usr/local/etc/namedb/master/
+  loop:
+    - empty.db
+    - localhost-forward.db
+    - localhost-reverse.db
+  notify:
+

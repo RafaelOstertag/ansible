@@ -17,8 +17,8 @@
     - name: gateway/ipsec
       when:
         # You're supposed to set maintain_gateway when calling ansible-playbook.
-        # Use the -e argument as such '-e maintain_gateway=True'
-        - 'maintain_gateway is defined and maintain_gateway'
+        # Use the -e argument as such '-e maintain_ec2_gateway=True'
+        - 'maintain_ec2_gateway is defined and maintain_ec2_gateway'
         - 'ansible_fqdn == "gargoyle.kruemel.home"'
       tags:
         - ipsec

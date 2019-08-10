@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD inetd
+  service:
+    name: inetd
+    state: restarted

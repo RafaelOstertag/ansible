@@ -449,3 +449,9 @@
         name: freebsd/syslog-and-newsyslog
       tags:
         - syslog
+    - import_role:
+        name: freebsd/rsync-server
+      when: rsync_server
+      tags:
+        - rsync
+        - rsync-server

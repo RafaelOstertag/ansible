@@ -1,0 +1,29 @@
+---
+
+- name: Install rsync
+  pkgng:
+    name: rsync
+    state: present
+
+- name: Copy rsyncd configuration
+  copy:
+    src: "{{ ansible_fqdn }}/rsyncd.conf"
+    dest: "/usr/local/etc/rsync/rsyncd.conf"
+- name: Copy rsyncd secrets
+  copy:
+    src: "{{ ansible_fqdn }}/rsyncd.secrets"
+    dest: "/usr/local/etc/rsync/rsyncd.secrets"
+    mode: 0600
+    owner: root
+    group: wheel
+
+- name: Enable rsyncd in inetd
+  lineinfile:
+    path: /etc/inetd.conf
+    state: present
+    regexp: "^rsync"
+    line: "rsync stream tcp6 nowait root /usr/local/bin/rsync rsyncd --daemon"
+  notify:
+    - Restart FreeBSD inetd
+
+    

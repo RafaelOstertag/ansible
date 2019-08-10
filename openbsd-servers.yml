@@ -27,3 +27,7 @@
     - openbsd/doas
     - openbsd/disable-sndio
     - common/agentsmith-certificate
+    - name: openbsd/ipsec
+      when: ipsec_gateway
+      tags:
+        - ipsec

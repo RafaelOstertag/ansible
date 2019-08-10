@@ -1,0 +1,6 @@
+---
+
+- name: Restart OpenBSD iked
+  service:
+    name: iked
+    state: restarted

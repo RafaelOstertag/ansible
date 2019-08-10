@@ -2,7 +2,7 @@
 
 - name: Copy openldap schemas
   copy:
-    src: "openldap/schemas/{{ item }}"
+    src: "schemas/{{ item }}"
     dest: "/usr/local/etc/openldap/schema/{{ item }}"
     mode: 0644
     owner: root

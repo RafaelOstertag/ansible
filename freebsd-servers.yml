@@ -371,10 +371,6 @@
       tags:
         - kerberos
     - import_role:
-        name: freebsd/openldap-server-schemas
-    - import_role:
-        name: freebsd/openldap-server-ssl
-    - import_role:
         name: freebsd/nagios-nrpe-config
       tags:
         - nagios

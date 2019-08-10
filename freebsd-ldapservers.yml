@@ -1,0 +1,10 @@
+- name: FreeBSD LDAP Servers
+  user: root
+  hosts:
+    - optimusprime.kruemel.home
+    - viking.kruemel.home
+  tasks:
+    - import_role:
+        name: ldap/openldap-server-schemas
+    - import_role:
+        name: ldap/openldap-server-ssl

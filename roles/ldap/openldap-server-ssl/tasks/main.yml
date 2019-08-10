@@ -1,7 +1,6 @@
 ---
 
 - name: Create slapd tls directory
-  when: "ldap_server"
   file:
     path: /usr/local/etc/openldap/tls
     mode: 0700
@@ -9,7 +8,6 @@
     group: wheel
 
 - name: Copy slapd certificate
-  when: "ldap_server"
   copy:
     src: "ssl/pub/{{ ansible_fqdn }}.crt"
     dest: "/usr/local/etc/openldap/tls/cert-{{ ansible_fqdn }}.pem"
@@ -20,7 +18,6 @@
     - FreeBSD restart slapd
 
 - name: Copy slapd key
-  when: "ldap_server"
   copy:
     src: "ssl/priv/{{ ansible_fqdn }}.key"
     dest: "/usr/local/etc/openldap/tls/{{ ansible_fqdn }}.key"

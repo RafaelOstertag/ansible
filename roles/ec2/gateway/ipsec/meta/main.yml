@@ -1,0 +1,4 @@
+---
+
+dependencies:
+  - role: ec2/common/configuration-directories

@@ -67,3 +67,17 @@ odin.kruemel.home
 abraxas.virtual.kruemel.home
 freebsd32.virtual.kruemel.home
 phoebe.virtual.kruemel.home
+
+;
+; EC2 instances
+;
+[ec2:children]
+ec2_gateways
+ec2_providers
+
+
+[ec2_gateways]
+ec2-52-29-59-221.eu-central-1.compute.amazonaws.com
+
+[ec2_providers]
+empty

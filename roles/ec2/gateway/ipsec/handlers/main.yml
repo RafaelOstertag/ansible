@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD strongswan
+  service:
+    name: strongswan
+    state: restarted

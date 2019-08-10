@@ -1,0 +1,19 @@
+---
+
+- name: EC2 Gateways
+  hosts: ec2_gateways
+  force_handlers: true
+  become: yes
+
+  tasks:
+    - import_role:
+        name: ec2/common/ssh-keys
+      tags:
+        - ssh
+    - import_role:
+        name: ec2/gateway/ipsec
+      tags:
+        - vpn
+        - ipsec
+        - tunnel
+      become_user: root

@@ -1,0 +1,28 @@
+---
+
+- name: Copy CA
+  copy:
+    src: ca.crt
+    dest: /usr/local/etc/swanctl/x509ca/ca.crt
+    mode: 0644
+    owner: root
+    group: wheel
+  notify: Restart FreeBSD strongswan
+
+- name: Copy host certificate
+  copy:
+    src: ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.crt
+    dest: /usr/local/etc/swanctl/x509/ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.crt
+    mode: 0644
+    owner: root
+    group: wheel
+  notify: Restart FreeBSD strongswan
+
+- name: Copy host key
+  copy:
+    src: ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.key
+    dest: /usr/local/etc/swanctl/private/ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.key
+    mode: 0600
+    owner: root
+    group: wheel
+  notify: Restart FreeBSD strongswan

@@ -1,0 +1,7 @@
+---
+
+- name: StrongSwan
+  import_tasks: strongswan.yml
+
+- name: Keymaterial
+  import_tasks: keymaterial.yml

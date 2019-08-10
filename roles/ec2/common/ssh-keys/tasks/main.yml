@@ -1,0 +1,9 @@
+---
+
+- name: Install additional ssh keys
+  authorized_key:
+    state: present
+    user: ec2-user
+    key: "{{ item }}"
+    exclusive: no
+  loop: "{{ ssh_keys_present }}"

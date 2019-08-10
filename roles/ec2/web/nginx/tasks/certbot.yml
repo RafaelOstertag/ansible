@@ -1,0 +1,39 @@
+---
+
+- name: Install certbot
+  pkgng:
+    name: py36-certbot
+    state: present
+
+- name: Create certbot www directory
+  file:
+    path: "/data/www/nginx-letsencrypt"
+    state: directory
+    mode: 0770
+    owner: www
+    group: www
+  notify:
+    - Restart nginx
+
+- name: Create certbot well-known directory
+  file:
+    path: "/data/www/nginx-letsencrypt/.well-known"
+    state: directory
+    mode: 0770
+    owner: www
+    group: www
+  notify:
+    - Restart nginx
+
+- name: Copy certbot script
+  template:
+    src: certbot.sh
+    dest: /usr/local/bin/certbot-guengel.ch.sh
+    mode: 0750
+
+- debug:
+    msg: |
+     ******
+     You can use /usr/local/bin/certbot-guengel.ch.sh to create the
+     certificates for all domains
+     ******

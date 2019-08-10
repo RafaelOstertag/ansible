@@ -1,48 +1,10 @@
 ---
 
-- name: Install nginx
-  pkgng:
-    state: present
-    name: nginx,py36-certbot
-    autoremove: true
-  notify:
-    - Restart nginx
+- name: nginx setup
+  include_tasks: nginx-setup.yml
 
-- name: Enable nginx startup
-  copy:
-    src: rc.conf.d/nginx
-    dest: /usr/local/etc/rc.conf.d/
-    mode: 0644
-    owner: root
-    group: wheel
-  notify:
-    - Restart nginx
-
-- name: Enable newsyslog for nginx
-  copy:
-    src: newsyslog/nginx.conf
-    dest: /usr/local/etc/newsyslog.conf.d/
-    mode: 0644
-    owner: root
-    group: wheel
-
-- name: Copy main nginx
-  copy:
-    src: nginx/nginx.conf
-    dest: /usr/local/etc/nginx/nginx.conf
-    mode: 0640
-    owner: root
-    group: www
-  notify:
-    - Restart nginx
-
-- name: Create nginx data directory
-  file:
-    path: /data/www
-    state: directory
-    mode: 0750
-    owner: root
-    group: www
+- name: certbot installation
+  include_tasks: certbot.yml
 
 - name: Create nginx vhost configuration directory
   file:
@@ -57,3 +19,14 @@
   loop: "{{ nginx_domains }}"
   loop_control:
     loop_var: server_name
+
+- name: deploy http -> https vhost
+  template:
+    src: redirect-to-https.conf
+    dest: "/usr/local/etc/nginx/vhosts/redirect-to-https.conf"
+    mode: 0640
+    owner: root
+    group: www
+  notify:
+    - Restart nginx
+    

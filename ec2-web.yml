@@ -2,6 +2,8 @@
 
 - name: EC2 Web
   hosts: ec2_web
+  become: yes
+  become_user: root
 
   tasks:
     - import_role:
@@ -9,37 +11,35 @@
       tags:
         - ssh
     - import_role:
+        name: ec2/common/rsync
+      tags:
+        - rsync
+    - import_role:
         name: ec2/gateway/ipsec
       tags:
         - vpn
         - ipsec
         - tunnel
-      become: yes
-      become_user: root
     - import_role:
         name: ec2/gateway/hostsfile
       tags:
         - vpn
         - ipsec
         - tunnel
-      become: yes
-      become_user: root
     - import_role:
         name: ec2/storage/data
       tags:
         - storage
-      become: yes
-      become_user: root
     - import_role:
         name: ec2/web/nginx
       tags:
         - nginx
         - www
-      become: yes
-      become_user: root
     - import_role:
         name: ec2/web/deploy-user
       tags:
         - deploy-user
-      become: yes
-      become_user: root
+    - import_role:
+        name: ec2/web/rsync-credentials
+      tags:
+        - rsync

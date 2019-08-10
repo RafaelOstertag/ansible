@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD sshd
+  service:
+    name: sshd
+    state: restarted

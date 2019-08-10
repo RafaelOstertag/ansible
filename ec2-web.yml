@@ -29,3 +29,9 @@
         - www
       become: yes
       become_user: root
+    - import_role:
+        name: ec2/web/deploy-user
+      tags:
+        - deploy-user
+      become: yes
+      become_user: root

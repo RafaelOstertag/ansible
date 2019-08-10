@@ -1,7 +1,7 @@
 ---
 
-- name: EC2 Gateways
-  hosts: ec2_gateways
+- name: EC2 Web
+  hosts: ec2_web
   become: yes
 
   tasks:

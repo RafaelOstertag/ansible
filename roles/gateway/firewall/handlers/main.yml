@@ -1,0 +1,7 @@
+---
+
+- name: Check syntax
+  command: "pfctl -nf /etc/pf.conf"
+
+- name: Load firewall configuration
+  command: "pfctl -f /etc/pf.conf"

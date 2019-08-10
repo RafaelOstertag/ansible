@@ -1,0 +1,9 @@
+---
+
+- name: OpenBSD Gateway
+  hosts: gargoyle.kruemel.home
+  user: root
+  roles:
+    - gateway/packet-forwarding
+    - gateway/firewall
+    - gateway/ipsec

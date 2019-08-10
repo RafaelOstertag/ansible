@@ -1,0 +1,19 @@
+---
+
+- name: Persist IPv4 packet forwarding
+  lineinfile:
+    path: /etc/sysctl.conf
+    regexp: "^net\\.inet\\.ip\\.forwarding=.*"
+    line: "net.inet.ip.forwarding=1"
+
+- name: Enable IPv4 packet forwarding
+  command: "sysctl net.inet.ip.forwarding=1"
+
+- name: Persist IPv6 packet forwarding
+  lineinfile:
+    path: /etc/sysctl.conf
+    regexp: "^net\\.inet6\\.ip6\\.forwarding=.*"
+    line: "net.inet6.ip6.forwarding=1"
+
+- name: Enable IPv6 packet forwarding
+  command: "sysctl net.inet6.ip6.forwarding=1"

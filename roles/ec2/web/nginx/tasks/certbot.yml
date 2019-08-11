@@ -37,3 +37,16 @@
      You can use /usr/local/bin/certbot-guengel.ch.sh to create the
      certificates for all domains
      ******
+
+- name: Setup auto renewal of certificates
+  cron:
+    name: certificate auto renewal
+    state: present
+    user: root
+    day: "*"
+    month: "*"
+    weekday: "0"
+    hour: "5"
+    minute: "42"
+    job: "/usr/local/bin/certbot renew"
+

@@ -2,10 +2,10 @@
 
 dependencies:
   - { role: common/ca-guengel.ch }
-  - { role: freebsd/rcconf, rcvar: "spamd_enable", value: "YES" }
-  - { role: freebsd/rcconf, rcvar: "spamd_flags", value: "-u spamd -H /var/spool/spamd" }
-  - { role: freebsd/rcconf, rcvar: "spamass_milter_enable", value: "YES" }
-  - { role: freebsd/rcconf, rcvar: "clamav_milter_enable", value: "YES" }
-  - { role: freebsd/rcconf, rcvar: "clamav_milter_socket", value: "/var/run/clamav/clmilter.sock" }
-  - { role: freebsd/rcconf, rcvar: "clamav_clamd_enable", value: "YES" }
-  - { role: freebsd/rcconf, rcvar: "clamav_freshclam_enable", value: "YES" }
+  - { role: freebsd/reusable/rcconf, rcvar: "spamd_enable", value: "YES" }
+  - { role: freebsd/reusable/rcconf, rcvar: "spamd_flags", value: "-u spamd -H /var/spool/spamd" }
+  - { role: freebsd/reusable/rcconf, rcvar: "spamass_milter_enable", value: "YES" }
+  - { role: freebsd/reusable/rcconf, rcvar: "clamav_milter_enable", value: "YES" }
+  - { role: freebsd/reusable/rcconf, rcvar: "clamav_milter_socket", value: "/var/run/clamav/clmilter.sock" }
+  - { role: freebsd/reusable/rcconf, rcvar: "clamav_clamd_enable", value: "YES" }
+  - { role: freebsd/reusable/rcconf, rcvar: "clamav_freshclam_enable", value: "YES" }

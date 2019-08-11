@@ -1,0 +1,20 @@
+---
+
+- name: Copy syslog snippet {{ snippet }}
+  copy:
+    src: "{{ snippet }}"
+    dest: "/usr/local/etc/syslog.d/{{ snippet | basename }}"
+    mode: 0660
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD syslog
+
+- name: Create empty log file for snippet {{ snippet }}
+  file:
+    path: "/var/log/{{ snippet | regex_replace('\\..*$') }}"
+    state: file
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD syslog

@@ -8,3 +8,11 @@
         name: ldap/openldap-server-schemas
     - import_role:
         name: ldap/openldap-server-ssl
+    - import_role:
+        name: ldap/syslog
+      tags:
+        - syslog
+    - import_role:
+        name: ldap/newsyslog
+      tags:
+        - syslog

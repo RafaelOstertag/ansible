@@ -1,6 +1,6 @@
 ---
 
 dependencies:
-  - { role: freebsd/rcconf, rcvar: "ntpdate_enable", value: "YES" }
-  - { role: freebsd/rcconf, rcvar: "ntpdate_hosts", value: "1.pool.ntp.org" }
-  - { role: freebsd/rcconf, rcvar: "ntpd_sync_on_start", value: "YES" }
+  - { role: freebsd/reusable/rcconf, rcvar: "ntpdate_enable", value: "YES" }
+  - { role: freebsd/reusable/rcconf, rcvar: "ntpdate_hosts", value: "1.pool.ntp.org" }
+  - { role: freebsd/reusable/rcconf, rcvar: "ntpd_sync_on_start", value: "YES" }

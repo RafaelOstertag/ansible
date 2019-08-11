@@ -25,63 +25,63 @@
         enable_secure_level: False
         secure_level: "1"
     - import_role:
-        name: freebsd/rcconf
+        name: freebsd/reusable/rcconf
       vars:
         rcvar: "clear_tmp_enable"
         value: "YES"
     - import_role:
-        name: freebsd/rcconf
+        name: freebsd/reusable/rcconf
       vars:
         rcvar: "accounting_enable"
         value: "YES"
     - import_role:
-        name: freebsd/rcconf
+        name: freebsd/reusable/rcconf
       vars:
         rcvar: "sshd_enable"
         value: "YES"
     - import_role:
-        name: freebsd/rcconf
+        name: freebsd/reusable/rcconf
       vars:
         rcvar: "gssd_enable"
         value: "YES"
     - import_role:
-        name: freebsd/rcconf
+        name: freebsd/reusable/rcconf
       vars:
         rcvar: "gssd_flags"
         value: "-h"
     - import_role:
-        name: freebsd/rcconf
+        name: freebsd/reusable/rcconf
       vars:
         rcvar: "ip6addrctl_enable"
         value: "YES"
     - import_role:
-        name: freebsd/rcconf
+        name: freebsd/reusable/rcconf
       vars:
         rcvar: "syslogd_flags"
         value: "-ss"
     - import_role:
-        name: freebsd/rcconf
+        name: freebsd/reusable/rcconf
       vars:
         rcvar: "tcp_extensions"
         value: "YES"
     - import_role:
-        name: freebsd/rcconf
+        name: freebsd/reusable/rcconf
       vars:
         rcvar: "sendmail_enable"
         value: "YES"
         
     - import_role:
-        name:  freebsd/rcconf
+        name:  freebsd/reusable/rcconf
       vars:
         rcvar: "ipv6_static_routes"
         value: "dmz6 web1"
     - import_role:
-        name:  freebsd/rcconf
+        name:  freebsd/reusable/rcconf
       vars:
         rcvar: "ipv6_route_dmz6"
         value: "-net fd3e:be3e:ec34:1:: -prefixlen 64 fd3e:be3e:ec34::2"
     - import_role:
-        name: freebsd/rcconf
+        name: freebsd/reusable/rcconf
       vars:
         rcvar: "ipv6_route_web6"
         value: "-net fd3e:be3e:ec34:2:: -prefixlen 64 fd3e:be3e:ec34::2"
@@ -237,17 +237,17 @@
         varname: "daily_status_network_enable"
         value: "YES"
     - import_role:
-        name: freebsd/sysctl
+        name: freebsd/reusable/sysctl
       vars:
         varname: "security.bsd.see_other_uids"
         value: "1"
     - import_role:
-        name: freebsd/sysctl
+        name: freebsd/reusable/sysctl
       vars:
         varname: "kern.randompid"
         value: "100"
     - import_role:
-        name: freebsd/sysctl
+        name: freebsd/reusable/sysctl
       vars:
         varname: "vfs.usermount"
         value: "1"

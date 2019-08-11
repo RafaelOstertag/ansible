@@ -1,0 +1,9 @@
+---
+
+- name: Copy newsyslog snippet {{ snippet }}
+  copy:
+    src: "{{ snippet }}"
+    dest: "/usr/local/etc/newsyslog.conf.d/{{ snippet | basename }}"
+    mode: 0600
+    owner: root
+    group: wheel

@@ -7,6 +7,8 @@
 
   tasks:
     - import_role:
+        name: common/motd
+    - import_role:
         name: ec2/common/ssh-keys
       tags:
         - ssh

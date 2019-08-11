@@ -34,7 +34,7 @@ imap		IN	CNAME	gizmo.guengel.ch.
 smtp		IN	CNAME	starscream.guengel.ch.
 yapet		IN	CNAME	ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.
 agentsmith	IN	CNAME	ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.
-portscanner 	IN	CNAME	eventhorizon.guengel.ch.
+portscanner 	IN	CNAME	ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.
 jenkins		IN	CNAME	ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.
 ssh		IN	CNAME	yayap.guengel.ch.
 vpn		IN	CNAME	yayap.wlan.kruemel.home.

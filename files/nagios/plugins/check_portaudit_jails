@@ -28,7 +28,7 @@ overall_state=${STATE_OK}
 for j in `jls -N name`
 do
     jail_path=`jls -j $j -n path | cut -f 2 -d '='`
-    if [ -e "${jail_path}/.thin-jail"]
+    if [ -e "${jail_path}/.thin-jail" ]
     then
 	    continue
     fi

@@ -1,0 +1,24 @@
+---
+
+- name: Set root alias
+  lineinfile:
+    path: /etc/mail/aliases
+    state: present
+    regexp: "^root"
+    line: "root: root@guengel.ch"
+  notify:
+    - Rebuild sendmail aliases
+
+- name: Install sendmail config
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/mail/{{item}}"
+    mode: 0644
+    owner: root
+    group: wheel
+  loop:
+    - freebsd.mc
+    - freebsd.submit.mc
+  notify:
+    - Rebuild sendmail config
+    - Restart FreeBSD sendmail

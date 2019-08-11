@@ -1,0 +1,15 @@
+---
+
+- name: Rebuild sendmail aliases
+  command: "make -C /etc/mail aliases"
+
+- name: Rebuild sendmail maps
+  command: "make -C /etc/mail maps"
+
+- name: Rebuild sendmail config
+  command: "make -C /etc/mail all install"
+
+- name: Restart FreeBSD sendmail
+  service:
+    name: sendmail
+    state: restarted

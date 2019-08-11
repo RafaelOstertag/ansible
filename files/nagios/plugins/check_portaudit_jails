@@ -5,7 +5,6 @@ set -u
 
 PKG="/usr/local/sbin/pkg"
 SUDO="/usr/local/bin/sudo"
-THIN_JAILS_LIST=/usr/jails/thin.jails.list
 
 if [ -f /usr/local/libexec/nagios/utils.sh ]
 then
@@ -28,27 +27,28 @@ alloutput="OK"
 overall_state=${STATE_OK}
 for j in `jls -N name`
 do
-    if grep ^$j\$ "${THIN_JAILS_LIST}" >/dev/null 2>&1
+    jail_path=`jls -j $j -n path | cut -f 2 -d '='`
+    if [ -e "${jail_path}/.thin-jail"]
     then
-	continue
+	    continue
     fi
     response=`${SUDO} ${PKG} -j $j audit -F`
     echo "${response}" | grep '^0 problem' > /dev/null 2>&1
     if [ $? -ne 0 ]
     then
-	alloutput="${alloutput}${response}"
-	overall_state=${STATE_WARNING}
+	    alloutput="${alloutput}${response}"
+	    overall_state=${STATE_WARNING}
     fi
 done
 
-if [ -f "${THIN_JAILS_LIST}" ]
+if [ -d /usr/jails/thin-base ]
 then
     response=`${SUDO} ${PKG} -c /usr/jails/thin-base audit -F`
     echo "${response}" | grep '^0 problem' > /dev/null 2>&1
     if [ $? -ne 0 ]
     then
-	alloutput="${alloutput}${response}"
-	overall_state=${STATE_WARNING}
+	    alloutput="${alloutput}${response}"
+	    overall_state=${STATE_WARNING}
     fi
 fi
 

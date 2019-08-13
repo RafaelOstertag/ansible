@@ -3,23 +3,15 @@
 - name: OpenBSD Gateway
   hosts:
     - gargoyle.kruemel.home
-    # This is used to gather facts from that host when we maintain ipsec
-    - ec2-52-29-59-221.eu-central-1.compute.amazonaws.com
-
   user: root
   roles:
-    - name: gateway/packet-forwarding
-      when: 
-        - 'ansible_fqdn == "gargoyle.kruemel.home"'
-    - name: gateway/firewall
-      when:
-        - 'ansible_fqdn == "gargoyle.kruemel.home"'
+    - gateway/packet-forwarding
+    - gateway/firewall
     - name: gateway/ipsec
       when:
         # You're supposed to set maintain_gateway when calling ansible-playbook.
         # Use the -e argument as such '-e maintain_ec2_gateway=True'
         - 'maintain_ec2_gateway is defined and maintain_ec2_gateway'
-        - 'ansible_fqdn == "gargoyle.kruemel.home"'
       tags:
         - ipsec
         - tunnel

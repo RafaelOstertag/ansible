@@ -1,5 +1,10 @@
 ---
 
+- name: Gather information about ipsec hosts
+  add_host:
+    host: "{{ item }}"
+  loop: groups['ec2_web']
+
 - name: Iked configuration
   import_tasks: iked.yml
 

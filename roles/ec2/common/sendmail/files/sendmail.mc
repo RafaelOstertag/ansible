@@ -4,6 +4,7 @@ OSTYPE(freebsd6)
 
 dnl Set Hostname
 define(`confDOMAIN_NAME',`guengel.ch')dnl
+FEATURE(`no_default_msa')dnl
 DAEMON_OPTIONS(`Name=IPv4, Family=inet, Addr=127.0.0.1')dnl
 DAEMON_OPTIONS(`Name=IPv6, Family=inet6, Modifiers=O, Addr=::1')dnl
 DAEMON_OPTIONS(`Name=IPv4-MSA, Family=inet, Addr=127.0.0.1, Port=587, M=E')dnl

@@ -11,14 +11,21 @@
 
 - name: Install sendmail config
   copy:
-    src: "{{ item }}"
-    dest: "/etc/mail/{{item}}"
+    src: sendmail.mc
+    dest: "/etc/mail/{{ansible_fqdn}}.mc"
     mode: 0644
     owner: root
     group: wheel
-  loop:
-    - freebsd.mc
-    - freebsd.submit.mc
   notify:
     - Rebuild sendmail config
     - Restart FreeBSD sendmail
+
+- name: Install sendmail submit config
+  copy:
+    src: sendmail.submit.mc
+    dest: "/etc/mail/{{ansible_fqdn}}.submit.mc"
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Rebuild sendmail config

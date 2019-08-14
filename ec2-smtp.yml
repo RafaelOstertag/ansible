@@ -1,0 +1,12 @@
+---
+
+- name: EC2 SMTP
+  hosts: ec2_smtp
+  become: yes
+  become_user: root
+
+  tasks:
+    - import_role:
+        name: common/motd
+    - import_role:
+        name: ec2/common/ssh-keys

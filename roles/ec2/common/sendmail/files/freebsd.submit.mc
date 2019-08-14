@@ -8,8 +8,4 @@ define(`confDONT_INIT_GROUPS', `True')dnl
 define(`confBIND_OPTS', `WorkAroundBrokenAAAA')dnl
 dnl
 dnl If you use IPv6 only, change [127.0.0.1] to [IPv6:::1]
-MASQUERADE_AS(`guengel.ch')
-MASQUERADE_DOMAIN(`freebsd')
-FEATURE(masquerade_entire_domain)
-FEATURE(masquerade_envelope)
 FEATURE(`msp', `[127.0.0.1]')dnl

@@ -1,0 +1,12 @@
+---
+
+- name: Set hostname "{{ hostname }}"
+  hostname:
+    name: "{{hostname}}"
+
+- name: Persist hostname "{{ hostname }}"
+  lineinfile:
+    path: /etc/rc.conf
+    regexp: "^hostname="
+    line: 'hostname="{{ hostname }}"'
+

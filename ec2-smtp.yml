@@ -9,4 +9,20 @@
     - import_role:
         name: common/motd
     - import_role:
+        name: ec2/common/set-hostname
+    - import_role:
         name: ec2/common/ssh-keys
+      tags:
+        - ssh
+    - import_role:
+        name: ec2/gateway/ipsec
+      tags:
+        - vpn
+        - ipsec
+        - tunnel
+    - import_role:
+        name: ec2/gateway/hostsfile
+      tags:
+        - vpn
+        - ipsec
+        - tunnel

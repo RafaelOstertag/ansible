@@ -43,3 +43,7 @@
     owner: root
     group: wheel
 
+- name: Start strongswan
+  service:
+    name: strongswan
+    state: started

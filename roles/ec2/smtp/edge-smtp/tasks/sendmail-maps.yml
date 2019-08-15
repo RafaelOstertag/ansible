@@ -1,0 +1,14 @@
+---
+
+- name: Copy maps
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/mail/{{ item }}"
+    owner: root
+    group: wheel
+    mode: 0640
+  loop:
+    - aliases
+    - local-host-names
+  notify:
+    - Rebuild sendmail maps

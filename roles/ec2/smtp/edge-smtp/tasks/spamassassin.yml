@@ -1,0 +1,72 @@
+---
+
+- name: Install spamassassin
+  pkgng:
+    name: spamass-milter,spamassassin
+    state: present
+  notify:
+    - FreeBSD restart spamassassin
+    - FreeBSD restart spamass-milter
+
+- name: Install fetchmail
+  pkgng:
+    name: fetchmail
+    state: present
+
+- name: Copy spamassassin configuration
+  copy:
+    src: spamassassin/local.cf
+    dest: /usr/local/etc/mail/spamassassin/local.cf
+  notify:
+    - FreeBSD restart spamassassin
+
+- name: Initialize spamassassin rules
+  command: /usr/local/bin/sa-update
+  args:
+    creates: /usr/local/etc/mail/spamassassin/sa-update-keys
+
+- name: Enable spamassassin services
+  copy:
+    src: "rc.conf.d/{{ item }}"
+    dest: "/usr/local/etc/rc.conf.d/{{ item }}"
+  loop:
+    - spamd
+    - spamass_milter
+
+- name: Start spamassassin services
+  service:
+    name: "{{ item }}"
+    state: started
+  loop:
+    - sa-spamd
+    - spamass-milter
+
+- name: Copy fetchmail configuration
+  template:
+    src: dot.fetchmailrc
+    dest: /var/spool/spamd/.fetchmailrc
+    owner: spamd
+    group: spamd
+    mode: 0600
+
+- name: Fetchmail for spam learning
+  cron:
+    name: Fetchmail for spam learning
+    user: spamd
+    job: "/usr/local/bin/fetchmail -s sa-learn.spam ; /usr/local/bin/fetchmail -s sa-learn.ham"
+    weekday: "*"
+    day: "*"
+    minute: "1"
+    hour: "*"
+    month: "*"
+
+- name: Spamassassin update cron job
+  cron:
+    name: Spamassassin update
+    state: present
+    job: "/usr/local/bin/sa-update && service sa-spamd restart"
+    weekday: "*"
+    day: "*"
+    minute: "0"
+    hour: "2"
+    month: "*"

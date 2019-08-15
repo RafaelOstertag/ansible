@@ -1,0 +1,36 @@
+---
+
+- name: Rebuild sendmail maps
+  command: "make -C /etc/mail maps aliases"
+  notify: Restart FreeBSD sendmail
+
+- name: Restart FreeBSD sendmail
+  service:
+    name: sendmail
+    state: restarted
+
+- name: FreeBSD restart spamassassin
+  service:
+    name: sa-spamd
+    state: restarted
+
+- name: FreeBSD restart spamass-milter
+  service:
+    name: spamass-milter
+    state: restarted
+
+- name: FreeBSD restart clamav
+  service:
+    name: clamav-clamd
+    state: restarted
+
+- name: FreeBSD restart freshclam
+  service:
+    name: clamav-freshclam
+    state: restarted
+
+- name: FreeBSD restart clamav-milter
+  service:
+    name: clamav-milter
+    state: restarted
+

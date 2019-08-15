@@ -7,7 +7,9 @@
 
   tasks:
     - import_role:
-        name: common/motd
+        name: common/ca-guengel.ch
+      tags:
+        - common
     - import_role:
         name: ec2/common/set-hostname
     - import_role:
@@ -26,3 +28,14 @@
         - vpn
         - ipsec
         - tunnel
+    - import_role:
+        name: ec2/smtp/edge-smtp
+      tags:
+        - smtp
+        - sendmail
+        - mail
+    # Leave this here, so it will pick up when we change the hostname
+    - import_role:
+        name: common/motd
+      tags:
+        - common

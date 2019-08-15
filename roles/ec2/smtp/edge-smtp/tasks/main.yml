@@ -1,0 +1,26 @@
+---
+
+- name: ClamAV
+  include_tasks: clamav.yml
+
+- name: Spamassassin
+  include_tasks: spamassassin.yml
+
+# Keep this before the sendmail configuration, because the
+# configuration depends on certain maps to exist to be built
+- name: Sendmail Maps
+  include_tasks: sendmail-maps.yml
+    
+- name: Sendmail Configuration
+  include_tasks: sendmail-configuration.yml
+
+- name: Cron job for Mail queue quarantine
+  cron:
+    name: Mailq quarantine
+    state: present
+    job: "mailq -qQ | mailx -s \"Mailq quarantine on {{ ansible_fqdn }}\" root" 
+    weekday: "*"
+    day: "*"
+    minute: "0"
+    hour: "2"
+    month: "*"

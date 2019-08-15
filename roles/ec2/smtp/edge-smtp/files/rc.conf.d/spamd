@@ -1,0 +1,2 @@
+spamd_enable="YES"
+spamd_flags="-u spamd -H /var/spool/spamd"

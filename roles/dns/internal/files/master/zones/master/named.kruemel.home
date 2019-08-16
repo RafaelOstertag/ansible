@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 1d
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201808050 ; serial
+				201908160 ; serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
@@ -14,7 +14,6 @@ $TTL 1d
 ; CNAMEs
 imap		IN	CNAME	gizmo.kruemel.home.
 smtp		IN	CNAME	gizmo.kruemel.home.
-www		IN	CNAME	eventhorizon.dmz.kruemel.home.
 ; HOSTS AND STUFF
 gizmo		IN	A	192.168.100.1
 			AAAA	fd3e:be3e:ec34:0::1

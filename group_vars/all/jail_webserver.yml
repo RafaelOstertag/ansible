@@ -1,4 +1,0 @@
----
-
-# Enable this on the host being the web server using jails
-jail_webserver: False

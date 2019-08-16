@@ -19,7 +19,6 @@
     - pf.conf
     - pf.conf.d/dmz.conf
     - pf.conf.d/macros.conf
-    - pf.conf.d/web.conf
   notify:
     - Check firewall syntax
     - Load firewall configuration

@@ -24,12 +24,8 @@
     - named.dmz.kruemel.home
     - named.fd3e.be3e.ec34.0
     - named.fd3e.be3e.ec34.1
-    - named.fd3e.be3e.ec34.2
-    - named.fd3e.be3e.ec34.ffff
     - named.guengel.ch
     - named.kruemel.home
-    - named.local.kruemel.home
     - named.virtual.kruemel.home
-    - named.web.kruemel.home
   notify:
     - Restart FreeBSD bind

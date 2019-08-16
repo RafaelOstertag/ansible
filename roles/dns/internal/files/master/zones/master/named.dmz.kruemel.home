@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 6h
 @       IN SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                                201710021 ; Serial
+                                201908160 ; Serial
                                 3h      ; refresh
                                 1h      ; retry
                                 1w      ; expire
@@ -17,10 +17,6 @@ gargoyle	IN	A	192.168.103.1
 yayap		IN	A	192.168.103.2
 			AAAA	fd3e:be3e:ec34:1::2
 			TXT	"OpenBSD WLAN/VPN/SSH Server"
-			MX	10 gizmo.kruemel.home.
-eventhorizon	IN	A	192.168.103.3
-			AAAA	fd3e:be3e:ec34:1::3
-			TXT	"FreeBSD Web Server"
 			MX	10 gizmo.kruemel.home.
 starscream	IN	A	192.168.103.4
 			AAAA	fd3e:be3e:ec34:1::4

@@ -1,4 +1,0 @@
----
-
-- name: "Restart jail {{ jail_name }}"
-  shell: "jls -j {{ jail_name }} && jail -rc {{ jail_name }}"

@@ -58,7 +58,8 @@ FEATURE(mailertable, `hash -o /etc/mail/mailertable')dnl
 FEATURE(virtusertable, `hash -o /etc/mail/virtusertable')dnl
 
 dnl Dialup users should uncomment and define this appropriately
-define(`SMART_HOST', `starscream.dmz.kruemel.home.')dnl
+dnl define(`SMART_HOST', `starscream.dmz.kruemel.home.')dnl
+define(`SMART_HOST', `[172.26.7.203]')dnl
 
 define(`confCW_FILE', `/etc/mail/local-host-names')dnl
 

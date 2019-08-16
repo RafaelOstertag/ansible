@@ -1,0 +1,2 @@
+milteropendkim_enable="YES"
+milteropendkim_socket="local:/var/run/milteropendkim/dkim.sock"

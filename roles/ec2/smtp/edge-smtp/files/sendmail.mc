@@ -45,14 +45,15 @@ define(`confMAX_QUEUE_CHILDREN', `10')dnl
 define(`confALLOW_BOGUS_HELO', `False')dnl
 
 dnl Enable STARTTLS for receiving email.
-# define(`CERT_DIR', `/etc/mail/tls')dnl
-# define(`confSERVER_CERT', `CERT_DIR/host.cert')dnl
-# define(`confSERVER_KEY', `CERT_DIR/host.key')dnl
-# define(`confCRL', `/etc/ssl/guengel.ch.crl')dnl   # <= EDIT
-# define(`confCLIENT_CERT', `CERT_DIR/host.cert')dnl
-# define(`confCLIENT_KEY', `CERT_DIR/host.key')dnl
-# define(`confCACERT', `/etc/ssl/guengel.ch.pem')dnl
-# define(`confCACERT_PATH', `/etc/ssl/certs')dnl
+define(`confCRL', `/etc/ssl/guengel.ch.crl')dnl   # <= EDIT
+define(`confCACERT_PATH', `/etc/ssl/certs')dnl
+define(`CERT_DIR', `/usr/local/etc/letsencrypt/live/smtp.guengel.ch')dnl
+define(`confSERVER_CERT', `CERT_DIR/fullchain.pem')dnl
+define(`confSERVER_KEY', `CERT_DIR/privkey.pem')dnl
+define(`confCLIENT_CERT', `CERT_DIR/fullchain.pem')dnl
+define(`confCLIENT_KEY', `CERT_DIR/privkey.pem')dnl
+dnl define(`confCACERT', `/etc/ssl/guengel.ch.pem')dnl
+
 # define(`confDH_PARAMETERS', `CERT_DIR/dh.param')dnl
 # define(`confTLS_SRV_OPTIONS', `')dnl   # <= EDIT
 
@@ -64,12 +65,13 @@ FEATURE(`always_add_domain')dnl
 FEATURE(`masquerade_envelope')dnl
 
 INPUT_MAIL_FILTER(`clamav', `S=local:/var/run/clamav/clmilter.sock, F=, T=S:4m;R:4m')dnl
+INPUT_MAIL_FILTER(`spamassassin', `S=local:/var/run/spamass-milter.sock, F=, T=C:15m;S:4m;R:4m;E:10m')dnl
+INPUT_MAIL_FILTER(`dkim-filter', `S=local:/var/run/milteropendkim/dkim.sock, F=, T=R:2m')dnl
+
 dnl this is from clamav-milter.conf
 define(`confMILTER_MACROS_EOM', `{msg_id}, {mail_addr}, {rcpt_addr}, i')dnl
-INPUT_MAIL_FILTER(`spamassassin', `S=local:/var/run/spamass-milter.sock, F=, T=C:15m;S:4m;R:4m;E:10m')dnl
 define(`confMILTER_MACROS_ENVRCPT',confMILTER_MACROS_ENVRCPT`, b, r, v, Z')dnl
-
-define(`confINPUT_MAIL_FILTERS', `clamav,spamassassin')dnl
+define(`confINPUT_MAIL_FILTERS', `clamav,spamassassin,dkim-filter')dnl
 
 dnl Antispam section
 FEATURE(`nouucp', `reject')dnl

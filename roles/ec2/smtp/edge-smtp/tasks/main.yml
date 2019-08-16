@@ -1,5 +1,11 @@
 ---
 
+- name: Let's Encrypt
+  include_tasks: certbot.yml
+
+- name: DKIM
+  include_tasks: dkim.yml
+
 - name: ClamAV
   include_tasks: clamav.yml
 

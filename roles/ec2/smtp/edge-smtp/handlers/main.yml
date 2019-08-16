@@ -34,3 +34,7 @@
     name: clamav-milter
     state: restarted
 
+- name: Restart FreeBSD milter-opendkim
+  service:
+    name: milter-opendkim
+    state: restarted

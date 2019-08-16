@@ -1,0 +1,100 @@
+---
+
+- name: Install opendkim
+  pkgng:
+    name: opendkim
+    state: present
+
+- name: Enable opendkim
+  copy:
+    src: rc.conf.d/milteropendkim
+    dest: /usr/local/etc/rc.conf.d/milteropendkim
+
+- name: Create dkim directory
+  file:
+    path: /var/db/dkim
+    owner: root
+    group: wheel
+    mode: 0755
+    state: directory
+
+- name: Copy private dkim private key
+  copy:
+    src: "dkim/{{ hostname }}.private"
+    dest: "/var/db/dkim/{{ hostname }}.private"
+    owner: mailnull
+    group: mailnull
+    mode: 0400
+  notify:
+    - Restart FreeBSD milter-opendkim
+
+- name: Set domain in dkim config
+  lineinfile:
+    path: /usr/local/etc/mail/opendkim.conf
+    regex: '^Domain\s+'
+    line: 'Domain guengel.ch'
+    state: present
+  notify:
+    - Restart FreeBSD milter-opendkim
+
+- name: Set key file in dkim config
+  lineinfile:
+    path: /usr/local/etc/mail/opendkim.conf
+    regex: '^KeyFile\s+'
+    line: 'KeyFile /var/db/dkim/{{ hostname }}.private'
+  notify:
+    - Restart FreeBSD milter-opendkim
+
+
+- name: Set selector in dkim config
+  lineinfile:
+    path: /usr/local/etc/mail/opendkim.conf
+    regex: '^Selector\s+'
+    line: 'Selector {{ hostname }}'
+  notify:
+    - Restart FreeBSD milter-opendkim
+
+- name: Set logging in dkim config
+  lineinfile:
+    path: /usr/local/etc/mail/opendkim.conf
+    regex: '^Syslog\s+'
+    line: 'Syslog Yes'
+  notify:
+    - Restart FreeBSD milter-opendkim
+
+- name: Set logging facility in dkim config
+  lineinfile:
+    path: /usr/local/etc/mail/opendkim.conf
+    regex: '^SyslogFacility\s+'
+    line: 'SyslogFacility mail'
+  notify:
+    - Restart FreeBSD milter-opendkim
+
+- name: Set logging success in dkim config
+  lineinfile:
+    path: /usr/local/etc/mail/opendkim.conf
+    regex: '^SyslogSuccess\s+'
+    line: 'SyslogSuccess Yes'
+  notify:
+    - Restart FreeBSD milter-opendkim
+
+- name: Set external ignore list in dkim config
+  lineinfile:
+    path: /usr/local/etc/mail/opendkim.conf
+    regex: '^InternalHosts\s+'
+    line: 'InternalHosts /usr/local/etc/mail/dkim-internalhosts'
+  notify:
+    - Restart FreeBSD milter-opendkim
+
+- name: Copy internal hosts for dkim
+  copy:
+    src: dkim/dkim-internalhosts
+    dest: /usr/local/etc/mail/dkim-internalhosts
+  notify:
+    - Restart FreeBSD milter-opendkim
+
+- name: Start milter-opendkim
+  service:
+    name: milter-opendkim
+    state: started
+

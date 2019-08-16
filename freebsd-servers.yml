@@ -391,3 +391,7 @@
       tags:
         - rsync
         - rsync-server
+    - import_role:
+        name: common/add-ec2-hosts
+      tags:
+        - ec2

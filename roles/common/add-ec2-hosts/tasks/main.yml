@@ -1,0 +1,15 @@
+---
+
+- name: Gather information about ec2 hosts
+  setup:
+  delegate_to: "{{item}}"
+  delegate_facts: True
+  loop: "{{ groups['ec2'] }}"
+
+- name: Add ec2 hosts to hosts file
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    regexp: '.*{{ hostvars[item].hostname }}$'
+    line: '{{ hostvars[item].ansible_xn0.ipv4[0].address }} {{ hostvars[item].hostname }}'
+  loop: "{{ groups['ec2'] }}"

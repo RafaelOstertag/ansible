@@ -7,10 +7,6 @@
 
   tasks:
     - import_role:
-        name: common/ca-guengel.ch
-      tags:
-        - common
-    - import_role:
         name: ec2/common/set-hostname
     - import_role:
         name: ec2/common/ssh-keys

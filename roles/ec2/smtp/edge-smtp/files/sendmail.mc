@@ -46,16 +46,14 @@ define(`confALLOW_BOGUS_HELO', `False')dnl
 
 dnl Enable STARTTLS for receiving email.
 define(`confCRL', `/etc/ssl/guengel.ch.crl')dnl   # <= EDIT
-define(`confCACERT_PATH', `/etc/ssl/certs')dnl
+define(`confCACERT', `/etc/ssl/cert.pem')dnl
+define(`confCACERT_PATH', `/etc/ssl')dnl
 define(`CERT_DIR', `/usr/local/etc/letsencrypt/live/smtp.guengel.ch')dnl
 define(`confSERVER_CERT', `CERT_DIR/fullchain.pem')dnl
 define(`confSERVER_KEY', `CERT_DIR/privkey.pem')dnl
 define(`confCLIENT_CERT', `CERT_DIR/fullchain.pem')dnl
 define(`confCLIENT_KEY', `CERT_DIR/privkey.pem')dnl
-dnl define(`confCACERT', `/etc/ssl/guengel.ch.pem')dnl
 
-# define(`confDH_PARAMETERS', `CERT_DIR/dh.param')dnl
-# define(`confTLS_SRV_OPTIONS', `')dnl   # <= EDIT
 
 dnl hosting and virtual stuff
 MASQUERADE_AS(`guengel.ch')dnl

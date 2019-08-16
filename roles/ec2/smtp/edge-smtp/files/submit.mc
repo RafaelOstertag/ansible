@@ -27,7 +27,8 @@ define(`confDONT_BLAME_SENDMAIL',`GroupReadableKeyFile')dnl
 define(`confTO_STARTTLS',     `2m')dnl   # <= EDIT
 
 define(`confCRL', `/etc/ssl/guengel.ch.crl')dnl   # <= EDIT
-define(`confCACERT_PATH', `/etc/ssl/certs')dnl
+define(`confCACERT', `/etc/ssl/cert.pem')dnl
+define(`confCACERT_PATH', `/etc/ssl')dnl
 define(`CERT_DIR', `/usr/local/etc/letsencrypt/live/smtp.guengel.ch')dnl
 define(`confSERVER_CERT', `CERT_DIR/fullchain.pem')dnl
 define(`confSERVER_KEY', `CERT_DIR/privkey.pem')dnl

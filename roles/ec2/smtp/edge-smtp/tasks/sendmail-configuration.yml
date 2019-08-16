@@ -1,10 +1,17 @@
 ---
 
+- name: Install certificates
+  pkgng:
+    name: ca_root_nss
+    state: present
+
+- name: Create certificate hashes
+  command: openssl rehash /etc/ssl
+
 - name: Enable sendmail
   copy:
     src: rc.conf.d/sendmail
     dest: /etc/rc.conf.d/sendmail
-
 
 - name: Copy sendmail configuration
   copy:

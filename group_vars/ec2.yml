@@ -4,6 +4,8 @@ ansible_python_interpreter: /usr/local/bin/python3.6
 ansible_user: ec2-user
 ansible_become_method: su
 
+use_guengel_repository: no
+
 ssh_keys_present:
     - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDpk2bfcFx9NWiwIlqdDt1HlBnV52X2vV8rUqawgox/teRNfQPbZDRSU8o3JxmgVcnpt5JwY9rWiXLVMWrvwo7ryQSkvtschxwjCBDvq0FrF6Ck5qDO/hhnEIIo/kBVZdjuAqG7J6epw9o5xvNGG51CmMi7dH0ZINCNtPVhHLJjDW3wwq+GQbvwFX+h2JeqiioREDX/uN+kdVcAWcnHZiIYR91iTQPJTz1tkXPARxivXL/9zXugritaukbZe/JsQQmfs9T5G8TInQFoR06cEAc03OVGign4xNR7IbkSrZ6xPSzb5iwzdlEXAK+3NRo3vlmCBrJolXa6t9t6UIpDk/Rb rafi@starchild.kruemel.home
 

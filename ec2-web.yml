@@ -56,6 +56,11 @@
         name: ec2/web/backup
       tags:
         - backup
+    - import_role:
+        name: freebsd/nagios-nrpe-config
+      tags:
+        - nagios
+        - nrpe
     # Leave this here, so it will pick up when we change the hostname
     - import_role:
         name: common/motd

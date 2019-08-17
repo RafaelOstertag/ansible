@@ -1,7 +1,7 @@
 ---
 
 - name: Copy jail configuration
-  copy:
+  template:
     src: "{{ ansible_fqdn }}/jail.conf" 
     dest: /etc/jail.conf
 

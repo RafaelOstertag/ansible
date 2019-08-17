@@ -7,7 +7,7 @@
 
 - name: Copy ldap.conf
   when: openldap.stat.exists == True and not 'freebsd_servers_dmz' in group_names
-  copy:
+  template:
     src: openldap/ldap.conf
     dest: /usr/local/etc/openldap/ldap.conf
     

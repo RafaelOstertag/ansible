@@ -14,7 +14,7 @@
 - name: Mark as thin jail
   file:
     path: "{{thin_jail_root_directory}}/{{thin_jail_name}}/.thin-jail"
-    state: touch
+    state: file
     mode: 0444
     owner: root
     group: wheel

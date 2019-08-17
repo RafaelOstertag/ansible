@@ -361,12 +361,6 @@
       tags:
         - syslog
     - import_role:
-        name: freebsd/rsync-server
-      when: rsync_server
-      tags:
-        - rsync
-        - rsync-server
-    - import_role:
         name: common/add-ec2-hosts
       tags:
         - ec2

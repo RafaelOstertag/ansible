@@ -1,0 +1,12 @@
+---
+
+- name: FreeBSD Servers
+  hosts: freebsd_servers
+  force_handlers: true
+  user: root
+  tasks:
+    - import_role:
+        name: freebsd/rsync-server
+      tags:
+        - rsync
+        - rsync-server

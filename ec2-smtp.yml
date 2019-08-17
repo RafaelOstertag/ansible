@@ -19,6 +19,12 @@
         - ipsec
         - tunnel
     - import_role:
+        name: ec2/gateway/ipsec-watchdog
+      tags:
+        - vpn
+        - ipsec
+        - tunnel
+    - import_role:
         name: ec2/gateway/hostsfile
       tags:
         - vpn

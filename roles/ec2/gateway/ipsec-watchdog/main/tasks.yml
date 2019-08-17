@@ -1,0 +1,21 @@
+---
+
+- name: Copy ipsec-watchdog
+  copy:
+    src: ipsec-watchdog
+    dest: /usr/local/sbin/ipsec-watchdog
+    mode: 0700
+    owner: root
+    group: wheel
+
+- name: Enable watchdog via cron
+  cron:
+    name: IPSec watchdog
+    day: "*"
+    hour: "*"
+    minute: "0-59/5"
+    month: "*"
+    weekday: "*"
+    user: root
+    job: /usr/local/sbin/ipsec-watchdog
+

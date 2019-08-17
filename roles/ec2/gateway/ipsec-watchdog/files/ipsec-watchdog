@@ -1,0 +1,111 @@
+#!/bin/sh
+
+set -eu
+
+scriptname=`basename $0`
+lockdir="/var/run/${scriptname}"
+lockfile="/var/run/${scriptname}/lock"
+mailto=root@guengel.ch
+ike=home
+peer=gizmo.kruemel.home
+
+log_error() {
+    logger -p cron.err "$@"
+}
+
+log_info() {
+    logger -p cron.info "$@"
+}
+
+log_warn() {
+    logger -p cron.warn "$@"
+}
+
+lock_pid() {
+    if [ -f "${lockfile}" ]
+    then
+        echo `cut -d ';' -f 1 "${lockfile}"`
+    else
+        echo -1
+    fi
+}
+
+lock_since() {
+    if [ -f "${lockfile}" ]
+    then
+        echo `cut -d ';' -f 2 "${lockfile}"`
+    else
+        echo -1
+    fi
+}
+
+acquire_lock() {
+    if ! mkdir "${lockdir}" >/dev/null 2>&1
+    then
+        log_error "Lock already held by `lock_pid` since `lock_since`. Abort."
+        return 1
+    fi
+
+    trap 'remove_lock' EXIT
+    echo "$$;`date`" > "${lockfile}"
+}
+
+remove_lock() {
+    rm -rf "${lockdir}"
+}
+
+terminate_connection() {
+    /usr/local/sbin/swanctl --terminate --force --ike ${ike} >/dev/null
+}
+
+initiate_connection() {
+    /usr/local/sbin/swanctl --initiate --ike ${ike} >/dev/null
+}
+
+test_peer() {
+    ping -c 2 "${peer}" > /dev/null
+}
+
+if ! acquire_lock
+then
+    exit 1
+fi
+
+if test_peer
+then
+    log_info "Peer '${peer}' reachable. Good."
+    exit 0
+fi
+
+log_warn "Peer '${peer}' not reachable. Will reset connection"
+if ! terminate_connection 
+then
+    log_warn "Cannot terminate connection. Will restart stronswan"
+    service strongswan restart >/dev/null
+fi
+
+sleep 1
+
+initiate_connection
+
+if ! test_peer
+then
+    log_error "Cannot resurect connection to ${home}"
+    exit 2
+fi
+
+mail -s "Resurected connection of `hostname` to ${ike}" "${mailto}" <<EOF
+Successfuly resurected the IPSec connection on `date`:
+
+`ping -c 3 ${peer}`
+
+-- Yours truly
+EOF
+
+exit 0
+
+
+
+
+
+

@@ -1,4 +1,0 @@
----
-
-# set to true to install agentsmith certificate and key
-agentsmith_cert: True

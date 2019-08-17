@@ -1,4 +1,0 @@
-# They say it is smtpauth.bluewin.ch, but this is an CNAME which will be resolved to mx.bluewin.ch
-# and sendmail uses the A record for the access lookup
-AuthInfo:smtpauth.bluewin.ch	"I:rafael.ostertag" "U:rafael.ostertag" "P:{{ authinfo_bluewin }}" "M:DIGEST-MD5 PLAIN"
-AuthInfo:smtpauth.lb.bluewin.ch	"I:rafael.ostertag" "U:rafael.ostertag" "P:{{ authinfo_bluewin }}" "M:DIGEST-MD5 PLAIN"

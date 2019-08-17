@@ -7,7 +7,6 @@
     owner: root
     group: wheel
     state: directory
-  when: 'not edge_mailserver'
 
 - name: Copy SSL public keys to /etc/mail/tls
   copy:
@@ -21,7 +20,6 @@
   with_items:
     - client
     - server
-  when: 'not edge_mailserver'
 
 - name: Copy SSL private keys to /etc/mail/tls
   copy:
@@ -36,4 +34,3 @@
   with_items:
     - client
     - server
-  when: 'not edge_mailserver'

@@ -17,7 +17,6 @@ jenkins.kruemel.home
 
 [freebsd_servers_dmz]
 yayap.dmz.kruemel.home
-starscream.dmz.kruemel.home
 
 [freebsd_user_hosts:children]
 freebsd_virtual_hosts

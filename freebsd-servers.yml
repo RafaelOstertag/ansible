@@ -33,7 +33,7 @@
         name: freebsd/reusable/rcconf
       vars:
         rcvar: "ipv6_static_routes"
-        value: "dmz6 web6"
+        value: "dmz6"
       when: "'freebsd_servers_dmz' not in group_names"
     - import_role:
         name: freebsd/reusable/rcconf
@@ -314,17 +314,12 @@
 
     - import_role:
         name: freebsd/mailserver
-      when: 'not smart_host and not edge_mailserver'
+      when: 'not smart_host'
       tags:
         - mailserver
     - import_role:
         name: freebsd/mailserver-smarthost
       when: "smart_host"
-      tags:
-        - mailserver
-    - import_role:
-        name: freebsd/edge-mailserver
-      when: 'edge_mailserver'
       tags:
         - mailserver
 

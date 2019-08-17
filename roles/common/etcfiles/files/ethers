@@ -14,26 +14,18 @@ e0:cb:4e:b7:2a:f5	beastie
 00:0d:b9:0d:e4:98	viking
 00:0d:b9:0d:cb:a8	optimusprime
 02:08:20:30:7c:23	nostromo
-08:00:20:99:fd:2a	deepstar
 00:25:90:13:b6:0d	odin
 00:25:90:13:b6:0e	odin-sc
 00:11:6b:f0:1a:15	switchy
 00:11:6b:f2:49:e1	switchy2
 00:04:76:9d:41:f3	jetfire
 02:08:20:b5:b9:ba	megatron
-02:08:20:17:42:85	starscream
-04:4b:80:80:80:03	brutus
-08:00:20:bb:07:8a	starchild
 # Virtual Machines
 08:00:27:d7:26:78	dash
 08:00:27:af:69:06	abraxas
-08:00:27:b1:e4:e0	neger
 08:00:27:ab:6e:ca	aurora
 08:00:27:54:25:31	netbsd32
 08:00:27:d6:9d:b5	merlin
-08:00:27:f7:36:3e	grimreaper
-08:00:27:7f:1e:e1	ion
 08:00:27:af:b5:07	cortana
-08:00:27:2d:9f:20	borg
 08:00:27:1d:c7:f4	freebsd32
 08:00:27:bf:c6:11	phoebe

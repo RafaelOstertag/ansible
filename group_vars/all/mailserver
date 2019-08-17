@@ -4,5 +4,3 @@
 smart_host: False
 # Set to True when using opencsw sendmail
 opencsw_sendmail: False
-# Set to True for edge mail server
-edge_mailserver: False

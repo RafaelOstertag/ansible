@@ -8,10 +8,20 @@
     owner: root
     group: wheel
 
-- name: Create newsyslog.conf.d
+- name: Create syslog snippets dir
   file:
-    path: /usr/local/etc/newsyslog.conf.d
+    path: "/usr/local/etc/syslog.d"
     state: directory
     mode: 0755
     owner: root
     group: wheel
+
+- name: Create newsyslog snippets dir
+  file:
+    path: "/usr/local/etc/newsyslog.conf.d"
+    state: directory
+    mode: 0755
+    owner: root
+    group: wheel
+
+

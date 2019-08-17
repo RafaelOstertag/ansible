@@ -1,4 +1,4 @@
 ---
 
 dependencies:
-  - { role: freebsd/customization-directories }
+  - { role: freebsd/configuration-directories }

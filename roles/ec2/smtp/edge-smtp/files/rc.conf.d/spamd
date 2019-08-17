@@ -1,2 +1,2 @@
 spamd_enable="YES"
-spamd_flags="-u spamd -H /var/spool/spamd"
+spamd_flags="-u spamd -H /var/spool/spamd --max-children=8 --min-children=1 --max-spare=2 --min-spare=1 --max-conn-per-child=24"

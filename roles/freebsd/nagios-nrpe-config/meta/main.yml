@@ -4,3 +4,4 @@ dependencies:
   - { role: common/ca-guengel.ch }
   - { role: freebsd/configuration-directories }
   - { role: freebsd/guengel-pkgrepo }
+  - { role: freebsd/sudo }

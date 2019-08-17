@@ -1,0 +1,9 @@
+---
+
+- name: FreeBSD OpenVPN Server
+  hosts: yayap.dmz.kruemel.home
+  force_handlers: true
+  user: root
+  tasks:
+    - import_role:
+        name: freebsd/openvpn-server

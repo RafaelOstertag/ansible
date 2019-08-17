@@ -4,8 +4,6 @@
   pkgng:
     name: openvpn
     state: present
-  notify:
-    - FreeBSD restart OpenVPN
 
 - name: Copy OpenVPN configuration
   copy:
@@ -67,3 +65,13 @@
     group: _openvpn
   notify:
     - FreeBSD restart OpenVPN
+
+- name: Enable OpenVPN
+  copy:
+    src: rc.conf.d/openvpn
+    dest: /usr/local/etc/rc.conf.d/openvpn
+
+- name: Start OpenVPN
+  service:
+    name: openvpn
+    state: started

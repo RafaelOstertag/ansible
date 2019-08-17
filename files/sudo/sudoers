@@ -11,8 +11,6 @@
 # Host alias specification
 Host_Alias	SERVERS	= gizmo.kruemel.home, gargoyle.kruemel.home, yayap.dmz.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, megatron.kruemel.home, nostromo.kruemel.home, jetfire.kruemel.home, kerberos.kruemel.home, beastie.kruemel.home, jenkins.kruemel.home
 Host_Alias	FREEBSD = gizmo.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, nostromo.kruemel.home, jetfire.kruemel.home, yayap.dmz.kruemel.home, beastie.kruemel.home, megatron.kruemel.home, jenkins.kruemel.home
-Host_Alias	SOLARIS = brutus,brutus.kruemel.home,thumper,thumper.kruemel.home
-Host_Alias	SOLARIS11 = nostromo,brutus,thumper
 Host_Alias	FREEBSD_WKS = odin.kruemel.home
 
 # User alias specification
@@ -60,9 +58,5 @@ Defaults	syslog_goodpri=debug
 root	ALL=(ALL) SETENV: ALL
 rafi	FREEBSD_WKS=(root) ALL
 
-# Those are for solaris 11
-sysadmin SOLARIS11=(root) ALL
-
 # This for nrpe since mailq on openBSD requires root privileges.
 nagios FREEBSD=(root) NOPASSWD: /usr/local/libexec/nagios/check_file_age, /usr/local/libexec/nagios/check_procs, /usr/local/libexec/nagios/check_proc_pid, /usr/local/sbin/pkg -j * audit -F, /usr/local/sbin/pkg -c * audit -F
-nagios SOLARIS=(root) NOPASSWD: /opt/ggl/libexec/nagios/check_file_age, /opt/ggl/libexec/nagios/check_mailq

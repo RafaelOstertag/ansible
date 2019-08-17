@@ -1,0 +1,7 @@
+---
+
+- name: Set time zone
+  file:
+    path: /etc/localtime"
+    src: /usr/share/zoneinfo/Europe/Zurich
+    state: link

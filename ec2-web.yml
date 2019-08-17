@@ -8,9 +8,16 @@
   tasks:
     - import_role:
         name: ec2/common/set-hostname
+      tags:
+        - common
+    - import_role:
+        name: ec2/common/timezone
+      tags:
+        - common
     - import_role:
         name: ec2/common/ssh-keys
       tags:
+        - common
         - ssh
     - import_role:
         name: ec2/common/sendmail

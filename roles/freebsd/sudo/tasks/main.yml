@@ -13,14 +13,3 @@
     owner: root
     group: wheel
     validate: /usr/local/sbin/visudo -cf %s
-
-- name: Remove sudoers from nsswitch
-  lineinfile:
-    path: /etc/nsswitch.conf
-    regexp: "^sudoers:"
-    state: absent
-
-- name: Remove ldap.conf for sudo
-  file:
-    path: /usr/local/etc/ldap.conf
-    state: absent

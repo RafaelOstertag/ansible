@@ -58,7 +58,6 @@ FEATURE(mailertable, `hash -o /etc/mail/mailertable')dnl
 FEATURE(virtusertable, `hash -o /etc/mail/virtusertable')dnl
 
 dnl Dialup users should uncomment and define this appropriately
-dnl define(`SMART_HOST', `starscream.dmz.kruemel.home.')dnl
 define(`SMART_HOST', `smtp-1')dnl
 
 define(`confCW_FILE', `/etc/mail/local-host-names')dnl
@@ -69,7 +68,7 @@ DAEMON_OPTIONS(`Name=MTA-SSL, Family=inet, Port=smtps, M=s')dnl
 DAEMON_OPTIONS(`Name=MTA-IPv6, Family=inet6, Port=smtp')dnl
 DAEMON_OPTIONS(`Name=MTA-SSL-IPv6, Family=inet6, Port=smtps, M=s')dnl
 
-define(`confCACERT_PATH',     `/etc/ssl/certs')dnl
+define(`confCACERT_PATH',     `/etc/ssl')dnl
 define(`confCACERT',           `/etc/ssl/guengel.ch.pem')dnl
 define(`confCRL',              `/etc/ssl/guengel.ch.crl')dnl
 define(`confSERVER_CERT',     `/etc/mail/tls/server.cert')dnl

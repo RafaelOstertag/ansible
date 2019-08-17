@@ -25,7 +25,7 @@ define(`_USE_DECNET_SYNTAX_', `1')dnl support DECnet
 define(`confTIME_ZONE', `USE_TZ')dnl
 define(`confDONT_INIT_GROUPS', `True')dnl
 define(`confBIND_OPTS', `WorkAroundBrokenAAAA')dnl
-define(`confCACERT_PATH',     `/etc/ssl/certs')dnl
+define(`confCACERT_PATH',     `/etc/ssl')dnl
 define(`confCACERT',           `/etc/ssl/guengel.ch.pem')dnl
 define(`confCRL',              `/etc/ssl/guengel.ch.crl')dnl
 define(`confSERVER_CERT',     `/etc/mail/tls/server.cert')dnl

@@ -8,10 +8,10 @@
 - name: Mount fdescfs
   mount:
     state: mounted
-    dump: 0
+    dump: "0"
     fstype: fdescfs
     opts: rw
-    passno: 0
+    passno: "0"
     path: /dev/fd
     src: fdescfs
         

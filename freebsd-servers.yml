@@ -60,17 +60,7 @@
       vars:
         rcvar: "snmpd_enable"
         value: "NO"
-        
-    - import_role:
-        name: freebsd/reusable/rcconf
-      vars:
-        rcvar: "nrpe3_enable"
-        value: "YES"
-    - name: Remove old nrpe2_enable
-      lineinfile:
-        path: /etc/rc.conf
-        regexp: "^nrpe2_enable="
-        state: absent
+
     - import_role:
         name: freebsd/reusable/rcconf
       vars:

@@ -34,23 +34,24 @@ Defaults env_keep +="PKG_DBDIR PKG_DESTDIR PKG_PATH PKG_TMPDIR PORTSDIR"
 Defaults env_keep +="RELEASEDIR SHARED_ONLY SSH_AUTH_SOCK SUBPACKAGE VISUAL"
 Defaults env_keep +="WRKOBJDIR"
 
-Defaults	!logfile
-Defaults	always_set_home
-Defaults	authenticate
-Defaults	fqdn
-Defaults	ignore_dot
+Defaults		!logfile
+Defaults		always_set_home
+Defaults		authenticate
+Defaults		fqdn
+Defaults@EC2_INSTANCES	!fqdn # They don't have a fqdn
+Defaults		ignore_dot
 # On FreeBSD, it make sudo fail silently.
-#Defaults	mail_always
-Defaults	mail_badpass
-Defaults	mail_no_host
-Defaults	mail_no_perms
-Defaults	mail_no_user
-Defaults	mailsub="*** SUDO on %h ***"
-Defaults	mailto=root
-Defaults	passprompt="[sudo] password for %p:"
-Defaults	syslog=auth
-Defaults	syslog_badpri=alert
-Defaults	syslog_goodpri=debug
+#Defaults	      	mail_always
+Defaults		mail_badpass
+Defaults		mail_no_host
+Defaults		mail_no_perms
+Defaults		mail_no_user
+Defaults		mailsub="*** SUDO on %h ***"
+Defaults		mailto=root
+Defaults		passprompt="[sudo] password for %p:"
+Defaults		syslog=auth
+Defaults		syslog_badpri=alert
+Defaults		syslog_goodpri=debug
 
 # Runas alias specification
 

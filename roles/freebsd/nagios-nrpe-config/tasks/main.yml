@@ -5,6 +5,11 @@
     name: nrpe3
     state: present
 
+- name: Enable nrpe3 at startup
+  copy:
+    src: rc.conf.d/nrpe3
+    dest: /usr/local/etc/rc.conf.d/nrpe3
+
 - name: Make tls cert directory
   file:
     path: /usr/local/etc/nrpe.d/tls
@@ -52,3 +57,9 @@
     group: nagios
     mode: 0755
   loop: "{{ custom_nagios_plugins }}"
+
+
+- name: Start nrpe3
+  service:
+    name: nrpe3
+    state: started

@@ -1,0 +1,4 @@
+# Ansible maintained
+#
+# This hosts.allow assumes a local firewall in place
+ALL : ALL : allow

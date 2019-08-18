@@ -12,7 +12,7 @@
   file:
     path: /etc/pf.conf.d/local.conf
     state: touch
-    mode: 0700
+    mode: 0600
     owner: root
     group: wheel
 
@@ -72,3 +72,11 @@
   service:
     name: pflog
     state: started
+
+- name: Copy hosts allow
+  copy:
+    src: hosts.allow
+    dest: /etc/hosts.allow
+    mode: 0644
+    owner: root
+    group: wheel

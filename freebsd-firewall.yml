@@ -5,6 +5,7 @@
     - optimusprime.kruemel.home
     - viking.kruemel.home
     - jetfire.kruemel.home
+    - beastie.kruemel.home
   user: root
   roles:
     - freebsd/local-firewall

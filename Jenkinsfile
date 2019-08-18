@@ -3,8 +3,14 @@ pipeline {
         label 'ansible'
     }
     options {
+        // Running the playbooks multiple times seems a bad idea
+        disableConcurrentBuilds()
         ansiColor('xterm')
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')
+    }
+
+    parameters { 
+        booleanParam(name: 'RUN_PLAY', defaultValue: false, description: 'Run Playbooks')
     }
 
     triggers {
@@ -26,7 +32,10 @@ done
         stage("Run Server Playbooks") {
             when { 
                 allOf {
-                    triggeredBy 'TimerTrigger' 
+                    anyOf {
+                        expression { return params.RUN_PLAY }
+                        triggeredBy 'TimerTrigger' 
+                    }
                     branch 'master'
                 }
             }

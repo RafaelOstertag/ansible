@@ -24,7 +24,12 @@ done
         }
 
         stage("Run Server Playbooks") {
-            when { triggeredBy 'TimerTrigger' }
+            when { 
+                allOf {
+                    triggeredBy 'TimerTrigger' 
+                    branch 'master'
+                }
+            }
             parallel {
                 stage("FreeBSD Servers") {
                     steps {

@@ -1,0 +1,6 @@
+---
+
+- name: Create dhparam file
+  command: openssl dhparam -out /usr/local/etc/nginx/dhparam.pem 2048
+  args:
+    creates: /usr/local/etc/nginx/dhparam.pem

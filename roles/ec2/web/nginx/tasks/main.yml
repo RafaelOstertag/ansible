@@ -1,5 +1,8 @@
 ---
 
+- name: ssl setup
+  include_tasks: ssl.yml
+
 - name: nginx setup
   include_tasks: nginx-setup.yml
 

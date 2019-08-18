@@ -1,13 +1,15 @@
 ## Ansible Maintained
 
 rewrite_header Subject *****SPAM*****
-trusted_networks 192.168.100.1
+trusted_networks 192.168.100.1/32 {{ ansible_xn0.ipv4[0].address }}/32
 
 bayes_auto_learn 1
 bayes_path /var/spool/spamd/bayes_db/bayes
 bayes_ignore_header X-Bogosity
 bayes_ignore_header X-Spam-Flag
 bayes_ignore_header X-Spam-Status
+
+loadplugin Mail::SpamAssassin::Plugin::Shortcircuit
 
 #   Some shortcircuiting, if the plugin is enabled
 # 
@@ -31,7 +33,7 @@ ifplugin Mail::SpamAssassin::Plugin::Shortcircuit
 #   if you have taken the time to correctly specify your "trusted_networks",
 #   this is another good way to save CPU
 #
-# shortcircuit ALL_TRUSTED             on
+shortcircuit ALL_TRUSTED             on
 
 #   and a well-trained bayes DB can save running rules, too
 #

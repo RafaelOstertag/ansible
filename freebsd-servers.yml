@@ -58,12 +58,6 @@
     - import_role:
         name: freebsd/reusable/rcconf
       vars:
-        rcvar: "snmpd_enable"
-        value: "NO"
-
-    - import_role:
-        name: freebsd/reusable/rcconf
-      vars:
         rcvar: "clear_tmp_enable"
         value: "YES"
     - import_role:
@@ -76,16 +70,7 @@
       vars:
         rcvar: "sshd_enable"
         value: "YES"
-    - import_role:
-        name: freebsd/reusable/rcconf
-      vars:
-        rcvar: "gssd_enable"
-        value: "NO"
-    - import_role:
-        name: freebsd/reusable/rcconf
-      vars:
-        rcvar: "gssd_flags"
-        value: "-h"
+
     - import_role:
         name: freebsd/reusable/rcconf
       vars:

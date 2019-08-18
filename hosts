@@ -15,6 +15,11 @@ nostromo.kruemel.home
 megatron.kruemel.home
 jenkins.kruemel.home
 
+[freebsd_servers_fat_jail]
+nostromo.kruemel.home
+megatron.kruemel.home
+jenkins.kruemel.home
+
 [freebsd_servers_dmz]
 yayap.dmz.kruemel.home
 

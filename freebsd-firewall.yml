@@ -1,11 +1,7 @@
 ---
 
 - name: Local Firewall on FreeBSD Servers
-  hosts:
-    - optimusprime.kruemel.home
-    - viking.kruemel.home
-    - jetfire.kruemel.home
-    - beastie.kruemel.home
+  hosts: freebsd_servers_lan:!freebsd_servers_fat_jail
   user: root
   roles:
     - freebsd/local-firewall

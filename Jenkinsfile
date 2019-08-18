@@ -32,7 +32,7 @@ done
         stage("Run Server Playbooks") {
             when { 
                 allOf {
-                    anyOff {
+                    anyOf {
                         expression { return params.RUN_PLAY }
                         triggeredBy 'TimerTrigger' 
                     }

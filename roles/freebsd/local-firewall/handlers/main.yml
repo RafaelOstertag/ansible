@@ -1,0 +1,4 @@
+---
+
+- name: Reload FreeBSD pf
+  command: "/etc/rc.d/pf reload"

@@ -8,6 +8,17 @@
     owner: root
     group: wheel
 
+- name: Copy common pf macros
+  copy:
+    src: firewall/pf/macros.conf
+    dest: /etc/pf.conf.d/macros.conf
+    mode: 0640
+    owner: root
+    group: wheel
+  notify:
+    - Check firewall syntax
+    - Load firewall configuration
+
 - name: Copy config files
   copy:
     src: "{{ item }}"
@@ -18,7 +29,6 @@
   loop:
     - pf.conf
     - pf.conf.d/dmz.conf
-    - pf.conf.d/macros.conf
   notify:
     - Check firewall syntax
     - Load firewall configuration

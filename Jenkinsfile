@@ -6,6 +6,11 @@ pipeline {
         ansiColor('xterm')
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')
     }
+
+    triggers {
+        cron 'H 21 * * *'
+    }
+
     stages {
         stage("Check Syntax") {
             steps {
@@ -17,13 +22,96 @@ done
 """
             }
         }
+
+        stage("Run Server Playbooks") {
+            when { triggeredBy 'TimerTrigger' }
+            parallel {
+                stage("FreeBSD Servers") {
+                    steps {
+                        ansiblePlaybook forks: 10,
+                            disableHostKeyChecking: true,
+                            colorized: true,
+                            credentialsId: 'rafi-ssh-key',
+                            inventory: 'hosts',
+                            vaultCredentialsId: 'ansible-vault',
+                            installation: 'FreeBSD Ansible',
+                            playbook: 'freebsd-servers.yml'
+
+                        ansiblePlaybook forks: 10,
+			                disableHostKeyChecking: true,
+                            colorized: true,
+                            credentialsId: 'rafi-ssh-key',
+                            inventory: 'hosts',
+                            vaultCredentialsId: 'ansible-vault',
+                            installation: 'FreeBSD Ansible',
+			                playbook: 'freebsd-ldapservers.yml'
+
+                        ansiblePlaybook forks: 10,
+                            disableHostKeyChecking: true,
+                            colorized: true,
+                            credentialsId: 'rafi-ssh-key',
+                            inventory: 'hosts',
+                            vaultCredentialsId: 'ansible-vault',
+                            installation: 'FreeBSD Ansible',
+                            playbook: 'freebsd-dns.yml'
+
+			            ansiblePlaybook forks: 10,
+                            disableHostKeyChecking: true,
+                            colorized: true,
+                            credentialsId: 'rafi-ssh-key',
+                            inventory: 'hosts',
+                            vaultCredentialsId: 'ansible-vault',
+                            installation: 'FreeBSD Ansible',
+                            playbook: 'freebsd-openvpn-servers.yml'
+
+			            ansiblePlaybook forks: 10,
+                            disableHostKeyChecking: true,
+                            colorized: true,
+                            credentialsId: 'rafi-ssh-key',
+                            inventory: 'hosts',
+                            vaultCredentialsId: 'ansible-vault',
+                            installation: 'FreeBSD Ansible',
+                            playbook: 'freebsd-rsync-servers.yml'
+
+                        ansiblePlaybook forks: 10,
+                            disableHostKeyChecking: true,
+                            colorized: true,
+                            credentialsId: 'rafi-ssh-key',
+                            inventory: 'hosts',
+                            vaultCredentialsId: 'ansible-vault',
+                            installation: 'FreeBSD Ansible',
+                            playbook: 'freebsd-firewall.yml'
+                    }
+                }
+                stage("OpenBSD Servers") {
+                    steps {
+                        ansiblePlaybook forks: 10,
+                            colorized: true,
+                            credentialsId: 'rafi-ssh-key',
+                            disableHostKeyChecking: true,
+                            installation: 'FreeBSD Ansible',
+                            inventory: 'hosts',
+                            vaultCredentialsId: 'ansible-vault',
+                            playbook: 'openbsd-servers.yml'
+                        ansiblePlaybook forks: 10,
+                            colorized: true,
+                            credentialsId: 'rafi-ssh-key',
+                            disableHostKeyChecking: true,
+                            installation: 'FreeBSD Ansible',
+                            inventory: 'hosts',
+                            vaultCredentialsId: 'ansible-vault',
+		            	    playbook: 'openbsd-gateway.yml'
+                    }
+                }
+            }
+        }
     }
 
     post {
-	always {
-             mail to:"rafi@guengel.ch",
-              subject:"${JOB_NAME} (${BRANCH_NAME};${env.BUILD_DISPLAY_NAME}) -- ${currentBuild.currentResult}",
-              body:"Refer to ${currentBuild.absoluteUrl}"
-         }
+        always {
+            mail to:"rafi@guengel.ch",
+            subject:"${JOB_NAME} (${BRANCH_NAME};${env.BUILD_DISPLAY_NAME}) -- ${currentBuild.currentResult}",
+            body:"Refer to ${currentBuild.absoluteUrl}"
+        }
     }
 }

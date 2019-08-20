@@ -4,7 +4,7 @@
   file:
     path: /etc/pf.conf.d
     state: directory
-    mode: 0750
+    mode: 0700
     owner: root
     group: wheel
 
@@ -12,7 +12,7 @@
   copy:
     src: firewall/pf/macros.conf
     dest: /etc/pf.conf.d/macros.conf
-    mode: 0640
+    mode: 0600
     owner: root
     group: wheel
   notify:
@@ -23,7 +23,7 @@
   copy:
     src: "{{ item }}"
     dest: "/etc/{{ item }}"
-    mode: 0640
+    mode: 0600
     owner: root
     group: wheel
   loop:
@@ -39,7 +39,7 @@
   file:
     path: "/etc/pf.conf.d/{{ item }}"
     state: file
-    mode: 0640
+    mode: 0600
     owner: root
     group: wheel
   loop:

@@ -4,7 +4,7 @@
   template:
     src: firewall/ec2.macros.conf
     dest: /etc/pf.conf.d/ec2.macros.conf
-    mode: 0640
+    mode: 0600
     owner: root
     group: wheel
   notify:
@@ -15,7 +15,7 @@
   copy:
     src: firewall/ec2.vpn.conf
     dest: /etc/pf.conf.d/ec2.vpn.conf
-    mode: 0640
+    mode: 0600
     owner: root
     group: wheel
   notify:

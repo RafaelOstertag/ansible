@@ -1,0 +1,13 @@
+---
+
+- name: FreeBSD imap Servers
+  hosts: gizmo.kruemel.home
+  force_handlers: true
+  user: root
+  tasks:
+    - import_role:
+        name: imap/cyrus-certificate
+      tags:
+        - imapd
+        - cyrus
+        - ssl

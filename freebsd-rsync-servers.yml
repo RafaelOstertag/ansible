@@ -1,12 +1,12 @@
 ---
 
-- name: FreeBSD Servers
+- name: FreeBSD rsync Servers
   hosts: gizmo.kruemel.home
   force_handlers: true
   user: root
   tasks:
     - import_role:
-        name: freebsd/rsync-server
+        name: rsync-server
       tags:
         - rsync
         - rsync-server

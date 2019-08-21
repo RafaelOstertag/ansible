@@ -1,7 +1,6 @@
 ---
 
 - name: Guarantee tls directory
-  when: cyrus_host
   file:
     path: /var/imap/tls
     state: directory
@@ -10,7 +9,6 @@
     group: cyrus
 
 - name: Copy cyrus public key
-  when: cyrus_host
   copy:
     src: "ssl/pub/{{ ansible_fqdn }}.crt"
     dest: "/var/imap/tls/cert-{{ ansible_fqdn }}.pem"
@@ -21,7 +19,6 @@
     - FreeBSD restart cyrus
 
 - name: Copy cyus private key
-  when: cyrus_host
   copy:
     src: "ssl/priv/{{ ansible_fqdn }}.key"
     dest: "/var/imap/tls/{{ ansible_fqdn }}.key"

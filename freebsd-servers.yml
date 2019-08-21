@@ -328,19 +328,7 @@
         name: freebsd/javacerts
       tags:
         - javacerts
-    - import_role:
-        name: freebsd/cyrus-certificate
-      tags:
-        - cyrus
-        - imapd
 
-    - import_role:
-        name: freebsd/postgresql-host
-      when: 'postgresql_host'
-      tags:
-        - postgres
-        - postgresql
-        - pg
     - import_role:
         name: freebsd/syslog-and-newsyslog
       tags:

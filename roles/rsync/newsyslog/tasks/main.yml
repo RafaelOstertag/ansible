@@ -1,0 +1,7 @@
+---
+
+- name: Syslog snippet
+  include_role:
+    name: freebsd/reusable/install-newsyslog-snippet
+  vars:
+    snippet: rsyncd.conf

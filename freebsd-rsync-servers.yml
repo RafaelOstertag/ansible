@@ -6,7 +6,15 @@
   user: root
   tasks:
     - import_role:
-        name: rsync-server
+        name: rsync/rsync-server
       tags:
         - rsync
         - rsync-server
+    - import_role:
+        name: rsync/newsyslog
+      tags:
+        - syslog
+    - import_role:
+        name: rsync/syslog
+      tags:
+        - syslog

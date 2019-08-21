@@ -11,3 +11,15 @@
         - imapd
         - cyrus
         - ssl
+    - import_role:
+        name: imap/cyrus-newsyslog
+      tags:
+        - imapd
+        - cyrus
+        - syslog
+    - import_role:
+        name: imap/cyrus-syslog
+      tags:
+        - imapd
+        - cyrus
+        - syslog

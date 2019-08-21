@@ -330,6 +330,11 @@
         - javacerts
 
     - import_role:
+        name: freebsd/syslogd
+      tags:
+        - syslog
+
+    - import_role:
         name: common/add-ec2-hosts
       tags:
         - ec2

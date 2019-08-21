@@ -1,0 +1,10 @@
+---
+
+- name: Disable logging to /dev/console for serial ttys
+  lineinfile:
+    path: /etc/syslog.conf
+    regexp: '^\*.err;kern.warning;auth.notice;mail.crit'
+    state: absent
+  when: serial_tty
+  notify:
+    - Restart FreeBSD syslog

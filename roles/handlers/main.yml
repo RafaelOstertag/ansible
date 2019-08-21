@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD syslog
+  service:
+    name: syslog
+    state: restarted

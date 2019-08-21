@@ -1,0 +1,26 @@
+---
+
+- name: Restart FreeBSD syslog
+  service:
+    name: syslog
+    state: restarted
+
+- name: Restart FreeBSD sendmail
+  service:
+    name: sendmail
+    state: restarted
+
+- name: Restart FreeBSD sshd
+  service:
+    name: sshd
+    state: restarted
+
+- name: Restart FreeBSD inetd
+  service:
+    name: inetd
+    state: restarted
+
+- name: OpenBSD restart smtpd
+  service:
+    name: smtpd
+    state: restarted

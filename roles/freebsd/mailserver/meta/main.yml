@@ -1,5 +1,4 @@
 ---
 
 dependencies:
-  - { role: freebsd/default-handlers }
   - { role: freebsd/ssl-mailserver }

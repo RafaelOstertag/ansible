@@ -77,9 +77,13 @@ phoebe.virtual.kruemel.home
 [ec2:children]
 ec2_web
 ec2_smtp
+ec2_db
 
 [ec2_web]
 ec2-52-29-59-221.eu-central-1.compute.amazonaws.com hostname=web-1 public_ip=52.29.59.221
 
 [ec2_smtp]
 ec2-52-57-75-84.eu-central-1.compute.amazonaws.com hostname=smtp-1 public_ip=52.57.75.84
+
+[ec2_db]
+ec2-35-156-183-108.eu-central-1.compute.amazonaws.com hostname=db-1 public_ip=35.156.183.108

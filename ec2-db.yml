@@ -1,7 +1,7 @@
 ---
 
-- name: EC2 SMTP
-  hosts: ec2_smtp
+- name: EC2 Database
+  hosts: ec2_db
   become: yes
   become_user: root
 

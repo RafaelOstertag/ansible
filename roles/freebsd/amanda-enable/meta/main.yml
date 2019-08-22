@@ -6,4 +6,5 @@ dependencies:
   - { role: common/services, svcname: "amandaidx", prt: "10082", prot: "tcp" }
   - { role: common/services, svcname: "amidxtape", prt: "10083", prot: "tcp" }
   - { role: freebsd/reusable/rcconf, rcvar: "inetd_enable", value: "YES" }
-  - { role: freebsd/guengel-pkgrepo }
+  - role: freebsd/guengel-pkgrepo
+  - role: common/handlers

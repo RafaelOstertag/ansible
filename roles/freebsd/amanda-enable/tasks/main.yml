@@ -13,7 +13,7 @@
     regexp: "^amanda\\s+stream\\s+tcp6\\s+"
     line: "amanda       stream  tcp6    nowait  amanda  /usr/local/libexec/amanda/amandad amandad -auth=bsdtcp"
   notify:
-    - FreeBSD restart inetd
+    - Restart FreeBSD inetd
   when: 'not amanda_server'
 
 - name: Add amanda tcp ipv4 to inetd.conf

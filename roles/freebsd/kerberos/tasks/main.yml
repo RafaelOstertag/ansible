@@ -30,7 +30,7 @@
     line: "GSSAPIAuthentication yes"
     state: present
   notify:
-    - FreeBSD restart sshd
+    - Restart FreeBSD sshd
 
 - name: Update sshd config part II
   lineinfile:
@@ -39,4 +39,4 @@
     line: "GSSAPICleanupCredentials yes"
     state: present
   notify:
-    - FreeBSD restart sshd
+    - Restart FreeBSD sshd

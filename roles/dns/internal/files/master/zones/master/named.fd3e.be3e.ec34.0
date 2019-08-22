@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 1d
 @       IN SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                                201810270; serial
+                                201908220; serial
                                 3h      ; refresh
                                 6h      ; retry
                                 1w      ; expire
@@ -27,10 +27,10 @@ $TTL 1d
 ; Virtual clients
 0.0.2.0.0.0.0.0.0.0.0.0.0.0.0.0	IN	PTR	dash.virtual.kruemel.home.
 1.0.2.0.0.0.0.0.0.0.0.0.0.0.0.0 IN	PTR	cortana.virtual.kruemel.home.
-2.0.2.0.0.0.0.0.0.0.0.0.0.0.0.0 IN	PTR	sid.virtual.kruemel.home.
+;2.0.2.0.0.0.0.0.0.0.0.0.0.0.0.0
 3.0.2.0.0.0.0.0.0.0.0.0.0.0.0.0	IN	PTR	abraxas.virtual.kruemel.home.
 ;5.0.2.0.0.0.0.0.0.0.0.0.0.0.0.0
-0.1.2.0.0.0.0.0.0.0.0.0.0.0.0.0	IN	PTR	neger.virtual.kruemel.home.
+;0.1.2.0.0.0.0.0.0.0.0.0.0.0.0.0
 ;1.1.2.0.0.0.0.0.0.0.0.0.0.0.0.0
 ;5.1.2.0.0.0.0.0.0.0.0.0.0.0.0.0
 6.1.2.0.0.0.0.0.0.0.0.0.0.0.0.0	IN	PTR	aurora.virtual.kruemel.home.

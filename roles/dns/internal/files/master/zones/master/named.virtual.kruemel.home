@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 6h
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201810270 ; Serial
+				201908220 ; Serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
@@ -18,17 +18,9 @@ cortana		IN	A	192.168.100.201
 			AAAA	fd3e:be3e:ec34:0::201
 			TXT	"Debian Jessie amd64"
 			MX	10 gizmo.kruemel.home.
-sid		IN	A	192.168.100.202
-			AAAA	fd3e:be3e:ec34:0::202
-			TXT	"Debian Sid amd64"
-			MX	10 gizmo.kruemel.home.
 abraxas		IN	A	192.168.100.203
 			AAAA	fd3e:be3e:ec34:0::203
 			TXT	"NetBSD Workstation amd64"
-			MX	10 gizmo.kruemel.home.
-neger		IN	A	192.168.100.210
-			AAAA	fd3e:be3e:ec34:0::210
-			TXT	"Ubuntu Trusty amd64"
 			MX	10 gizmo.kruemel.home.
 aurora		IN	A	192.168.100.216
 			AAAA	fd3e:be3e:ec34:0::216

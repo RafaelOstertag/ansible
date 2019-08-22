@@ -1,0 +1,4 @@
+---
+
+- import_playbook: ec2-web.yml
+- import_playbook: ec-web.yml

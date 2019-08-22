@@ -1,0 +1,19 @@
+---
+
+- import_playbook: freebsd-db-servers.yml
+- import_playbook: freebsd-dns.yml
+- import_playbook: freebsd-firewall.yml
+- import_playbook: freebsd-imap-servers.yml
+- import_playbook: freebsd-ldapservers.yml
+- import_playbook: freebsd-lean-jails.yml
+- import_playbook: freebsd-openvpn-servers.yml
+- import_playbook: freebsd-rsync-servers.yml
+- import_playbook: freebsd-thin-jails.yml
+- import_playbook: freebsd-workstations.yml
+- import_playbook: freebsd-servers.yml
+  
+- import_playbook: openbsd-gateway.yml
+- import_playbook: openbsd-servers.yml
+- import_playbook: openbsd-virtual-hosts.yml
+  
+- import_playbook: jenkins-slave.yml  

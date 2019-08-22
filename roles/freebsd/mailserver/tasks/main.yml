@@ -13,4 +13,4 @@
 - name: Unconditionally rebuild configuration
   shell: "cd /etc/mail; make all ; make install"
   notify:
-    - FreeBSD restart sendmail
+    - Restart FreeBSD sendmail

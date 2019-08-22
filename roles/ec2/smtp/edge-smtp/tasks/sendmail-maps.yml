@@ -6,7 +6,7 @@
     dest: "/etc/mail/{{ item }}"
     owner: root
     group: wheel
-    mode: 0640
+    mode: 0644
   loop:
     - aliases
     - access

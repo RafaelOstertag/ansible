@@ -80,7 +80,7 @@ fi
 log_warn "Peer '${peer}' not reachable. Will reset connection"
 if ! terminate_connection 
 then
-    log_warn "Cannot terminate connection. Will restart stronswan"
+    log_warn "Cannot terminate connection. Will restart strongswan"
     service strongswan restart >/dev/null
 fi
 

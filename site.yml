@@ -14,5 +14,7 @@
 - import_playbook: openbsd-gateway.yml
 - import_playbook: openbsd-servers.yml
 - import_playbook: openbsd-virtual-hosts.yml
+
+- import_playbook: ec2.yml
   
 - import_playbook: jenkins-slave.yml  

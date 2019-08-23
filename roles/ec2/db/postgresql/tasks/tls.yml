@@ -1,0 +1,22 @@
+---
+
+- name: Copy TLS key
+  copy:
+    src: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: "{{ pg_basedirectory }}/tls/server.key"
+    mode: 0600
+    owner: postgres
+    group: postgres
+  notify:
+    - Restart FreeBSD PostgreSQL
+
+- name: Copy TLS certificate
+  copy:
+    src: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: "{{ pg_basedirectory }}/tls/server.crt"
+    mode: 0600
+    owner: postgres
+    group: postgres
+  notify:
+    - Restart FreeBSD PostgreSQL
+

@@ -40,7 +40,14 @@
     - import_role:
         name: ec2/storage/data
       tags:
-        - storage   
+        - storage
+
+    - import_role:
+        name: ec2/db/postgresql
+      tags:
+        - db
+        - postgres
+        - postgresql
 
     - import_role:
         name: freebsd/nagios-nrpe-config

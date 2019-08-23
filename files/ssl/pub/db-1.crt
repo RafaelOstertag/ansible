@@ -1,0 +1,107 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 365 (0x16d)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=CH, ST=Thurgau, L=Kefikon, O=guengel.ch, CN=CA guengel.ch/emailAddress=postmaster@guengel.ch
+        Validity
+            Not Before: Aug 22 18:34:05 2019 GMT
+            Not After : Sep  5 18:34:05 2020 GMT
+        Subject: C=CH, ST=Thurgau, O=guengel.ch, CN=db-1/emailAddress=postmaster@guengel.ch
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:ad:2a:cf:53:bb:d1:e2:fd:41:47:a4:b0:67:1f:
+                    9b:74:78:71:27:c6:80:c2:81:75:1a:68:2e:9e:54:
+                    dd:3e:bf:3e:e5:42:4e:61:fa:5c:85:e1:a8:7f:e8:
+                    fa:01:75:a0:8a:8d:10:47:43:1b:74:1a:12:5d:9e:
+                    6b:0b:f5:94:f6:b3:e5:d1:d1:f2:ba:7d:18:f0:a0:
+                    a0:2a:9a:cd:72:a3:02:9f:94:96:67:d0:84:e4:0f:
+                    1d:c7:82:0f:30:e3:5d:b8:ba:1d:13:59:65:4b:93:
+                    d8:fb:7a:d5:0b:16:69:80:d2:68:e1:74:54:e6:82:
+                    87:ad:4a:e1:db:05:32:15:1c:a8:69:3d:98:ee:7d:
+                    d3:d3:7f:78:ca:fe:38:63:a1:17:10:8a:11:94:d2:
+                    b0:99:7a:52:76:4d:37:2b:20:58:54:b2:cf:85:9d:
+                    cd:ba:a3:09:ad:39:d4:d0:ab:58:27:da:63:1e:67:
+                    7b:6b:77:ab:68:11:ea:9b:30:dd:0f:ce:1f:ad:e5:
+                    08:20:0e:cd:57:53:7c:4b:40:c3:2d:b4:e7:94:41:
+                    f7:23:f6:56:69:86:ad:bc:6a:d2:ad:ba:9b:58:9b:
+                    d3:fa:af:29:fa:53:f1:d9:a6:51:b7:81:71:a0:3b:
+                    94:b9:2e:7f:a9:1f:a6:69:24:fd:aa:6a:a9:b7:69:
+                    98:89
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier: 
+                72:28:7D:E1:46:AC:3F:5C:27:C7:DE:F7:78:D3:99:00:11:03:38:B9
+            X509v3 Authority Key Identifier: 
+                keyid:D6:88:F1:AA:C1:2B:09:8C:B8:5C:9D:CE:DF:57:39:62:26:10:20:90
+                DirName:/C=CH/ST=Thurgau/L=Kefikon/O=guengel.ch/CN=CA guengel.ch/emailAddress=postmaster@guengel.ch
+                serial:E5:25:3B:A6:77:BD:CB:FF
+
+    Signature Algorithm: sha256WithRSAEncryption
+         4a:58:44:a5:56:60:a6:78:23:75:88:ff:1d:c5:fe:a1:0e:33:
+         9a:0f:17:92:74:37:c8:26:a3:c6:f0:e7:f7:39:fe:ed:d5:d6:
+         ee:82:4c:0a:62:74:b1:cf:e0:42:56:b2:5c:bf:b5:9e:2d:f2:
+         05:72:e3:36:4c:79:f6:db:9d:ea:c5:dd:a3:cf:22:ae:b7:47:
+         9d:c6:1f:92:be:e3:28:1a:73:7d:84:18:9a:95:e1:16:ea:a6:
+         52:2a:fe:0e:83:bf:5c:9b:9f:f2:e0:66:14:6e:ae:56:a0:60:
+         9d:7c:38:69:d7:c0:fa:00:80:fc:0e:28:66:ad:7f:54:ae:79:
+         98:f6:c9:84:36:97:cb:25:05:1a:71:05:1c:02:66:47:4c:9f:
+         40:0e:53:99:4a:fd:01:d7:bd:79:5a:be:1b:5e:8d:5f:3c:ba:
+         17:52:c5:30:47:14:15:37:85:47:2a:26:28:2b:50:77:53:06:
+         80:c7:21:9d:ff:d9:ba:b6:61:ed:0a:08:8b:f1:37:86:bf:59:
+         fa:f3:80:ed:9e:5a:29:2b:21:5a:b3:bb:03:8f:19:2b:d9:4d:
+         4d:b3:6e:33:7d:d8:38:aa:99:67:6d:58:02:32:95:de:48:1e:
+         68:05:e9:3a:8b:64:7e:65:26:15:73:72:df:9e:6d:9e:58:b0:
+         fd:20:4d:93:a3:3b:94:f8:36:50:a2:25:15:35:48:3f:e2:e5:
+         44:27:4f:03:c2:2d:96:5a:60:a0:2b:39:83:22:a1:4a:d3:f8:
+         75:f6:04:93:c8:50:94:dd:1e:a5:e6:e0:35:d2:7e:e6:57:cd:
+         0c:7f:2d:1c:e1:da:34:fc:f6:f8:ae:98:ed:ef:c2:ca:75:5a:
+         2b:a4:a5:dc:03:d6:d4:f3:fe:13:ec:1b:cd:c9:d8:d9:82:32:
+         ea:40:0e:0d:fa:e7:e2:c9:69:6f:16:9e:7f:2d:19:18:54:f4:
+         5d:16:a4:67:cd:27:fb:7e:53:db:c7:1e:09:0c:4f:3f:1a:57:
+         5f:c0:c0:07:fc:5e:de:50:ef:fb:6f:f6:ff:3d:06:a4:c5:fa:
+         8b:1d:11:67:2f:c9:4b:10:83:9a:fa:65:d8:1c:09:84:7e:03:
+         d4:34:2e:4b:3e:47:58:7c:fe:64:52:ae:74:d7:53:db:ea:ca:
+         6e:b4:d7:d5:56:85:a9:f4:1f:76:a4:f1:e8:7d:f4:ad:a3:21:
+         58:e4:dc:25:15:fa:34:84:b7:16:70:cf:15:ee:42:6c:63:7e:
+         b8:d4:35:0b:13:73:c6:85:ce:c9:25:94:ca:44:40:cb:1c:fa:
+         ac:5d:eb:2f:11:cb:7b:a8:a8:1b:be:05:2c:63:47:66:0f:b6:
+         83:f6:3d:63:64:75:12:78
+-----BEGIN CERTIFICATE-----
+MIIFhDCCA2ygAwIBAgICAW0wDQYJKoZIhvcNAQELBQAwgYQxCzAJBgNVBAYTAkNI
+MRAwDgYDVQQIEwdUaHVyZ2F1MRAwDgYDVQQHEwdLZWZpa29uMRMwEQYDVQQKEwpn
+dWVuZ2VsLmNoMRYwFAYDVQQDEw1DQSBndWVuZ2VsLmNoMSQwIgYJKoZIhvcNAQkB
+FhVwb3N0bWFzdGVyQGd1ZW5nZWwuY2gwHhcNMTkwODIyMTgzNDA1WhcNMjAwOTA1
+MTgzNDA1WjBpMQswCQYDVQQGEwJDSDEQMA4GA1UECBMHVGh1cmdhdTETMBEGA1UE
+ChMKZ3VlbmdlbC5jaDENMAsGA1UEAxMEZGItMTEkMCIGCSqGSIb3DQEJARYVcG9z
+dG1hc3RlckBndWVuZ2VsLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEArSrPU7vR4v1BR6SwZx+bdHhxJ8aAwoF1GmgunlTdPr8+5UJOYfpcheGof+j6
+AXWgio0QR0MbdBoSXZ5rC/WU9rPl0dHyun0Y8KCgKprNcqMCn5SWZ9CE5A8dx4IP
+MONduLodE1llS5PY+3rVCxZpgNJo4XRU5oKHrUrh2wUyFRyoaT2Y7n3T0394yv44
+Y6EXEIoRlNKwmXpSdk03KyBYVLLPhZ3NuqMJrTnU0KtYJ9pjHmd7a3eraBHqmzDd
+D84freUIIA7NV1N8S0DDLbTnlEH3I/ZWaYatvGrSrbqbWJvT+q8p+lPx2aZRt4Fx
+oDuUuS5/qR+maST9qmqpt2mYiQIDAQABo4IBGDCCARQwCQYDVR0TBAIwADAsBglg
+hkgBhvhCAQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0O
+BBYEFHIofeFGrD9cJ8fe93jTmQARAzi5MIG5BgNVHSMEgbEwga6AFNaI8arBKwmM
+uFydzt9XOWImECCQoYGKpIGHMIGEMQswCQYDVQQGEwJDSDEQMA4GA1UECBMHVGh1
+cmdhdTEQMA4GA1UEBxMHS2VmaWtvbjETMBEGA1UEChMKZ3VlbmdlbC5jaDEWMBQG
+A1UEAxMNQ0EgZ3VlbmdlbC5jaDEkMCIGCSqGSIb3DQEJARYVcG9zdG1hc3RlckBn
+dWVuZ2VsLmNoggkA5SU7pne9y/8wDQYJKoZIhvcNAQELBQADggIBAEpYRKVWYKZ4
+I3WI/x3F/qEOM5oPF5J0N8gmo8bw5/c5/u3V1u6CTApidLHP4EJWsly/tZ4t8gVy
+4zZMefbbnerF3aPPIq63R53GH5K+4ygac32EGJqV4RbqplIq/g6Dv1ybn/LgZhRu
+rlagYJ18OGnXwPoAgPwOKGatf1SueZj2yYQ2l8slBRpxBRwCZkdMn0AOU5lK/QHX
+vXlavhtejV88uhdSxTBHFBU3hUcqJigrUHdTBoDHIZ3/2bq2Ye0KCIvxN4a/Wfrz
+gO2eWikrIVqzuwOPGSvZTU2zbjN92DiqmWdtWAIyld5IHmgF6TqLZH5lJhVzct+e
+bZ5YsP0gTZOjO5T4NlCiJRU1SD/i5UQnTwPCLZZaYKArOYMioUrT+HX2BJPIUJTd
+HqXm4DXSfuZXzQx/LRzh2jT89viumO3vwsp1WiukpdwD1tTz/hPsG83J2NmCMupA
+Dg365+LJaW8Wnn8tGRhU9F0WpGfNJ/t+U9vHHgkMTz8aV1/AwAf8Xt5Q7/tv9v89
+BqTF+osdEWcvyUsQg5r6ZdgcCYR+A9Q0Lks+R1h8/mRSrnTXU9vqym6019VWhan0
+H3ak8eh99K2jIVjk3CUV+jSEtxZwzxXuQmxjfrjUNQsTc8aFzskllMpEQMsc+qxd
+6y8Ry3uoqBu+BSxjR2YPtoP2PWNkdRJ4
+-----END CERTIFICATE-----

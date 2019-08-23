@@ -1,0 +1,2 @@
+postgresql_enable=yes
+postgresql_data={{ pg_basedirectory }}/data{{ pg_version }}

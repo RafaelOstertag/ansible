@@ -1,0 +1,11 @@
+---
+
+- name: Copy scripts
+  template:
+    src: "common/scripts/{{ item }}"
+    dest: "{{ pg_basedirectory }}/scripts/{{ item }}"
+    mode: 0700
+    owner: postgres
+    group: postgres
+  with_items:
+    - backup

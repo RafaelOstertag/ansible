@@ -1,0 +1,42 @@
+---
+
+- name: Install PostgreSQL packages
+  pkgng:
+    name: "postgresql{{ pg_version }}-client,postgresql{{ pg_version }}-contrib, postgresql{{ pg_version }}-server"
+    state: present
+
+- name: Change postgres user home
+  user:
+    name: postgres
+    home: "{{ pg_basedirectory }}"
+    move_home: true
+    state: present
+
+- name: Guarantee postgresql basedirectory
+  file:
+    state: directory
+    path: "{{ pg_basedirectory }}"
+    mode: 0750
+    owner: postgres
+    group: postgres
+    
+
+- name: Enable postgres at startup
+  template:
+    src: rc.conf.d/postgresql
+    dest: /usr/local/etc/rc.conf.d/postgresql
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Initialize database cluster
+  command: "/usr/local/etc/rc.d/postgresql initdb"
+  args:
+    creates: "{{ pg_basedirectory }}/data{{ pg_version }}"
+
+- name: Start postgresql
+  service:
+    name: postgresql
+    state: started
+    
+    

@@ -1,0 +1,28 @@
+---
+
+- import_tasks: postgresql-install.yml
+
+- name: Create auxiliary directories
+  file:
+    name: "{{ pg_basedirectory }}/{{ item }}"
+    state: directory
+    mode: 0700
+    owner: postgres
+    group: postgres
+  with_items:
+    - scripts
+    - tls
+    - "data{{pg_version}}/conf.d"
+
+- name: Create log directory
+  file:
+    name: /var/log/postgres
+    state: directory
+    mode: 0700
+    owner: postgres
+    group: postgres
+
+- import_tasks: tls.yml  
+- import_tasks: scripts.yml
+- import_tasks: configuration.yml
+- import_tasks: cron.yml

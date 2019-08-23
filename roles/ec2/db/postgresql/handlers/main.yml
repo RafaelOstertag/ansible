@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD PostgreSQL
+  service:
+    name: postgresql
+    state: restarted

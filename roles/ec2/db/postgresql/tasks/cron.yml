@@ -1,0 +1,30 @@
+---
+
+- name: Setup backup
+  cron:
+    name: "backup database"
+    state: present
+    user: postgres
+    minute: "01"
+    hour: "00"
+    job: "{{ pg_basedirectory }}/scripts/backup"
+
+- name: Setup full vaccum
+  cron:
+    name: "full vaccum"
+    state: present
+    user: postgres
+    minute: "40"
+    hour: "09"
+    dow: "3"
+    job: "/usr/local/bin/vacuumdb -U postgres --all --analyze --full"
+
+- name: Setup reindex
+  cron:
+    name: "reindex"
+    state: present
+    user: postgres
+    minute: "40"
+    hour: "10"
+    dow: "3"
+    job: "/usr/local/bin/reindexdb -U postgres --all"

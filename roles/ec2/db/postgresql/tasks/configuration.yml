@@ -1,0 +1,32 @@
+---
+
+- name: Copy pg_hba.conf
+  copy:
+    src: "{{ ansible_fqdn }}/pg_hba.conf"
+    dest: "{{ pg_basedirectory }}/data{{ pg_version }}/pg_hba.conf"
+    mode: 0600
+    owner: postgres
+    group: postgres
+  notify:
+    - Restart FreeBSD PostgreSQL
+
+- name: Enable conf.d processing
+  lineinfile:
+    path: "{{ pg_basedirectory }}/data{{pg_version}}/postgresql.conf"
+    state: present
+    regexp: "^include_dir[\t ]*="
+    line: "include_dir = 'conf.d'"
+  notify:
+    - Restart FreeBSD PostgreSQL
+
+- name: Copy common configuration snippets
+  template:
+    src: "{{ item }}"
+    dest: "{{ pg_basedirectory }}/data{{pg_version}}/conf.d/"
+    mode: 0600
+    owner: postgres
+    group: postgres
+  with_fileglob:
+    - "templates/common/config/*.conf"
+  notify:
+    - Restart FreeBSD PostgreSQL

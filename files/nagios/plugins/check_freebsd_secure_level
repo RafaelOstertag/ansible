@@ -4,9 +4,9 @@
 
 secure_level=`sysctl kern.securelevel | cut -f 2 -d ' '`
 
-if [ $secure_level -lt 1 ]
+if [ $secure_level -gt 0 ]
 then
-	echo "Securelevel below 1: $secure_level"
+	echo "Securelevel above 0: $secure_level"
 	exit $STATE_CRITICAL
 fi
 

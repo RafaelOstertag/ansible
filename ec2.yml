@@ -1,5 +1,5 @@
 ---
 
 - import_playbook: ec2-web.yml
-- import_playbook: ec2-web.yml
+- import_playbook: ec2-smtp.yml
 - import_playbook: ec2-db.yml

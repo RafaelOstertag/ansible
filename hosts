@@ -54,12 +54,6 @@ kerberos.kruemel.home
 phoebe.virtual.kruemel.home
 merlin.virtual.kruemel.home
 
-[kubes]
-kube04
-kube03
-kube02
-kube01
-
 ;
 ; Jenkins Slaves
 ;

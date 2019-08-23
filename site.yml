@@ -1,6 +1,5 @@
 ---
 
-- import_playbook: freebsd-db-servers.yml
 - import_playbook: freebsd-dns.yml
 - import_playbook: freebsd-firewall.yml
 - import_playbook: freebsd-imap-servers.yml

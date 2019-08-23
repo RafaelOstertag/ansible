@@ -92,158 +92,158 @@
         rcvar: "sendmail_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_disks_enable"
         value: "YES"
       when: "not jail"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_disks_df_flags"
         value: "-h"
       when: "not jail"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_mailq_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_ntpd_enable"
         value: "YES"
       when: "not jail"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "weekly_noid_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "daily_accounting_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "monthly_accounting_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_security_portaudit_enable"
         value: "NO"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_pkgaudit_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_pkgaudit_period"
         value: "daily"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_include_submit_mailq"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_chkmounts_enable"
         value: "YES"
       when: "not jail"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_chkmounts_period"
         value: "daily"
       when: "not jail"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_chkuid0_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_chkuid0_period"
         value: "daily"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_logincheck_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_logincheck_period"
         value: "daily"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_kernelmsg_enable"
         value: "YES"
       when: "not jail"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_kernelmsg_period"
         value: "daily"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_loginfail_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_loginfail_period"
         value: "daily"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_tcpwrap_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_tcpwrap_period"
         value: "daily"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_chkportsum_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_chkportsum_period"
         value: "daily"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_neggrpperm_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_neggrpperm_period"
         value: "daily"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_passwdless_enable"
         value: "YES"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "security_status_passwdless_period"
         value: "daily"
     - import_role:
-        name: freebsd/periodic
+        name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_network_enable"
         value: "YES"

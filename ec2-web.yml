@@ -69,6 +69,12 @@
         name: ec2/web/backup
       tags:
         - backup
+
+    - import_role:
+        name: freebsd/sysctl-defaults
+      tags:
+        - sysctl
+
     - import_role:
         name: freebsd/nagios-nrpe-config
       tags:

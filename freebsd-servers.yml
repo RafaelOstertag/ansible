@@ -248,17 +248,10 @@
         varname: "daily_status_network_enable"
         value: "YES"
     - import_role:
-        name: freebsd/reusable/sysctl
-      vars:
-        varname: "security.bsd.see_other_uids"
-        value: "0"
+        name: freebsd/sysctl-defaults
       when: "not jail"
-    - import_role:
-        name: freebsd/reusable/sysctl
-      vars:
-        varname: "kern.randompid"
-        value: "100"
-      when: "not jail"
+      tags:
+        - sysctl
     - import_role:
         name: freebsd/amanda-enable
       tags:

@@ -48,6 +48,11 @@
         - db
         - postgres
         - postgresql
+        
+    - import_role:
+        name: freebsd/sysctl-defaults
+      tags:
+        - sysctl
 
     - import_role:
         name: freebsd/nagios-nrpe-config

@@ -61,11 +61,6 @@
       tags:
         - deploy-user
     - import_role:
-        name: ec2/web/rsync-credentials
-      tags:
-        - rsync
-        - backup
-    - import_role:
         name: ec2/web/backup
       tags:
         - backup

@@ -8,7 +8,7 @@
 
 - name: Add ec2 hosts to hosts file
   lineinfile:
-    path: /etc/hosts
+    path: "{{ hosts_file_path }}"
     state: present
     regexp: '.*{{ hostvars[item].hostname }}$'
     line: '{{ hostvars[item].ansible_xn0.ipv4[0].address }} {{ hostvars[item].hostname }}'

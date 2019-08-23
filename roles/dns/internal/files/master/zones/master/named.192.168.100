@@ -2,7 +2,7 @@
 
 $TTL 1d
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201908220; serial
+				201908230; serial
 				3h	; refresh
 				6h	; retry
 				1w	; expire
@@ -11,13 +11,10 @@ $TTL 1d
 		IN	NS	optimusprime.kruemel.home.
 		IN	NS	viking.kruemel.home.
 1		IN	PTR	gizmo.kruemel.home.
-; jetfire is .3 because of the IPv6 address. ::2 is taken
-; by gargoyle
-3		IN	PTR	jetfire.kruemel.home.
 4		IN	PTR	viking.kruemel.home.
 5		IN	PTR	optimusprime.kruemel.home.
 ;6 free
-7		IN	PTR	megatron.kruemel.home.
+;7 free
 ;8 free
 ;9 free
 ;10 free

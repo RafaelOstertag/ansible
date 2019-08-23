@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 1d
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201908160 ; serial
+				201908230 ; serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
@@ -22,10 +22,6 @@ gargoyle	IN	A	192.168.100.254
 			AAAA	fd3e:be3e:ec34:0::2
 			TXT	"OpenBSD Firewall Mark II"
 			MX	10 gizmo.kruemel.home.
-jetfire		IN	A	192.168.100.3
-			AAAA	fd3e:be3e:ec34:0::3
-			TXT	"FreeBSD Console Server"
-			MX	10 gizmo.kruemel.home.
 viking		IN	A	192.168.100.4
 			AAAA	fd3e:be3e:ec34:0::4
 			TXT	"FreeBSD Secondary LDAP/DNS Server"
@@ -33,10 +29,6 @@ viking		IN	A	192.168.100.4
 optimusprime	IN	A	192.168.100.5
 			AAAA	fd3e:be3e:ec34:0::5
 			TXT	"FreeBSD Primary LDAP/DNS/DHCP Server"
-			MX	10 gizmo.kruemel.home.
-megatron	IN	A	192.168.100.7
-			AAAA	fd3e:be3e:ec34:0::7
-			TXT	"FreBSD PostgreSQL"
 			MX	10 gizmo.kruemel.home.
 kerberos	IN	A	192.168.100.11
 			AAAA	fd3e:be3e:ec34:0::11

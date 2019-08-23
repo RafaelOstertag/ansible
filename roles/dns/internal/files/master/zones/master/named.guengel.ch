@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 6h	; 6 hours
 @	IN SOA	optimusprime.guengel.ch. postmaster.guengel.ch. (
-				201908170; serial
+				201908230; serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
@@ -20,8 +20,6 @@ viking		IN	A	192.168.100.4
 			AAAA	fd3e:be3e:ec34:0::4
 optimusprime	IN	A	192.168.100.5
 			AAAA	fd3e:be3e:ec34:0::5
-megatron	IN	A	192.168.100.7
-			AAAA	fd3e:be3e:ec34::7
 yayap		IN	A	192.168.103.2
 			AAAA	fd3e:be3e:ec34:1::2
 www		IN	CNAME	ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.

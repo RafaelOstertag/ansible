@@ -20,7 +20,13 @@
 - name: Setup resolv.conf in thin jail base
   copy:
     src: "{{ ansible_fqdn }}/resolv.conf"
-    dest: "{{thin_jail_root_directory}}/thin-base/etc/"
+    dest: "{{ thin_jail_root_directory }}/thin-base/etc/"
+
+- name: Setup hosts file in thin jail base
+  include_role: 
+    name: common/add-ec2-hosts
+  vars:
+    hosts_file_path: "{{ thin_jail_root_directory }}/thin-base/etc/hosts"
 
 - name: Setup time zone in thin jail base
   file:

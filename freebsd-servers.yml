@@ -310,13 +310,6 @@
     # also links python to /usr/bin
     - import_role:
         name: freebsd/install-python
-    # Keep this role here, it allows the procfs and fdescfs to succeed.
-    - import_role:
-        name: freebsd/set-security-level
-      vars:
-        enable_secure_level: True
-        secure_level: "1"
-      when: "not jail"
     - import_role:
         name: freebsd/zfs-scrub
       when: "enable_zfs_scrub"

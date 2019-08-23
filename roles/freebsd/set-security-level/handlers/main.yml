@@ -1,4 +1,0 @@
----
-
-- name: FreeBSD set secure level
-  shell: "sysctl kern.securelevel={{ secure_level }}"

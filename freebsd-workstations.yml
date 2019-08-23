@@ -20,11 +20,6 @@
     - import_role:
         name: freebsd/disable-default-pkgrepo
     - import_role:
-        name: freebsd/set-security-level
-      vars:
-        enable_secure_level: False
-        secure_level: "1"
-    - import_role:
         name: freebsd/reusable/rcconf
       vars:
         rcvar: "clear_tmp_enable"

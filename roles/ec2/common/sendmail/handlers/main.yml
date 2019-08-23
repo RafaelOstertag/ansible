@@ -8,4 +8,6 @@
 
 - name: Rebuild sendmail config
   command: "make -C /etc/mail all install"
+  notify:
+    - Restart FreeBSD sendmail
 

@@ -18,7 +18,6 @@
     group: wheel
   notify:
     - Rebuild sendmail config
-    - Restart FreeBSD sendmail
 
 - name: Install sendmail submit config
   copy:

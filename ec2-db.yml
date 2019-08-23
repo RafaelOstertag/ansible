@@ -20,6 +20,12 @@
         - common
         - ssh
     - import_role:
+        name: ec2/common/sendmail
+      tags:
+        - mail
+        - sendmail
+        
+    - import_role:
         name: ec2/gateway/ipsec
       tags:
         - vpn

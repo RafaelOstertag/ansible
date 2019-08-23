@@ -1,0 +1,23 @@
+---
+
+- name: Copy backup script
+  copy:
+    src: backup-db
+    dest: /usr/local/sbin/backup-db
+    mode: 0750
+    owner: root
+    group: wheel
+
+# Make sure this cron entry is aligned with the cronjob
+# dumping the database
+- name: Setup cron for backup
+  cron:
+    name: db-backup
+    user: root
+    state: present
+    hour: "01"
+    minute: "30"
+    day: "*"
+    month: "*"
+    weekday: "*"
+    job: "/usr/local/sbin/backup-db"

@@ -8,6 +8,8 @@
   loop:
     - nagios4
     - nagios-check_postgres
+    # This is required so that we have check_nrpe3
+    - nrpe3
   loop_control:
     loop_var: pkg_name
 
@@ -18,3 +20,19 @@
     state: present
     regexp: ^nagios_enable=.*
     line: nagios_enable="YES"
+
+# This is required so that we can use a webserver outside of the jail
+- name: Create symbolic link to jail's /var/spool/nagios
+  file:
+    src: "{{jail_root_directory}}/{{ jail_name }}/var/spool/nagios"
+    dest: /var/spool/nagios
+    state: link
+
+# This is required so that we can use a webserver outside of the jail
+- name: Create symbolic link to jail's /usr/local/etc/nagios
+  file:
+    src: "{{jail_root_directory}}/{{ jail_name }}/usr/local/etc/nagios"
+    dest: /usr/local/etc/nagios
+    state: link
+
+

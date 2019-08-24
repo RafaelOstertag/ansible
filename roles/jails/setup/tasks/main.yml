@@ -5,6 +5,13 @@
     src: "{{ ansible_fqdn }}/resolv.conf"
     dest: "{{jail_root_directory}}/{{ jail_name }}/etc/"
 
+- name: Setup hosts file in lean jail base
+  include_role: 
+    name: common/add-ec2-hosts
+  vars:
+    hosts_file_path: "{{jail_root_directory}}/{{ jail_name }}/etc/hosts"
+
+
 - name: Setup time zone in jail {{ jail_name }}
   file:
     path: "{{jail_root_directory}}/{{jail_name}}/etc/localtime"

@@ -1,7 +1,7 @@
 ---
 
 - name: Local Firewall on FreeBSD Servers
-  hosts: freebsd_servers_lan:!freebsd_servers_fat_jail
+  hosts: freebsd_servers_lan
   user: root
   roles:
     - freebsd/local-firewall

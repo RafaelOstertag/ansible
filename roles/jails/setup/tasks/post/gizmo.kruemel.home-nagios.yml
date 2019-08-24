@@ -2,9 +2,14 @@
 
 - name: Install nagios in {{ jail_name }} jail
   pkgng:
-    name: nagios,nagios-check_postgres,monitoring-plugins
+    name: "{{ pkg_name }}"
     state: present
     chroot: "{{jail_root_directory}}/{{ jail_name }}"
+  loop:
+    - nagios4
+    - nagios-check_postgres
+  loop_control:
+    loop_var: pkg_name
 
 - name: Enable nagios in {{ jail_name }} jail
   lineinfile:

@@ -1,0 +1,10 @@
+---
+
+- name: Install Apache
+  include_tasks: install-apache.yml
+
+- name: TLS key material
+  include_tasks: tls.yml
+
+- name: Configure Apache
+  include_tasks: configure-apache.yml

@@ -1,5 +1,6 @@
 ---
 
+- import_playbook: freebsd-internal-webserver.yml
 - import_playbook: freebsd-dns.yml
 - import_playbook: freebsd-firewall.yml
 - import_playbook: freebsd-imap-servers.yml

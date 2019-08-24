@@ -1,0 +1,9 @@
+---
+
+- name: FreeBSD Internal Webserver
+  hosts:
+    - gizmo.kruemel.home
+  user: root
+  roles:
+    - name: internal-webserver
+

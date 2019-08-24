@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD apache
+  service:
+    name: "{{ apache_pkg }}"
+    state: restarted

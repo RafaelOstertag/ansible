@@ -1,0 +1,24 @@
+---
+
+- name: Install Apache
+  pkgng:
+    name: "{{ apache_pkg }}"
+    state: present
+
+- name: Install PHP for nagios
+  pkgng:
+    name: mod_php72
+    state: present
+    
+- name: Enable Apache
+  copy:
+    src: "rc.conf.d/{{ apache_pkg }}"
+    dest: "/usr/local/etc/rc.conf.d/{{ apache_pkg }}"
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Start Apache
+  service:
+    name: "{{ apache_pkg }}"
+    state: started

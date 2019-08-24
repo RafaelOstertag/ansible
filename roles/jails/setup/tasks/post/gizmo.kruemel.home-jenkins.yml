@@ -1,0 +1,31 @@
+---
+
+- name: Make local pkg repo dir
+  file:
+    state: directory
+    path: "{{jail_root_directory}}/{{ jail_name }}/usr/local/etc/pkg/repos/"
+
+- name: Enable guengel repo
+  template:
+    src: jenkins/guengel.ch.repo
+    dest: "{{jail_root_directory}}/{{ jail_name }}/usr/local/etc/pkg/repos/guengel.ch.conf"
+
+- name: Disable FreeBSD repo
+  copy:
+    src: jenkins/FreeBSD.conf
+    dest: "{{jail_root_directory}}/{{ jail_name }}/usr/local/etc/pkg/repos/FreeBSD.conf"
+
+- name: Install jenkins in {{ jail_name }} jail
+  pkgng:
+    name: jenkins
+    state: present
+    chroot: "{{jail_root_directory}}/{{ jail_name }}"
+
+- name: Enable jenkins in {{ jail_name }} jail
+  lineinfile:
+    path: "{{jail_root_directory}}/{{ jail_name }}/etc/rc.conf"
+    create: yes
+    state: present
+    regexp: ^jenkins_enable=.*
+    line: jenkins_enable="YES"
+

@@ -1,6 +1,6 @@
 ---
 
-jail_root_directory: /usr/jails
+jail_root_directory: /var/jails
 jail_arch: amd64
 
 lean_jails:
@@ -10,3 +10,5 @@ lean_jails:
   - consul
   - mongodb
   - kafka
+  - jenkins
+  - nagios

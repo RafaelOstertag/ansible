@@ -1,0 +1,7 @@
+---
+
+- name: Create group 'app' in thin jail base
+  shell: "pw -R {{thin_jail_root_directory}}/thin-base group show app || pw -R {{thin_jail_root_directory}}/thin-base group add -n app -g 5000"
+
+- name: Create group 'app' in thin jail base
+  shell: "pw -R {{thin_jail_root_directory}}/thin-base user show app || pw -R {{thin_jail_root_directory}}/thin-base user add -n app -u 5000 -c 'Application User' -g app -d /opt/app -s /bin/sh" 

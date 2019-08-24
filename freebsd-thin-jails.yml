@@ -7,6 +7,9 @@
   tasks:
     - import_role:
         name: jails/host-setup
+      tags:
+        - host
+        - host-setup
        
     - import_role:
         name: jails/thin-jail-setup

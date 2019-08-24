@@ -1,6 +1,6 @@
 ---
 
-thin_jail_root_directory: /usr/jails
+thin_jail_root_directory: /var/jails
 thin_jail_arch: amd64
 
 thin_jails:

@@ -1,0 +1,33 @@
+---
+
+- name: Install app helper scripts
+  copy:
+    src: "{{ item }}"
+    dest: "{{ thin_jail_root_directory }}/thin-base/usr/local/bin/{{ item }}"
+    mode: 0755
+    owner: root
+    group: wheel
+  loop:
+    - runapp.sh
+    - runjava11app.sh
+    - runjava8app.sh
+
+- name: Install java 11 in thin jail base
+  pkgng:
+    name: openjdk11
+    state: present
+    chroot: "{{thin_jail_root_directory}}/thin-base"
+
+- name: Install java 8 in thin jail base
+  pkgng:
+    name: openjdk8
+    state: present
+    chroot: "{{thin_jail_root_directory}}/thin-base"
+
+
+# Nmap is used by nmapservice
+- name: Install nmap in thin jail base
+  pkgng:
+    name: nmap
+    state: present
+    chroot: "{{thin_jail_root_directory}}/thin-base"

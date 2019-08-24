@@ -7,15 +7,22 @@
   tasks:
     - import_role:
         name: jails/host-setup
+      tags:
+        - host
+        - host-setup
        
     - include_role:
         name: jails/installation
       vars:
         jail_name: "{{ item }}"
       with_items: "{{ lean_jails }}"
+      tags:
+        - installation
 
     - include_role:
         name: jails/setup
       vars:
         jail_name: "{{ item }}"
       with_items: "{{ lean_jails }}"
+      tags:
+        - setup

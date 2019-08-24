@@ -35,4 +35,9 @@
     dest: /usr/local/etc/nagios
     state: link
 
-
+- name: Set domain name when sending mails
+  lineinfile:
+    state: present
+    path: "{{jail_root_directory}}/{{ jail_name }}/etc/mail/submit.cf"
+    regexp: "^Dj"
+    line: "Djkruemel.home"

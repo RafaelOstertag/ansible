@@ -1,4 +1,0 @@
----
-
-# Enable weekly zfs scrub
-enable_zfs_scrub: True

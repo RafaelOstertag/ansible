@@ -41,3 +41,15 @@
     path: "{{jail_root_directory}}/{{ jail_name }}/etc/mail/submit.cf"
     regexp: "^Dj"
     line: "Djkruemel.home"
+
+- name: Install plugins required by nagios
+  copy:
+    src: "nagios/plugins/{{ plugin }}"
+    dest: "{{jail_root_directory}}/{{ jail_name }}/usr/local/libexec/nagios/{{ plugin }}"
+    mode: 0755
+    owner: root
+    group: nagios
+  loop:
+    - check_external_ip
+  loop_control:
+    loop_var: plugin

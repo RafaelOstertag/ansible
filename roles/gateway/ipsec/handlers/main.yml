@@ -5,8 +5,8 @@
     name: iked
     state: restarted
 
-- name: Check firewall syntax
+- name: Check firewall syntax (IPSEC)
   command: "pfctl -nf /etc/pf.conf"
 
-- name: Load firewall configuration
+- name: Load firewall configuration (IPSEC)
   command: "pfctl -f /etc/pf.conf"

@@ -8,8 +8,8 @@
     owner: root
     group: wheel
   notify:
-    - Check firewall syntax
-    - Load firewall configuration
+    - Check firewall syntax (IPSEC)
+    - Load firewall configuration (IPSEC)
 
 - name: Install ec2.vpn.conf
   copy:
@@ -19,5 +19,5 @@
     owner: root
     group: wheel
   notify:
-    - Check firewall syntax
-    - Load firewall configuration
+    - Check firewall syntax (IPSEC)
+    - Load firewall configuration (IPSEC)

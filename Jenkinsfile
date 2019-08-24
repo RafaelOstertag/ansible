@@ -103,15 +103,6 @@ done
                             inventory: 'hosts',
                             vaultCredentialsId: 'ansible-vault',
                             installation: 'FreeBSD Ansible',
-                            playbook: 'freebsd-db-servers.yml'
-
-                        ansiblePlaybook forks: 10,
-                            disableHostKeyChecking: true,
-                            colorized: true,
-                            credentialsId: 'rafi-ssh-key',
-                            inventory: 'hosts',
-                            vaultCredentialsId: 'ansible-vault',
-                            installation: 'FreeBSD Ansible',
                             playbook: 'freebsd-imap-servers.yml'
                     }
                 }

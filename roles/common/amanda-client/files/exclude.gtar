@@ -17,14 +17,12 @@
 ./obj
 ./ports
 ./poudriere
-./pr0n
 ./proc
 ./pxe
 ./run
-./sound
-./southpark
 ./spool/nagios/checkresults
 ./src
+./swap*
 ./sys
 ./system
 ./tmp
@@ -32,4 +30,3 @@
 ./usr/jails/*/proc
 ./var/account
 ./var/amanda
-./video

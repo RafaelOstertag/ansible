@@ -4,4 +4,4 @@
   pkgng:
     name: openjdk8
     state: present
-    chroot: "{{jail_root_directory}}/{{ jail_name }}"
+    chroot: "{{ jail_root_directory }}/{{ jail_name }}"

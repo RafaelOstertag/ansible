@@ -41,7 +41,7 @@
   pkgng:
     name: "{{ package_name }}"
     state: present
-    chroot: "{{thin_jail_root_directory}}/thin-base"
+    chroot: "{{ thin_jail_root_directory }}/thin-base"
   loop:
     - openjdk11
     - openjdk8

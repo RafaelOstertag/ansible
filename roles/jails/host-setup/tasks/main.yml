@@ -2,7 +2,7 @@
 
 - name: Copy jail configuration
   template:
-    src: "{{ ansible_fqdn }}/jail.conf" 
+    src: "{{ ansible_fqdn }}/jail.conf"
     dest: /etc/jail.conf
 
 - name: Enable jail

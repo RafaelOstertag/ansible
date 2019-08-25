@@ -12,7 +12,7 @@
   with_items:
     - scripts
     - tls
-    - "data{{pg_version}}/conf.d"
+    - "data{{ pg_version }}/conf.d"
 
 - name: Create log directory
   file:
@@ -22,7 +22,7 @@
     owner: postgres
     group: postgres
 
-- import_tasks: tls.yml  
+- import_tasks: tls.yml
 - import_tasks: scripts.yml
 - import_tasks: configuration.yml
 - import_tasks: cron.yml

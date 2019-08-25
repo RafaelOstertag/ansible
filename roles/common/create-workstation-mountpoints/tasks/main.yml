@@ -1,7 +1,7 @@
 ---
 - name: Common NFS Create Dir | create /home
   file: path=/home state=directory
-  
+
 - name: Common NFS Create Dir | create /mnt/data
   file: path=/mnt/data state=directory
 

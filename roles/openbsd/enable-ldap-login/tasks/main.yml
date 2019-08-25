@@ -41,4 +41,4 @@
     regexp: "^\\+:"
     state: present
     line: "+:*::"
-  
+

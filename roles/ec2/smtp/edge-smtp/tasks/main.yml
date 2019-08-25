@@ -16,7 +16,7 @@
 # configuration depends on certain maps to exist to be built
 - name: Sendmail Maps
   include_tasks: sendmail-maps.yml
-    
+
 - name: Sendmail Configuration
   include_tasks: sendmail-configuration.yml
 
@@ -24,7 +24,7 @@
   cron:
     name: Mailq quarantine
     state: present
-    job: "mailq -qQ | mailx -s \"Mailq quarantine on {{ ansible_fqdn }}\" root" 
+    job: "mailq -qQ | mailx -s \"Mailq quarantine on {{ ansible_fqdn }}\" root"
     weekday: "*"
     day: "*"
     minute: "0"

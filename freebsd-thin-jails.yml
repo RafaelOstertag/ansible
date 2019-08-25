@@ -10,6 +10,6 @@
       tags:
         - host
         - host-setup
-       
+
     - import_role:
         name: jails/thin-jail-setup

@@ -8,7 +8,7 @@
     state: directory
 
 - name: Copy amanda hosts to amanda clients
-  when: 'amanda_server == False'
+  when: 'not amanda_server'
   copy:
     src: amanda/amandahosts.client
     dest: /operator/.amandahosts
@@ -16,7 +16,7 @@
     owner: operator
 
 - name: Create /var/amanda
-  when: 'amanda_server == False'
+  when: 'not amanda_server'
   file:
     path: /var/amanda
     state: directory
@@ -24,7 +24,7 @@
     owner: operator
 
 - name: Create /var/amanda/gnutar-lists
-  when: 'amanda_server == False'
+  when: 'not amanda_server'
   file:
     path: /var/amanda/gnutar-lists
     state: directory
@@ -32,7 +32,7 @@
     owner: operator
 
 - name: Copy .amanda-wks-include.gtar
-  when: "amanda_server == False and 'openbsd_virtual_hosts' in group_names"
+  when: "not amanda_server and 'openbsd_virtual_hosts' in group_names"
   copy:
     src: dot.amanda-wks-include.gtar
     dest: /.amanda-wks-include.gtar

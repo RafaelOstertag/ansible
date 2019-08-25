@@ -4,7 +4,7 @@
   file:
     name: /usr/local/src
     state: directory
-  
+
 - name: Copy build script
   copy:
     src: build.sh

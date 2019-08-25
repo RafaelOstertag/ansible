@@ -10,7 +10,7 @@
     state: directory
   notify:
     - Restart agentsmith
-      
+
 
 - name: Copy agentmsith certificate
   when: 'agentsmith_cert'

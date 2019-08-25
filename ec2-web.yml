@@ -45,7 +45,7 @@
         - ipsec
         - tunnel
         - hosts-file
-        
+
     - import_role:
         name: ec2/storage/data
       tags:
@@ -59,7 +59,7 @@
         name: ec2/web/deploy-user
       tags:
         - deploy-user
-        
+
     - import_role:
         name: ec2/web/backup
       tags:

@@ -25,7 +25,7 @@
       tags:
         - mail
         - sendmail
-        
+
     - import_role:
         name: ec2/gateway/ipsec
       tags:
@@ -51,7 +51,7 @@
       tags:
         - host
         - host-setup
-       
+
     - import_role:
         name: jails/thin-jail-setup
 

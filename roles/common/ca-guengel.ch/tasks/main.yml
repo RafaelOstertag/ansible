@@ -16,4 +16,4 @@
     src: ssl/guengel.ch.crl
     dest: /etc/ssl/guengel.ch.crl
     mode: 0644
-    
+

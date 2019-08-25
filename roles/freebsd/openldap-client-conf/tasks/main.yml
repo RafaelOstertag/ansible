@@ -10,5 +10,5 @@
   template:
     src: openldap/ldap.conf
     dest: /usr/local/etc/openldap/ldap.conf
-    
-  
+
+

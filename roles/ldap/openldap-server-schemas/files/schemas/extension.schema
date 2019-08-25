@@ -1,13 +1,13 @@
 # This file can be used to define an objects to support MS/Outlook,
 # Netscape Communicator, and PAM.
 #
-# The first object type, "officePerson" is used to support the MS/Outlook email 
+# The first object type, "officePerson" is used to support the MS/Outlook email
 # address book LDAP interface.
-# 
-# Requires files : core.schema, cosine.schema, inetorgperson.schema, 
+#
+# Requires files : core.schema, cosine.schema, inetorgperson.schema,
 #                  officeperson.schema
 # Requires objects:
-# Modify: 
+# Modify:
 # cosine.schema
 #    NAME ( 'pager' 'pagerTelephoneNumber' 'pagerPhone' )
 #
@@ -67,10 +67,10 @@ objectclass     ( 1.3.6.1.4.1.4203.666.100.1
     STRUCTURAL
         MAY  ( c $
                rdn $
-               otherFacsimiletelephoneNumber $ 
-               IPPhone $ 
-               URL $ 
-               comment $ 
+               otherFacsimiletelephoneNumber $
+               IPPhone $
+               URL $
+               comment $
                reports $
                conferenceInformation )
         )
@@ -98,9 +98,9 @@ objectclass     ( 1.3.6.1.4.1.4203.666.100.1
 #        MAY  ( ntuid $ rid $ lmpassword $ ntpasswd $ loginshell )
 #        )
 
-# Extentions to support Netscape Communicator. 
+# Extentions to support Netscape Communicator.
 #
-# Note that some current attribute definitions may be modified to avoid 
+# Note that some current attribute definitions may be modified to avoid
 # duplication which would break database normalization:
 #
 #           Netscape   | inetOrgPerson | Microsoft | Schema file
@@ -109,7 +109,7 @@ objectclass     ( 1.3.6.1.4.1.4203.666.100.1
 #           homeUrl    | seeAlso       | URL       | core.schema
 #                        (distinguishedName)
 #           xmozillaanyphone|telephoneNumber       | core.schema
-# The inetorgperson.schema has a dificulty with the seeAlso attribute because 
+# The inetorgperson.schema has a dificulty with the seeAlso attribute because
 # it references a DN rather than the actual URL, thus I defined a new attribute
 # for ( 'homeUrl' 'URL' ) in this file.
 
@@ -122,13 +122,13 @@ objectclass     ( 1.3.6.1.4.1.4203.666.100.1
 #            EQUALITY caseIgnoreMatch
 #            SUBSTR caseIgnoreSubstringsMatch
 #            SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
- 
+
 #attributetype ( 1.3.6.1.4.1.4203.666.100.152
 #            NAME 'xmozillausehtmlmail'
 #            EQUALITY caseIgnoreMatch
 #            SUBSTR caseIgnoreSubstringsMatch
 #            SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{64} )
- 
+
 #objectclass     ( 1.3.6.1.4.1.4203.666.100.5
 #    NAME 'zillaPerson'
 #        DESC 'Netscape Communicator Extensions'
@@ -140,6 +140,6 @@ objectclass     ( 1.3.6.1.4.1.4203.666.100.1
 #               homeUrl $
 #               xmozillaanyphone $
 #               xmozillanickname $
-#               xmozillausehtmlmail ) 
+#               xmozillausehtmlmail )
 #        )
 

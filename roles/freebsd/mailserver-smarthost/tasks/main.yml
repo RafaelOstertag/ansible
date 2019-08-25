@@ -4,7 +4,7 @@
   copy:
     src: sendmail.mc
     dest: "/etc/mail/{{ ansible_fqdn }}.mc"
-    
+
 - name: Copy sendmail submission config
   copy:
     src: submit.mc
@@ -23,12 +23,12 @@
   shell: "cd /etc/mail ; make all ; make install"
   notify:
     - Restart FreeBSD sendmail
-    
+
 - name: Create /root/bin
   file:
     path: /root/bin
     state: directory
-    
+
 - name: Copy smtpauth.sh build file
   copy:
     src: freebsd/smtpauth.sh

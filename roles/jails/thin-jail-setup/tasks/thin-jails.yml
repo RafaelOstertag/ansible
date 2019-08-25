@@ -3,7 +3,7 @@
 - name: Create thin jail base directories
   file:
     state: directory
-    path: "{{thin_jail_root_directory}}/{{thin_jail_name}}"
+    path: "{{ thin_jail_root_directory }}/{{ thin_jail_name }}"
     mode: 0755
     owner: root
     group: wheel
@@ -13,7 +13,7 @@
 
 - name: Mark as thin jail
   file:
-    path: "{{thin_jail_root_directory}}/{{thin_jail_name}}/.thin-jail"
+    path: "{{ thin_jail_root_directory }}/{{ thin_jail_name }}/.thin-jail"
     state: touch
     mode: 0444
     owner: root
@@ -25,7 +25,7 @@
 - name: Create thin jail tmp directories
   file:
     state: directory
-    path: "{{thin_jail_root_directory}}/{{thin_jail_name}}/tmp"
+    path: "{{ thin_jail_root_directory }}/{{ thin_jail_name }}/tmp"
     mode: 01777
     owner: root
     group: wheel
@@ -36,13 +36,13 @@
 - name: Create thin jail system directories
   file:
     state: directory
-    path: "{{thin_jail_root_directory}}/{{item.0}}/{{item.1}}"
+    path: "{{ thin_jail_root_directory }}/{{ item.0 }}/{{ item.1 }}"
   loop: "{{ thin_jails|product(['dev', 'proc', 'etc', 'usr', 'bin', 'libexec', 'lib', 'sbin', 'var'])|list }}"
 
 - name: Create opt directory in thin jail
   file:
     state: directory
-    path: "{{thin_jail_root_directory}}/{{thin_jail_name}}/opt"
+    path: "{{ thin_jail_root_directory }}/{{ thin_jail_name }}/opt"
     mode: 0755
     owner: root
     group: wheel
@@ -53,7 +53,7 @@
 - name: Create app directory in thin jail
   file:
     state: directory
-    path: "{{thin_jail_root_directory}}/{{item.0}}/opt/{{ item.1 }}"
+    path: "{{ thin_jail_root_directory }}/{{ item.0 }}/opt/{{ item.1 }}"
     mode: 0755
     owner: "5000"
     group: "5000"

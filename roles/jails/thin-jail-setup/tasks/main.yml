@@ -8,11 +8,11 @@
 
 - name: Thin base user
   include_tasks: thinbase-user.yml
-  
+
 - name: Create thin jail fstabs
   template:
     src: fstab.jail
-    dest: "{{thin_jail_root_directory}}/thin-base/etc/fstab.jail.{{ thin_jail_name }}"
+    dest: "{{ thin_jail_root_directory }}/thin-base/etc/fstab.jail.{{ thin_jail_name }}"
     mode: 0644
     owner: root
     group: wheel

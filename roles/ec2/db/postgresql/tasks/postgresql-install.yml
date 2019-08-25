@@ -19,7 +19,7 @@
     mode: 0750
     owner: postgres
     group: postgres
-    
+
 
 - name: Enable postgres at startup
   template:
@@ -38,5 +38,5 @@
   service:
     name: postgresql
     state: started
-    
-    
+
+

@@ -4,7 +4,7 @@
   pkgng:
     name: "{{ pkg_name }}"
     state: present
-    chroot: "{{jail_root_directory}}/{{ jail_name }}"
+    chroot: "{{ jail_root_directory }}/{{ jail_name }}"
   loop:
     - nagios4
     - nagios-check_postgres
@@ -17,7 +17,7 @@
 
 - name: Enable nagios in {{ jail_name }} jail
   lineinfile:
-    path: "{{jail_root_directory}}/{{ jail_name }}/etc/rc.conf"
+    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
     create: yes
     state: present
     regexp: ^nagios_enable=.*
@@ -26,28 +26,28 @@
 # This is required so that we can use a webserver outside of the jail
 - name: Create symbolic link to jail's /var/spool/nagios
   file:
-    src: "{{jail_root_directory}}/{{ jail_name }}/var/spool/nagios"
+    src: "{{ jail_root_directory }}/{{ jail_name }}/var/spool/nagios"
     dest: /var/spool/nagios
     state: link
 
 # This is required so that we can use a webserver outside of the jail
 - name: Create symbolic link to jail's /usr/local/etc/nagios
   file:
-    src: "{{jail_root_directory}}/{{ jail_name }}/usr/local/etc/nagios"
+    src: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/etc/nagios"
     dest: /usr/local/etc/nagios
     state: link
 
 - name: Set domain name when sending mails
   lineinfile:
     state: present
-    path: "{{jail_root_directory}}/{{ jail_name }}/etc/mail/submit.cf"
+    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/mail/submit.cf"
     regexp: "^Dj"
     line: "Djkruemel.home"
 
 - name: Install plugins required by nagios
   copy:
     src: "nagios/plugins/{{ plugin }}"
-    dest: "{{jail_root_directory}}/{{ jail_name }}/usr/local/libexec/nagios/{{ plugin }}"
+    dest: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/libexec/nagios/{{ plugin }}"
     mode: 0755
     owner: root
     group: nagios
@@ -59,7 +59,7 @@
 - name: Create .pgpass for nagios-check_postgres plugin
   template:
     src: nagios/dot.pgpass
-    dest: "{{jail_root_directory}}/{{ jail_name }}/var/spool/nagios/.pgpass"
+    dest: "{{ jail_root_directory }}/{{ jail_name }}/var/spool/nagios/.pgpass"
     mode: 0400
     owner: nagios
     group: nagios

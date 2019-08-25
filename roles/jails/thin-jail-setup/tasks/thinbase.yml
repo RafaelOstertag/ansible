@@ -3,7 +3,7 @@
 - name: Prepare thin-jail directory thin-base
   file:
     state: directory
-    path: "{{thin_jail_root_directory}}/thin-base"
+    path: "{{ thin_jail_root_directory }}/thin-base"
 
 - name: Install gtar to handle download
   pkgng:
@@ -23,13 +23,13 @@
     dest: "{{ thin_jail_root_directory }}/thin-base/etc/"
 
 - name: Setup hosts file in thin jail base
-  include_role: 
+  include_role:
     name: common/add-ec2-hosts
   vars:
     hosts_file_path: "{{ thin_jail_root_directory }}/thin-base/etc/hosts"
 
 - name: Setup time zone in thin jail base
   file:
-    path: "{{thin_jail_root_directory}}/thin-base/etc/localtime"
+    path: "{{ thin_jail_root_directory }}/thin-base/etc/localtime"
     src: /usr/share/zoneinfo/Europe/Zurich
     state: link

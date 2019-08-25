@@ -18,7 +18,7 @@
       slurp:
         src: /var/cache/jenkins-slave/.ssh/id_rsa.pub
       register: ssh_pub
-      
+
     - name: Enable ssh login with key
       authorized_key:
         manage_dir: yes

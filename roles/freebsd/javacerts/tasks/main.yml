@@ -3,7 +3,7 @@
 - name: Is keytool installed
   stat:
     path: /usr/local/bin/keytool
-  register: keytool    
+  register: keytool
 
 - name: Install guengel.ch in java certs
   java_cert:

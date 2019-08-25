@@ -2,7 +2,7 @@
   lineinfile:
     path: /etc/services
     regexp: "^{{ svcname }}\\s+\\d+/{{ prot }}.*"
-    line: "{{svcname}}     {{ prt }}/{{ prot }}"
+    line: "{{ svcname }}     {{ prt }}/{{ prot }}"
     state: present
   notify:
     - FreeBSD rebuild services db

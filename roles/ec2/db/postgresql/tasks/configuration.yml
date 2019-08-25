@@ -12,7 +12,7 @@
 
 - name: Enable conf.d processing
   lineinfile:
-    path: "{{ pg_basedirectory }}/data{{pg_version}}/postgresql.conf"
+    path: "{{ pg_basedirectory }}/data{{ pg_version }}/postgresql.conf"
     state: present
     regexp: "^include_dir[\t ]*="
     line: "include_dir = 'conf.d'"
@@ -22,7 +22,7 @@
 - name: Copy common configuration snippets
   template:
     src: "{{ item }}"
-    dest: "{{ pg_basedirectory }}/data{{pg_version}}/conf.d/"
+    dest: "{{ pg_basedirectory }}/data{{ pg_version }}/conf.d/"
     mode: 0600
     owner: postgres
     group: postgres

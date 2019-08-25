@@ -19,7 +19,7 @@
   ignore_errors: true
 
 - name: Copy amanda hosts to amanda clients
-  when: 'amanda_server == False'
+  when: 'not amanda_server'
   copy:
     src: amanda/amandahosts.client
     dest: /usr/local/var/amanda/.amandahosts
@@ -27,9 +27,8 @@
     owner: amanda
   ignore_errors: true
 
-
 - name: Copy amanda hosts to amanda clients
-  when: 'amanda_server == False'
+  when: 'not amanda_server'
   copy:
     src: amanda/amandahosts.client
     dest: /var/db/amanda/.amandahosts

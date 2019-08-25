@@ -23,5 +23,5 @@
     - name: openbsd/build-host
       tags:
         - build-host
-    
-    
+
+

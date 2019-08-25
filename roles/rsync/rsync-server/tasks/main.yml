@@ -35,5 +35,3 @@
     line: "rsync stream tcp nowait root /usr/local/bin/rsync rsyncd --daemon"
   notify:
     - Restart FreeBSD inetd
-
-    

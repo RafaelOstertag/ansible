@@ -27,4 +27,4 @@
     src: resolv.conf.openbsd.workstation
     dest: /etc/resolv.conf
     mode: 0644
-  
+

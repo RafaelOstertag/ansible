@@ -2,7 +2,7 @@
 
 - name: Set hostname "{{ hostname }}"
   hostname:
-    name: "{{hostname}}"
+    name: "{{ hostname }}"
 
 - name: Persist hostname "{{ hostname }}"
   lineinfile:

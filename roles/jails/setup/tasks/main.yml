@@ -3,22 +3,22 @@
 - name: Setup resolv.conf in jail {{ jail_name }}
   copy:
     src: "{{ ansible_fqdn }}/resolv.conf"
-    dest: "{{jail_root_directory}}/{{ jail_name }}/etc/"
+    dest: "{{ jail_root_directory }}/{{ jail_name }}/etc/"
 
 - name: Setup hosts file in lean jail base
-  include_role: 
+  include_role:
     name: common/add-ec2-hosts
   vars:
-    hosts_file_path: "{{jail_root_directory}}/{{ jail_name }}/etc/hosts"
+    hosts_file_path: "{{ jail_root_directory }}/{{ jail_name }}/etc/hosts"
 
 
 - name: Setup time zone in jail {{ jail_name }}
   file:
-    path: "{{jail_root_directory}}/{{jail_name}}/etc/localtime"
+    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/localtime"
     src: /usr/share/zoneinfo/Europe/Zurich
     state: link
 
-- name: Execute host specific jail tasks post/{{ ansible_fqdn }}-{{jail_name}}.yml
-  include: "post/{{ ansible_fqdn }}-{{jail_name}}.yml"
+- name: Execute host specific jail tasks post/{{ ansible_fqdn }}-{{ jail_name }}.yml
+  include: "post/{{ ansible_fqdn }}-{{ jail_name }}.yml"
   when:  ('roles/jails/setup/tasks/post/' + ansible_fqdn + '-' + jail_name + '.yml') is file
 

@@ -7,31 +7,31 @@
     mode: 0644
     owner: root
     group: wheel
-  notify: 
+  notify:
     - Restart FreeBSD strongswan
     - Terminate connection
     - Initiate connection
 
 - name: Copy host certificate
   copy:
-    src: "{{inventory_hostname}}.crt"
-    dest: "/usr/local/etc/swanctl/x509/{{inventory_hostname}}.crt"
+    src: "{{ inventory_hostname }}.crt"
+    dest: "/usr/local/etc/swanctl/x509/{{ inventory_hostname }}.crt"
     mode: 0644
     owner: root
     group: wheel
-  notify: 
+  notify:
     - Restart FreeBSD strongswan
     - Terminate connection
     - Initiate connection
 
 - name: Copy host key
   copy:
-    src: "{{inventory_hostname}}.key"
-    dest: "/usr/local/etc/swanctl/private/{{inventory_hostname}}.key"
+    src: "{{ inventory_hostname }}.key"
+    dest: "/usr/local/etc/swanctl/private/{{ inventory_hostname }}.key"
     mode: 0600
     owner: root
     group: wheel
-  notify: 
+  notify:
     - Restart FreeBSD strongswan
     - Terminate connection
     - Initiate connection

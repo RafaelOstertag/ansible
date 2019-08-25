@@ -3,6 +3,6 @@
 - name: Install kafka stop script in {{ jail_name }} jail
   copy:
     src: kafka/kafkastop.sh
-    dest: "{{jail_root_directory}}/{{ jail_name }}/usr/local/bin/kafkastop.sh"
+    dest: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/bin/kafkastop.sh"
     owner: root
     mode: 0755

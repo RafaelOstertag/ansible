@@ -10,7 +10,7 @@
 - import_playbook: freebsd-rsync-servers.yml
 - import_playbook: freebsd-thin-jails.yml
 - import_playbook: freebsd-servers.yml
-  
+
 - import_playbook: openbsd-gateway.yml
 - import_playbook: openbsd-servers.yml
 

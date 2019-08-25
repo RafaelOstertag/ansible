@@ -16,7 +16,7 @@
     loop_var: php_package
   notify:
     - Restart FreeBSD apache
-    
+
 - name: Enable Apache
   copy:
     src: "rc.conf.d/{{ apache_pkg }}"

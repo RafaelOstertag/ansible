@@ -4,13 +4,13 @@
   pkgng:
     name: jenkins
     state: present
-    chroot: "{{jail_root_directory}}/{{ jail_name }}"
+    chroot: "{{ jail_root_directory }}/{{ jail_name }}"
 
 - name: Install git in {{ jail_name }} jail
   pkgng:
     name: git
     state: present
-    chroot: "{{jail_root_directory}}/{{ jail_name }}"
+    chroot: "{{ jail_root_directory }}/{{ jail_name }}"
 
 - name: Install Guengel CA in keystore
   java_cert:
@@ -23,7 +23,7 @@
 
 - name: Enable jenkins in {{ jail_name }} jail
   lineinfile:
-    path: "{{jail_root_directory}}/{{ jail_name }}/etc/rc.conf"
+    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
     create: yes
     state: present
     regexp: ^jenkins_enable=.*

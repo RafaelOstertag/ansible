@@ -16,7 +16,7 @@
 - name: Copy sendmail configuration
   copy:
     src: sendmail.mc
-    dest: "/etc/mail/{{ansible_fqdn}}.mc"
+    dest: "/etc/mail/{{ ansible_fqdn }}.mc"
     owner: root
     group: wheel
     mode: 0640
@@ -24,14 +24,14 @@
 - name: Copy submit configuration
   copy:
     src: submit.mc
-    dest: "/etc/mail/{{ansible_fqdn}}.submit.mc"
+    dest: "/etc/mail/{{ ansible_fqdn }}.submit.mc"
     owner: root
     group: wheel
     mode: 0640
 
 - name: Unconditionally rebuild sendmail configuration
   command: "make -C /etc/mail cf install"
-    
+
 - name: Unconditionally restart sendmail
   service:
     name: sendmail

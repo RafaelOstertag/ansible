@@ -2,6 +2,7 @@
 
 - name: EC2 Database Servers
   hosts: ec2_db
+  force_handlers: true
   become: yes
   become_user: root
 

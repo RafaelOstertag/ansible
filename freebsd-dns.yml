@@ -2,6 +2,7 @@
 
 - name: FreeBSD DNS Servers
   user: root
+  force_handlers: true
   hosts:
     - optimusprime.kruemel.home
     - viking.kruemel.home

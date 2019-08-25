@@ -2,6 +2,7 @@
 
 - name: EC2 SMTP Servers
   hosts: ec2_smtp
+  force_handlers: true
   become: yes
   become_user: root
 

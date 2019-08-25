@@ -2,6 +2,7 @@
 
 - name: Local Firewall on FreeBSD Servers
   hosts: freebsd_servers_lan
+  force_handlers: true
   user: root
   roles:
     - freebsd/local-firewall

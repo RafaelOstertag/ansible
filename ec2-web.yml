@@ -2,6 +2,7 @@
 
 - name: EC2 Web Servers
   hosts: ec2_web
+  force_handlers: true
   become: yes
   become_user: root
 

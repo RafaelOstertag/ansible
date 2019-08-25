@@ -1,7 +1,7 @@
 ---
 
 - name: Copy pg_hba.conf
-  copy:
+  template:
     src: "{{ ansible_fqdn }}/pg_hba.conf"
     dest: "{{ pg_basedirectory }}/data{{ pg_version }}/pg_hba.conf"
     mode: 0600

@@ -44,6 +44,8 @@
         - vpn
         - ipsec
         - tunnel
+        - hosts-file
+        
     - import_role:
         name: ec2/storage/data
       tags:
@@ -65,7 +67,7 @@
 
     # We require this because we need access to app-1. Using a host name seems the best solution
     - import_role:
-        name: common/add-ec2-hosts
+        name: ec2/common/add-peer-instance-hosts
       tags:
         - hosts
         - hosts-file

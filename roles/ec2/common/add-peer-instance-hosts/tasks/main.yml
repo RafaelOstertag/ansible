@@ -1,0 +1,24 @@
+---
+# Add all ec2 instance hostnames to the hosts file of the executing host, but do
+# not add the executing host itself.
+#
+# Currently, adding the executing host itself confuses sendmail since it is not
+# an fqdn.
+- name: Gather information about ec2 hosts
+  setup:
+  delegate_to: "{{ ec2_host_name }}"
+  delegate_facts: True
+  loop: "{{ groups['ec2'] }}"
+  loop_control:
+    loop_var: ec2_host_name
+
+- name: Add other ec2 hosts to hosts file
+  lineinfile:
+    path: "{{ hosts_file_path }}"
+    state: present
+    regexp: '.*{{ hostvars[ec2_host_name].hostname }}$'
+    line: '{{ hostvars[ec2_host_name].ansible_xn0.ipv4[0].address }} {{ hostvars[ec2_host_name].hostname }}'
+  when: 'ec2_host_name != inventory_hostname'
+  loop: "{{ groups['ec2'] }}"
+  loop_control:
+    loop_var: ec2_host_name

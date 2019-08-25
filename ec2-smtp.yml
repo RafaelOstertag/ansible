@@ -1,6 +1,6 @@
 ---
 
-- name: EC2 SMTP
+- name: EC2 SMTP Servers
   hosts: ec2_smtp
   become: yes
   become_user: root

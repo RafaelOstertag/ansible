@@ -1,6 +1,6 @@
 ---
 
-- name: EC2 Database
+- name: EC2 Database Servers
   hosts: ec2_db
   become: yes
   become_user: root

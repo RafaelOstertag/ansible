@@ -1,6 +1,6 @@
 ---
 
-- name: EC2 Web
+- name: EC2 Web Servers
   hosts: ec2_web
   become: yes
   become_user: root

@@ -4,9 +4,6 @@ thin_jail_root_directory: /var/jails
 thin_jail_arch: amd64
 
 thin_jails:
-  - lastseenservice
-  - nmapserviceproxy
-  - nmapservice
   - funnel-persistence
   - funnel-retriever
   - funnel-chronos

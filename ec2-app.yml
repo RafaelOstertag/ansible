@@ -1,0 +1,62 @@
+---
+
+- name: EC2 Application Servers
+  hosts: ec2_app
+  force_handlers: true
+  become: yes
+  become_user: root
+
+  tasks:
+    - import_role:
+        name: ec2/common/set-hostname
+      tags:
+        - common
+    - import_role:
+        name: ec2/common/timezone
+      tags:
+        - common
+    - import_role:
+        name: ec2/common/ssh-keys
+      tags:
+        - common
+        - ssh
+    - import_role:
+        name: ec2/common/sendmail
+      tags:
+        - mail
+        - sendmail
+        
+    - import_role:
+        name: ec2/gateway/ipsec
+      tags:
+        - vpn
+        - ipsec
+        - tunnel
+    - import_role:
+        name: ec2/gateway/ipsec-watchdog
+      tags:
+        - vpn
+        - ipsec
+        - tunnel
+    - import_role:
+        name: ec2/gateway/hostsfile
+      tags:
+        - vpn
+        - ipsec
+        - tunnel
+
+    - import_role:
+        name: freebsd/sysctl-defaults
+      tags:
+        - sysctl
+
+    - import_role:
+        name: freebsd/nagios-nrpe-config
+      tags:
+        - nagios
+        - nrpe
+    # Leave this here, so it will pick up when we change the hostname
+    - import_role:
+        name: common/motd
+      tags:
+        - common

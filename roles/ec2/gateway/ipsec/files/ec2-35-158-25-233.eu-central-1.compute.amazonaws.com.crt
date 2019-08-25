@@ -1,0 +1,83 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 6 (0x6)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=CH, ST=Thurgau, L=Kefikon, O=guengel.ch, OU=iked, CN=VPN CA/emailAddress=postmaster@guengel.ch
+        Validity
+            Not Before: Aug 25 09:18:33 2019 GMT
+            Not After : Aug 24 09:18:33 2020 GMT
+        Subject: C=CH, ST=Thurgau, L=Kefikon, O=guengel.ch, OU=iked, CN=ec2-35-158-25-233.eu-central-1.compute.amazonaws.com/emailAddress=postmaster@guengel.ch
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:b8:04:b8:c8:c7:7c:23:11:22:8d:ca:0a:03:82:
+                    03:89:81:9a:45:d4:31:63:21:53:c3:6f:52:cb:2b:
+                    f7:03:7b:71:64:a9:ac:6f:02:98:d1:2a:0b:1f:e3:
+                    c3:d9:20:49:32:81:03:68:1e:3c:34:12:03:05:31:
+                    b5:68:4a:23:25:b9:f8:b3:4e:35:f0:a4:0a:c2:f9:
+                    db:7e:6c:29:46:1d:c3:93:ad:71:4c:71:17:23:f4:
+                    d5:97:48:97:c7:cf:54:38:a0:ab:09:31:09:36:d1:
+                    43:98:dc:f1:10:81:3f:b0:92:ea:54:2c:f7:e0:69:
+                    e3:e5:02:86:cc:50:a2:54:5a:cf:6f:25:27:91:e2:
+                    2c:8b:87:82:70:12:93:1b:27:87:82:7c:d2:f8:bc:
+                    ee:52:1f:5c:c6:a9:5f:84:60:05:26:41:67:62:fc:
+                    09:f3:55:92:4d:57:34:9b:51:f4:0c:1e:60:d6:a0:
+                    df:46:5f:3f:d9:f1:48:fd:07:74:af:b3:78:34:90:
+                    a5:b1:af:0c:96:74:9f:a3:1f:0e:07:88:9f:2c:13:
+                    6a:d9:73:45:35:25:b2:44:17:4c:5f:2d:8e:b0:cc:
+                    07:3d:82:bf:6f:dc:a9:98:34:df:85:c3:ed:35:2e:
+                    80:1a:e0:4a:5b:b3:1b:cf:30:7d:61:86:37:75:9c:
+                    9e:67
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Key Usage: 
+                Digital Signature, Certificate Sign, CRL Sign
+            Netscape Cert Type: 
+                SSL Client, SSL Server
+            X509v3 Subject Alternative Name: 
+                DNS:ec2-35-158-25-233.eu-central-1.compute.amazonaws.com
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication
+    Signature Algorithm: sha256WithRSAEncryption
+         6e:cc:31:e8:e6:cb:af:12:60:04:ee:da:9c:81:8e:4e:a9:5b:
+         9c:1b:67:19:ec:7d:42:72:5e:ff:28:8e:4a:df:22:aa:a4:60:
+         fb:cc:f8:af:e8:84:88:18:b2:72:99:7d:87:1d:e2:d6:26:e2:
+         4c:c5:06:22:af:de:e4:d8:7a:3c:5d:1a:99:4a:ca:d0:da:7d:
+         de:15:fd:d4:6a:bd:bc:94:9a:7f:d8:00:6b:77:4b:5c:40:29:
+         4a:13:f1:ce:b9:32:59:68:89:f3:14:ae:c7:4f:b1:d8:76:68:
+         1e:cd:d7:77:80:45:ea:d4:3c:88:3d:62:ca:05:2b:97:3c:61:
+         40:25:99:a2:c7:13:b2:04:6c:a4:38:54:80:17:4e:e4:af:b0:
+         f6:58:42:f5:f5:b3:50:a8:d3:9b:15:09:97:16:b6:e2:50:95:
+         e4:c1:88:31:68:81:13:77:e2:de:80:ef:65:5f:b2:72:a9:f1:
+         5f:eb:b7:40:ed:4a:cb:0f:f3:06:1c:74:7d:ff:9f:82:b0:e8:
+         c0:f1:88:81:a7:5f:1f:39:62:a3:e8:b0:4a:bd:a4:5b:67:73:
+         e5:c1:be:fb:cc:58:52:b1:9b:0b:28:b3:98:ac:4a:19:54:35:
+         3a:be:c0:6d:62:79:12:ec:1e:5b:65:94:ea:ec:0a:66:bb:9b:
+         9a:36:79:36
+-----BEGIN CERTIFICATE-----
+MIIERzCCAy+gAwIBAgIBBjANBgkqhkiG9w0BAQsFADCBjDELMAkGA1UEBhMCQ0gx
+EDAOBgNVBAgMB1RodXJnYXUxEDAOBgNVBAcMB0tlZmlrb24xEzARBgNVBAoMCmd1
+ZW5nZWwuY2gxDTALBgNVBAsMBGlrZWQxDzANBgNVBAMMBlZQTiBDQTEkMCIGCSqG
+SIb3DQEJARYVcG9zdG1hc3RlckBndWVuZ2VsLmNoMB4XDTE5MDgyNTA5MTgzM1oX
+DTIwMDgyNDA5MTgzM1owgboxCzAJBgNVBAYTAkNIMRAwDgYDVQQIDAdUaHVyZ2F1
+MRAwDgYDVQQHDAdLZWZpa29uMRMwEQYDVQQKDApndWVuZ2VsLmNoMQ0wCwYDVQQL
+DARpa2VkMT0wOwYDVQQDDDRlYzItMzUtMTU4LTI1LTIzMy5ldS1jZW50cmFsLTEu
+Y29tcHV0ZS5hbWF6b25hd3MuY29tMSQwIgYJKoZIhvcNAQkBFhVwb3N0bWFzdGVy
+QGd1ZW5nZWwuY2gwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC4BLjI
+x3wjESKNygoDggOJgZpF1DFjIVPDb1LLK/cDe3FkqaxvApjRKgsf48PZIEkygQNo
+Hjw0EgMFMbVoSiMlufizTjXwpArC+dt+bClGHcOTrXFMcRcj9NWXSJfHz1Q4oKsJ
+MQk20UOY3PEQgT+wkupULPfgaePlAobMUKJUWs9vJSeR4iyLh4JwEpMbJ4eCfNL4
+vO5SH1zGqV+EYAUmQWdi/AnzVZJNVzSbUfQMHmDWoN9GXz/Z8Uj9B3Svs3g0kKWx
+rwyWdJ+jHw4HiJ8sE2rZc0U1JbJEF0xfLY6wzAc9gr9v3KmYNN+Fw+01LoAa4Epb
+sxvPMH1hhjd1nJ5nAgMBAAGjgYMwgYAwCwYDVR0PBAQDAgGGMBEGCWCGSAGG+EIB
+AQQEAwIGwDA/BgNVHREEODA2gjRlYzItMzUtMTU4LTI1LTIzMy5ldS1jZW50cmFs
+LTEuY29tcHV0ZS5hbWF6b25hd3MuY29tMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+BgEFBQcDAjANBgkqhkiG9w0BAQsFAAOCAQEAbswx6ObLrxJgBO7anIGOTqlbnBtn
+Gex9QnJe/yiOSt8iqqRg+8z4r+iEiBiycpl9hx3i1ibiTMUGIq/e5Nh6PF0amUrK
+0Np93hX91Gq9vJSaf9gAa3dLXEApShPxzrkyWWiJ8xSux0+x2HZoHs3Xd4BF6tQ8
+iD1iygUrlzxhQCWZoscTsgRspDhUgBdO5K+w9lhC9fWzUKjTmxUJlxa24lCV5MGI
+MWiBE3fi3oDvZV+ycqnxX+u3QO1Kyw/zBhx0ff+fgrDowPGIgadfHzlio+iwSr2k
+W2dz5cG++8xYUrGbCyizmKxKGVQ1Or7AbWJ5EuweW2WU6uwKZrubmjZ5Ng==
+-----END CERTIFICATE-----

@@ -63,6 +63,13 @@
       tags:
         - backup
 
+    # We require this because we need access to app-1. Using a host name seems the best solution
+    - import_role:
+        name: common/add-ec2-hosts
+      tags:
+        - hosts
+        - hosts-file
+
     - import_role:
         name: freebsd/sysctl-defaults
       tags:

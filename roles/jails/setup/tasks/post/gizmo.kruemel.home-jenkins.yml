@@ -12,6 +12,15 @@
     state: present
     chroot: "{{jail_root_directory}}/{{ jail_name }}"
 
+- name: Install Guengel CA in keystore
+  java_cert:
+    cert_alias: guengel.ch
+    cert_path: /etc/ssl/guengel.ch.pem
+    keystore_create: false
+    keystore_pass: changeit
+    keystore_path: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/openjdk8/jre/lib/security/cacerts"
+    state: present
+
 - name: Enable jenkins in {{ jail_name }} jail
   lineinfile:
     path: "{{jail_root_directory}}/{{ jail_name }}/etc/rc.conf"

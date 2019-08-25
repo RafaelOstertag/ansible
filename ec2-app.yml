@@ -44,6 +44,7 @@
         - vpn
         - ipsec
         - tunnel
+        - hosts-file
 
     - import_role:
         name: jails/host-setup

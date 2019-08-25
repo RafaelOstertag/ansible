@@ -44,6 +44,8 @@
         - vpn
         - ipsec
         - tunnel
+        - hosts-file
+        
     - import_role:
         name: ec2/storage/data
       tags:

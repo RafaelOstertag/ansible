@@ -55,3 +55,11 @@
     - check_external_ip
   loop_control:
     loop_var: plugin
+
+- name: Create .pgpass for nagios-check_postgres plugin
+  template:
+    src: nagios/dot.pgpass
+    dest: "{{jail_root_directory}}/{{ jail_name }}/var/spool/nagios/.pgpass"
+    mode: 0400
+    owner: nagios
+    group: nagios

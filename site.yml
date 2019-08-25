@@ -9,13 +9,9 @@
 - import_playbook: freebsd-openvpn-servers.yml
 - import_playbook: freebsd-rsync-servers.yml
 - import_playbook: freebsd-thin-jails.yml
-- import_playbook: freebsd-workstations.yml
 - import_playbook: freebsd-servers.yml
   
 - import_playbook: openbsd-gateway.yml
 - import_playbook: openbsd-servers.yml
-- import_playbook: openbsd-virtual-hosts.yml
 
 - import_playbook: ec2.yml
-  
-- import_playbook: jenkins-slave.yml  

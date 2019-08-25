@@ -7,8 +7,15 @@
 
 - name: Install PHP for nagios
   pkgng:
-    name: mod_php72
+    name: "{{ php_package }}"
     state: present
+  loop:
+    - mod_php72
+    - php72-filter
+  loop_control:
+    loop_var: php_package
+  notify:
+    - Restart FreeBSD apache
     
 - name: Enable Apache
   copy:

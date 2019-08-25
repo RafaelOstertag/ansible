@@ -1,9 +1,17 @@
 ---
 
+- name: Create bin directory
+  file:
+    state: directory
+    path: "{{ thin_jail_root_directory }}/thin-base/usr/local/bin/"
+    mode: 0755
+    owner: root
+    group: wheel
+
 - name: Install app helper scripts
   copy:
-    src: "{{ item }}"
-    dest: "{{ thin_jail_root_directory }}/thin-base/usr/local/bin/{{ item }}"
+    src: "{{ helper_name }}"
+    dest: "{{ thin_jail_root_directory }}/thin-base/usr/local/bin/{{ helper_name }}"
     mode: 0755
     owner: root
     group: wheel
@@ -11,23 +19,47 @@
     - runapp.sh
     - runjava11app.sh
     - runjava8app.sh
+  loop_control:
+    loop_var: helper_name
 
-- name: Install java 11 in thin jail base
+- name: Create temporary fstab
+  file:
+    path: /tmp/fstab.thin_jail
+    state: touch
+
+# This is required to make pkgng work. Without that, it will complain that there is no
+# /dev/null when the jail is not running
+- name: Mount devfs in thin-base
+  mount:
+    fstype: devfs
+    src: devfs
+    path: "{{ thin_jail_root_directory }}/thin-base/dev"
+    fstab: /tmp/fstab.thin_jail
+    state: mounted
+
+- name: Install packages in thin jail base
   pkgng:
-    name: openjdk11
+    name: "{{ package_name }}"
     state: present
     chroot: "{{thin_jail_root_directory}}/thin-base"
+  loop:
+    - openjdk11
+    - openjdk8
+    # Nmap is used by nmapservice
+    - nmap
+  loop_control:
+    loop_var: package_name
 
-- name: Install java 8 in thin jail base
-  pkgng:
-    name: openjdk8
-    state: present
-    chroot: "{{thin_jail_root_directory}}/thin-base"
+- name: Unmount devfs from thin-base
+  mount:
+    fstype: devfs
+    src: devfs
+    path: "{{ thin_jail_root_directory }}/thin-base/dev"
+    fstab: /tmp/fstab.thin_jail
+    state: unmounted
 
+- name: Remove temporary fstab
+  file:
+    path: /tmp/fstab.thin_jail
+    state: absent
 
-# Nmap is used by nmapservice
-- name: Install nmap in thin jail base
-  pkgng:
-    name: nmap
-    state: present
-    chroot: "{{thin_jail_root_directory}}/thin-base"

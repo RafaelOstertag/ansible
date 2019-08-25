@@ -5,16 +5,16 @@
     state: directory
     path: "{{thin_jail_root_directory}}/thin-base"
 
-- name: Is thin-base installed
-  stat:
-    path: "{{thin_jail_root_directory}}/thin-base/etc"
-  register: thin_base_installed
+- name: Install gtar to handle download
+  pkgng:
+    name: gtar
+    state: present
 
 - name: Install jail thin-base
-  when: not thin_base_installed.stat.exists
   unarchive:
-    dest: "{{thin_jail_root_directory}}/thin-base"
-    src: "http://ftp.freebsd.org/pub/FreeBSD/releases/{{jail_arch}}/{{jail_release}}/base.txz"
+    dest: "{{ thin_jail_root_directory }}/thin-base"
+    src: "http://ftp.freebsd.org/pub/FreeBSD/releases/{{ thin_jail_arch }}/{{ jail_release }}/base.txz"
+    creates: "{{ thin_jail_root_directory }}/thin-base/etc"
     remote_src: yes
 
 - name: Setup resolv.conf in thin jail base

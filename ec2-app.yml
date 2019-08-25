@@ -46,6 +46,25 @@
         - tunnel
 
     - import_role:
+        name: jails/host-setup
+      tags:
+        - host
+        - host-setup
+       
+    - import_role:
+        name: jails/thin-jail-setup
+
+    - name: Facilitate deployment via rundeck
+      pkgng:
+        name: curl
+        state: present
+
+    - import_role:
+        name: ec2/app/consul-thin-jail
+      tags:
+        - consul
+
+    - import_role:
         name: freebsd/sysctl-defaults
       tags:
         - sysctl

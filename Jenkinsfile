@@ -47,7 +47,7 @@ done
                     inventory: 'hosts',
                     vaultCredentialsId: 'ansible-vault',
                     installation: 'FreeBSD Ansible',
-                    limit: '!freebsd_user_hosts:!openbsd_virtual_hosts'
+                    limit: '!freebsd_user_hosts:!openbsd_virtual_hosts',
                     playbook: 'site.yml'
             }
         }

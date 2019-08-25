@@ -39,93 +39,16 @@ done
                     branch 'master'
                 }
             }
-            parallel {
-                stage("FreeBSD Servers") {
-                    steps {
-                        ansiblePlaybook forks: 10,
-                            disableHostKeyChecking: true,
-                            colorized: true,
-                            credentialsId: 'rafi-ssh-key',
-                            inventory: 'hosts',
-                            vaultCredentialsId: 'ansible-vault',
-                            installation: 'FreeBSD Ansible',
-                            playbook: 'freebsd-servers.yml'
-
-                        ansiblePlaybook forks: 10,
-			                disableHostKeyChecking: true,
-                            colorized: true,
-                            credentialsId: 'rafi-ssh-key',
-                            inventory: 'hosts',
-                            vaultCredentialsId: 'ansible-vault',
-                            installation: 'FreeBSD Ansible',
-			                playbook: 'freebsd-ldapservers.yml'
-
-                        ansiblePlaybook forks: 10,
-                            disableHostKeyChecking: true,
-                            colorized: true,
-                            credentialsId: 'rafi-ssh-key',
-                            inventory: 'hosts',
-                            vaultCredentialsId: 'ansible-vault',
-                            installation: 'FreeBSD Ansible',
-                            playbook: 'freebsd-dns.yml'
-
-			            ansiblePlaybook forks: 10,
-                            disableHostKeyChecking: true,
-                            colorized: true,
-                            credentialsId: 'rafi-ssh-key',
-                            inventory: 'hosts',
-                            vaultCredentialsId: 'ansible-vault',
-                            installation: 'FreeBSD Ansible',
-                            playbook: 'freebsd-openvpn-servers.yml'
-
-			            ansiblePlaybook forks: 10,
-                            disableHostKeyChecking: true,
-                            colorized: true,
-                            credentialsId: 'rafi-ssh-key',
-                            inventory: 'hosts',
-                            vaultCredentialsId: 'ansible-vault',
-                            installation: 'FreeBSD Ansible',
-                            playbook: 'freebsd-rsync-servers.yml'
-
-                        ansiblePlaybook forks: 10,
-                            disableHostKeyChecking: true,
-                            colorized: true,
-                            credentialsId: 'rafi-ssh-key',
-                            inventory: 'hosts',
-                            vaultCredentialsId: 'ansible-vault',
-                            installation: 'FreeBSD Ansible',
-                            playbook: 'freebsd-firewall.yml'
-
-                        ansiblePlaybook forks: 10,
-                            disableHostKeyChecking: true,
-                            colorized: true,
-                            credentialsId: 'rafi-ssh-key',
-                            inventory: 'hosts',
-                            vaultCredentialsId: 'ansible-vault',
-                            installation: 'FreeBSD Ansible',
-                            playbook: 'freebsd-imap-servers.yml'
-                    }
-                }
-                stage("OpenBSD Servers") {
-                    steps {
-                        ansiblePlaybook forks: 10,
-                            colorized: true,
-                            credentialsId: 'rafi-ssh-key',
-                            disableHostKeyChecking: true,
-                            installation: 'FreeBSD Ansible',
-                            inventory: 'hosts',
-                            vaultCredentialsId: 'ansible-vault',
-                            playbook: 'openbsd-servers.yml'
-                        ansiblePlaybook forks: 10,
-                            colorized: true,
-                            credentialsId: 'rafi-ssh-key',
-                            disableHostKeyChecking: true,
-                            installation: 'FreeBSD Ansible',
-                            inventory: 'hosts',
-                            vaultCredentialsId: 'ansible-vault',
-		            	    playbook: 'openbsd-gateway.yml'
-                    }
-                }
+            steps {
+                ansiblePlaybook forks: 10,
+                    disableHostKeyChecking: true,
+                    colorized: true,
+                    credentialsId: 'rafi-ssh-key',
+                    inventory: 'hosts',
+                    vaultCredentialsId: 'ansible-vault',
+                    installation: 'FreeBSD Ansible',
+                    limit: '!freebsd_user_hosts:!openbsd_virtual_hosts'
+                    playbook: 'site.yml'
             }
         }
     }

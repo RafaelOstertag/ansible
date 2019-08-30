@@ -1,16 +1,19 @@
 ---
 
-- name: Install jenkins in {{ jail_name }} jail
+- name: Install packages in {{ jail_name }} jail
   pkgng:
-    name: jenkins
+    name: "{{ pkgs }}"
     state: present
     chroot: "{{ jail_root_directory }}/{{ jail_name }}"
-
-- name: Install git in {{ jail_name }} jail
-  pkgng:
-    name: git
-    state: present
-    chroot: "{{ jail_root_directory }}/{{ jail_name }}"
+  loop:
+    - jenkins
+    - git
+    # We need that for the aws client
+    - python2
+    - py27-virtualenv
+    - py27-pip
+  loop_control:
+    loop_var: pkgs
 
 - name: Install Guengel CA in keystore
   java_cert:
@@ -28,4 +31,57 @@
     state: present
     regexp: ^jenkins_enable=.*
     line: jenkins_enable="YES"
+
+# Pip module cannot be used because it does not understand jails nor chroot
+- name: Install aws cli virtual env
+  command: 'chroot {{ jail_root_directory }}/{{ jail_name }} virtualenv-2.7 /usr/local/aws'
+  args:
+    creates: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/aws"
+
+- name: Install aws cli
+  command: "chroot {{ jail_root_directory }}/{{ jail_name }} sh -c '. /usr/local/aws/bin/activate ; pip install awscli'"
+  args:
+    creates: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/aws/bin/aws"
+
+- name: Create .aws for jenkins user
+  file:
+    state: directory
+    path: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/jenkins/.aws"
+    mode: 0750
+    owner: "818"
+    group: "818"
+
+- name: Copy aws configuration files
+  copy:
+    src: "jenkins/aws/{{ aws_cfg_file }}"
+    dest: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/jenkins/.aws/{{ aws_cfg_file }}"
+    mode: 0600
+    owner: "818"
+    group: "818"
+  loop:
+    - config
+    - credentials
+  loop_control:
+    loop_var: aws_cfg_file
+
+- name: Create launcher directory for jenkins user
+  file:
+    state: directory
+    path: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/jenkins/launchers"
+    mode: 0750
+    owner: "818"
+    group: "818"
+
+- name: Install launcher scripts
+  template:
+    src: jenkins/launcher
+    dest: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/jenkins/launchers/{{ hostvars[h].instance_name }}"
+    mode: 0750
+    owner: "818"
+    group: "818"
+  vars:
+    instance_name: "{{ hostvars[h].instance_name }}"
+  loop: "{{ groups['ec2_jenkins_slaves'] }}"
+  loop_control:
+    loop_var: h
 

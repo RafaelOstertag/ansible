@@ -75,3 +75,13 @@ ec2-35-156-183-108.eu-central-1.compute.amazonaws.com hostname=db-1 public_ip=35
 
 [ec2_app]
 ec2-35-158-25-233.eu-central-1.compute.amazonaws.com hostname=app-1 public_ip=35.158.25.233
+
+; Do not add these to ec2. They're supposed to be offline most of the time and have no
+; static public ip
+[ec2_jenkins_slaves]
+;
+jenkins-fb-1 ansible_host=3.122.239.166 instance_name=jenkins-fb-1 ansible_become_user=root ansible_become_method=su ansible_become=yes ansible_user=ec2-user
+jenkins-deb-1 ansible_host=18.196.119.20 instance_name=jenkins-deb-1 ansible_become_user=root ansible_become_method=sudo ansible_become=yes ansible_user=admin ansible_python_interpreter=/usr/bin/python3
+
+[netbsd_user_hosts]
+abraxas.virtual.kruemel.home

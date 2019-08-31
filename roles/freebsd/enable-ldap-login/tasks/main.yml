@@ -17,7 +17,7 @@
     - FreeBSD restart nslcd
 
 - name: Copy nscld.conf
-  copy:
+  template:
     src: nslcd.conf
     dest: /usr/local/etc/nslcd.conf
     mode: 0640

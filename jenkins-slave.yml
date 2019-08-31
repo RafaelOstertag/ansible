@@ -115,4 +115,16 @@
           - pcre
           - w3m
           - argon2
+          - mozilla-rootcerts-openssl
         state: present
+
+    - name: OpenBSD fixes
+      when: "ansible_distribution == 'OpenBSD'"
+      block:
+        - name: Fix pkg config file
+          lineinfile:
+            path: /usr/local/lib/pkgconfig/libargon2.pc
+            regexp: "^Libs:\\s+"
+            line: "Libs: -L${libdir} -largon2"
+            state: present
+

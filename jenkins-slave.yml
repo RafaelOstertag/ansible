@@ -116,6 +116,7 @@
           - w3m
           - argon2
           - mozilla-rootcerts-openssl
+          - pkgconf
         state: present
 
     - name: OpenBSD fixes

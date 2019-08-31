@@ -1,0 +1,17 @@
+---
+
+- name: Install required packages
+  pkgin:
+    name:
+      - pam-ldap
+      - nss_ldap
+    state: present
+
+- name: LDAP client configuration
+  include_tasks: ldap-config.yml
+
+- name: Setup NSS
+  include_tasks: nss.yml
+
+- name: Setup PAM
+  include_tasks: pam.yml

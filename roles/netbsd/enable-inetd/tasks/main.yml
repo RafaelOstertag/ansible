@@ -1,0 +1,13 @@
+---
+
+- name: Enable inetd
+  lineinfile:
+    path: /etc/rc.conf
+    regex: "^inetd="
+    line: "inetd=YES"
+    state: present
+
+- name: Start inetd
+  service:
+    name: inetd
+    state: started

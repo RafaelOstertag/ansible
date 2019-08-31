@@ -1,0 +1,50 @@
+---
+
+- name: Install amanda client
+  pkgin:
+    name: amanda-client
+    state: present
+
+- name: Configure amanda in inetd (tcp6)
+  lineinfile:
+    path: /etc/inetd.conf
+    regexp: "^amanda\\s+stream\\s+tcp6\\s+"
+    line: "amanda       stream  tcp6    nowait  amandabackup  /usr/pkg/libexec/amanda/amandad amandad -auth=bsdtcp"
+    state: present
+  notify:
+    - Restart NetBSD inetd
+
+- name: Configure amanda in inetd (tcp4)
+  lineinfile:
+    path: /etc/inetd.conf
+    regexp: "^amanda\\s+stream\\s+tcp\\s+"
+    line: "amanda       stream  tcp    nowait  amandabackup  /usr/pkg/libexec/amanda/amandad amandad -auth=bsdtcp"
+    state: present
+  notify:
+    - Restart NetBSD inetd
+
+- name: Allow gizmo to backup
+  copy:
+    src: dot.amandahosts
+    dest: /var/amanda/.amandahosts
+    owner: amandabackup
+    group: wheel
+    mode: 0600
+
+- name: Touch security file
+  file:
+    state: touch
+    path: /usr/pkg/etc/amanda/amanda-security.conf
+    owner: root
+    group: operator
+    mode: 0640
+
+- name: Amanda workstation include file
+  copy:
+    src: dot.amanda-wks-include.gtar
+    dest: /.amanda-wks-include.gtar
+    owner: root
+    group: operator
+    mode: 0640
+
+

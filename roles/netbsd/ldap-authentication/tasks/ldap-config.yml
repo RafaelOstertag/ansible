@@ -1,0 +1,10 @@
+---
+
+- name: Copy ldap.conf
+  template:
+    src: ldap.conf
+    dest: /usr/pkg/etc/ldap.conf
+    mode: 0640
+    owner: root
+    group: wheel
+

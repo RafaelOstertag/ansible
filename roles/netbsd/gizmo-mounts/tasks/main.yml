@@ -1,0 +1,7 @@
+---
+
+- name: Enable required daemons
+  include_tasks: daemons.yml
+
+- name: Update fstab and mount
+  include_tasks: mounts.yml

@@ -1,0 +1,15 @@
+---
+
+- name: Configure nss groups
+  lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: "^group:"
+    line: "group: files ldap"
+    state: present
+
+- name: Configure nss passwd
+  lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: "^passwd:"
+    line: "passwd: files ldap"
+    state: present

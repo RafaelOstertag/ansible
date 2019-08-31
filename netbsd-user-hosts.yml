@@ -1,0 +1,32 @@
+---
+
+- name: NetBSD User Hosts
+  hosts: netbsd_user_hosts
+  user: root
+  tasks:
+    - import_role:
+        name: common/motd
+      tags:
+        - common
+    - import_role:
+        name: common/ssh-keys
+      tags:
+        - ssh
+        - ssh-keys
+    - import_role:
+        name: netbsd/amanda-client
+      tags:
+        - amanda
+        - amanda-client
+    - import_role:
+        name: netbsd/ldap-authentication
+      tags:
+        - pam
+        - ldap
+        - ldap-client
+
+    - import_role:
+        name: netbsd/gizmo-mounts
+      tags:
+        - nfs
+

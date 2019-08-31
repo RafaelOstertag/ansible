@@ -1,0 +1,15 @@
+---
+
+- name: Copy all pam files
+  copy:
+    src: "pam/{{ pam_file }}"
+    dest: "/etc/pam.d/{{ pam_file }}"
+    mode: 0644
+    owner: root
+    group: wheel
+  loop:
+    - sshd
+    - su
+    - system
+  loop_control:
+    loop_var: pam_file

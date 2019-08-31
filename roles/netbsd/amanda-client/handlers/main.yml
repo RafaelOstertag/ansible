@@ -1,0 +1,6 @@
+---
+
+- name: Restart NetBSD inetd
+  service:
+    name: inetd
+    state: restarted

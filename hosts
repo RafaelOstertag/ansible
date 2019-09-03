@@ -30,6 +30,12 @@ gizmo.kruemel.home
 [thin_jail_servers]
 gizmo.kruemel.home
 
+[prometheus_hosts]
+viking.kruemel.home
+optimusprime.kruemel.home
+gizmo.kruemel.home
+yayap.dmz.kruemel.home
+
 ;
 ; OpenBSD
 ;

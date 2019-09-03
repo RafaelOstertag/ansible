@@ -4,5 +4,8 @@
   user: root
   force_handlers: true
   hosts: prometheus_hosts
-  roles:
-    - prometheus/node-exporter
+  tasks:
+    - include_role:
+        name: prometheus/node-exporter
+      when: "ansible_distribution == 'FreeBSD'"
+        

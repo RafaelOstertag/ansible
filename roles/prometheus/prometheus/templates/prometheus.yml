@@ -29,7 +29,7 @@ scrape_configs:
     - targets: ['localhost:9090']
       
 {% for prometheus_host in prometheus_hosts %}
-  - job_name: '{{ prometheus_host|replace(".", "_") }}'
+  - job_name: '{{ prometheus_host }}'
     static_configs:
     - targets: ['{{ prometheus_host }}:9100']
 {% endfor %}

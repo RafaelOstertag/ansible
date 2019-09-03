@@ -2,7 +2,7 @@
 
 $TTL 1d
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201908240; serial
+				201909030; serial
 				3h	; refresh
 				6h	; retry
 				1w	; expire
@@ -16,14 +16,12 @@ $TTL 1d
 11		IN	PTR	kerberos.kruemel.home.
 101		IN	PTR	odin.kruemel.home.
 250		IN	PTR	bumblebee.kruemel.home.
-251		IN	PTR	switch2.kruemel.home.
-252		IN	PTR	switchy.kruemel.home.
+252		IN	PTR	artery.kruemel.home.
 253		IN	PTR	odin-sc.kruemel.home.
 254		IN	PTR	gargoyle.kruemel.home.
 
 ; Virtual clients
 200		IN	PTR	dash.virtual.kruemel.home.
-201		IN	PTR	cortana.virtual.kruemel.home.
 203		IN	PTR	abraxas.virtual.kruemel.home.
 216		IN	PTR	aurora.virtual.kruemel.home.
 222		IN	PTR	phoebe.virtual.kruemel.home.

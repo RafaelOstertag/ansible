@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 6h
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201908220 ; Serial
+				201909030 ; Serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
@@ -12,10 +12,6 @@ $TTL 6h
 			MX	10 gizmo.kruemel.home.
 dash		IN	A	192.168.100.200
 			AAAA	fd3e:be3e:ec34:0::200
-			TXT	"Debian Jessie amd64"
-			MX	10 gizmo.kruemel.home.
-cortana		IN	A	192.168.100.201
-			AAAA	fd3e:be3e:ec34:0::201
 			TXT	"Debian Jessie amd64"
 			MX	10 gizmo.kruemel.home.
 abraxas		IN	A	192.168.100.203

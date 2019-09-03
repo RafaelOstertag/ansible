@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 1d
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201908240 ; serial
+				201909030 ; serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
@@ -34,10 +34,8 @@ odin		IN	A	192.168.100.101
 			MX	10 gizmo.kruemel.home.
 bumblebee	IN	A	192.168.100.250
 			TXT	"HP LaserJet 400 M401dne"
-switchy2	IN	A	192.168.100.251
-			TXT	"LevelOne Switch GES 1650"
-switchy		IN	A	192.168.100.252
-			TXT	"LevelONE Switch GSW-0841"
+artery		IN	A	192.168.100.252
+			TXT	"Netgear GS116Ev2"
 odin-sc		IN	A	192.168.100.253
 			TXT	"Odin System Controller"
 

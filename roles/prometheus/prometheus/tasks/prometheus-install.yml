@@ -1,0 +1,31 @@
+---
+
+- name: Install prometheus
+  pkgng:
+    name: prometheus
+    state: present
+
+- name: Configure prometheus
+  template:
+    src: prometheus.yml
+    dest: /usr/local/etc/prometheus.yml
+    mode: 0644
+    owner: root
+    group: prometheus
+  vars:
+    prometheus_hosts: "{{ groups['prometheus_hosts'] }}"
+  notify:
+    - Restart FreeBSD prometheus
+
+- name: Enable prometheus
+  copy:
+    src: rc.conf.d/prometheus
+    dest: /usr/local/etc/rc.conf.d/
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Start prometheus
+  service:
+    name: prometheus
+    state: started

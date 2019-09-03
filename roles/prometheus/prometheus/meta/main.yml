@@ -1,0 +1,4 @@
+---
+
+dependencies:
+  - role: freebsd/configuration-directories

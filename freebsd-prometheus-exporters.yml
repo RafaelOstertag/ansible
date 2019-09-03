@@ -1,0 +1,8 @@
+---
+
+- name: FreeBSD Prometheus Exporters
+  user: root
+  force_handlers: true
+  hosts: prometheus_hosts
+  roles:
+    - prometheus/node-exporter

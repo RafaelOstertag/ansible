@@ -1,0 +1,9 @@
+---
+
+- name: FreeBSD Prometheus Servers
+  user: root
+  force_handlers: true
+  hosts:
+    - gizmo.kruemel.home
+  roles:
+    - prometheus/prometheus

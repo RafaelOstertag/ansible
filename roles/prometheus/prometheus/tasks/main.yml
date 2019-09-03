@@ -1,0 +1,4 @@
+---
+
+- name: Install and start prometheus
+  include_tasks: prometheus-install.yml

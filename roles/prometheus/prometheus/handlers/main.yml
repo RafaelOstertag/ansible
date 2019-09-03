@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD prometheus
+  service:
+    name: prometheus
+    state: restarted

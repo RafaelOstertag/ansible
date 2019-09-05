@@ -1,0 +1,10 @@
+---
+
+- name: FreeBSD DHCP Servers
+  user: root
+  force_handlers: true
+  hosts:
+    - optimusprime.kruemel.home
+  roles:
+    - dhcp/install-dhcpd
+    - dhcp/internal

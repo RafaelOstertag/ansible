@@ -1,7 +1,7 @@
 ---
 
 - name: Install master configuration
-  copy:
+  template:
     src: master/named.conf
     dest: /usr/local/etc/namedb/named.conf
     mode: 0644

@@ -1,0 +1,19 @@
+---
+
+- name: Install isc-dhcpd
+  pkgng:
+    name: isc-dhcp44-server
+    state: present
+
+- name: Enable isc-dhcpd
+  copy:
+    src: rc.conf.d/dhcpd
+    dest: /usr/local/etc/rc.conf.d/
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Start isc-dhcpd
+  service:
+    name: isc-dhcpd
+    state: started

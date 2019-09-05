@@ -1,0 +1,9 @@
+dhcpd_enable="YES"
+dhcpd_chuser_enable="YES"
+dhcpd_withuser="dhcpd"
+dhcpd_withgroup="dhcpd"
+dhcpd_chroot_enable="YES"
+dhcpd_devfs_enable="YES"
+dhcpd_rootdir="/var/db/dhcpd"
+dhcpd_includedir="/usr/local/etc/dhcpd.d" # this is included for pxe stuff
+

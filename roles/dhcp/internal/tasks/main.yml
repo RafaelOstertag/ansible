@@ -1,0 +1,34 @@
+---
+
+- name: Copy dhcpd configuration
+  template:
+    src: dhcpd.conf
+    dest: /usr/local/etc/
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD dhcpd
+
+- name: Create snippet directory
+  file:
+    path: /usr/local/etc/dhcpd.d
+    state: directory
+    mode: 0755
+    owner: root
+    group: wheel
+
+- name: Copy config snippets
+  copy:
+    src: "dhcpd.d/{{ dhcp_snippet|basename }}"
+    dest: "/usr/local/etc/dhcpd.d/"
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD dhcpd
+  loop: "{{ lookup('fileglob', 'dhcpd.d/*.conf', wantlist=True) }}"
+  loop_control:
+    loop_var: dhcp_snippet
+
+    

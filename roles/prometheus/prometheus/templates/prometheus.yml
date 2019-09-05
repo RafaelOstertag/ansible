@@ -28,8 +28,10 @@ scrape_configs:
     static_configs:
     - targets: ['localhost:9090']
       
-{% for prometheus_host in prometheus_hosts %}
-  - job_name: '{{ prometheus_host }}'
+
+  - job_name: 'os-stats'
     static_configs:
-    - targets: ['{{ prometheus_host }}:9100']
+    - targets:
+{% for prometheus_host in prometheus_hosts %}
+        - {{ prometheus_host }}
 {% endfor %}

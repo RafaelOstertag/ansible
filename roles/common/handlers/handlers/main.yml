@@ -2,7 +2,7 @@
 
 - name: Restart FreeBSD syslog
   service:
-    name: syslog
+    name: syslogd
     state: restarted
 
 - name: Restart FreeBSD sendmail

@@ -16,7 +16,7 @@
     owner: root
     group: smmsp
   notify:
-    - FreeBSD restart sendmail
+    - Restart FreeBSD sendmail
   with_items:
     - client
     - server
@@ -30,7 +30,7 @@
     group: smmsp
     decrypt: true
   notify:
-    - FreeBSD restart sendmail
+    - Restart FreeBSD sendmail
   with_items:
     - client
     - server

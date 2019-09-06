@@ -15,7 +15,7 @@
   when: 'not amanda_server and ansible_distribution == "FreeBSD"'
   file:
     path: /usr/local/etc/amanda/amanda-security.conf
-    state: file
+    state: touch
     owner: root
     group: amanda
     mode: 0640

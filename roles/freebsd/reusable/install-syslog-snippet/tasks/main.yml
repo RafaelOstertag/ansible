@@ -13,7 +13,7 @@
 - name: Create empty log file for snippet {{ snippet }}
   file:
     path: "/var/log/{{ snippet | regex_replace('\\..*$') }}"
-    state: file
+    state: touch
     owner: root
     group: wheel
   notify:

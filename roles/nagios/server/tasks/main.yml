@@ -11,6 +11,8 @@
     - nrpe3
     # This is used for check_external_ip
     - curl
+    # This is to sync the configuration
+    - rsync
   loop_control:
     loop_var: pkg_name
 

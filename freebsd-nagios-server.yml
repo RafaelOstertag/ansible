@@ -5,6 +5,12 @@
   force_handlers: true
   hosts:
     - optimusprime.kruemel.home
-  roles:
-    - nagios/server
-    - nagios/webserver
+  tasks:
+    - import_role:
+        name: nagios/server
+      tags:
+        - nagios
+    - import_role:
+        name: nagios/webserver
+      tags:
+        - webserver

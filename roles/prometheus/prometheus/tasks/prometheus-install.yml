@@ -13,7 +13,7 @@
     owner: root
     group: prometheus
   vars:
-    prometheus_hosts: "{{ groups['prometheus_hosts'] }}"
+    prometheus_hosts: "{{ groups['prometheus_hosts'] + groups['ec2'] }}"
   notify:
     - Restart FreeBSD prometheus
 

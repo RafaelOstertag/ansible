@@ -12,8 +12,3 @@
     mode: 0644
     owner: root
     group: wheel
-
-- name: Start isc-dhcpd
-  service:
-    name: isc-dhcpd
-    state: started

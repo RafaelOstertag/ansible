@@ -19,3 +19,8 @@
         name: ldap/newsyslog
       tags:
         - syslog
+    - import_role:
+        name: ldap/internal-ldap-configuration
+      tags:
+        - slapd-configuration
+        - configuration

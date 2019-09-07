@@ -1,0 +1,14 @@
+---
+
+- name: Configure master ldap
+  when: internal_ldap_master
+  cron:
+    state: present
+    name: LDAP Master Backup
+    day: "*"
+    weekday: "*"
+    month: "*"
+    hour: "22"
+    minute: "43"
+    job: "umask 077 ; /usr/local/etc/rc.d/slapd stop >/dev/null; /usr/local/sbin/slapcat -F /usr/local/etc/openldap/slapd.d -l /var/backups/dc=kruemel,dc=home.ldif ; /usr/local/etc/rc.d/slapd start >/dev/
+null"

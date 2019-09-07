@@ -1,0 +1,42 @@
+---
+
+- name: Install grafana
+  pkgng:
+    name: grafana6
+    state: present
+
+- name: Enable grafana
+  copy:
+    src: rc.conf.d/grafana
+    dest: /usr/local/etc/rc.conf.d/
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Create tls directory
+  file:
+    state: directory
+    path: /usr/local/etc/grafana.d/tls
+    mode: 0750
+    owner: root
+    group: grafana
+    
+- name: Copy ssl public key
+  copy:
+    src: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: /usr/local/etc/grafana.d/tls/server.crt
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD grafana
+
+- name: Copy ssl public key
+  copy:
+    src: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: /usr/local/etc/grafana.d/tls/server.key
+    mode: 0600
+    owner: grafana
+    group: wheel
+  notify:
+    - Restart FreeBSD grafana

@@ -1,0 +1,21 @@
+---
+
+- name: Install configuration
+  template:
+    src: grafana.conf
+    dest: /usr/local/etc/grafana.conf
+    mode: 0600
+    owner: grafana
+    group: wheel
+  notify:
+    - Restart FreeBSD grafana
+
+- name: Install ldap configuration
+  template:
+    src: ldap.toml
+    dest: /usr/local/etc/grafana.d/
+    mode: 0600
+    owner: grafana
+    group: wheel
+  notify:
+    - Restart FreeBSD grafana

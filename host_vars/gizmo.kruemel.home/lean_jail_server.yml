@@ -10,4 +10,4 @@ lean_jails:
   - mongodb
   - kafka
   - jenkins
-  - nagios
+

@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD grafana
+  service:
+    name: grafana
+    state: restarted

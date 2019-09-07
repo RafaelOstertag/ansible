@@ -4,6 +4,13 @@
   user: root
   force_handlers: true
   hosts:
-    - gizmo.kruemel.home
-  roles:
-    - prometheus/prometheus
+    - viking.kruemel.home
+  tasks:
+    - import_role:
+        name: prometheus/prometheus
+      tags:
+        - prometheus
+    - import_role:
+        name: prometheus/grafana
+      tags:
+        - grafana

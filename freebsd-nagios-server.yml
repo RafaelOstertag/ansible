@@ -1,0 +1,10 @@
+---
+
+- name: FreeBSD Nagios Server
+  user: root
+  force_handlers: true
+  hosts:
+    - optimusprime.kruemel.home
+  roles:
+    - nagios/server
+    - nagios/webserver

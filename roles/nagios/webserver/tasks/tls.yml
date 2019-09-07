@@ -1,0 +1,29 @@
+---
+
+- name: Create TLS directory
+  file:
+    state: directory
+    path: "/usr/local/etc/{{ apache_pkg }}/tls"
+    mode: 0755
+    owner: root
+    group: www
+
+- name: Copy TLS pub cert
+  copy:
+    src: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: "/usr/local/etc/{{ apache_pkg }}/tls/server.crt"
+    mode: 0644
+    owner: root
+    group: www
+  notify:
+    - Restart FreeBSD apache
+
+- name: Copy TLS priv key
+  copy:
+    src: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: "/usr/local/etc/{{ apache_pkg }}/tls/server.key"
+    mode: 0400
+    owner: www
+    group: www
+  notify:
+    - Restart FreeBSD apache

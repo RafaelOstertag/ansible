@@ -1,0 +1,40 @@
+---
+
+- name: Install httpd.conf
+  template:
+    src: "apache-config/httpd.conf"
+    dest: "/usr/local/etc/{{ apache_pkg }}"
+    mode: 0640
+    owner: root
+    group: www
+  notify:
+    - Restart FreeBSD apache
+
+- name: Create httpd.conf.d directory
+  file:
+    state: directory
+    path: "/usr/local/etc/{{ apache_pkg }}/httpd.conf.d"
+    mode: 0750
+    owner: root
+    group: www
+
+- name: Create /var/log/httpd directory
+  file:
+    state: directory
+    path: "/var/log/httpd"
+    mode: 0770
+    owner: root
+    group: www
+
+- name: Install auxiliary config files
+  copy:
+    src: "apache-config/httpd.conf.d/{{ item }}"
+    dest: "/usr/local/etc/{{ apache_pkg }}/httpd.conf.d/"
+    mode: 0640
+    owner: root
+    group: www
+  loop:
+    - default.conf
+    - httpd-info.conf
+  notify:
+    - Restart FreeBSD apache

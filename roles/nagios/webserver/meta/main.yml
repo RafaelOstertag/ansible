@@ -2,4 +2,3 @@
 
 dependencies:
   - role: freebsd/install-apache
-  - role: common/ca-guengel.ch

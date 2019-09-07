@@ -3,5 +3,8 @@
 - name: TLS key material
   include_tasks: tls.yml
 
+- name: Install php
+  include_tasks: install-php.yml
+
 - name: Configure Apache
   include_tasks: configure-apache.yml

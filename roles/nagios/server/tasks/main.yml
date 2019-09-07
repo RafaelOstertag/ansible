@@ -1,0 +1,43 @@
+---
+
+- name: Install nagios server
+  pkgng:
+    name: "{{ pkg_name }}"
+    state: present
+  loop:
+    - nagios4
+    - nagios-check_postgres
+    # This is required so that we have check_nrpe3
+    - nrpe3
+    # This is used for check_external_ip
+    - curl
+  loop_control:
+    loop_var: pkg_name
+
+- name: Enable nagios
+  copy:
+    src: rc.conf.d/nagios
+    dest: /usr/local/etc/rc.conf.d
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Install plugins required by nagios
+  copy:
+    src: "nagios/plugins/{{ plugin }}"
+    dest: "/usr/local/libexec/nagios/{{ plugin }}"
+    mode: 0755
+    owner: root
+    group: nagios
+  loop:
+    - check_external_ip
+  loop_control:
+    loop_var: plugin
+
+- name: Create .pgpass for nagios-check_postgres plugin
+  template:
+    src: nagios/dot.pgpass
+    dest: "/var/spool/nagios/.pgpass"
+    mode: 0400
+    owner: nagios
+    group: nagios

@@ -5,18 +5,6 @@
     name: "{{ apache_pkg }}"
     state: present
 
-- name: Install PHP for nagios
-  pkgng:
-    name: "{{ php_package }}"
-    state: present
-  loop:
-    - mod_php72
-    - php72-filter
-  loop_control:
-    loop_var: php_package
-  notify:
-    - Restart FreeBSD apache
-
 - name: Enable Apache
   copy:
     src: "rc.conf.d/{{ apache_pkg }}"

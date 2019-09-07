@@ -4,6 +4,7 @@
 - import_playbook: freebsd-dns.yml
 - import_playbook: freebsd-internal-dhcp-servers.yml
 - import_playbook: freebsd-firewall.yml
+- import_playbook: freebsd-nagios-server.yml
 - import_playbook: freebsd-imap-servers.yml
 - import_playbook: freebsd-ldap-servers.yml
 - import_playbook: freebsd-lean-jails.yml

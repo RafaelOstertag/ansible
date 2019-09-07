@@ -1,34 +1,20 @@
 ---
 
-- name: Install kerberos config
-  when: 'not kerberos_kdc'
-  copy:
-    src: krb5.conf
-    dest: /etc/krb5.conf
-    mode: 0644
+- name: Remove kerberos keytab
+  file:
+    path: "kerberos/keytabs/{{ ansible_fqdn }}.keytab"
+    state: absent
 
-- name: Install kerberos keytab
-  when: 'not kerberos_kdc'
-  copy:
-    src: "kerberos/keytabs/{{ ansible_fqdn }}.keytab"
-    dest: /etc/krb5.keytab
-    mode: 0600
-    owner: root
-    decrypt: true
-
-- name: Root login kerberos
-  copy:
-    src: dot.k5login.root
-    dest: /root/.k5login
-    mode: 0600
-    owner: root
+- name: Remove root login kerberos
+  file:
+    path: /root/.k5login
+    state: absent
 
 - name: Update sshd config part I
   lineinfile:
     path: /etc/ssh/sshd_config
     regexp: "^GSSAPIAuthentication\\s+"
-    line: "GSSAPIAuthentication yes"
-    state: present
+    state: absent
   notify:
     - Restart FreeBSD sshd
 
@@ -36,7 +22,6 @@
   lineinfile:
     path: /etc/ssh/sshd_config
     regexp: "^GSSAPICleanupCredentials\\s+"
-    line: "GSSAPICleanupCredentials yes"
-    state: present
+    state: absent
   notify:
     - Restart FreeBSD sshd

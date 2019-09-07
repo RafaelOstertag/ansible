@@ -45,7 +45,6 @@ openbsd_servers_lan
 
 [openbsd_servers_lan]
 gargoyle.kruemel.home
-kerberos.kruemel.home
 
 [openbsd_virtual_hosts]
 phoebe.virtual.kruemel.home

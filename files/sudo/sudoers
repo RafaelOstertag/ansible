@@ -9,7 +9,7 @@
 #
 
 # Host alias specification
-Host_Alias	SERVERS	= gizmo.kruemel.home, gargoyle.kruemel.home, yayap.dmz.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, kerberos.kruemel.home
+Host_Alias	SERVERS	= gizmo.kruemel.home, gargoyle.kruemel.home, yayap.dmz.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home
 Host_Alias	FREEBSD = gizmo.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, yayap.dmz.kruemel.home, smtp-1, web-1, db-1, app-1
 Host_Alias	EC2_INSTANCES = smtp-1, web-1, db-1, app-1
 Host_Alias	FREEBSD_WKS = odin.kruemel.home

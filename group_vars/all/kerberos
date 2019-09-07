@@ -1,4 +1,0 @@
----
-
-# By default, no hosts is a kerberos kdc
-kerberos_kdc: False

@@ -8,8 +8,8 @@
 
 - name: Internal Master DNS
   include_tasks: master.yml
-  when: dns_master
+  when: internal_dns_master
 
 - name: Internal Slave DNS
   include_tasks: slave.yml
-  when: not dns_master
+  when: not internal_dns_master

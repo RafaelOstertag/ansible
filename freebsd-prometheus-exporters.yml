@@ -3,9 +3,11 @@
 - name: FreeBSD Prometheus Exporters
   user: root
   force_handlers: true
-  hosts: prometheus_hosts
+  hosts:
+    - prometheus_hosts
+    - ec2
   tasks:
     - include_role:
         name: prometheus/node-exporter
       when: "ansible_distribution == 'FreeBSD'"
-        
+

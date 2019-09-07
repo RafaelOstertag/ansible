@@ -1,19 +1,20 @@
 ---
-
-- import_playbook: freebsd-internal-webserver.yml
+- import_playbook: ec2.yml
+  
 - import_playbook: freebsd-dns.yml
-- import_playbook: freebsd-internal-dhcp-servers.yml
 - import_playbook: freebsd-firewall.yml
-- import_playbook: freebsd-nagios-server.yml
 - import_playbook: freebsd-imap-servers.yml
+- import_playbook: freebsd-internal-dhcp-servers.yml
+- import_playbook: freebsd-internal-webserver.yml
 - import_playbook: freebsd-ldap-servers.yml
 - import_playbook: freebsd-lean-jails.yml
+- import_playbook: freebsd-nagios-server.yml
 - import_playbook: freebsd-openvpn-servers.yml
+- import_playbook: freebsd-prometheus-exporters.yml
+- import_playbook: freebsd-prometheus-servers.yml
 - import_playbook: freebsd-rsync-servers.yml
-- import_playbook: freebsd-thin-jails.yml
 - import_playbook: freebsd-servers.yml
+- import_playbook: freebsd-thin-jails.yml
 
 - import_playbook: openbsd-gateway.yml
 - import_playbook: openbsd-servers.yml
-
-- import_playbook: ec2.yml

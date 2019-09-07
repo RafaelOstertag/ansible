@@ -33,5 +33,5 @@ scrape_configs:
     static_configs:
     - targets:
 {% for prometheus_host in prometheus_hosts %}
-        - {{ prometheus_host }}
+        - {{ prometheus_host }}:9100
 {% endfor %}

@@ -1,0 +1,23 @@
+---
+
+- name: Install openldap
+  pkgng:
+    name:
+      - openldap-server
+      - openldap-client
+
+- name: Create configuration directory
+  file:
+    path: /usr/local/etc/openldap/slapd.d
+    state: directory
+    mode: 0750
+    owner: root
+    group: ldap
+
+- name: Enable openldap
+  copy:
+    src: rc.conf.d/slapd
+    dest: /usr/local/etc/rc.conf.d/
+    mode: 0644
+    owner: root
+    group: wheel

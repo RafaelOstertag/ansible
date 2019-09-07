@@ -1,0 +1,3 @@
+slapd_enable="YES"
+slapd_flags='-h "ldap:/// ldaps:///"'
+slapd_cn_config="YES"

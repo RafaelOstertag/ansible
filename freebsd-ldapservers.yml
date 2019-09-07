@@ -6,6 +6,8 @@
     - viking.kruemel.home
   tasks:
     - import_role:
+        name: ldap/install-ldap-server
+    - import_role:
         name: ldap/openldap-server-schemas
     - import_role:
         name: ldap/openldap-server-ssl

@@ -3,6 +3,7 @@
 - name: Create slapd tls directory
   file:
     path: /usr/local/etc/openldap/tls
+    state: directory
     mode: 0700
     owner: ldap
     group: wheel

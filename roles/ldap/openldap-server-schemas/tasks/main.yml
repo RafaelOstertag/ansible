@@ -1,5 +1,12 @@
 ---
 
+- name: Create schema directory
+  file:
+    state: directory
+    path: /usr/local/etc/openldap/schema/
+    mode: 0755
+    owner: root
+
 - name: Copy openldap schemas
   copy:
     src: "schemas/{{ item }}"

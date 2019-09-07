@@ -5,7 +5,7 @@
 - import_playbook: freebsd-internal-dhcp-servers.yml
 - import_playbook: freebsd-firewall.yml
 - import_playbook: freebsd-imap-servers.yml
-- import_playbook: freebsd-ldapservers.yml
+- import_playbook: freebsd-ldap-servers.yml
 - import_playbook: freebsd-lean-jails.yml
 - import_playbook: freebsd-openvpn-servers.yml
 - import_playbook: freebsd-rsync-servers.yml

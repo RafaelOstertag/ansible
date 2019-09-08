@@ -265,10 +265,6 @@
       tags:
         - amanda
     - import_role:
-        name: freebsd/kerberos
-      tags:
-        - kerberos
-    - import_role:
         name: freebsd/nagios-nrpe-config
       tags:
         - nagios

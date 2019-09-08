@@ -243,8 +243,6 @@
     - import_role:
         name: freebsd/amanda-hosts
     - import_role:
-        name: freebsd/kerberos
-    - import_role:
         name: freebsd/ntp
     - import_role:
         name: freebsd/mailserver

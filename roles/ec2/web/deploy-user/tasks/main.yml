@@ -28,4 +28,4 @@
     state: present
     validate: 'sshd -f %s -t'
   notify:
-    - Restart FreeBSD sshd
+    - Restart sshd

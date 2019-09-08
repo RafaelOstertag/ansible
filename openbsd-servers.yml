@@ -8,6 +8,11 @@
     - name: common/ssh-keys
       tags:
         - ssh-keys
+        - ssh
+    - name: common/ssh-config
+      tags:
+        - ssh
+        - sshd
     - common/etcfiles
     - common/motd
     - common/amanda-client

@@ -12,7 +12,13 @@
     - import_role:
         name: common/ssh-keys
       tags:
-        ssh-keys
+        - ssh-keys
+        - ssh
+    - import_role:
+        name: common/ssh-config
+      tags:
+        - ssh
+        - sshd
     # Keep this on top. Other roles might use pkgng
     - import_role:
         name: freebsd/disable-default-pkgrepo

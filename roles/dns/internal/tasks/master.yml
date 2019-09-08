@@ -4,9 +4,9 @@
   template:
     src: master/named.conf
     dest: /usr/local/etc/namedb/named.conf
-    mode: 0644
+    mode: 0640
     owner: root
-    group: wheel
+    group: bind
   notify:
     - Restart FreeBSD bind
 
@@ -14,9 +14,9 @@
   copy:
     src: "master/zones/master/{{ item }}"
     dest: "/usr/local/etc/namedb/master/{{ item }}"
-    mode: 0644
+    mode: 0640
     owner: root
-    group: wheel
+    group: bind
   loop:
     - named.192.168
     - named.192.168.100
@@ -27,5 +27,18 @@
     - named.guengel.ch
     - named.kruemel.home
     - named.virtual.kruemel.home
+  notify:
+    - Restart FreeBSD bind
+
+- name: Install dynamic zones
+  copy:
+    src: "master/zones/dynamic/{{ item }}"
+    dest: "/usr/local/etc/namedb/dynamic/{{ item }}"
+    mode: 0640
+    owner: root
+    group: bind
+  loop:
+    - named.dhcp.kruemel.home
+    - named.dhcp.reverse
   notify:
     - Restart FreeBSD bind

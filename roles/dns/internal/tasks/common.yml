@@ -6,7 +6,7 @@
     dest: /usr/local/etc/namedb/master/
     mode: 0644
     owner: root
-    group: wheel
+    group: bind
   loop:
     - empty.db
     - localhost-forward.db

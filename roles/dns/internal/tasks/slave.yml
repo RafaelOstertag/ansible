@@ -6,6 +6,6 @@
     dest: /usr/local/etc/namedb/named.conf
     mode: 0640
     owner: root
-    group: wheel
+    group: bind
   notify:
     - Restart FreeBSD bind

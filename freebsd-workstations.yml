@@ -10,8 +10,6 @@
     - import_role:
         name: common/motd
     - import_role:
-        name: freebsd/freebsd-update-cron
-    - import_role:
         name: freebsd/resolvconf
     - import_role:
         name: freebsd/openldap-client-conf

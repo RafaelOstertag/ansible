@@ -3,7 +3,7 @@
 - name: Prohibit root login with password
   lineinfile:
     path: /etc/ssh/sshd_config
-    regexp: "^PermitRootLogin\s+"
+    regexp: "^PermitRootLogin\\s+"
     line: "PermitRootLogin prohibit-password"
     state: present
   notify:

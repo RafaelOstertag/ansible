@@ -33,6 +33,8 @@ odin		IN	A	192.168.100.101
 			MX	10 gizmo.kruemel.home.
 bumblebee	IN	A	192.168.100.250
 			TXT	"HP LaserJet 400 M401dne"
+colossus-sc	IN	A	192.168.100.251
+			TXT	"Colossus AMT"
 artery		IN	A	192.168.100.252
 			TXT	"Netgear GS116Ev2"
 odin-sc		IN	A	192.168.100.253

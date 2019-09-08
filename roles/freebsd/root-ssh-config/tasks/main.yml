@@ -1,17 +1,9 @@
 ---
-
-- name: Guarantee directory
-  file:
-    path: /root/.ssh
-    mode: 0640
-    owner: root
-    group: wheel
-    state: directory
+##
+## This role is obsolete. Remove once all hosts received the update
+##
 
 - name: Copy root config
-  copy:
-    src: ssh_root_config
-    dest: /root/.ssh/config
-    mode: 0640
-    owner: root
-    group: wheel
+  file:
+    path: /root/.ssh/config
+    state: absent

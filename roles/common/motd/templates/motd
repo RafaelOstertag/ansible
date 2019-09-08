@@ -5,7 +5,7 @@ Ansible maintained host
 
 Host: {{ ansible_fqdn }}
 Arch: {{ ansible_architecture }}
-OS: {{ ansible_distribution }} {{ ansible_distribution_release }}
+OS:   {{ ansible_distribution }} {{ ansible_distribution_release }}
 
 IPv4 Addresses:
 ---------------

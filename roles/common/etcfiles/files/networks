@@ -1,9 +1,9 @@
 #
-# !!!! This file is maintained by Ansible !!!!
+# This file is maintained by Ansible
 BASE-ADDRESS.MCAST.NET	224
-loopback		127	loop
+loopback    127	loop
 
-lan			192.168.100     
-wlan			192.168.101
-vpn			192.168.102
-dmz			192.168.103
+lan		    192.168.100
+wlan        192.168.101
+vpn		    192.168.102
+dmz		    192.168.103

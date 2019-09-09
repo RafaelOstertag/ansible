@@ -253,8 +253,6 @@
     - import_role:
         name: freebsd/sudo
     - import_role:
-        name: freebsd/root-ssh-config
-    - import_role:
         name: freebsd/procfs
     - import_role:
         name: freebsd/fdescfs

@@ -1,9 +1,0 @@
----
-##
-## This role is obsolete. Remove once all hosts received the update
-##
-
-- name: Copy root config
-  file:
-    path: /root/.ssh/config
-    state: absent

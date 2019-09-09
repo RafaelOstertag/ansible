@@ -292,8 +292,6 @@
         - mailserver
 
     - import_role:
-        name: freebsd/root-ssh-config
-    - import_role:
         name: freebsd/procfs
       when: "not jail"
     - import_role:

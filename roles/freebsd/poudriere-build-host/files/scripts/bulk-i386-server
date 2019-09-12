@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ $# -ne 0 ]
+then
+	poudriere bulk -j fb12-i386 -z server -p default "$@"
+else
+	poudriere bulk -j fb12-i386 -z server -p default -f $HOME/poudriere/fb-server.list
+fi
+
+/root/poudriere/syncpackages.sh
+

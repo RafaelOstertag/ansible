@@ -1,0 +1,8 @@
+---
+
+- name: FreeBSD Poudriere Hosts
+  hosts: odin.kruemel.home
+  force_handlers: true
+  user: root
+  roles:
+    - name: freebsd/poudriere-build-host

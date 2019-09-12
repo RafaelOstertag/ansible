@@ -1,0 +1,2 @@
+#!/bin/sh
+poudriere ports -u -p default

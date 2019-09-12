@@ -1,0 +1,10 @@
+---
+
+- name: Poudriere installation
+  include_tasks: install.yml
+
+- name: Poudriere configuration
+  include_tasks: configure.yml
+
+- name: Scripts
+  include_tasks: scripts.yml

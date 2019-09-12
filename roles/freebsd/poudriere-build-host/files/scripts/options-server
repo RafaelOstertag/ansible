@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ $# -ge 1 ]
+then
+	poudriere options -z server -c "$@"
+else
+	poudriere options -z server -f $HOME/poudriere/fb-server.list
+fi

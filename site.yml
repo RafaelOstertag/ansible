@@ -1,6 +1,6 @@
 ---
 - import_playbook: ec2.yml
-  
+
 - import_playbook: freebsd-dns.yml
 - import_playbook: freebsd-firewall.yml
 - import_playbook: freebsd-imap-servers.yml
@@ -15,6 +15,7 @@
 - import_playbook: freebsd-rsync-servers.yml
 - import_playbook: freebsd-servers.yml
 - import_playbook: freebsd-thin-jails.yml
+- import_playbook: freebsd-poudriere-hosts.yml
 
 - import_playbook: openbsd-gateway.yml
 - import_playbook: openbsd-servers.yml

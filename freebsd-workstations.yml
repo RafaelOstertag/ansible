@@ -257,7 +257,7 @@
     - import_role:
         name: freebsd/fdescfs
     - import_role:
-        name: freebsd/gizmo-mounts
+        name: freebsd/nfs-mounts
     - import_role:
         name: freebsd/enable-ldap-login
     - import_role:

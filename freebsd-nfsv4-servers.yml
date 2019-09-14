@@ -1,0 +1,8 @@
+---
+
+- name: FreeBSD NFSv4 Servers
+  hosts:
+    - colossus.kruemel.home
+  user: root
+  roles:
+    - freebsd/nfs-v4-server

@@ -1,0 +1,8 @@
+---
+
+nfs_server_services:
+  - nfsuserd
+  - nfsd
+  - rpcbind
+  - lockd
+  - statd

@@ -1,0 +1,9 @@
+---
+
+- name: Start services
+  service:
+    name: "{{ service }}"
+    state: started
+  loop: "{{ nfs_server_services }}"
+  loop_control:
+    loop_var: service

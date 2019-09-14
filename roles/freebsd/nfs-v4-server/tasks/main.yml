@@ -1,0 +1,7 @@
+---
+
+- name: Enable services
+  include_tasks: enable-services.yml
+
+- name: Start services
+  include_tasks: start-services.yml

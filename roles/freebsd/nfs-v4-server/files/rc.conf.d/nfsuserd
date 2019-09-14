@@ -1,0 +1,2 @@
+nfsuserd_enable="YES"
+nfsuserd_flags="-domain kruemel.home"

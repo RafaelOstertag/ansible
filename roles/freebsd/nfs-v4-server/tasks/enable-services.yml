@@ -1,0 +1,12 @@
+---
+
+- name: Enable services
+  copy:
+    src: "rc.conf.d/{{ service }}"
+    dest: /etc/rc.conf.d/
+    mode: 0644
+    owner: root
+    group: wheel
+  loop: "{{ nfs_server_services }}"
+  loop_control:
+    loop_var: service

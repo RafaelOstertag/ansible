@@ -9,7 +9,7 @@ bayes_ignore_header X-Bogosity
 bayes_ignore_header X-Spam-Flag
 bayes_ignore_header X-Spam-Status
 
-score URIBL_BLOCKED 4.0
+dns_available yes
 
 loadplugin Mail::SpamAssassin::Plugin::Shortcircuit
 
@@ -39,7 +39,7 @@ shortcircuit ALL_TRUSTED             on
 
 #   and a well-trained bayes DB can save running rules, too
 #
-# shortcircuit BAYES_99                spam
+shortcircuit BAYES_99                spam
 # shortcircuit BAYES_00                ham
 
 endif # Mail::SpamAssassin::Plugin::Shortcircuit

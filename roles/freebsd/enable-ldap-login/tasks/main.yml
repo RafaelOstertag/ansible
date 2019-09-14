@@ -8,11 +8,12 @@
     - FreeBSD restart nslcd
 
 - name: Enable nslcd
-  lineinfile:
-    dest: /etc/rc.conf
-    regexp: "^nslcd_enable"
-    line: "nslcd_enable=\"YES\""
-    state: present
+  copy:
+    src: rc.conf.d/nslcd
+    dest: /usr/local/etc/rc.conf.d/
+    mode: 644
+    owner: root
+    group: wheel
   notify:
     - FreeBSD restart nslcd
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Backup to gizmo
+# Backup to colossus
 
 /usr/local/bin/rsync \
     -a \
@@ -9,4 +9,4 @@
     --exclude .snap \
     --exclude .sujournal \
     --password-file /usr/local/etc/rsync/rsync.secret \
-    /data/ ec2-backup-web@gizmo.kruemel.home::ec2-backup-web/`hostname`/
+    /data/ ec2-backup-web@colossus.kruemel.home::ec2-backup-web/`hostname`/

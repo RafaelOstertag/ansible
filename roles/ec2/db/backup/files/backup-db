@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Backup to gizmo
+# Backup to colossus
 
 /usr/local/bin/rsync \
     -a \
@@ -9,4 +9,4 @@
     --exclude .snap \
     --exclude .sujournal \
     --password-file /usr/local/etc/rsync/rsync.secret \
-    /data/postgres/backups ec2-backup-db@gizmo.kruemel.home::ec2-backup-db/`hostname`/
+    /data/postgres/backups ec2-backup-db@colossus.kruemel.home::ec2-backup-db/`hostname`/

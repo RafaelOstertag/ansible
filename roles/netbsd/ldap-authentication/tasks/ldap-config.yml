@@ -4,7 +4,9 @@
   template:
     src: ldap.conf
     dest: /usr/pkg/etc/ldap.conf
-    mode: 0640
+    # Everybody must be able to read the file, else
+    # regular users won't be able to access ldap accounts
+    mode: 0644
     owner: root
     group: wheel
 

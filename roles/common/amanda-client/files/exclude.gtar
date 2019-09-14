@@ -25,6 +25,7 @@
 ./swap*
 ./sys
 ./system
+./tank1
 ./tmp
 ./usr/jails/*/dev
 ./usr/jails/*/proc

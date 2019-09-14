@@ -1,0 +1,8 @@
+---
+
+- name: FreeBSD User Server
+  hosts:
+    - colossus.kruemel.home
+  user: root
+  roles:
+    - name: freebsd/enable-ldap-login

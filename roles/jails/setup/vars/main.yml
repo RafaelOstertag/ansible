@@ -1,3 +1,4 @@
 ---
 
-jail_shell: /bin/sh
+jail_user_shell: /bin/sh
+jail_user_directory_permission: 0700

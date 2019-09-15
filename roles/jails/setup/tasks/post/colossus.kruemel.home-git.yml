@@ -34,4 +34,6 @@
   include_tasks: helper/create-jail-user.yml
   vars:
     jail_user: "{{ jail_name }}"
-    jail_shell: "/usr/loca/bin/git-shell"
+    jail_user_shell: "/usr/loca/bin/git-shell"
+    # user 'rafi' requires access to sync to github
+    jail_user_directory_permission: 0755

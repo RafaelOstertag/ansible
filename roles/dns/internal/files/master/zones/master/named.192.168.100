@@ -2,7 +2,7 @@
 
 $TTL 1d
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201909150; serial
+				201909151; serial
 				3h	; refresh
 				6h	; retry
 				1w	; expire
@@ -10,7 +10,6 @@ $TTL 1d
 				)
 		IN	NS	optimusprime.kruemel.home.
 		IN	NS	viking.kruemel.home.
-1		IN	PTR	gizmo.kruemel.home.
 2		IN  PTR colossus.kruemel.home.
 4		IN	PTR	viking.kruemel.home.
 5		IN	PTR	optimusprime.kruemel.home.

@@ -1,11 +1,10 @@
 ---
 
-- name: Add kruemel.home hosts to hosts file
+- name: Remove gizmo.kruemel.home from hosts file
   lineinfile:
     path: /etc/hosts
-    state: present
+    state: absent
     regexp: '^192\.168\.100\.1\s+'
-    line: "192.168.100.1 gizmo.kruemel.home"
 
 - name: Add kruemel.home hosts to hosts file
   lineinfile:

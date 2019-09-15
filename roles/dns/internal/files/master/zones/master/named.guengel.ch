@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 6h	; 6 hours
 @	IN SOA	optimusprime.guengel.ch. postmaster.guengel.ch. (
-				201909150; serial
+				201909151; serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
@@ -14,8 +14,6 @@ guengel.ch.		13654	IN	NS	viking.kruemel.home.
 			IN	MX	10 colossus.guengel.ch.
 gargoyle	IN	A	192.168.100.254
 			AAAA	fd3e:be3e:ec34:0::2
-gizmo		IN	A	192.168.100.1
-			AAAA	fd3e:be3e:ec34:0::1
 colossus		IN	A	192.168.100.2
 			AAAA	fd3e:be3e:ec34:0::3
 viking		IN	A	192.168.100.4

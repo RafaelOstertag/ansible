@@ -1,46 +1,39 @@
 ; Maintained by Ansible
 $TTL 6h
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201909030 ; Serial
+				201909150 ; Serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
 				1h	; minimum
 				)
-		IN	NS	optimusprime.kruemel.home.
-		IN	NS	viking.kruemel.home.
-			MX	10 gizmo.kruemel.home.
-dash		IN	A	192.168.100.200
-			AAAA	fd3e:be3e:ec34:0::200
-			TXT	"Debian Jessie amd64"
-			MX	10 gizmo.kruemel.home.
-abraxas		IN	A	192.168.100.203
-			AAAA	fd3e:be3e:ec34:0::203
-			TXT	"NetBSD Workstation amd64"
-			MX	10 gizmo.kruemel.home.
-aurora		IN	A	192.168.100.216
-			AAAA	fd3e:be3e:ec34:0::216
-			TXT	"FreeBSD 11.0 amd64"
-			MX	10 gizmo.kruemel.home.
-phoebe		IN	A	192.168.100.222
-			AAAA	fd3e:be3e:ec34:0::222
-			TXT	"OpenBSD 6.0 i386"
-			MX	10 gizmo.kruemel.home.
-freebsd32	IN	A	192.168.100.225
-			AAAA	fd3e:be3e:ec34:0::225
-			TXT	"FreeBSD 11.0 i386"
-			MX	10 gizmo.kruemel.home.
-merlin		IN	A	192.168.100.230
-			AAAA	fd3e:be3e:ec34:0::230
-			TXT	"OpenBSD 6.0 amd64"
-			MX	10 gizmo.kruemel.home.
-kube01		IN	A	192.168.100.241
-			MX	10 gizmo.kruemel.home.
-kube02		IN	A	192.168.100.242
-			MX	10 gizmo.kruemel.home.
-kube03		IN	A	192.168.100.243
-			MX	10 gizmo.kruemel.home.
-kube04		IN	A	192.168.100.244
-			MX	10 gizmo.kruemel.home.
+			IN	NS		optimusprime.kruemel.home.
+			IN	NS		viking.kruemel.home.
+				MX		10 colossus.kruemel.home.
+
+dash		IN	A		192.168.100.200
+				AAAA	fd3e:be3e:ec34:0::200
+				MX		10 colossus.kruemel.home.
+
+abraxas		IN	A		192.168.100.203
+				AAAA	fd3e:be3e:ec34:0::203
+				MX		10 colossus.kruemel.home.
+
+aurora		IN	A		192.168.100.216
+				AAAA	fd3e:be3e:ec34:0::216
+				MX		10 colossus.kruemel.home.
+
+phoebe		IN	A		192.168.100.222
+				AAAA	fd3e:be3e:ec34:0::222
+				MX		10 colossus.kruemel.home.
+
+freebsd32	IN	A		192.168.100.225
+				AAAA	fd3e:be3e:ec34:0::225
+				MX		10 colossus.kruemel.home.
+
+merlin		IN	A		192.168.100.230
+				AAAA	fd3e:be3e:ec34:0::230
+				MX		10 colossus.kruemel.home.
+
 ; Needed for nfs4idmap
 _nfsv4idmapdomain       IN      TXT     "kruemel.home"

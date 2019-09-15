@@ -1,4 +1,0 @@
----
-
-# Set to True for the smart host to avoid using default config
-smart_host: True

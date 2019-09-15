@@ -38,5 +38,5 @@ dnl
 dnl If you use IPv6 only, change [127.0.0.1] to [IPv6:::1]
 FEATURE(`msp', `[IPv6:::1]')dnl
 LOCAL_CONFIG
-dnl# Do not allow SSLv2 and weak ciphers:dnl
+dnl# Do not allow SSLv2 and weak ciphers
 O CipherList=TLSv1.2:TLSv1:+HIGH:!MEDIUM:!LOW:!NULL:!ADH:!EXP

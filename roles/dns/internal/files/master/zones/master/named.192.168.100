@@ -2,7 +2,7 @@
 
 $TTL 1d
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201909080; serial
+				201909150; serial
 				3h	; refresh
 				6h	; retry
 				1w	; expire

@@ -78,7 +78,7 @@ define(`confCLIENT_KEY',      `/etc/mail/tls/client.key')dnl
 define(`confTLS_SRV_OPTIONS', `')dnl
 define(`confDONT_BLAME_SENDMAIL',`GroupReadableKeyFile')dnl
 
-define(`confAUTH_REALM', `gizmo')dnl
+define(`confAUTH_REALM', `colossus')dnl
 define(`confAUTH_MECHANISMS',`LOGIN CRAM-MD5')dnl
 TRUST_AUTH_MECH(`LOGIN CRAM-MD5')dnl
 

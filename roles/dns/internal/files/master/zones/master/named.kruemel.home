@@ -1,19 +1,19 @@
 ; Maintained by Ansible
 $TTL 1d
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201909151 ; serial
+				201909152 ; serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
 				1h	; minimum
 				)
-		IN	NS	optimusprime.kruemel.home.
-		IN	NS	viking.kruemel.home.
+			IN	NS	optimusprime.kruemel.home.
+			IN	NS	viking.kruemel.home.
 ; MAIL SERVER
-		IN	MX	10 gizmo.kruemel.home.
+			IN	MX	10 colossus.kruemel.home.
 ; CNAMEs
-imap		IN	CNAME	gizmo.kruemel.home.
-smtp		IN	CNAME	gizmo.kruemel.home.
+imap		IN	CNAME	colossus.kruemel.home.
+smtp		IN	CNAME	colossus.kruemel.home.
 git			IN	CNAME	colossus.kruemel.home.
 ; HOSTS AND STUFF
 gizmo		IN	A	192.168.100.1
@@ -22,16 +22,16 @@ colossus	IN	A	192.168.100.2
 			AAAA	fd3e:be3e:ec34:0::3
 gargoyle	IN	A	192.168.100.254
 			AAAA	fd3e:be3e:ec34:0::2
-			MX	10 gizmo.kruemel.home.
+			MX	10 	colossus.kruemel.home.
 viking		IN	A	192.168.100.4
 			AAAA	fd3e:be3e:ec34:0::4
-			MX	10 gizmo.kruemel.home.
+			MX	10 	colossus.kruemel.home.
 optimusprime	IN	A	192.168.100.5
 			AAAA	fd3e:be3e:ec34:0::5
-			MX	10 gizmo.kruemel.home.
+			MX	10 	colossus.kruemel.home.
 odin		IN	A	192.168.100.101
 			AAAA    fd3e:be3e:ec34:0::101
-			MX	10 gizmo.kruemel.home.
+			MX	10 	colossus.kruemel.home.
 bumblebee	IN	A	192.168.100.250
 			TXT	"HP LaserJet 400 M401dne"
 colossus-sc	IN	A	192.168.100.251

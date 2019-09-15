@@ -1,4 +1,4 @@
-poll sa-learn.spam via gizmo.kruemel.home
+poll sa-learn.spam via colossus.kruemel.home
      protocol imap
      username "spamlearning"
      password "{{ spamlearning_password }}"
@@ -7,7 +7,7 @@ poll sa-learn.spam via gizmo.kruemel.home
      and with sslcertck and fetchall
      and with mda "/usr/local/bin/sa-learn --spam" and with folder "spamlearning.spam"
 
-poll sa-learn.ham via gizmo.kruemel.home
+poll sa-learn.ham via colossus.kruemel.home
      protocol imap
      username "spamlearning"
      password "{{ spamlearning_password }}"

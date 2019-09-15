@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 6h
 @       IN SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                                201908170 ; Serial
+                                201909150 ; Serial
                                 3h      ; refresh
                                 1h      ; retry
                                 1w      ; expire
@@ -9,12 +9,12 @@ $TTL 6h
                                 )
                 IN      NS      optimusprime.kruemel.home.
                 IN      NS      viking.kruemel.home.
-                        MX      10 gizmo.kruemel.home.
+                        MX      10 colossus.kruemel.home.
 gargoyle	IN	A	192.168.103.1
 			AAAA	fd3e:be3e:ec34:1::1
 			TXT	"OpenBSD Firewall (DMZ)"
-			MX	10 gizmo.kruemel.home.
+			MX	10 colossus.kruemel.home.
 yayap		IN	A	192.168.103.2
 			AAAA	fd3e:be3e:ec34:1::2
 			TXT	"OpenBSD WLAN/VPN/SSH Server"
-			MX	10 gizmo.kruemel.home.
+			MX	10 colossus.kruemel.home.

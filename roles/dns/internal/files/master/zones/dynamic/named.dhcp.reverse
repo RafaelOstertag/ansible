@@ -1,11 +1,11 @@
 $ORIGIN .
 $TTL 86400      ; 1 day
-dhcp.reverse            IN SOA  gizmo.kruemel.home. postmaster.kruemel.home. (
-                                7868       ; serial
+dhcp.reverse            IN SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
+                                100000       ; serial
                                 10800      ; refresh (3 hours)
                                 21600      ; retry (6 hours)
                                 604800     ; expire (1 week)
                                 3600       ; minimum (1 hour)
                                 )
-                        NS      gizmo.kruemel.home.
-                        NS      gargoyle.kruemel.home.
+                        NS      optimusprime.kruemel.home.
+                        NS      viking.kruemel.home.

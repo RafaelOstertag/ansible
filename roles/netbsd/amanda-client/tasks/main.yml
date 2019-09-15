@@ -23,7 +23,7 @@
   notify:
     - Restart NetBSD inetd
 
-- name: Allow gizmo to backup
+- name: Allow colossus to backup
   copy:
     src: dot.amandahosts
     dest: /var/amanda/.amandahosts

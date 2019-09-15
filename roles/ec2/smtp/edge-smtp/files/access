@@ -79,4 +79,4 @@ To:webmasterdd@		ERROR: 550 Mailbox disabled
 #
 #CertIssuer:/C=CH/ST=Aargau/O=guengel.ch/CN=Rafael+20Ostertag/emailAddress=rafi@guengel.ch	RELAY
 #CertIssuer:/C=CH/ST=Thurgau/L=Kefikon/O=guengel.ch/CN=CA+20guengel.ch/emailAddress=postmaster@guengel.ch	RELAY
-Connect:192.168.100.1   RELAY
+Connect:192.168.100.2   RELAY

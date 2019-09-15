@@ -1,7 +1,7 @@
 ## Ansible Maintained
 
 rewrite_header Subject *****SPAM*****
-trusted_networks 192.168.100.1/32 {{ ansible_xn0.ipv4[0].address }}/32
+trusted_networks 192.168.100.2/32 {{ ansible_xn0.ipv4[0].address }}/32
 
 bayes_auto_learn 1
 bayes_path /var/spool/spamd/bayes_db/bayes

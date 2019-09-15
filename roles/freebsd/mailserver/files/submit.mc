@@ -24,5 +24,5 @@ define(`confCLIENT_CERT',     `/etc/mail/tls/client.cert')dnl
 define(`confCLIENT_KEY',      `/etc/mail/tls/client.key')dnl
 define(`confTLS_SRV_OPTIONS', `')dnl
 LOCAL_CONFIG
-dnl# Do not allow SSLv2 and weak ciphers:dnl
+dnl# Do not allow SSLv2 and weak ciphers
 O CipherList=TLSv1.2:TLSv1:+HIGH:!MEDIUM:!LOW:!NULL:!ADH:!EXP

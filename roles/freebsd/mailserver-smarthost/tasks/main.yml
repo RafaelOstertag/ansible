@@ -29,9 +29,34 @@
     path: /root/bin
     state: directory
 
+- name: Enable sasl CFLAGS for sendmail
+  lineinfile:
+    path: /etc/make.conf
+    state: present
+    regexp: "^SENDMAIL_CFLAGS[\\s]*="
+    line: 'SENDMAIL_CFLAGS=-I/usr/local/include/sasl -DSASL'
+    create: yes
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Enable sasl LDFLAGS for sendmail
+  lineinfile:
+    path: /etc/make.conf
+    state: present
+    regexp: "^SENDMAIL_LDFLAGS[\\s]*="
+    line: 'SENDMAIL_LDFLAGS=-L/usr/local/lib'
+
+- name: Enable sasl LDADD for sendmail
+  lineinfile:
+    path: /etc/make.conf
+    state: present
+    regexp: "^SENDMAIL_LDADD[\\s]*="
+    line: 'SENDMAIL_LDADD=-lsasl2'
+
 - name: Copy smtpauth.sh build file
   copy:
-    src: freebsd/smtpauth.sh
+    src: scripts/smtpauth.sh
     dest: /root/bin/smtpauth.sh
     mode: 0750
     owner: root

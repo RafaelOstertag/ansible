@@ -1,0 +1,16 @@
+---
+
+- name: Install cyrus-imapd
+  pkgng:
+    name: cyrus-imapd25
+    state: present
+
+- name: Enable cyrus-imapd
+  copy:
+    src: rc.conf.d/cyrus_imapd
+    dest: /usr/local/etc/rc.conf.d
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD imapd

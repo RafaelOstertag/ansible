@@ -1,0 +1,16 @@
+---
+
+- name: Copy configuration files
+  copy:
+    src: "{{ config_file }}"
+    dest: /usr/local/etc/
+    mode: 0644
+    owner: root
+    group: wheel
+  loop:
+    - imapd.conf
+    - cyrus.conf
+  loop_control:
+    loop_var: config_file
+  notify:
+    - Restart FreeBSD imapd

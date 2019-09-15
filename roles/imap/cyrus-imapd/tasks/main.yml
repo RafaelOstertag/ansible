@@ -1,0 +1,7 @@
+---
+
+- name: Install cyrus-imapd
+  include_tasks: install.yml
+
+- name: Configure cyrus-imapd
+  include_tasks: configure.yml

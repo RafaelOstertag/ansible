@@ -1,0 +1,16 @@
+---
+
+- name: Install cyrus-sasl-saslauthd
+  pkgng:
+    name: cyrus-sasl-saslauthd
+    state: present
+
+- name: Enable cyrus-sasl-saslauthd
+  copy:
+    src: rc.conf.d/saslauthd
+    dest: /usr/local/etc/rc.conf.d/
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD saslauthd

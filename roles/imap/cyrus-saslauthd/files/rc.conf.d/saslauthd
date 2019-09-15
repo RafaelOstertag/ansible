@@ -1,0 +1,2 @@
+saslauthd_enable="YES"
+saslauthd_flags="-a ldap"

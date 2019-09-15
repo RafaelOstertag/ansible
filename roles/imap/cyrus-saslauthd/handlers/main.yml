@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD saslauthd
+  service:
+    name: saslauthd
+    state: restarted

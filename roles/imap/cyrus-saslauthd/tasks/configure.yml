@@ -1,0 +1,24 @@
+---
+
+- name: Copy service config
+  copy:
+    src: sasl-service/{{ service_name }}.conf
+    dest: /usr/lib/sasl2/
+    mode: 0644
+    owner: root
+    group: wheel
+  loop:
+    - Sendmail
+    - Cyrus
+  loop_control:
+    loop_var: service_name
+
+- name: Configure saslauthd
+  template:
+    src: saslauthd.conf
+    dest: /usr/local/etc/
+    mode: 0600
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD saslauthd

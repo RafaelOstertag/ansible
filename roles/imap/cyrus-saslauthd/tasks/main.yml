@@ -1,0 +1,8 @@
+---
+
+- name: Install sasl-authd
+  include_tasks: install.yml
+
+- name: Configure sasl
+  include_tasks: configure.yml
+  

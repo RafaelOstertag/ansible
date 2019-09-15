@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD imapd
+  service:
+    name: imapd
+    state: restarted

@@ -11,7 +11,7 @@
 - name: Copy cyrus public key
   copy:
     src: "ssl/pub/{{ ansible_fqdn }}.crt"
-    dest: "/var/imap/tls/cert-{{ ansible_fqdn }}.pem"
+    dest: "/var/imap/tls/server.crt"
     mode: 0644
     owner: cyrus
     group: cyrus
@@ -21,7 +21,7 @@
 - name: Copy cyus private key
   copy:
     src: "ssl/priv/{{ ansible_fqdn }}.key"
-    dest: "/var/imap/tls/{{ ansible_fqdn }}.key"
+    dest: "/var/imap/tls/server.key"
     mode: 0600
     owner: cyrus
     group: cyrus

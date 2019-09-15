@@ -1,7 +1,7 @@
 ; Maintained by Ansible
 $TTL 1d
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201909150 ; serial
+				201909151 ; serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
@@ -44,4 +44,4 @@ odin-sc		IN	A	192.168.100.253
 ; Needed for nfs4idmap
 _nfsv4idmapdomain	IN	TXT	"kruemel.home"
 ; freebsd pkg server
-_http._tcp.pkg	IN	SRV	10 1 80 gizmo.kruemel.home.
+_http._tcp.pkg	IN	SRV	10 1 80 colossus.kruemel.home.

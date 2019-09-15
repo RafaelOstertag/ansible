@@ -1,0 +1,22 @@
+---
+
+- name: Jail Running?
+  command: "jls -j {{ jail_name }}"
+  ignore_errors: true
+  register: jail_running
+
+- name: Unmount devfs from jail
+  when: "jail_running.rc == 1"
+  mount:
+    fstype: devfs
+    src: devfs
+    path: "{{ thin_jail_root_directory }}/{{ jail_name }}/dev"
+    fstab: /tmp/fstab.jail
+    state: unmounted
+
+- name: Remove temporary fstab
+  when: "jail_running.rc == 1"
+  file:
+    path: /tmp/fstab.jail
+    state: absent
+

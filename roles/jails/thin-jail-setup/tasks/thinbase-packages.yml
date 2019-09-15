@@ -62,4 +62,3 @@
   file:
     path: /tmp/fstab.thin_jail
     state: absent
-

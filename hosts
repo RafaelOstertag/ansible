@@ -6,7 +6,6 @@ freebsd_servers_dmz
 freebsd_servers_lan
 
 [freebsd_servers_lan]
-gizmo.kruemel.home
 viking.kruemel.home
 optimusprime.kruemel.home
 colossus.kruemel.home
@@ -26,10 +25,10 @@ freebsd32.virtual.kruemel.home
 odin.kruemel.home
 
 [lean_jail_servers]
-gizmo.kruemel.home
+colossus.kruemel.home
 
 [thin_jail_servers]
-gizmo.kruemel.home
+colossus.kruemel.home
 
 [prometheus_hosts]
 viking.kruemel.home

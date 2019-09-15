@@ -5,11 +5,11 @@
     path: /etc/hosts
     state: present
     regexp: '^192\.168\.100\.1\s+'
-    line: "192.168.100.1 jenkins.kruemel.home gizmo.kruemel.home"
+    line: "192.168.100.1 gizmo.kruemel.home"
 
 - name: Add kruemel.home hosts to hosts file
   lineinfile:
     path: /etc/hosts
     state: present
     regexp: '^192\.168\.100\.2\s+'
-    line: "192.168.100.2 colossus.kruemel.home"
+    line: "192.168.100.2 jenkins.kruemel.home colossus.kruemel.home"

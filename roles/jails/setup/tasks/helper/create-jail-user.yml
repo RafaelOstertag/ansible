@@ -1,0 +1,15 @@
+---
+
+- name: Create group '{{ jail_user }}' in jail
+  shell: "pw -R {{ jail_root_directory }}/{{ jail_name }} group show {{ jail_user }} || pw -R {{ jail_root_directory }}/{{ jail_name }} group add -n {{ jail_user }} -g 5000"
+
+- name: Create user '{{ jail_user }}' in jail
+  shell: "pw -R {{ jail_root_directory }}/{{ jail_name }} user show {{ jail_user }} || pw -R {{ jail_root_directory }}/{{ jail_name }} user add -n {{ jail_user }} -u 5000 -c '{{ jail_user }} User' -g {{ jail_user }} -d /var/{{ jail_user }} -s {{ jail_shell }}"
+
+- name: Create jail's /var/{{ jail_user }}
+  file:
+    state: directory
+    path: "{{ jail_root_directory }}/{{ jail_name }}/var/{{ jail_user }}"
+    mode: 0700
+    owner: "5000"
+    group: "5000"

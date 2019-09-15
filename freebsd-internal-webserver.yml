@@ -2,7 +2,7 @@
 
 - name: FreeBSD Internal Webserver
   hosts:
-    - gizmo.kruemel.home
+    - colossus.kruemel.home
   force_handlers: true
   user: root
   roles:

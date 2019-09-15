@@ -2,7 +2,6 @@
 
 - name: FreeBSD rsync Servers
   hosts:
-    - gizmo.kruemel.home
     - colossus.kruemel.home
   force_handlers: true
   user: root

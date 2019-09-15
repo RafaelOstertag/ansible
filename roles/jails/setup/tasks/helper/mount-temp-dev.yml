@@ -1,0 +1,23 @@
+---
+
+- name: Jail Running?
+  command: "jls -j {{ jail_name }}"
+  ignore_errors: true
+  register: jail_running
+
+- name: Create temporary fstab
+  when: "jail_running.rc == 1"
+  file:
+    path: /tmp/fstab.jail
+    state: touch
+
+# This is required to make pkgng work. Without that, it will complain that there is no
+# /dev/null when the jail is not running
+- name: Mount devfs in thin-base
+  when: "jail_running.rc == 1"
+  mount:
+    fstype: devfs
+    src: devfs
+    path: "{{ jail_root_directory }}/{{ jail_name }}/dev"
+    fstab: /tmp/fstab.jail
+    state: mounted

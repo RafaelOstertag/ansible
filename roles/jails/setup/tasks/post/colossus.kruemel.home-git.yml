@@ -1,0 +1,37 @@
+---
+
+- name: Mount jail /dev
+  include_tasks: helper/mount-temp-dev.yml
+
+- name: Install git in {{ jail_name }} jail
+  pkgng:
+    name: git
+    state: present
+    chroot: "{{ jail_root_directory }}/{{ jail_name }}"
+
+- name: Unmount jail /dev
+  include_tasks: helper/umount-temp-dev.yml
+
+- name: Enable sshd
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
+    state: present
+    regexp: "^sshd_enable="
+    line: 'sshd_enable="YES"'
+    create: yes
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Make sshd listen on port 7777
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/ssh/sshd_config"
+    state: present
+    regexp: "^Port[\\s]+"
+    line: "Port 7777"
+
+- name: Create jail user
+  include_tasks: helper/create-jail-user.yml
+  vars:
+    jail_user: "{{ jail_name }}"
+    jail_shell: "/usr/loca/bin/git-shell"

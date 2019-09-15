@@ -12,4 +12,6 @@
     path: /etc/hosts
     state: present
     regexp: '^192\.168\.100\.2\s+'
-    line: "192.168.100.2 jenkins.kruemel.home colossus.kruemel.home"
+    # Always keep colossus in front, so that smtp-1 resolves to
+    # colossus and dkim is working
+    line: "192.168.100.2 colossus.kruemel.home jenkins.kruemel.home"

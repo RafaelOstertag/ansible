@@ -7,4 +7,5 @@
     - optimusprime.kruemel.home
     - viking.kruemel.home
   roles:
+    - dns/bind
     - dns/internal

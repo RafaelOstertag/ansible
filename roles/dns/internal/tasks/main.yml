@@ -1,8 +1,5 @@
 ---
 
-- name: Install bind
-  include_tasks: bind.yml
-
 - name: Common configuration
   include_tasks: common.yml
 

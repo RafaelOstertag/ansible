@@ -1,6 +1,0 @@
----
-
-- name: Restart FreeBSD bind
-  service:
-    name: named
-    state: restarted

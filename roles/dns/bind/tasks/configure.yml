@@ -1,0 +1,9 @@
+---
+
+- name: Create bind dump directory
+  file:
+    state: directory
+    path: /var/named
+    owner: bind
+    group: bind
+    mode: 0700

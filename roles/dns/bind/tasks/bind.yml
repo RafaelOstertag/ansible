@@ -7,14 +7,6 @@
   notify:
     - Restart FreeBSD bind
 
-- name: Create /usr/local/etc/rc.conf.d
-  file:
-    path: /usr/local/etc/rc.conf.d
-    state: directory
-    mode: 0755
-    owner: root
-    group: wheel
-
 - name: Enable bind
   copy:
     src: rc.conf.d/named

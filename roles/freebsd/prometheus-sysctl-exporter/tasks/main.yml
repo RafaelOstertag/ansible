@@ -1,0 +1,10 @@
+---
+
+- name: Enable FreeBSD prometheus exporter
+  lineinfile:
+    path: /etc/inetd.conf
+    state: present
+    regexp: "^prom-sysctl\\s+stream\\s+tcp\\s+"
+    line: "prom-sysctl    stream  tcp     nowait  nobody  /usr/sbin/prometheus_sysctl_exporter    prometheus_sysctl_exporter -dgh"
+  notify:
+    - Restart FreeBSD inetd

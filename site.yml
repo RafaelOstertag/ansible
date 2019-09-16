@@ -10,7 +10,7 @@
 - import_playbook: freebsd-lean-jails.yml
 - import_playbook: freebsd-nagios-server.yml
 - import_playbook: freebsd-openvpn-servers.yml
-- import_playbook: freebsd-prometheus-exporters.yml
+- import_playbook: prometheus-exporters.yml
 - import_playbook: freebsd-prometheus-servers.yml
 - import_playbook: freebsd-rsync-servers.yml
 - import_playbook: freebsd-servers.yml

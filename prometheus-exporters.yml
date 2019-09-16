@@ -1,6 +1,6 @@
 ---
 
-- name: FreeBSD Prometheus Exporters
+- name: Prometheus Exporters
   user: root
   force_handlers: true
   hosts:
@@ -10,4 +10,6 @@
     - include_role:
         name: prometheus/node-exporter
       when: "ansible_distribution == 'FreeBSD'"
-
+    - import_role:
+        name: freebsd/prometheus-sysctl-exporter
+      when: "ansible_distribution == 'FreeBSD'"

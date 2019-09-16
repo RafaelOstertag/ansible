@@ -10,6 +10,7 @@ bayes_ignore_header X-Spam-Flag
 bayes_ignore_header X-Spam-Status
 
 dns_available yes
+dns_server 127.0.0.1
 
 loadplugin Mail::SpamAssassin::Plugin::Shortcircuit
 

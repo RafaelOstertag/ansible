@@ -9,6 +9,11 @@
 - name: ClamAV
   include_tasks: clamav.yml
 
+# This is used so that we don't hit a limit when querying
+# block lists with spamassassin
+- name: Unbound
+  include_tasks: unbound.yml
+
 - name: Spamassassin
   include_tasks: spamassassin.yml
 

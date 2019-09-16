@@ -1,0 +1,19 @@
+---
+
+- name: Install unbound
+  pkgng:
+    name: unbound
+    state: present
+
+- name: Enable unbound
+  copy:
+    src: rc.conf.d/unbound
+    dest: /usr/local/etc/rc.conf.d/
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Start unbound
+  service:
+    name: unbound
+    state: started

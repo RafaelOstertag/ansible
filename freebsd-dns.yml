@@ -9,3 +9,6 @@
   roles:
     - dns/bind
     - dns/internal
+    - name: dns/fetch-root-zone
+      tags:
+        - root-zone

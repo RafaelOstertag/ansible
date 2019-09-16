@@ -1,0 +1,12 @@
+---
+
+- name: Fetch root zone file
+  get_url:
+    dest: /usr/local/etc/namedb/named.root
+    url: ftp://FTP.INTERNIC.NET/domain/named.cache
+    force: yes
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD bind

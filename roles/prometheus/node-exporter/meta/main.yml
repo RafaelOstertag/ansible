@@ -1,5 +1,0 @@
----
-
-dependencies:
-  - role: common/ca-guengel.ch
-  - role: freebsd/configuration-directories

@@ -1,12 +1,17 @@
 ---
 
-- name: Create rc.conf.d directory
+- name: Create rc.conf.d directories
   file:
-    path: /usr/local/etc/rc.conf.d
+    path: "{{ conf_dir }}"
     state: directory
     mode: 0755
     owner: root
     group: wheel
+  loop:
+    - /usr/local/etc/rc.conf.d
+    - /etc/rc.conf.d
+  loop_control:
+    loop_var: conf_dir
 
 - name: Create syslog snippets dir
   file:

@@ -11,5 +11,5 @@
         name: prometheus/node-exporter
       when: "ansible_distribution == 'FreeBSD'"
     - import_role:
-        name: freebsd/prometheus-sysctl-exporter
+        name: prometheus/prometheus-sysctl-exporter
       when: "ansible_distribution == 'FreeBSD'"

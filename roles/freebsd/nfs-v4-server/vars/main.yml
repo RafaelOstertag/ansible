@@ -6,3 +6,4 @@ nfs_server_services:
   - rpcbind
   - lockd
   - statd
+  - mountd

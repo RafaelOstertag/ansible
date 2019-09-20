@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD dhcpd
+  service:
+    name: isc-dhcpd
+    state: restarted

@@ -1,0 +1,11 @@
+---
+
+- name: Copy dhcpd configuration
+  copy:
+    src: dhcpd.conf
+    dest: /usr/local/etc/
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD dhcpd

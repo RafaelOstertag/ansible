@@ -1,0 +1,10 @@
+---
+
+- name: FreeBSD DHCP Servers AP
+  user: root
+  force_handlers: true
+  hosts:
+    - yayap.dmz.kruemel.home
+  roles:
+    - dhcp/install-dhcpd
+    - dhcp/wlan

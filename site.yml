@@ -18,6 +18,7 @@
 - import_playbook: freebsd-poudriere-hosts.yml
 - import_playbook: freebsd-user-server.yml
 - import_playbook: freebsd-nfsv4-servers.yml
+- import_playbook: freebsd-wlan-ap.yml
 
 - import_playbook: openbsd-gateway.yml
 - import_playbook: openbsd-servers.yml

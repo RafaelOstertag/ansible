@@ -13,3 +13,13 @@
     - localhost-reverse.db
   notify:
     - Restart FreeBSD bind
+
+- name: Rndc key
+  template:
+    src: "rndc.conf"
+    dest: /usr/local/etc/namedb/rndc.conf
+    mode: 0640
+    owner: root
+    group: bind
+  notify:
+    - Restart FreeBSD bind

@@ -1,7 +1,7 @@
 ---
 
 - name: Install slave configuration
-  copy:
+  template:
     src: slave/named.conf
     dest: /usr/local/etc/namedb/named.conf
     mode: 0640

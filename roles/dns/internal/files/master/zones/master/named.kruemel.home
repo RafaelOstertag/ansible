@@ -1,7 +1,8 @@
 ; Maintained by Ansible
+$ORIGIN kruemel.home.
 $TTL 1d
 @	IN SOA	optimusprime.kruemel.home. postmaster.kruemel.home. (
-				201909153 ; serial
+				201909213 ; serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire
@@ -49,3 +50,8 @@ odin-sc			IN		A		192.168.100.253
 _nfsv4idmapdomain	IN	TXT		"kruemel.home"
 ; freebsd pkg server
 _http._tcp.pkg		IN	SRV		10 1 80 colossus.kruemel.home.
+
+wlan				IN		NS		yayap.dmz.kruemel.home.
+vpn				IN		NS		yayap.dmz.kruemel.home.
+yayap.dmz			IN		A		192.168.103.2
+						AAAA		fd3e:be3e:ec34:1::2

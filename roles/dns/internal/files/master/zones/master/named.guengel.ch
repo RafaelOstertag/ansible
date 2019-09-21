@@ -1,7 +1,8 @@
 ; Maintained by Ansible
+$ORIGIN guengel.ch.
 $TTL 6h	; 6 hours
 @	IN SOA	optimusprime.guengel.ch. postmaster.guengel.ch. (
-				201909151; serial
+				201909210; serial
 				3h	; refresh
 				1h	; retry
 				1w	; expire

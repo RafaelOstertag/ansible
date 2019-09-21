@@ -1,5 +1,11 @@
 ---
 
+# This is used to fetch via https
+- name: Install ca_root_nss
+  pkgng:
+    name: ca_root_nss
+    state: present
+
 - name: Fetch bind keys file
   get_url:
     dest: /usr/local/etc/namedb/bind.keys

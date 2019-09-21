@@ -1,0 +1,15 @@
+---
+
+- name: Copy common master zone files
+  copy:
+    src: "common/zones/master/{{ item }}"
+    dest: /usr/local/etc/namedb/master/
+    mode: 0644
+    owner: root
+    group: bind
+  loop:
+    - empty.db
+    - localhost-forward.db
+    - localhost-reverse.db
+  notify:
+    - Restart FreeBSD bind

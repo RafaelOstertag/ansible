@@ -1,0 +1,11 @@
+$ORIGIN 102.168.192.in-addr.arpa.
+$TTL 1d
+@	IN	SOA	yayap.dmz.kruemel.home.	postmaster.kruemel.home. (
+	201102201
+	3h
+	1h
+	1w
+	1h )
+	IN	NS	yayap.dmz.kruemel.home.
+1	IN	PTR	yayap.vpn.kruemel.home.
+$GENERATE 2-254	$	IN	PTR	vpn-client-$.vpn.kruemel.home.

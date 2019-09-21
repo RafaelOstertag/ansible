@@ -1,0 +1,7 @@
+---
+
+- name: Common configuration
+  include_tasks: common.yml
+
+- name: Wlan Master
+  include_tasks: master.yml

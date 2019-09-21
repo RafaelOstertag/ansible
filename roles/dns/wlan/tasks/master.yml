@@ -1,0 +1,26 @@
+---
+
+- name: Install configuration
+  template:
+    src: named.conf
+    dest: /usr/local/etc/namedb/named.conf
+    mode: 0640
+    owner: root
+    group: bind
+  notify:
+    - Restart FreeBSD bind
+
+- name: Install zones
+  copy:
+    src: "zones/master/{{ item }}"
+    dest: "/usr/local/etc/namedb/master/{{ item }}"
+    mode: 0640
+    owner: root
+    group: bind
+  loop:
+    - 101.168.192.in-addr.arpa
+    - 102.168.192.in-addr.arpa
+    - vpn.kruemel.home
+    - wlan.kruemel.home
+  notify:
+    - Restart FreeBSD bind

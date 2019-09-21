@@ -1,10 +1,20 @@
 ---
 
-- name: FreeBSD DHCP Servers AP
+- name: FreeBSD Wlan Acces Points
   user: root
   force_handlers: true
   hosts:
     - yayap.dmz.kruemel.home
   roles:
-    - dhcp/install-dhcpd
-    - dhcp/wlan
+    - name: dhcp/install-dhcpd
+      tags:
+        - dhcp
+    - name: dhcp/wlan
+      tags:
+        - dhcp
+    - name: dns/bind
+      tags:
+        - dns
+    - name: dns/wlan
+      tags:
+        - dns

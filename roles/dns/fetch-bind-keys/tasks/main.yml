@@ -1,0 +1,12 @@
+---
+
+- name: Fetch bind keys file
+  get_url:
+    dest: /usr/local/etc/namedb/bind.keys
+    url: https://downloads.isc.org/isc/bind9/keys/9.11/bind.keys.v9_11
+    force: yes
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD bind

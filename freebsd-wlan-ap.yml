@@ -12,7 +12,7 @@
     - name: dhcp/wlan
       tags:
         - dhcp
-    - name: dns/bind
+    - name: dns/install-bind
       tags:
         - dns
     - name: dns/wlan

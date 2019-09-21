@@ -7,7 +7,7 @@
     - optimusprime.kruemel.home
     - viking.kruemel.home
   roles:
-    - dns/bind
+    - dns/install-bind
     - dns/internal
     - name: dns/fetch-root-zone
       tags:

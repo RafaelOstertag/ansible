@@ -14,6 +14,26 @@
   notify:
     - Restart FreeBSD bind
 
+- name: Copy common master/slave configuration
+  template:
+    src: "common/common.conf"
+    dest: /usr/local/etc/namedb/common.conf
+    mode: 0640
+    owner: root
+    group: bind
+  notify:
+    - Restart FreeBSD bind
+
+- name: Copy common master/slave zone configuration
+  copy:
+    src: "common/common_zones.conf"
+    dest: /usr/local/etc/namedb/common_zones.conf
+    mode: 0640
+    owner: root
+    group: bind
+  notify:
+    - Restart FreeBSD bind
+
 - name: Rndc key
   template:
     src: "rndc.conf"

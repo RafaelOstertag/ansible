@@ -1,15 +1,5 @@
 ---
 
-- name: Install master configuration
-  template:
-    src: master/named.conf
-    dest: /usr/local/etc/namedb/named.conf
-    mode: 0640
-    owner: root
-    group: bind
-  notify:
-    - Restart FreeBSD bind
-
 - name: Install master zones
   copy:
     src: "master/zones/master/{{ item }}"
@@ -40,5 +30,16 @@
   loop:
     - named.dhcp.kruemel.home
     - named.dhcp.reverse
+  notify:
+    - Restart FreeBSD bind
+
+- name: Install master configuration
+  template:
+    src: master/named.conf
+    dest: /usr/local/etc/namedb/named.conf
+    mode: 0640
+    owner: root
+    group: bind
+    validate: named-checkconf %s
   notify:
     - Restart FreeBSD bind

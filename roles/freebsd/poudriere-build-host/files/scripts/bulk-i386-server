@@ -6,5 +6,5 @@ else
 	poudriere bulk -j fb12-i386 -z server -p default -f $HOME/poudriere/fb-server.list
 fi
 
-/root/poudriere/syncpackages.sh
+# /root/poudriere/syncpackages.sh
 

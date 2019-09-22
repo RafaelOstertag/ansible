@@ -1,7 +1,7 @@
 ---
 
 - name: FreeBSD Poudriere Hosts
-  hosts: odin.kruemel.home
+  hosts: colossus.kruemel.home
   force_handlers: true
   user: root
   roles:

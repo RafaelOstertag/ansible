@@ -1,21 +1,21 @@
 ; Maintained by Ansible
 $ORIGIN dmz.kruemel.home.
 $TTL 6h
-@       IN SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                                201909210 ; Serial
-                                3h      ; refresh
-                                1h      ; retry
-                                1w      ; expire
-                                1h      ; minimum
-                                )
+@               IN	SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
+           		201909220 ; Serial
+			1d        ; Refresh	
+	   		1h        ; Retry
+	   		1w        ; Expire
+	   		1h	  ; Negative Cache TTL	
+           		)
                 IN      NS      optimusprime.kruemel.home.
-                IN      NS      viking.kruemel.home.
+                	NS      viking.kruemel.home.
                         MX      10 colossus.kruemel.home.
-gargoyle	IN	A	192.168.103.1
-			AAAA	fd3e:be3e:ec34:1::1
-			TXT	"OpenBSD Firewall (DMZ)"
-			MX	10 colossus.kruemel.home.
-yayap		IN	A	192.168.103.2
-			AAAA	fd3e:be3e:ec34:1::2
-			TXT	"OpenBSD WLAN/VPN/SSH Server"
-			MX	10 colossus.kruemel.home.
+gargoyle        IN      A       192.168.103.1
+                        AAAA    fd3e:be3e:ec34:1::1
+                        TXT     "OpenBSD Firewall (DMZ)"
+                        MX      10 colossus.kruemel.home.
+yayap           IN      A       192.168.103.2
+                        AAAA    fd3e:be3e:ec34:1::2
+                        TXT     "OpenBSD WLAN/VPN/SSH Server"
+                        MX      10 colossus.kruemel.home.

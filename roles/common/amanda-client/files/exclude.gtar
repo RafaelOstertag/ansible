@@ -1,5 +1,5 @@
-./account
 ./amanda
+./db/amanda
 ./dev
 ./imap/socket
 ./local/var/amanda
@@ -16,4 +16,3 @@
 ./system
 ./tmp
 ./var/account
-./db/amanda

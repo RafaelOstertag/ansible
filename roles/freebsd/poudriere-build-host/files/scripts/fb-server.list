@@ -57,6 +57,7 @@ net/rsync
 net/samba48
 net/unison240@nox11
 ports-mgmt/pkg
+ports-mgmt/poudriere
 security/ca_root_nss
 security/clamav
 security/clamav-milter

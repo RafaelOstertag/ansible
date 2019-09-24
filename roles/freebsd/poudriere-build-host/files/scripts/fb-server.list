@@ -75,6 +75,7 @@ sysutils/ansible
 sysutils/coreutils
 sysutils/freeipmi
 sysutils/goaccess
+sysutils/grub2-bhyve
 sysutils/ipmitool
 sysutils/node_exporter
 sysutils/rundeck

@@ -11,7 +11,7 @@
   copy:
     src: rc.conf.d/nslcd
     dest: /usr/local/etc/rc.conf.d/
-    mode: 644
+    mode: 0644
     owner: root
     group: wheel
   notify:

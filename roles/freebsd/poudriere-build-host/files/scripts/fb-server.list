@@ -81,6 +81,7 @@ sysutils/node_exporter
 sysutils/rundeck
 sysutils/smartmontools
 sysutils/tmux
+sysutils/vm-bhyve
 textproc/asciidoc
 www/apache24
 www/cgi-lib

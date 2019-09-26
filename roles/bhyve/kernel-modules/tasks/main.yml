@@ -1,0 +1,8 @@
+---
+
+- name: Add kernel modules
+  lineinfile:
+      path: /etc/rc.conf
+      state: present
+      regexp: "^kld_list="
+      line: 'kld_list="nmdm vmm"'

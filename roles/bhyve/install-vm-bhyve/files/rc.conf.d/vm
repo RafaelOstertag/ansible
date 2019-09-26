@@ -1,0 +1,2 @@
+vm_enable="YES"
+vm_dir="zfs:zroot/bhyve"

@@ -1,0 +1,10 @@
+---
+
+- name: FreeBSD Bhyve hosts
+  user: root
+  force_handlers: true
+  hosts:
+    - colossus.kruemel.home
+  roles:
+    - bhyve/kernel-modules
+    - bhyve/install-vm-bhyve

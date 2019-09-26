@@ -1,0 +1,14 @@
+---
+
+- name: Install vm
+  pkgng:
+    name: vm-bhyve
+    state: present
+
+- name: Enable vm
+  copy:
+    src: rc.conf.d/vm
+    dest: /usr/local/etc/rc.d/vm
+    mode: 0644
+    owner: root
+    group: wheel

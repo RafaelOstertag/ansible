@@ -1,0 +1,4 @@
+vm_enable="YES"
+vm_dir="zfs:zroot/bhyve"
+vm_list="{{ bhyve_autostart_vms | join(' ') }}"
+vm_delay="10"

@@ -2,26 +2,20 @@
 # This file is maintained by ansible
 #
 00:0d:b9:34:0d:2c	gargoyle
-00:0d:b9:34:0d:2d	gargoyle-inet
-00:0d:b9:34:0d:2e	gargoyle-dmz
-00:d8:61:46:58:a0   colossus
-00:0d:b9:34:10:90	yayap
-00:0d:b9:34:10:91	yayap-re1
-00:0d:b9:34:10:92	yayap-re2
-04:f0:21:0a:62:96	yayap-athn0
-00:0d:b9:52:e0:c4	viking
-00:0d:b9:52:e0:c5   viking-igb1
-00:0d:b9:52:e0:c6   viking-igb2
+00:0d:b9:34:0d:2d       gargoyle-inet
+00:0d:b9:34:0d:2e       gargoyle-dmz
+00:d8:61:46:58:a0   	colossus
+00:0d:b9:34:10:90       yayap
+00:0d:b9:34:10:91       yayap-re1
+00:0d:b9:34:10:92       yayap-re2
+04:f0:21:0a:62:96       yayap-athn0
+00:0d:b9:52:e0:c4       viking
+00:0d:b9:52:e0:c5   	viking-igb1
+00:0d:b9:52:e0:c6   	viking-igb2
 00:0d:b9:52:e0:40	optimusprime
-00:0d:b9:52:e0:41   optimusprime-igb1
-00:0d:b9:52:e0:42   optimusprime-igb2
-00:25:90:13:b6:0d	odin
-00:25:90:13:b6:0e	odin-sc
-38:94:ed:15:c7:a5   artery
-# Virtual Machines
-08:00:27:d7:26:78	dash
-08:00:27:af:69:06	abraxas
-08:00:27:ab:6e:ca	aurora
-08:00:27:d6:9d:b5	merlin
-08:00:27:1d:c7:f4	freebsd32
-08:00:27:bf:c6:11	phoebe
+00:0d:b9:52:e0:41   	optimusprime-igb1
+00:0d:b9:52:e0:42   	optimusprime-igb2
+00:25:90:13:b6:0d       odin
+00:25:90:13:b6:0e       odin-sc
+38:94:ed:15:c7:a5   	artery
+

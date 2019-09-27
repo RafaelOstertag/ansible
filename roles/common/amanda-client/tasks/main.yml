@@ -20,12 +20,6 @@
     group: amanda
     mode: 0640
 
-- name: Remove old amanada security file FreeBSD
-  when: 'not amanda_server and ansible_distribution == "FreeBSD"'
-  file:
-    path: /usr/local/etc/amanda/security.conf
-    state: absent
-
 - name: Touch amanda-security file OpenBSD
   when: 'not amanda_server and ansible_distribution == "OpenBSD"'
   file:

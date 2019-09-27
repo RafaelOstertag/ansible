@@ -1,9 +1,7 @@
 ---
 
 - name: Install package
-  openbsd_pkg: name={{ item }} state=present
-  with_items:
-    - login_ldap
+  openbsd_pkg: name=login_ldap state=present
 
 - name: YP default domain
   copy: src=defaultdomain dest=/etc/defaultdomain

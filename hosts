@@ -78,6 +78,7 @@ dash.virtual.kruemel.home ansible_python_interpreter=/usr/bin/python
 dash.virtual.kruemel.home  ansible_python_interpreter=/usr/bin/python
 merlin.virtual.kruemel.home
 abraxas.virtual.kruemel.home
+aurora.virtual.kruemel.home
 
 ;
 ; EC2 instances

@@ -1,13 +1,4 @@
 ---
-- name: Create /usr/local/var/amanda
-  when: 'not amanda_server'
-  file:
-    path: /usr/local/var/amanda
-    mode: 0750
-    owner: amanda
-    state: directory
-  # user might not exist yet
-  ignore_errors: true
 
 - name: Create /var/db/amanda
   when: 'not amanda_server'
@@ -22,25 +13,7 @@
   when: 'not amanda_server'
   copy:
     src: amanda/amandahosts.client
-    dest: /usr/local/var/amanda/.amandahosts
-    mode: 0600
-    owner: amanda
-  ignore_errors: true
-
-- name: Copy amanda hosts to amanda clients
-  when: 'not amanda_server'
-  copy:
-    src: amanda/amandahosts.client
     dest: /var/db/amanda/.amandahosts
     mode: 0600
     owner: amanda
   ignore_errors: true
-
-- name: Copy amanda include to virtual hosts
-  when: "not amanda_server and 'freebsd_virtual_hosts' in group_names"
-  copy:
-    src: dot.amanda-wks-include.gtar
-    dest: /.amanda-wks-include.gtar
-    mode: 0644
-    owner: amanda
-    group: wheel

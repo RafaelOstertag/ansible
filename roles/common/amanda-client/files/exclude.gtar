@@ -7,7 +7,6 @@
 ./mnt
 ./obj
 ./ports
-./poudriere
 ./proc
 ./run
 ./spool/nagios/checkresults

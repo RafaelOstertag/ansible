@@ -88,7 +88,8 @@
           - gettext-tools
           - git
           - gmake
-          - jdk
+          - jdk-1.8.0.202v0
+          - jdk-11.0.2.9.3p0v0
           - libtool
           - libxslt
           - pcre

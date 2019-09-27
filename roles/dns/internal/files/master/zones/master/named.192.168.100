@@ -2,7 +2,7 @@
 $ORIGIN 100.168.192.in-addr.arpa.
 $TTL 1d
 @		IN	SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-           		201909220 ; serial
+           		201909270 ; serial
 			1d        ; Refresh
 			1h        ; Retry
 			1w        ; Expire
@@ -24,8 +24,6 @@ $TTL 1d
 200             IN      PTR     dash.virtual.kruemel.home.
 203             IN      PTR     abraxas.virtual.kruemel.home.
 216             IN      PTR     aurora.virtual.kruemel.home.
-222             IN      PTR     phoebe.virtual.kruemel.home.
-225             IN      PTR     freebsd32.virtual.kruemel.home.
 230             IN      PTR     merlin.virtual.kruemel.home.
 
 ; Generated entries for dhcp client

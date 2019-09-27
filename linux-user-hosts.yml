@@ -8,5 +8,6 @@
     - common/etcfiles
     - common/motd
     - common/ssh-keys
+    - common/ssh-config
     - common/amanda-client
 

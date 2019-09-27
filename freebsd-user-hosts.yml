@@ -10,6 +10,10 @@
     - import_role:
         name: common/motd
     - import_role:
+        name: common/ssh-keys
+    - import_role:
+        name: common/ssh-config
+    - import_role:
         name: freebsd/resolvconf
     - import_role:
         name: freebsd/openldap-client-conf
@@ -248,8 +252,6 @@
         name: freebsd/guengel-pkgrepo
       tags:
         - repo
-    - import_role:
-        name: common/ssh-keys
     - import_role:
         name: freebsd/sudo
     - import_role:

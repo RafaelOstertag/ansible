@@ -9,6 +9,7 @@
     - common/motd
     - common/ssh-keys
     - common/amanda-client
+    - common/ssh-config
     - openbsd/amanda-hosts
     - openbsd/amanda-enable
     - openbsd/setup-pkg-path

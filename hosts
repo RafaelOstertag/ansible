@@ -15,14 +15,9 @@ yayap.dmz.kruemel.home
 
 [freebsd_user_hosts:children]
 freebsd_virtual_hosts
-freebsd_workstations
 
 [freebsd_virtual_hosts]
 aurora.virtual.kruemel.home
-freebsd32.virtual.kruemel.home
-
-[freebsd_workstations]
-odin.kruemel.home
 
 [lean_jail_servers]
 colossus.kruemel.home
@@ -52,9 +47,29 @@ openbsd_servers_lan
 [openbsd_servers_lan]
 gargoyle.kruemel.home
 
+[openbsd_user_hosts:children]
+openbsd_virtual_hosts
+
 [openbsd_virtual_hosts]
-phoebe.virtual.kruemel.home
 merlin.virtual.kruemel.home
+
+;
+; NetBSD
+;
+[netbsd_user_hosts:children]
+netbsd_virtual_hosts
+
+[netbsd_virtual_hosts]
+abraxas.virtual.kruemel.home
+
+;
+; Linux
+;
+[linux_user_hosts:children]
+linux_virtual_hosts
+
+[linux_virtual_hosts]
+dash.virtual.kruemel.home ansible_python_interpreter=/usr/bin/python
 
 ;
 ; Jenkins Slaves
@@ -62,10 +77,7 @@ merlin.virtual.kruemel.home
 [jenkins_slaves]
 dash.virtual.kruemel.home  ansible_python_interpreter=/usr/bin/python
 merlin.virtual.kruemel.home
-odin.kruemel.home
 abraxas.virtual.kruemel.home
-freebsd32.virtual.kruemel.home
-phoebe.virtual.kruemel.home
 
 ;
 ; EC2 instances
@@ -87,6 +99,3 @@ ec2-35-156-183-108.eu-central-1.compute.amazonaws.com hostname=db-1 public_ip=35
 
 [ec2_app]
 ec2-35-158-25-233.eu-central-1.compute.amazonaws.com hostname=app-1 public_ip=35.158.25.233
-
-[netbsd_user_hosts]
-abraxas.virtual.kruemel.home

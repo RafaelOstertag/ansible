@@ -1,6 +1,6 @@
 ---
 
-- name: FreeBSD Workstations
+- name: FreeBSD User Hosts
   hosts: freebsd_user_hosts
   force_handlers: true
   user: root

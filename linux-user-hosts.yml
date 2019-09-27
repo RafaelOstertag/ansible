@@ -1,0 +1,12 @@
+---
+
+- name: Linux User Hosts
+  hosts: linux_user_hosts
+  force_handlers: true
+  user: root
+  roles:
+    - common/etcfiles
+    - common/motd
+    - common/ssh-keys
+    - common/amanda-client
+

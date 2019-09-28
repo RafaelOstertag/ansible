@@ -6,9 +6,9 @@
     state: present
 
 - name: Enable vm
-  copy:
+  template:
     src: rc.conf.d/vm
-    dest: /usr/local/etc/rc.d/vm
+    dest: /usr/local/etc/rc.conf.d/vm
     mode: 0644
     owner: root
     group: wheel

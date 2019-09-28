@@ -27,13 +27,15 @@ scrape_configs:
 
     static_configs:
     - targets: ['localhost:9090']
-      
+
 
   - job_name: 'os-stats'
     static_configs:
     - targets:
 {% for prometheus_host in prometheus_hosts %}
-{% if prometheus_host in groups['openbsd_prometheus_hosts'] %}
+{% if prometheus_host in groups['ec2'] %}
+        - {{ hostvars[prometheus_host].hostname }}:9100
+{% else %}
         - {{ prometheus_host }}:9100
 {% endif %}
 {% endfor %}

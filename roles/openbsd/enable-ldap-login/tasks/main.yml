@@ -6,6 +6,9 @@
 - name: YP default domain
   copy: src=defaultdomain dest=/etc/defaultdomain
 
+- name: Set domain name
+  shell: 'domainname `cat /etc/defaultdomain`'
+
 - name: Create yp directory
   file: dest=/etc/yp state=directory
 
@@ -13,7 +16,7 @@
   copy: src=yp.kruemel.home dest=/etc/yp/kruemel.home
 
 - name: ypldap.conf
-  template: src=ypldap.conf dest=/etc/ypldap.conf mode=600 owner=root
+  template: src=ypldap.conf dest=/etc/ypldap.conf mode=0600 owner=root
 
 - name: setup /etc/login.conf
   blockinfile:
@@ -40,3 +43,13 @@
     state: present
     line: "+:*::"
 
+- name: Start services
+  service:
+    name: "{{ service }}"
+    state: started
+  loop:
+    - portmap
+    - ypbind
+    - ypldap
+  loop_control:
+    loop_var: service

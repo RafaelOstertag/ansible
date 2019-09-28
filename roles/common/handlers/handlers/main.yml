@@ -20,6 +20,11 @@
     name: smtpd
     state: restarted
 
+- name: OpenBSD restart inetd
+  service:
+    name: smtpd
+    state: restarted
+
 - name: Restart sshd
   service:
     name: sshd

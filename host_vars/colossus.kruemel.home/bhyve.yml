@@ -4,3 +4,4 @@ bhyve_autostart_vms:
   - abraxas
   - merlin
   - dash
+  - aurora

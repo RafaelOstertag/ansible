@@ -1,0 +1,16 @@
+---
+
+- name: Enable inetd
+  copy:
+    src: rc.conf.d/inetd
+    dest: /etc/rc.conf.d/
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD inetd
+
+- name: Start inetd
+  service:
+    name: inetd
+    state: started

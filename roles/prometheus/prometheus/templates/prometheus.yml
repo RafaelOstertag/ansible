@@ -39,14 +39,4 @@ scrape_configs:
         - {{ prometheus_host }}:9100
 {% endif %}
 {% endfor %}
-  - job_name: 'freebsd-sysctl'
-    static_configs:
-      - targets:
-{% for prometheus_host in prometheus_hosts %}
-{% if prometheus_host in groups['ec2'] %}
-        - {{ hostvars[prometheus_host].hostname }}:9124
-{% endif %}
-{% if prometheus_host in groups['freebsd_prometheus_hosts'] %}
-        - {{ prometheus_host }}:9124
-{% endif %}
-{% endfor %}
+

@@ -2,7 +2,7 @@
 $ORIGIN kruemel.home.
 $TTL 1d
 @		       IN              SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-			               201909225 ; serial
+			               201909290 ; serial
                                        1d        ; Refresh
                                        1h        ; Retry
                                        1w        ; Expire
@@ -18,6 +18,10 @@ git                    IN              CNAME   colossus.kruemel.home.
 
 colossus               IN              A       192.168.100.2
                                        AAAA    fd3e:be3e:ec34:0::3
+
+harvester	       IN	       A       192.168.100.3
+		       		       AAAA    fd3e:be3e:ec34:0::6
+				       MX      10      colossus.kruemel.home.
 
 gargoyle               IN              A       192.168.100.254
                                        AAAA    fd3e:be3e:ec34:0::2

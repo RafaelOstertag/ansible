@@ -5,3 +5,4 @@ bhyve_autostart_vms:
   - merlin
   - dash
   - aurora
+  - harvester

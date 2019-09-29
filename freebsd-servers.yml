@@ -84,7 +84,7 @@
         name: freebsd/reusable/rcconf
       vars:
         rcvar: "syslogd_flags"
-        value: "-s -O syslog"
+        value: "-s"
       tags:
         - syslog
     - import_role:

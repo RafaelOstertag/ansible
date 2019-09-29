@@ -1,0 +1,45 @@
+---
+
+- name: Install configuration
+  template:
+    src: update-exim4.conf.conf
+    dest: /etc/exim4/update-exim4.conf.conf
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - Rebuild Linux exim4 configuration
+    - Restart Linux exim4
+
+- name: Install public key
+  copy:
+    src: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: /etc/exim4/exim.crt
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - Restart Linux exim4
+
+- name: Install private key
+  copy:
+    src: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: /etc/exim4/exim.key
+    mode: 0600
+    owner: Debian-exim
+    group: root
+  notify:
+    - Restart Linux exim4
+
+- name: Enable TLS
+  lineinfile:
+    path: /etc/exim4/exim4.conf.localmacros
+    regexp: '^MAIN_TLS_ENABLE\s+='
+    line: "MAIN_TLS_ENABLE = yes"
+    create: yes
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - Rebuild Linux exim4 configuration
+    - Restart Linux exim4

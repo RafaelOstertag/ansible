@@ -17,3 +17,4 @@
         - ssh
         - sshd
     - linux/amanda-host
+    - linux/exim4-nullhost

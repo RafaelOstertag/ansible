@@ -1,0 +1,9 @@
+---
+
+- name: Rebuild Linux exim4 configuration
+  command: /usr/sbin/update-exim4.conf
+
+- name: Restart Linux exim4
+  systemd:
+    name: exim4.service
+    state: restarted

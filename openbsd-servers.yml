@@ -31,3 +31,8 @@
     - openbsd/doas
     - openbsd/disable-sndio
     - common/agentsmith-certificate
+    - name: openbsd/graylog-client
+      tags:
+        - syslog
+        - graylog
+      

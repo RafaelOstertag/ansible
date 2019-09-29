@@ -1,0 +1,6 @@
+---
+
+- name: Restart OpenBSD syslog
+  service:
+    name: syslogd
+    state: restarted

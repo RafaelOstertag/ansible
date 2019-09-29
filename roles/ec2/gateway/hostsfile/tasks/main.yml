@@ -1,11 +1,5 @@
 ---
 
-- name: Remove gizmo.kruemel.home from hosts file
-  lineinfile:
-    path: /etc/hosts
-    state: absent
-    regexp: '^192\.168\.100\.1\s+'
-
 - name: Add kruemel.home hosts to hosts file
   lineinfile:
     path: /etc/hosts
@@ -14,3 +8,12 @@
     # Always keep colossus in front, so that smtp-1 resolves to
     # colossus and dkim is working
     line: "192.168.100.2 colossus.kruemel.home jenkins.kruemel.home"
+
+- name: Add harvester.kruemel.home host to hosts file
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    regexp: '^192\.168\.100\.3\s+'
+    # Always keep colossus in front, so that smtp-1 resolves to
+    # colossus and dkim is working
+    line: "192.168.100.3 harvester.kruemel.home"

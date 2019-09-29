@@ -16,7 +16,6 @@
     - common/etcfiles
     - common/motd
     - common/amanda-client
-    - openbsd/syspatch
     - openbsd/setup-pkg-path
     - openbsd/resolvconf
     - openbsd/setup-weekly

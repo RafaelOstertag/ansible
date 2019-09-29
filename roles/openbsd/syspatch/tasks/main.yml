@@ -1,6 +1,0 @@
----
-
-- name: Remove syspatch check
-  cron:
-    name: Syspatch check
-    state: absent

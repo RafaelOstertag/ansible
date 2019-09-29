@@ -15,7 +15,6 @@
     - openbsd/setup-pkg-path
     - openbsd/resolvconf
     - openbsd/setup-weekly
-    - openbsd/syspatch
     - openbsd/ntp
     - openbsd/ssl-mailserver
     - openbsd/mailserver

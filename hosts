@@ -65,17 +65,20 @@ abraxas.virtual.kruemel.home
 ;
 ; Linux
 ;
+[linux_servers]
+harvester.kruemel.home
+
 [linux_user_hosts:children]
 linux_virtual_hosts
 
 [linux_virtual_hosts]
-dash.virtual.kruemel.home ansible_python_interpreter=/usr/bin/python
+dash.virtual.kruemel.home
 
 ;
 ; Jenkins Slaves
 ;
 [jenkins_slaves]
-dash.virtual.kruemel.home  ansible_python_interpreter=/usr/bin/python
+dash.virtual.kruemel.home
 merlin.virtual.kruemel.home
 abraxas.virtual.kruemel.home
 aurora.virtual.kruemel.home

@@ -1,0 +1,21 @@
+---
+
+- name: Install amanda
+  apt:
+    name: amanda-client
+    state: present
+
+- name: Install .amandahosts
+  copy:
+    src: amanda/amandahosts.client
+    dest: /var/backups/.amandahosts
+    owner: backup
+    group: backup
+    mode: 0600
+
+- name: Update /etc/amanda-security.conf
+  lineinfile:
+    path: /etc/amanda-security.conf
+    state: present
+    regexp: '^amgtar:gnutar_path='
+    line: amgtar:gnutar_path=/usr/bin/tar

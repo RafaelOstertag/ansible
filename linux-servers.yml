@@ -1,0 +1,23 @@
+---
+
+- name: Linux Servers
+  hosts: linux_servers
+  force_handlers: true
+  user: root
+  tasks:
+    - import_role:
+        name: common/etcfiles
+    - import_role:
+        name: common/motd
+    - import_role:
+        name: common/ssh-keys
+      tags:
+        - ssh-keys
+        - ssh
+    - import_role:
+        name: common/ssh-config
+      tags:
+        - ssh
+        - sshd
+    - import_role:
+        name: linux/amanda-host

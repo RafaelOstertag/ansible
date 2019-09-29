@@ -1,0 +1,9 @@
+---
+
+- name: Linux Servers
+  hosts: linux_servers
+  force_handlers: true
+  user: root
+  roles:
+    - graylog-server
+    

@@ -9,5 +9,5 @@
     - common/motd
     - common/ssh-keys
     - common/ssh-config
-    - common/amanda-client
+    - linux/amanda-host
 

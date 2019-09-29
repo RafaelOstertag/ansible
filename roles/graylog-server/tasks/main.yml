@@ -1,0 +1,7 @@
+---
+
+- name: Install Packages
+  include_tasks: install-packages.yml
+
+- name: Configure packages
+  include_tasks: configure-packages.yml

@@ -1,0 +1,48 @@
+---
+
+- name: Configure elasticsearch cluster name
+  lineinfile:
+    path: /etc/elasticsearch/elasticsearch.yml
+    state: present
+    regexp: '^cluster\.name:'
+    line: 'cluster.name: graylog'
+  notify: Restart elasticsearch
+
+- name: Enable elasticsearch
+  systemd:
+    name: elasticsearch.service
+    daemon_reload: yes
+    enabled: yes
+
+- name: Set graylog root password
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^root_password_sha2\\s+="
+    line: "root_password_sha2 = {{ graylog_root_password_sha2 }}"
+  notify:
+    - Restart graylog
+
+- name: Set graylog password secret
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^password_secret\\s+="
+    line: "password_secret = {{ graylog_password_secret }}"
+  notify:
+    - Restart graylog
+
+- name: Set graylog mongo uri
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^mongodb_uri\\s+="
+    line: "mongodb_uri = {{ graylog_mongodb_uri }}"
+  notify:
+    - Restart graylog
+
+- name: Enable graylog server
+  systemd:
+    name: graylog-server.service
+    daemon_reload: yes
+    enabled: yes

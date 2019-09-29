@@ -1,0 +1,38 @@
+---
+
+- name: Install prerequisites
+  apt:
+    name:
+      - apt-transport-https
+      - default-jdk-headless
+      - uuid-runtime
+      - pwgen
+      - dirmngr
+    state: present
+
+- name: Add elasticsearch gpg key
+  apt_key:
+    state: present
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+- name: Add elasticsearch repo
+  apt_repository:
+    repo: "deb https://artifacts.elastic.co/packages/oss-6.x/apt stable main"
+    state: present
+
+- name: Install elasticsearch
+  apt:
+    name: elasticsearch-oss
+    state: present
+
+- name: Install graylog repository
+  apt:
+    deb: https://packages.graylog2.org/repo/packages/graylog-3.1-repository_latest.deb
+    state: present
+
+- name: Install graylog
+  apt:
+    update_cache: yes
+    name: graylog-server
+    state: present
+

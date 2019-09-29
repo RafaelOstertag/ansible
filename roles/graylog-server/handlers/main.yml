@@ -1,0 +1,11 @@
+---
+
+- name: Restart elasticsearch
+  systemd:
+    name: elasticsearch.service
+    state: restarted
+
+- name: Restart graylog
+  systemd:
+    name: graylog-server.service
+    state: restarted

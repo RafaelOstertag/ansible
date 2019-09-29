@@ -1,0 +1,52 @@
+---
+
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Create tls directory
+  file:
+    path: /etc/nginx/tls
+    state: directory
+    mode: 0750
+    owner: root
+    group: www-data
+
+- name: Copy public key
+  copy:
+    src: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: "/etc/nginx/tls/server.crt"
+    mode: 0644
+    owner: root
+    group: www-data
+  notify:
+    - Restart nginx
+
+- name: Copy public key
+  copy:
+    src: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: "/etc/nginx/tls/server.key"
+    mode: 0640
+    owner: root
+    group: www-data
+  notify:
+    - Restart nginx
+
+- name: Copy reverse proxy configuration
+  template:
+    src: nginx/graylog-reverseproxy.conf
+    dest: /etc/nginx/sites-available/graylog-reverseproxy.conf
+    mode: 0640
+    owner: root
+    group: www-data
+  notify:
+    - Restart nginx
+
+- name: Enable reverse proxy configuration
+  file:
+    src: /etc/nginx/sites-available/graylog-reverseproxy.conf
+    dest: /etc/nginx/sites-enabled/graylog-reverseproxy.conf
+    state: link
+  notify:
+    - Restart nginx

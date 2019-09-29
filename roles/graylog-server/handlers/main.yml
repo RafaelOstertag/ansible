@@ -9,3 +9,8 @@
   systemd:
     name: graylog-server.service
     state: restarted
+
+- name: Restart nginx
+  systemd:
+    name: nginx.service
+    state: restarted

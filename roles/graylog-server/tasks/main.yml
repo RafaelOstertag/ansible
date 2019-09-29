@@ -5,3 +5,6 @@
 
 - name: Configure packages
   include_tasks: configure-packages.yml
+
+- name: Reverse proxy
+  include_tasks: reverse-proxy.yml

@@ -3,7 +3,7 @@
 - name: Enable remote logging
   lineinfile:
     path: /etc/syslog.conf
-    regex: '^\*\.info.*@'
-    line: "*.info               @harvester.kruemel.home:5514"
+    regex: '^\*\.\*.*@'
+    line: "*.*          @harvester.kruemel.home:5514"
   notify:
     - Restart OpenBSD syslog

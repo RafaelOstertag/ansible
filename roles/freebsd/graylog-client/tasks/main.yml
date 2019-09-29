@@ -1,0 +1,11 @@
+---
+
+- name: Copy graylog syslogd config snippet
+  copy:
+    src: syslog.d/graylog.conf
+    dest: /usr/local/etc/syslog.d/graylog.conf
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD syslog

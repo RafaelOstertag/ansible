@@ -33,6 +33,18 @@
     - Terminate connection
     - Initiate connection
 
+- name: Setup logging
+  copy:
+    src: charon-logging.conf
+    dest: /usr/local/etc/strongswan.d/charon-logging.conf
+    mode: 0640
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD strongswan
+    - Terminate connection
+    - Initiate connection
+
 - name: Initiate connection upon startup
   lineinfile:
     path: /etc/rc.local

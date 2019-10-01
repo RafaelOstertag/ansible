@@ -1,0 +1,9 @@
+@ Ansible maintained
+#
+# Remember first match wins
+
+# Allow only whitelisted hosts
+sshd: /etc/sshd.whitelist : allow
+sshd: ALL : deny
+
+ALL: ALL : allow

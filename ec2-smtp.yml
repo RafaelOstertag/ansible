@@ -21,6 +21,11 @@
         - common
         - ssh
     - import_role:
+        name: ec2/common/ssh-whitelist
+      tags:
+        - common
+        - ssh
+    - import_role:
         name: ec2/gateway/ipsec
       tags:
         - vpn

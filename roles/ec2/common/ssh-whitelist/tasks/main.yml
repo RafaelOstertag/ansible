@@ -1,0 +1,18 @@
+---
+
+# Generate whitelist using admin_tools/ssh/whitelist.sh
+- name: Copy whitelist
+  copy:
+    src: sshd.whitelist
+    dest: /etc/sshd.whitelist
+    mode: 0640
+    owner: root
+    group: wheel
+
+- name: Copy hosts.allow
+  copy:
+    src: hosts.allow
+    dest: /etc/hosts.allow
+    mode: 0644
+    owner: root
+    group: wheel

@@ -16,6 +16,16 @@
     owner: root
     group: wheel
 
+- name: Fetch IP whitelist
+  get_url:
+    dest: /etc/ip-whitelist
+    url: http://www.ipdeny.com/ipblocks/data/countries/ch.zone
+    force: yes
+    mode: 0644
+    owner: root
+    group: wheel
+  when: "ansible_fqdn == 'yayap.dmz.kruemel.home'"
+
 - name: Copy common macros
   copy:
     src: firewall/pf/macros.conf

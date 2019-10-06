@@ -1,0 +1,21 @@
+# Module: apache
+# Docs: https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-module-apache.html
+
+- module: apache
+  # Access logs
+  access:
+    enabled: true
+
+    # Set custom paths for the log files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    var.paths:
+      - /var/log/httpd/*-access.log
+
+  # Error logs
+  error:
+    enabled: true
+
+    # Set custom paths for the log files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    var.paths:
+      - /var/log/httpd/*-error.log

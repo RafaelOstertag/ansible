@@ -1,14 +1,15 @@
 filebeat.inputs:
 - type: log
-  enabled: false
+  enabled: true
   paths:
-    - /var/log/httpd/*.log
+    - /var/log/nginx/*.log
+  fields:
+    logtype: web
     #- c:\programdata\elasticsearch\logs\*
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
   reload.enabled: false
   #reload.period: 10s
-tags: ["web"]
 output.logstash:
   hosts: ["harvester.kruemel.home:5044"]
   #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]

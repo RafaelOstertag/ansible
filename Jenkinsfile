@@ -7,9 +7,10 @@ pipeline {
         disableConcurrentBuilds()
         ansiColor('xterm')
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')
+        timestamps()
     }
 
-    parameters { 
+    parameters {
         booleanParam(name: 'RUN_PLAY', defaultValue: false, description: 'Run Playbooks')
     }
 
@@ -24,17 +25,17 @@ pipeline {
 for pb in *.yml
 do
   ansible-playbook -i hosts --syntax-check \$pb || exit 1
-done	
+done
 """
             }
         }
 
         stage("Run Server Playbooks") {
-            when { 
+            when {
                 allOf {
                     anyOf {
                         expression { return params.RUN_PLAY }
-                        triggeredBy 'TimerTrigger' 
+                        triggeredBy 'TimerTrigger'
                     }
                     branch 'master'
                 }

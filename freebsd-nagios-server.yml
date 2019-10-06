@@ -5,12 +5,21 @@
   force_handlers: true
   hosts:
     - optimusprime.kruemel.home
-  tasks:
-    - import_role:
-        name: nagios/server
+  roles:
+    - name: nagios/server
       tags:
         - nagios
-    - import_role:
-        name: nagios/webserver
+    - name: nagios/webserver
       tags:
         - webserver
+
+    - name: freebsd/filebeat
+      tags:
+        - logging
+        - graylog
+
+    - name: apache-filebeat-config
+      tags:
+        - logging
+        - graylog
+

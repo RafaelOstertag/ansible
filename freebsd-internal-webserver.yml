@@ -9,6 +9,7 @@
     - name: internal-webserver
       tags:
         - webserver
+        
     - name: freebsd/filebeat
       tags:
         - logging

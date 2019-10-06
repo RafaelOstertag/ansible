@@ -1,0 +1,30 @@
+---
+
+- name: Copy configuration
+  template:
+    src: filebeat.yml
+    dest: /usr/local/etc/filebeat/filebeat.yml
+    mode: 0640
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD filebeat
+
+- name: Copy apache module config
+  copy:
+    src: apache.yml
+    dest: /usr/local/etc/filebeat/modules.d/apache.yml
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD filebeat
+
+- name: Enable filebeat
+  copy:
+    src: rc.conf.d/filebeat
+    dest: /usr/local/etc/rc.conf.d/filebeat
+    mode: 0644
+    owner: root
+    group: wheel
+

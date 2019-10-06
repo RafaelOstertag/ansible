@@ -1,0 +1,7 @@
+---
+
+- name: Install filebeat
+  include_tasks: install-filebeat.yml
+
+- name: Create required directories
+  include_tasks: required-directories.yml

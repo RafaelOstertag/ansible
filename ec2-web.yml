@@ -99,6 +99,17 @@
       tags:
         - syslog
         - graylog
+    - import_role:
+        name: freebsd/filebeat
+      tags:
+        - logging
+        - graylog
+
+    - import_role:
+        name: ec2/web/nginx-filebeat-config
+      tags:
+        - logging
+        - graylog
     # Leave this here, so it will pick up when we change the hostname
     - import_role:
         name: common/motd

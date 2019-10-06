@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD filebeat
+  service:
+    name: filebeat
+    state: restarted

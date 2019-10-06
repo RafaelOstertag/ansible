@@ -1,0 +1,12 @@
+---
+
+- name: Install gnutar
+  pkgng:
+    name: gtar
+    state: present
+
+- name: Unpack filebeat
+  unarchive:
+    remote_src: no
+    src: filebeat.tgz
+    dest: /

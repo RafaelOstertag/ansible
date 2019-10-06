@@ -1,0 +1,14 @@
+---
+
+- name: Create directories
+  file:
+    path: "{{ path }}"
+    state: directory
+    mode: 0750
+    owner: root
+    group: wheel
+  loop:
+    - /var/log/filebeat
+    - /var/cache/filebeat
+  loop_control:
+    loop_var: path

@@ -7,4 +7,15 @@
   user: root
   roles:
     - name: internal-webserver
+      tags:
+        - webserver
+    - name: freebsd/filebeat
+      tags:
+        - logging
+        - graylog
+
+    - name: apache-filebeat-config
+      tags:
+        - logging
+        - graylog
 

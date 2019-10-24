@@ -130,3 +130,10 @@
             line: "Libs: -L${libdir} -largon2"
             state: present
 
+    - name: Install guengel.ch certificate
+      when: "ansible_distribution == 'FreeBSD'"
+      import_role:
+        name: freebsd/javacerts
+      tags:
+        - javacerts
+

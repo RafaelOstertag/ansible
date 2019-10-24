@@ -5,7 +5,12 @@
     path: /usr/local/bin/keytool
   register: keytool
 
-- name: Install guengel.ch in java certs
+- name: Is Java 8 keystore available
+  stat:
+    path: /usr/local/openjdk8/jre/lib/security/cacerts
+  register: java8_keystore
+
+- name: Install guengel.ch in java 8 keystore certs
   java_cert:
     cert_alias: guengel.ch
     cert_path: /etc/ssl/guengel.ch.pem
@@ -13,4 +18,19 @@
     keystore_pass: changeit
     keystore_path: /usr/local/openjdk8/jre/lib/security/cacerts
     state: present
-  when: keytool.stat.exists
+  when: keytool.stat.exists and java8_keystore.stat.exists
+
+- name: Is Java 11 keystore available
+  stat:
+    path: /usr/local/openjdk11/lib/security/cacerts
+  register: java11_keystore
+
+- name: Install guengel.ch in java 11 keystore certs
+  java_cert:
+    cert_alias: guengel.ch
+    cert_path: /etc/ssl/guengel.ch.pem
+    keystore_create: false
+    keystore_pass: changeit
+    keystore_path: /usr/local/openjdk11/lib/security/cacerts
+    state: present
+  when: keytool.stat.exists and java11_keystore.stat.exists

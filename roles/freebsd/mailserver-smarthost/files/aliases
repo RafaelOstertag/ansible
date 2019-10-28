@@ -98,7 +98,7 @@ bugzilla-daemon:	webmaster
 help:			postmaster
 www-data:		webmaster
 postgres:		root
-munin:			root
+do-not-reply:   /dev/null
 
 anic.ostertag:		anic
 guengel:		rafi

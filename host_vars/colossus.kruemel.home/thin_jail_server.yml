@@ -8,3 +8,4 @@ thin_jails:
   - funnel-retriever
   - funnel-chronos
   - funnel-rest
+  - funnel-notifier

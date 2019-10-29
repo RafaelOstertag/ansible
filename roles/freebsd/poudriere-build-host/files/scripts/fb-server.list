@@ -14,6 +14,7 @@ devel/git
 devel/gmake
 devel/jenkins
 devel/pkgconf
+devel/protobuf
 devel/py-pip
 devel/py-virtualenv
 devel/ruby-gems

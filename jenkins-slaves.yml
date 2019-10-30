@@ -84,16 +84,16 @@
           - automake-1.15.1
           - cppunit
           - docbook-xsl
-          - gettext
-          - gettext-tools
+          - gettext-runtime-0.20.1p0
+          - gettext-tools-0.20.1p2
           - git
           - gmake
-          - jdk-1.8.0.202v0
-          - jdk-11.0.2.9.3p0v0
+          - jdk-1.8.0.222.b10.1v0
+          - jdk-11.0.5.8.1v0
           - libtool
           - libxslt
           - pcre
-          - w3m-0.5.3p7
+          - w3m-0.5.3p8
           - argon2
         state: present
 

@@ -1,0 +1,21 @@
+---
+
+- name: Is keytool installed
+  stat:
+    path: /usr/bin/keytool
+  register: keytool
+
+- name: Is Java 11 keystore available
+  stat:
+    path: /etc/ssl/certs/java/cacerts
+  register: java11_keystore
+
+- name: Install guengel.ch in java 11 keystore certs
+  java_cert:
+    cert_alias: guengel.ch
+    cert_path: /etc/ssl/guengel.ch.pem
+    keystore_create: false
+    keystore_pass: changeit
+    keystore_path: /etc/ssl/certs/java/cacerts
+    state: present
+  when: keytool.stat.exists and java11_keystore.stat.exists

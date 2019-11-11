@@ -137,3 +137,10 @@
       tags:
         - javacerts
 
+    - name: Install guengel.ch certificate
+      when: "ansible_distribution == 'Debian'"
+      import_role:
+        name: linux/javacerts
+      tags:
+        - javacerts
+

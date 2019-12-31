@@ -67,13 +67,15 @@
           - g++
           - gettext
           - git
+          - libargon2-0-dev
           - libcppunit-dev
           - libpcre3-dev
           - libtool
+          - nodejs
+          - npm
           - openjdk-11-jdk
           - w3m
           - xsltproc
-          - libargon2-0-dev
         state: present
 
     - name: OpenBSD packages

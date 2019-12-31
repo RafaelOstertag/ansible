@@ -76,6 +76,7 @@
           - openjdk-11-jdk
           - w3m
           - xsltproc
+          - xvfb
         state: present
 
     - name: OpenBSD packages

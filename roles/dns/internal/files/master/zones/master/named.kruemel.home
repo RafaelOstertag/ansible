@@ -2,7 +2,7 @@
 $ORIGIN kruemel.home.
 $TTL 1d
 @		       IN              SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-			               201909290 ; serial
+			               202001030 ; serial
                                        1d        ; Refresh
                                        1h        ; Retry
                                        1w        ; Expire
@@ -35,10 +35,6 @@ optimusprime	       IN              A       192.168.100.5
                                        AAAA    fd3e:be3e:ec34:0::5
                                        MX      10      colossus.kruemel.home.
 
-odin                   IN              A       192.168.100.101
-                                       AAAA    fd3e:be3e:ec34:0::101
-                                       MX      10      colossus.kruemel.home.
-
 bumblebee              IN              A       192.168.100.250
                                        TXT     "HP LaserJet 400 M401dne"
 
@@ -47,9 +43,6 @@ colossus-sc            IN              A       192.168.100.251
 
 artery                 IN              A       192.168.100.252
                                        TXT     "Netgear GS116Ev2"
-
-odin-sc                IN              A       192.168.100.253
-                                       TXT     "Odin System Controller"
 
 _nfsv4idmapdomain      IN      	       TXT     "kruemel.home"
 _http._tcp.pkg         IN      	       SRV     10 1 80 colossus.kruemel.home.

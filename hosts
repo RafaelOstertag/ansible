@@ -67,12 +67,16 @@ abraxas.virtual.kruemel.home
 ;
 [linux_servers]
 harvester.kruemel.home
+maersk.kruemel.home
 
 [linux_user_hosts:children]
 linux_virtual_hosts
 
 [linux_virtual_hosts]
 dash.virtual.kruemel.home
+
+[docker_hosts]
+maersk.kruemel.home
 
 ;
 ; Jenkins Slaves

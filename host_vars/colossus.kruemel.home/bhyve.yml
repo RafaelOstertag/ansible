@@ -6,3 +6,4 @@ bhyve_autostart_vms:
   - dash
   - aurora
   - harvester
+  - maersk

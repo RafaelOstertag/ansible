@@ -1,0 +1,8 @@
+---
+
+- name: Linux Docker Hosts
+  hosts: docker_hosts
+  force_handlers: true
+  user: root
+  roles:
+    - linux/docker

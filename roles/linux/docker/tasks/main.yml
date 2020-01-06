@@ -1,0 +1,41 @@
+---
+
+- name: Install pre-req packages
+  apt:
+    state: present
+    package:
+      - apt-transport-https
+      - ca-certificates
+      - gnupg2
+      - software-properties-common
+
+- name: Install docker repo key
+  apt_key:
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+
+- name: Add docker repo
+  apt_repository:
+    update_cache: yes
+    state: present
+    repo: "deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
+
+- name: Install docker
+  apt:
+    state: present
+    package:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+
+- name: Enable docker
+  systemd:
+    name: docker
+    enabled: yes
+
+- name: Start docker
+  systemd:
+    name: docker
+    state: started
+

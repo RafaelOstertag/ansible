@@ -86,6 +86,8 @@ dash.virtual.kruemel.home
 merlin.virtual.kruemel.home
 abraxas.virtual.kruemel.home
 aurora.virtual.kruemel.home
+# Because of docker
+maersk.kruemel.home
 
 ;
 ; EC2 instances

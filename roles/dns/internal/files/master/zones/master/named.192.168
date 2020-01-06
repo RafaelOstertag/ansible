@@ -2,17 +2,17 @@
 $ORIGIN 168.192.in-addr.arpa.
 $TTL    86400
 @       IN      SOA     optimusprime.kruemel.home. postmaster.kruemel.home. (
-		20190922 ; Serial
-		1d       ; Refresh
-		1h       ; Retry
-		1w       ; Expire
-		1h	 ; Negative Cache TTL
-		)
+                20190922 ; Serial
+                1d       ; Refresh
+                1h       ; Retry
+                1w       ; Expire
+                1h       ; Negative Cache TTL
+                )
 
 100     IN      NS      optimusprime.kruemel.home.
-	IN      NS      viking.kruemel.home.
+        IN      NS      viking.kruemel.home.
 103     IN      NS      optimusprime.kruemel.home.
-	IN      NS      viking.kruemel.home.
+        IN      NS      viking.kruemel.home.
 101     IN      NS      yayap.dmz.kruemel.home.
 102     IN      NS      yayap.dmz.kruemel.home.
 @       IN      NS      localhost.

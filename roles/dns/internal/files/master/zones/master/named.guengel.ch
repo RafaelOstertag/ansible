@@ -1,15 +1,15 @@
 ; Maintained by Ansible
 $ORIGIN guengel.ch.
 $TTL 6h    ; 6 hours
-@    	     IN	    SOA    optimusprime.guengel.ch. postmaster.guengel.ch. (
-	     	    201909220 ; serial
-		    1d        ; Refresh
+@            IN     SOA    optimusprime.guengel.ch. postmaster.guengel.ch. (
+                    201909220 ; serial
+                    1d        ; Refresh
                     1h        ; Retry
                     1w        ; Expire
                     1h        ; Negative Cache TTL
-        	    )
+                    )
              IN     NS      optimusprime.kruemel.home.
-             	    NS      viking.kruemel.home.
+                    NS      viking.kruemel.home.
                     A       192.168.103.3
                     AAAA    fd3e:be3e:ec34:1::3
                     MX      10 colossus.guengel.ch.

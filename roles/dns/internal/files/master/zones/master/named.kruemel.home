@@ -1,38 +1,39 @@
 ; Maintained by Ansible
 $ORIGIN kruemel.home.
 $TTL 1d
-@		       IN              SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-			               202001030 ; serial
+@                      IN              SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
+                                       202001061 ; serial
                                        1d        ; Refresh
                                        1h        ; Retry
                                        1w        ; Expire
                                        1h        ; Negative Cache TTL
-                		       )
+                                       )
                        IN              NS      optimusprime.kruemel.home.
-		       IN              NS      viking.kruemel.home.
+                       IN              NS      viking.kruemel.home.
                        IN              MX      10 colossus.kruemel.home.
 
 imap                   IN              CNAME   colossus.kruemel.home.
 smtp                   IN              CNAME   colossus.kruemel.home.
 git                    IN              CNAME   colossus.kruemel.home.
+docker                 IN              CNAME   maersk.kruemel.home.
 
 colossus               IN              A       192.168.100.2
                                        AAAA    fd3e:be3e:ec34:0::3
 
-harvester	       IN	       A       192.168.100.3
-		       		       AAAA    fd3e:be3e:ec34:0::6
-				       MX      10      colossus.kruemel.home.
-
-gargoyle               IN              A       192.168.100.254
-                                       AAAA    fd3e:be3e:ec34:0::2
+harvester              IN              A       192.168.100.3
+                                       AAAA    fd3e:be3e:ec34:0::6
                                        MX      10      colossus.kruemel.home.
 
 viking                 IN              A       192.168.100.4
                                        AAAA    fd3e:be3e:ec34:0::4
                                        MX      10      colossus.kruemel.home.
 
-optimusprime	       IN              A       192.168.100.5
+optimusprime           IN              A       192.168.100.5
                                        AAAA    fd3e:be3e:ec34:0::5
+                                       MX      10      colossus.kruemel.home.
+
+maersk                 IN              A       192.168.100.6
+                                       AAAA    fd3e:be3e:ec34:0::7
                                        MX      10      colossus.kruemel.home.
 
 bumblebee              IN              A       192.168.100.250
@@ -44,11 +45,15 @@ colossus-sc            IN              A       192.168.100.251
 artery                 IN              A       192.168.100.252
                                        TXT     "Netgear GS116Ev2"
 
-_nfsv4idmapdomain      IN      	       TXT     "kruemel.home"
-_http._tcp.pkg         IN      	       SRV     10 1 80 colossus.kruemel.home.
+gargoyle               IN              A       192.168.100.254
+                                       AAAA    fd3e:be3e:ec34:0::2
+                                       MX      10      colossus.kruemel.home.
+
+_nfsv4idmapdomain      IN              TXT     "kruemel.home"
+_http._tcp.pkg         IN              SRV     10 1 80 colossus.kruemel.home.
 
 ; Zone glue
-wlan		       IN	       NS      yayap.dmz.kruemel.home.
-vpn                    IN  	       NS      yayap.dmz.kruemel.home.
-yayap.dmz              IN  	       A       192.168.103.2
-                        	       AAAA    fd3e:be3e:ec34:1::2
+wlan                   IN              NS      yayap.dmz.kruemel.home.
+vpn                    IN              NS      yayap.dmz.kruemel.home.
+yayap.dmz              IN              A       192.168.103.2
+                                       AAAA    fd3e:be3e:ec34:1::2

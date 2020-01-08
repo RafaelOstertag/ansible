@@ -78,6 +78,9 @@ dash.virtual.kruemel.home
 [docker_hosts]
 maersk.kruemel.home
 
+[graylog_servers]
+harvester.kruemel.home
+
 ;
 ; Jenkins Slaves
 ;

@@ -1,6 +1,6 @@
 ---
 
-ansible_python_interpreter: /usr/local/bin/python3.6
+ansible_python_interpreter: /usr/local/bin/python3.7
 ansible_user: ec2-user
 ansible_become_method: su
 ansible_become: yes

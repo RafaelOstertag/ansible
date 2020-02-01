@@ -1,6 +1,6 @@
 ---
 
-- name: FreeBSD Lean Jails
+- name: FreeBSD Thin Jails
   hosts: thin_jail_servers
   force_handlers: true
   user: root

@@ -2,7 +2,7 @@
 $ORIGIN kruemel.home.
 $TTL 1d
 @                      IN              SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                                       202001190 ; serial
+                                       202002010 ; serial
                                        1d        ; Refresh
                                        1h        ; Retry
                                        1w        ; Expire
@@ -16,6 +16,7 @@ imap                   IN              CNAME   colossus.kruemel.home.
 smtp                   IN              CNAME   colossus.kruemel.home.
 git                    IN              CNAME   colossus.kruemel.home.
 docker                 IN              CNAME   maersk.kruemel.home.
+images                 IN              CNAME   colossus.kruemel.home.
 
 colossus               IN              A       192.168.100.2
                                        AAAA    fd3e:be3e:ec34:0::3

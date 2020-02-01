@@ -9,3 +9,4 @@ thin_jails:
   - funnel-chronos
   - funnel-rest
   - funnel-notifier
+  - imageserver

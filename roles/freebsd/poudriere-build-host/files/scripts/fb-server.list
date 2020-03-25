@@ -61,7 +61,6 @@ ports-mgmt/pkg
 ports-mgmt/poudriere
 security/ca_root_nss
 security/clamav
-security/clamav-milter
 security/cyrus-sasl2
 security/cyrus-sasl2-saslauthd
 security/gnupg

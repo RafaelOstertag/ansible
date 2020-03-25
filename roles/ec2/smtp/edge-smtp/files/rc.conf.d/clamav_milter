@@ -1,2 +1,0 @@
-clamav_milter_enable="YES"
-clamav_milter_socket="/var/run/clamav/clmilter.sock"

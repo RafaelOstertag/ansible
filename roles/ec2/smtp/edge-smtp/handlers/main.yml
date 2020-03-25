@@ -14,21 +14,6 @@
     name: spamass-milter
     state: restarted
 
-- name: FreeBSD restart clamav
-  service:
-    name: clamav-clamd
-    state: restarted
-
-- name: FreeBSD restart freshclam
-  service:
-    name: clamav-freshclam
-    state: restarted
-
-- name: FreeBSD restart clamav-milter
-  service:
-    name: clamav-milter
-    state: restarted
-
 - name: Restart FreeBSD milter-opendkim
   service:
     name: milter-opendkim

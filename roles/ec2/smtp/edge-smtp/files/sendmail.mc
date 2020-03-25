@@ -62,14 +62,12 @@ FEATURE(`masquerade_entire_domain')dnl
 FEATURE(`always_add_domain')dnl
 FEATURE(`masquerade_envelope')dnl
 
-INPUT_MAIL_FILTER(`clamav', `S=local:/var/run/clamav/clmilter.sock, F=, T=S:4m;R:4m')dnl
 INPUT_MAIL_FILTER(`spamassassin', `S=local:/var/run/spamass-milter.sock, F=, T=C:15m;S:4m;R:4m;E:10m')dnl
 INPUT_MAIL_FILTER(`dkim-filter', `S=local:/var/run/milteropendkim/dkim.sock, F=, T=R:2m')dnl
 
-dnl this is from clamav-milter.conf
 define(`confMILTER_MACROS_EOM', `{msg_id}, {mail_addr}, {rcpt_addr}, i')dnl
 define(`confMILTER_MACROS_ENVRCPT',confMILTER_MACROS_ENVRCPT`, b, r, v, Z')dnl
-define(`confINPUT_MAIL_FILTERS', `clamav,spamassassin,dkim-filter')dnl
+define(`confINPUT_MAIL_FILTERS', `spamassassin,dkim-filter')dnl
 
 dnl Antispam section
 FEATURE(`nouucp', `reject')dnl

@@ -51,7 +51,7 @@
           - pcre
           - pkgconf
           # Whe building yapet docs
-          - ruby25-gems
+          - ruby26-gems
           - tidy-html5
           # When building agentsmith web page
           - tidy4
@@ -71,6 +71,7 @@
           - git
           - libargon2-0-dev
           - libcppunit-dev
+          - libncurses-dev
           - libpcre3-dev
           - libtool
           - nodejs

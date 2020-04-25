@@ -1,0 +1,12 @@
+---
+
+- name: Install psycopg2
+  pkgng:
+    name: py37-psycopg2
+    state: present
+
+- name: Create users
+  include: users.yml
+
+- name: Create databases
+  include: databases.yml

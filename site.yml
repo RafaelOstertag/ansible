@@ -34,3 +34,5 @@
 - import_playbook: linux-docker.yml
 
 - import_playbook: jenkins-slaves.yml
+
+- import_playbook: db-setup.yml

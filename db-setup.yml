@@ -1,0 +1,12 @@
+---
+
+- name: Create Databases and users
+  hosts: ec2_db
+  force_handlers: true
+  become: yes
+  become_user: root
+
+  tasks:
+    - import_role:
+        name: db/sql
+

@@ -1,0 +1,15 @@
+---
+
+- name: Create database
+  postgresql_db:
+    login_host: localhost
+    login_user: "{{ pg_admin_user }}"
+    login_password: "{{ pg_admin_password }}"
+    maintenance_db: postgres
+    name: "{{ pg_database.name }}"
+    owner: "{{ pg_database.owner }}"
+    encoding: "UTF-8"
+    state: present
+  loop: "{{ pg_databases }}"
+  loop_control:
+    loop_var: pg_database

@@ -1,0 +1,19 @@
+---
+
+- name: "Create PostgreSQL user"
+  postgresql_user:
+    login_host: localhost
+    login_user: "{{ pg_admin_user }}"
+    login_password: "{{ pg_admin_password }}"
+    name: "{{ pg_user.name }}"
+    password: "{{ pg_user.password }}"
+    expires: infinity
+    role_attr_flags: LOGIN
+    encrypted: yes
+    no_password_changes: no
+    state: present
+  loop: "{{ pg_users }}"
+  loop_control:
+    loop_var: pg_user
+    label: "{{ pg_user.name }}"
+

@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+
+# PROVIDE: keycloak
+# REQUIRE: DAEMON
+
+. /etc/rc.subr
+
+name="keycloak"
+rcvar=keycloak_enable
+
+user=keycloak
+group=keycloak
+
+keycloak_env="JBOSS_LOG_DIR=/var/log/${name} JAVA_OPTS='-Xmx1g'"
+
+command="/usr/local/keycloak/bin/standalone.sh"
+pidfile="/var/run/${name}/pid"
+procname="daemon"
+start_precmd="${name}_prestart"
+start_cmd="/usr/sbin/daemon -u ${user} -P ${pidfile} -p ${pidfile}.child -o /var/log/${name}/stdout.txt ${command} -b 0.0.0.0"
+
+keycloak_prestart() {
+    install -d -o ${user} -g ${group} /var/run/${name}
+    install -d -o ${user} -g ${group} /var/log/${name}
+}
+
+load_rc_config $name
+run_rc_command "$1"

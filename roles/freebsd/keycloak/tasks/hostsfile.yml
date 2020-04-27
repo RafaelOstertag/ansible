@@ -1,0 +1,8 @@
+---
+
+- name: Add hostname to hosts file
+  lineinfile:
+    line: "{{ ansible_default_ipv4.address }} {{ ansible_nodename }}"
+    regexp: "^.* {{ ansible_nodename }}"
+    path: /etc/hosts
+    state: present

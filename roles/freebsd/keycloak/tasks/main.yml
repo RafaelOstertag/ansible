@@ -1,0 +1,13 @@
+---
+
+- name: Install prerequisites
+  include: prerequisites.yml
+
+- name: Setup hosts file
+  include: hostsfile.yml
+
+- name: Install Keycloak
+  include: keycloak-installation.yml
+
+- name: Keycloak Configuration
+  include: keycloak-configuration.yml

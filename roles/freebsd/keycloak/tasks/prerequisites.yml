@@ -1,0 +1,8 @@
+---
+
+- name: Install Prerequisite Packages
+  pkgng:
+    name:
+      - openjdk11
+      - gtar
+    state: present

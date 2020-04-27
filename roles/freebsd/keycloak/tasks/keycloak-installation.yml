@@ -1,0 +1,50 @@
+---
+
+- name: Create keycloak group
+  group:
+    name: keycloak
+    state: present
+
+- name: Install keycloak user
+  user:
+    comment: "Keycloak User"
+    create_home: no
+    group: "keycloak"
+    home: "/usr/local/keycloak"
+    name: keycloak
+    password_lock: no
+    password: "*"
+    shell: /bin/sh
+
+- name: "Download and extract keycloak {{ keycloak_version }}"
+  unarchive:
+    creates: "/usr/local/keycloak-{{ keycloak_version }}"
+    dest: "/usr/local"
+    remote_src: yes
+    src: "https://downloads.jboss.org/keycloak/{{ keycloak_version }}/keycloak-{{ keycloak_version }}.tar.gz"
+    group: wheel
+    owner: keycloak
+
+- name: "Set keycloak {{ keycloak_version }} as default"
+  file:
+    src: "/usr/local/keycloak-{{ keycloak_version }}"
+    dest: "/usr/local/keycloak"
+    state: link
+
+- name: Copy rc file
+  copy:
+    src: rc.d/keycloak
+    dest: /usr/local/etc/rc.d/keycloak
+    owner: root
+    group: wheel
+    mode: "0755"
+
+- name: Enable keycloak on startup
+  copy:
+    src: rc.conf.d/keycloak
+    dest: /usr/local/etc/rc.conf.d/keycloak
+    owner: root
+    group: wheel
+    mode: "0644"
+
+

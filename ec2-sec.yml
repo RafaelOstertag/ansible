@@ -50,7 +50,7 @@
         - ipsec
         - tunnel
         - hosts-file
-        
+
     - import_role:
         name: freebsd/sysctl-defaults
       tags:
@@ -78,3 +78,28 @@
         name: common/motd
       tags:
         - common
+    # We require this because we need access to app-1. Using a host name seems the best solution
+    - import_role:
+        name: ec2/common/add-peer-instance-hosts
+      tags:
+        - hosts
+        - hosts-file
+
+    - import_role:
+        name: freebsd/fdescfs
+      tags:
+        - keycloak
+
+    - import_role:
+        name: freebsd/procfs
+      tags:
+        - keycloak
+
+    - import_role:
+        name: freebsd/keycloak
+      tags:
+        - keycloak
+    - import_role:
+        name: freebsd/javacerts
+      tags:
+        - keycloak

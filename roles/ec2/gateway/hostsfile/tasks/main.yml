@@ -14,6 +14,18 @@
     path: /etc/hosts
     state: present
     regexp: '^192\.168\.100\.3\s+'
-    # Always keep colossus in front, so that smtp-1 resolves to
-    # colossus and dkim is working
     line: "192.168.100.3 harvester.kruemel.home"
+
+- name: Add viking.kruemel.home host to hosts file
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    regexp: '^192\.168\.100\.4\s+'
+    line: "192.168.100.4 viking.kruemel.home"
+
+- name: Add optimusprime.kruemel.home host to hosts file
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    regexp: '^192\.168\.100\.5\s+'
+    line: "192.168.100.5 optimusprime.kruemel.home"

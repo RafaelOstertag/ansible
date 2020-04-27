@@ -20,3 +20,4 @@ nginx_custom_domains:
     - jenkins.guengel.ch
     - yapet.guengel.ch
     - portscanner.guengel.ch
+    - sso.guengel.ch

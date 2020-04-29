@@ -1,0 +1,36 @@
+---
+
+- name: create /etc/mail/tls
+  file:
+    path: /etc/mail/tls
+    mode: 0755
+    owner: root
+    group: wheel
+    state: directory
+
+- name: Copy SSL public keys to /etc/mail/tls
+  copy:
+    src: "ssl/pub/{{ hostname }}.crt"
+    dest: "/etc/mail/tls/{{ item }}.cert"
+    mode: 0644
+    owner: root
+    group: smmsp
+  notify:
+    - Restart FreeBSD sendmail
+  with_items:
+    - client
+    - server
+
+- name: Copy SSL private keys to /etc/mail/tls
+  copy:
+    src: "ssl/priv/{{ hostname }}.key"
+    dest: "/etc/mail/tls/{{ item }}.key"
+    mode: 0640
+    owner: root
+    group: smmsp
+    decrypt: true
+  notify:
+    - Restart FreeBSD sendmail
+  with_items:
+    - client
+    - server

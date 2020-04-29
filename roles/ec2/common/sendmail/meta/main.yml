@@ -1,4 +1,6 @@
 ---
 
 dependencies:
+  - role: common/ca-guengel.ch
   - role: common/handlers
+  - role: freebsd/ssl-mailserver

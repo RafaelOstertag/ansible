@@ -8,6 +8,5 @@ lean_jails:
   - nexus
   - rundeck
   - mongodb
-  - kafka
   - jenkins
 

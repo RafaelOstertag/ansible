@@ -21,3 +21,4 @@ nginx_custom_domains:
     - yapet.guengel.ch
     - portscanner.guengel.ch
     - sso.guengel.ch
+    - funnel.guengel.ch

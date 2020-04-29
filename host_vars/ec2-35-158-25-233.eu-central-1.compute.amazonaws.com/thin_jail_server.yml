@@ -8,3 +8,8 @@ thin_jails:
   - nmapserviceproxy
   - nmapservice
   - consul
+  - funnel-persistence
+  - funnel-retriever
+  - funnel-chronos
+  - funnel-rest
+  - funnel-notifier

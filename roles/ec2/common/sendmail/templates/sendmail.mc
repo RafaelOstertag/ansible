@@ -9,6 +9,7 @@ OSTYPE(freebsd6)dnl
 FEATURE(`no_default_msa')dnl
 DAEMON_OPTIONS(`Name=IPv4, Family=inet, Addr=127.0.0.1')dnl
 DAEMON_OPTIONS(`Name=IPv4-MSA, Family=inet, Addr=127.0.0.1, Port=587, M=E')dnl
+define(`confDOMAIN_NAME',`{{ ansible_fqdn }}')dnl
 define(`confBIND_OPTS', `WorkAroundBrokenAAAA')
 define(`confNO_RCPT_ACTION', `add-to-undisclosed')
 define(`confPRIVACY_FLAGS', `authwarnings,noexpn,novrfy')

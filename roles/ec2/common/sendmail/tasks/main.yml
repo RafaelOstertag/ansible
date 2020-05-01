@@ -10,7 +10,7 @@
     - Rebuild sendmail aliases
 
 - name: Install sendmail config
-  copy:
+  template:
     src: sendmail.mc
     dest: "/etc/mail/{{ ansible_fqdn }}.mc"
     mode: 0644
@@ -20,7 +20,7 @@
     - Rebuild sendmail config
 
 - name: Install sendmail submit config
-  copy:
+  template:
     src: sendmail.submit.mc
     dest: "/etc/mail/{{ ansible_fqdn }}.submit.mc"
     mode: 0644

@@ -7,7 +7,6 @@
     owner: keycloak
     group: wheel
 
-
 - name: Download postgres JDBC
   get_url:
     url: "https://jdbc.postgresql.org/download/postgresql-{{ postgresql_jdbc_version }}.jar"

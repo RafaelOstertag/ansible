@@ -18,11 +18,10 @@ command="/usr/local/keycloak/bin/standalone.sh"
 pidfile="/var/run/${name}/pid"
 procname="daemon"
 start_precmd="${name}_prestart"
-start_cmd="/usr/sbin/daemon -u ${user} -P ${pidfile} -p ${pidfile}.child -o /var/log/${name}/stdout.txt ${command} -b 0.0.0.0"
+start_cmd="/usr/sbin/daemon -u ${user} -P ${pidfile} -p ${pidfile}.child -f ${command} -b 0.0.0.0"
 
 keycloak_prestart() {
     install -d -o ${user} -g ${group} /var/run/${name}
-    install -d -o ${user} -g ${group} /var/log/${name}
 }
 
 load_rc_config $name

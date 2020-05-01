@@ -29,6 +29,22 @@
   file:
     src: "/usr/local/keycloak-{{ keycloak_version }}"
     dest: "/usr/local/keycloak"
+    force: true
+    state: link
+
+- name: "Create log directory"
+  file:
+    path: /var/log/keycloak
+    owner: keycloak
+    group: wheel
+    mode: "0700"
+    state: directory
+
+- name: Create link to log directory for jboss
+  file:
+    src: "/var/log/keycloak"
+    dest: "/usr/local/keycloak-{{ keycloak_version }}/standalone/log"
+    force: true
     state: link
 
 - name: Copy rc file

@@ -6,16 +6,10 @@
 - name: Install packages in {{ jail_name }} jail
   pkgng:
     name:
-      - kafka
+      - zookeeper
     state: present
     chroot: "{{ jail_root_directory }}/{{ jail_name }}"
 
 - name: Unmount jail /dev
   include_tasks: helper/umount-temp-dev.yml
 
-- name: Listen on localhost
-  lineinfile:
-    path: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/etc/kafka/server.properties"
-    state: present
-    regexp: "^listeners=.*"
-    line: "listeners=PLAINTEXT://localhost:9092"

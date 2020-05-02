@@ -5,4 +5,5 @@ jail_arch: amd64
 
 lean_jails:
   - kafka
+  - zookeeper
 

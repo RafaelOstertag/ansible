@@ -32,7 +32,6 @@ lang/php72-extensions
 lang/python
 lang/python3
 lang/ruby25
-mail/cyrus-imapd25
 mail/cyrus-imapd30
 mail/fetchmail
 mail/mutt

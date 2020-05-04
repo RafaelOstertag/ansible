@@ -74,6 +74,7 @@ FEATURE(`nouucp', `reject')dnl
 FEATURE(`blacklist_recipients')dnl
 FEATURE(`enhdnsbl', `zen.spamhaus.org', `"550 Access denied. Spam."')dnl
 FEATURE(`enhdnsbl', `bl.spamcop.net', `"500 Access denied. Spam."', `t')dnl
+FEATURE(`nopercenthack', `reject')dnl
 
 define(`LOCAL_RELAY',`esmtp:colossus.kruemel.home')dnl
 MAILER(`smtp')dnl

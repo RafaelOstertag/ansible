@@ -52,41 +52,6 @@
         - hosts-file
 
     - import_role:
-        name: jails/host-setup
-      tags:
-        - host
-        - host-setup
-
-    - include_role:
-        name: jails/installation
-      vars:
-        jail_name: "{{ item }}"
-      with_items: "{{ lean_jails }}"
-
-    - include_role:
-        name: jails/setup
-      vars:
-        jail_name: "{{ item }}"
-      with_items: "{{ lean_jails }}"
-      tags:
-        - setup
-
-    - import_role:
-        name: jails/thin-jail-setup
-      tags:
-        - thin-jail
-
-    - name: Facilitate deployment via rundeck
-      pkgng:
-        name: curl
-        state: present
-
-    - import_role:
-        name: ec2/app/consul-thin-jail
-      tags:
-        - consul
-
-    - import_role:
         name: freebsd/sysctl-defaults
       tags:
         - sysctl
@@ -113,3 +78,41 @@
         name: common/motd
       tags:
         - common
+
+    - import_role:
+        name: jails/host-setup
+      tags:
+        - host
+        - host-setup
+
+    - include_role:
+        name: jails/installation
+      vars:
+        jail_name: "{{ item }}"
+      with_items: "{{ lean_jails }}"
+      when: "lean_jails is defined and lean_jails|length>0"
+
+    - include_role:
+        name: jails/setup
+      vars:
+        jail_name: "{{ item }}"
+      with_items: "{{ lean_jails }}"
+      when: "lean_jails is defined and lean_jails|length>0"
+      tags:
+        - setup
+
+    - import_role:
+        name: jails/thin-jail-setup
+      tags:
+        - thin-jail
+
+    - name: Facilitate deployment via rundeck
+      pkgng:
+        name: curl
+        state: present
+
+    - import_role:
+        name: ec2/app/consul-thin-jail
+      tags:
+        - consul
+

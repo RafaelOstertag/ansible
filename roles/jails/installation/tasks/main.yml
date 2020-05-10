@@ -1,5 +1,11 @@
 ---
 
+# Required for "unarchive" module
+- name: Install gnutar
+  pkgng:
+    name: gtar
+    state: present
+
 - name: Prepare jail directory {{ jail_name }}
   file:
     state: directory
@@ -9,6 +15,7 @@
   stat:
     path: "{{ jail_root_directory }}/{{ jail_name }}/etc"
   register: jail_installed
+
 
 - name: Install jail {{ jail_name }}
   when: not jail_installed.stat.exists

@@ -15,6 +15,6 @@
     path: /etc/rc.conf.local
     create: true
     regexp: "^iked_flags="
-    line: "iked_flags=\"-6\""
+    line: "iked_flags=\"\""
   notify:
     - Restart OpenBSD iked

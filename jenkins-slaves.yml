@@ -90,12 +90,12 @@
           - automake-1.15.1
           - cppunit
           - docbook-xsl
-          - gettext-runtime-0.20.1p0
-          - gettext-tools-0.20.1p2
+          - gettext-runtime
+          - gettext-tools
           - git
           - gmake
-          - jdk-1.8.0.222.b10.1v0
-          - jdk-11.0.5.8.1v0
+          - jdk-1.8.0.252.b09.1v0
+          - jdk-11.0.7.10.2p0v0
           - libtool
           - libxslt
           - pcre

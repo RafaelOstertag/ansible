@@ -1,7 +1,7 @@
 ---
 
 - name: Graylog Servers
-  hosts: graylog_server
+  hosts: graylog_servers
   force_handlers: true
   user: root
   roles:

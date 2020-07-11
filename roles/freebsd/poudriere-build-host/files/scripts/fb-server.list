@@ -9,7 +9,6 @@ archivers/zip
 benchmarks/iperf3
 databases/mongodb40
 databases/mongodb40-tools
-databases/postgresql11-client
 devel/git
 devel/gmake
 devel/jenkins
@@ -27,7 +26,6 @@ graphics/sane-backends
 java/openjdk11
 java/openjdk8
 lang/go
-lang/python
 lang/python3
 lang/ruby25
 mail/cyrus-imapd30
@@ -46,9 +44,7 @@ net-mgmt/nagios-snmp-plugins
 net-mgmt/nagios4
 net-mgmt/nrpe3
 net-mgmt/prometheus2
-net-p2p/transmission-cli
 net/isc-dhcp44-server
-net/kafka
 net/nss-pam-ldapd
 net/openldap24-client
 net/openldap24-server
@@ -72,11 +68,9 @@ shells/bash
 sysutils/ansible
 sysutils/coreutils
 sysutils/freeipmi
-sysutils/goaccess
 sysutils/grub2-bhyve
 sysutils/ipmitool
 sysutils/node_exporter
-sysutils/rundeck
 sysutils/smartmontools
 sysutils/tmux
 sysutils/vm-bhyve
@@ -85,7 +79,6 @@ www/apache24
 www/cgi-lib
 www/grafana6
 www/lynx
-www/mod_php72
 www/nginx
 www/node
 www/npm

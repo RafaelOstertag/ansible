@@ -27,8 +27,6 @@ graphics/sane-backends
 java/openjdk11
 java/openjdk8
 lang/go
-lang/php72
-lang/php72-extensions
 lang/python
 lang/python3
 lang/ruby25

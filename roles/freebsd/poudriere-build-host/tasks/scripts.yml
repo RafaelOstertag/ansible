@@ -4,7 +4,7 @@
   file:
     path: /root/poudriere
     state: directory
-    mode: 0700
+    mode: "0700"
     owner: root
     group: wheel
 
@@ -12,14 +12,12 @@
   copy:
     src: "scripts/{{ script }}"
     dest: "/root/poudriere/{{ script }}"
-    mode: 0700
+    mode: "0700"
     owner: root
     group: wheel
   loop:
     - bulk-amd64-server
-    - bulk-i386-server
     - options-server
-    - syncpackages.sh
     - updateports
   loop_control:
     loop_var: script
@@ -28,10 +26,18 @@
   copy:
     src: "scripts/{{ aux_file }}"
     dest: "/root/poudriere/{{ aux_file }}"
-    mode: 0600
+    mode: "0600"
     owner: root
     group: wheel
   loop:
     - fb-server.list
   loop_control:
     loop_var: aux_file
+
+- name: Remove old files
+  file:
+    name: "/root/poudriere/{{ item }}"
+    state: absent
+  loop:
+    - bulk-i386-server
+    - updateports

@@ -4,7 +4,7 @@
   template:
     src: poudriere.conf
     dest: /usr/local/etc/poudriere.conf
-    mode: 0644
+    mode: "0644"
     owner: root
     group: wheel
 
@@ -12,7 +12,6 @@
   copy:
     src: make.conf
     dest: /usr/local/etc/poudriere.d/make.conf
-    mode: 0644
+    mode: "0644"
     owner: root
     group: wheel
-

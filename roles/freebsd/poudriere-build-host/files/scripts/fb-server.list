@@ -78,6 +78,7 @@ www/apache24
 www/cgi-lib
 www/grafana6
 www/lynx
+www/mod_php72
 www/nginx
 www/node
 www/npm

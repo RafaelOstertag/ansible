@@ -50,7 +50,6 @@ net/openldap24-client
 net/openldap24-server
 net/rsync
 net/samba410
-net/unison240@nox11
 ports-mgmt/pkg
 ports-mgmt/poudriere
 security/ca_root_nss

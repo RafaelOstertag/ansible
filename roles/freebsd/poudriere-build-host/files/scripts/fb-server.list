@@ -7,6 +7,7 @@ archivers/unzip
 archivers/unzoo
 archivers/zip
 benchmarks/iperf3
+devel/git
 dns/bind916
 ftp/curl
 ftp/wget

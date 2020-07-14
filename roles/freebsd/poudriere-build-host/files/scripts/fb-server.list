@@ -13,6 +13,7 @@ ftp/curl
 ftp/wget
 java/openjdk11
 java/openjdk8
+lang/python
 lang/python3
 mail/cyrus-imapd30
 misc/amanda-client

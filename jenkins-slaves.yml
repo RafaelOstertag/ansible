@@ -39,6 +39,7 @@
           - gettext-tools
           - git
           - gmake
+          - gradle
           # When building agentsmith web page
           - hs-pandoc
           - libargon2

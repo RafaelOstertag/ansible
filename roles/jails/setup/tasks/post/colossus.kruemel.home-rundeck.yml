@@ -3,27 +3,118 @@
 - name: Mount jail /dev
   include_tasks: helper/mount-temp-dev.yml
 
-- name: Install rundeck in {{ jail_name }} jail
+- name: packages rundeck in {{ jail_name }} jail
   pkgng:
-    name: rundeck
+    name:
+      - bash
+      - openjdk11
     state: present
     chroot: "{{ jail_root_directory }}/{{ jail_name }}"
+
+- name: Create jail user
+  include_tasks: helper/create-jail-user.yml
+  vars:
+    jail_user: "{{ jail_name }}"
+
+- name: Create nexus directory
+  file:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/"
+    owner: "5000"
+    group: "5000"
+    mode: "0760"
+    state: directory
+
+- name: Fetch rundeck
+  get_url:
+    url: "{{ rundeck_download_url }}/{{ rundeck_war }}"
+    dest: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/{{ rundeck_war }}"
+    group: "5000"
+    owner: "5000"
+  register: downloaded
+
+# This can also be used to update rundeck
+- name: Unpack rundeck after download
+  shell: "chroot {{ jail_root_directory }}/{{ jail_name }} su - rundeck -c '/usr/local/openjdk11/bin/java -jar /opt/rundeck/{{ rundeck_war }} --installonly'"
+  when: "downloaded.changed"
 
 - name: Unmount jail /dev
   include_tasks: helper/umount-temp-dev.yml
 
-- name: Enable rundeck in {{ jail_name }} jail
+- name: Set framework server name
   lineinfile:
-    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
-    create: yes
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/etc/framework.properties"
     state: present
-    regexp: ^rundeck_enable=.*
-    line: rundeck_enable="YES"
+    regexp: ^framework\.server\.name =.*
+    line: "framework.server.name = colossus.kruemel.home"
 
-- name: Enable proxy access for rundeck in {{ jail_name }}
+- name: Set framework server hostname
   lineinfile:
-    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
-    create: yes
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/etc/framework.properties"
     state: present
-    regexp: ^rundeck_java_opts=.*
-    line: 'rundeck_java_opts="-Drundeck.jetty.connector.forwarded=true -Dserver.web.context=/rundeck"'
+    regexp: ^framework\.server\.hostname =.*
+    line: "framework.server.hostname = colossus.kruemel.home"
+
+- name: Set framework server url
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/etc/framework.properties"
+    state: present
+    regexp: ^framework\.server\.url =.*
+    line: "framework.server.url = http://colossus.kruemel.home:4440/rundeck"
+
+- name: Set grails url
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/server/config/rundeck-config.properties"
+    state: present
+    regexp: ^grails\.serverURL=.*
+    line: "grails.serverURL=https://colossus.kruemel.home/rundeck"
+
+- name: Set server address
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/server/config/rundeck-config.properties"
+    state: present
+    regexp: ^server\.address=.*
+    line: "server.address=0.0.0.0"
+
+- name: Set honoring forwarded headers
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/server/config/rundeck-config.properties"
+    state: present
+    regexp: ^server\.useForwardHeaders=.*
+    line: "server.useForwardHeaders=true"
+
+- name: Set servlet context
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/etc/profile"
+    state: present
+    insertafter: EOF
+    line: "export RDECK_JVM=\"$RDECK_JVM -Dserver.servlet.context-path=/rundeck\""
+
+- name: Set bash on rundeckd
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/server/sbin/rundeckd"
+    state: present
+    regexp: ^#!.*
+    line: "#!/usr/local/bin/bash"
+
+- name: Make rundeckd executable
+  file:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/server/sbin/rundeckd"
+    state: file
+    mode: "0755"
+
+
+# - name: Enable rundeck in {{ jail_name }} jail
+#   lineinfile:
+#     path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
+#     create: yes
+#     state: present
+#     regexp: ^rundeck_enable=.*
+#     line: rundeck_enable="YES"
+
+# - name: Enable proxy access for rundeck in {{ jail_name }}
+#   lineinfile:
+#     path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
+#     create: yes
+#     state: present
+#     regexp: ^rundeck_java_opts=.*
+#     line: 'rundeck_java_opts="-Drundeck.jetty.connector.forwarded=true -Dserver.web.context=/rundeck"'

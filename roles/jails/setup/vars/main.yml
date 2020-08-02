@@ -2,3 +2,6 @@
 
 jail_user_shell: /bin/sh
 jail_user_directory_permission: 0700
+
+rundeck_war: rundeck-3.3.1-20200727.war
+rundeck_download_url: https://dl.bintray.com/rundeck/rundeck-maven/org/rundeck/rundeck/

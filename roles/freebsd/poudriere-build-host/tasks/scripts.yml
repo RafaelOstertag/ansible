@@ -40,4 +40,4 @@
     state: absent
   loop:
     - bulk-i386-server
-    - updateports
+    - syncpackages.sh

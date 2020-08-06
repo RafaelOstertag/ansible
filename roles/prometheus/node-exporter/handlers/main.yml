@@ -1,0 +1,6 @@
+---
+
+- name: Restart FreeBSD node_exporter
+  service:
+    name: node_exporter
+    state: restarted

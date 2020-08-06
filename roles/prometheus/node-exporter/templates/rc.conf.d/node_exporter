@@ -1,0 +1,4 @@
+node_exporter_enable=YES
+{% if not zfs.stat.exists or not zfs.stat.isdir %}
+node_exporter_args="--no-collector.zfs"
+{% endif %}

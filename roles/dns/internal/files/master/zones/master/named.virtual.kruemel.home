@@ -2,7 +2,7 @@
 $ORIGIN virtual.kruemel.home.
 $TTL 6h
 @                       IN      SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                                201909270 ; Serial
+                                202008060 ; Serial
                                 1d        ; Refresh
                                 1h        ; Retry
                                 1w        ; Expire
@@ -14,10 +14,6 @@ $TTL 6h
 
 dash                    IN      A    192.168.100.200
                                 AAAA fd3e:be3e:ec34:0::200
-                                MX   10 colossus.kruemel.home.
-
-abraxas                 IN      A    192.168.100.203
-                                AAAA fd3e:be3e:ec34:0::203
                                 MX   10 colossus.kruemel.home.
 
 aurora                  IN      A    192.168.100.216

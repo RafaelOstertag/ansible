@@ -26,7 +26,6 @@
 
 - import_playbook: freebsd-user-hosts.yml
 - import_playbook: openbsd-user-hosts.yml
-- import_playbook: netbsd-user-hosts.yml
 
 - import_playbook: linux-user-hosts.yml
 - import_playbook: linux-servers.yml

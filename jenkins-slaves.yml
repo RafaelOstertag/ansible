@@ -104,29 +104,6 @@
           - argon2
         state: present
 
-    - name: NetBSD packages
-      when: "ansible_distribution == 'NetBSD'"
-      pkgin:
-        name:
-          - autoconf
-          - automake
-          - cppunit
-          - docbook-xsl
-          - gettext
-          - gettext-tools
-          # Has currently broken dependencies
-          #- git
-          - gmake
-          - libtool
-          - libxslt
-          - openjdk8
-          - pcre
-          - w3m
-          - argon2
-          - mozilla-rootcerts-openssl
-          - pkgconf
-        state: present
-
     - name: OpenBSD fixes
       when: "ansible_distribution == 'OpenBSD'"
       block:

@@ -54,15 +54,6 @@ openbsd_virtual_hosts
 merlin.virtual.kruemel.home
 
 ;
-; NetBSD
-;
-[netbsd_user_hosts:children]
-netbsd_virtual_hosts
-
-[netbsd_virtual_hosts]
-abraxas.virtual.kruemel.home
-
-;
 ; Linux
 ;
 [linux_servers]
@@ -87,7 +78,6 @@ harvester.kruemel.home
 [jenkins_slaves]
 dash.virtual.kruemel.home
 merlin.virtual.kruemel.home
-abraxas.virtual.kruemel.home
 aurora.virtual.kruemel.home
 # Because of docker
 maersk.kruemel.home

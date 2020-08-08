@@ -1,7 +1,7 @@
 $ORIGIN 101.168.192.in-addr.arpa.
 $TTL 1d
 @	IN	SOA	yayap.dmz.kruemel.home.	postmaster.kruemel.home. (
-	201909210
+	202008080
 	3h
 	1h
 	1w
@@ -10,3 +10,7 @@ $TTL 1d
 254	IN	PTR	yayap.wlan.kruemel.home.
 $GENERATE 1-20 $	IN	PTR	wlan-client-restricted-$.wlan.kruemel.home.
 $GENERATE 21-30 $	IN	PTR	wlan-client-unrestricted-$.wlan.kruemel.home.
+
+;; Raspberry Pi
+31  IN  PTR pi1.wlan.kruemel.home.
+32  IN  PTR pi2.wlan.kruemel.home.

@@ -4,7 +4,7 @@
   cron:
     name: ZFS scrub
     state: present
-    job: "/sbin/zpool scrub zroot"
+    job: "/bin/sh -c 'for p in `zpool list -o name -H` ; do zpool scrub $p ; done'"
     weekday: "6"
     day: "*"
     minute: "06"

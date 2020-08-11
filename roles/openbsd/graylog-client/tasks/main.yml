@@ -4,6 +4,6 @@
   lineinfile:
     path: /etc/syslog.conf
     regex: '^\*\.\*.*@'
-    line: "*.*          @harvester.kruemel.home:5514"
+    line: "*.info          @harvester.kruemel.home:5514"
   notify:
     - Restart OpenBSD syslog

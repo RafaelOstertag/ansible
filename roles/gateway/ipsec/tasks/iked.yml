@@ -13,7 +13,7 @@
 - name: Install CA Cert
   copy:
     src: ssl/guengel.ch.pem
-    dest: /etc/iked/ca/ca.cert
+    dest: /etc/iked/ca/ca.crt
     mode: "0444"
   notify:
     - Restart OpenBSD iked

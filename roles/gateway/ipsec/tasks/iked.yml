@@ -4,9 +4,41 @@
   template:
     src: iked.conf
     dest: /etc/iked.conf
-    mode: 0600
+    mode: "0600"
     owner: root
     group: wheel
+  notify:
+    - Restart OpenBSD iked
+
+- name: Install CA Cert
+  copy:
+    src: ssl/guengel.ch.pem
+    dest: /etc/iked/ca/ca.cert
+    mode: "0444"
+  notify:
+    - Restart OpenBSD iked
+
+- name: Install CRL
+  copy:
+    src: ssl/guengel.ch.crl
+    dest: /etc/iked/ca/ca.crl
+    mode: "0444"
+  notify:
+    - Restart OpenBSD iked
+
+- name: Install Host Key
+  copy:
+    src: "ssl/priv/{{ ansible_fqdn }}.key"
+    dest: "/etc/iked/private/local.key"
+    mode: "0400"
+  notify:
+    - Restart OpenBSD iked
+
+- name: Install Host Certificate
+  copy:
+    src: "ssl/pub/{{ ansible_fqdn }}.crt"
+    dest: "/etc/iked/certs/{{ ansible_fqdn }}.crt"
+    mode: "0444"
   notify:
     - Restart OpenBSD iked
 

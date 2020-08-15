@@ -2,9 +2,9 @@
 
 - name: Copy CA
   copy:
-    src: ca.crt
+    src: ssl/guengel.ch.pem
     dest: /usr/local/etc/swanctl/x509ca/ca.crt
-    mode: 0644
+    mode: "0644"
     owner: root
     group: wheel
   notify:
@@ -14,9 +14,9 @@
 
 - name: Copy host certificate
   copy:
-    src: "{{ inventory_hostname }}.crt"
+    src: "ssl/pub{{ inventory_hostname }}.crt"
     dest: "/usr/local/etc/swanctl/x509/{{ inventory_hostname }}.crt"
-    mode: 0644
+    mode: "0644"
     owner: root
     group: wheel
   notify:
@@ -26,9 +26,9 @@
 
 - name: Copy host key
   copy:
-    src: "{{ inventory_hostname }}.key"
+    src: "ssl/priv/{{ inventory_hostname }}.key"
     dest: "/usr/local/etc/swanctl/private/{{ inventory_hostname }}.key"
-    mode: 0600
+    mode: "0600"
     owner: root
     group: wheel
   notify:

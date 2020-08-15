@@ -14,7 +14,7 @@
 
 - name: Copy host certificate
   copy:
-    src: "ssl/pub{{ inventory_hostname }}.crt"
+    src: "ssl/pub/{{ inventory_hostname }}.crt"
     dest: "/usr/local/etc/swanctl/x509/{{ inventory_hostname }}.crt"
     mode: "0644"
     owner: root

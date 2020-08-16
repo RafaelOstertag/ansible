@@ -1,5 +1,11 @@
 ---
 
+- name: Rebuild Peer Pubkeys iked
+  shell: "openssl x509 -pubkey -in /etc/iked/certs/{{ peer }}.crt -out /etc/iked/pubkeys/fqdn/{{ peer }}"
+  loop: "{{ groups['ec2'] }}"
+  loop_control:
+    loop_var: peer
+
 - name: Restart OpenBSD iked
   service:
     name: iked

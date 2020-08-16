@@ -42,15 +42,16 @@
   notify:
     - Restart OpenBSD iked
 
-- name: Install trusted peer certificates
+- name: Install peer certificates
   copy:
     src: "ssl/pub/{{ peer }}.crt"
-    dest: "/etc/iked/pubkeys/fqdn/{{ peer }}"
+    dest: "/etc/iked/certs/{{ peer }}.crt"
     mode: "0444"
   loop: "{{ groups['ec2'] }}"
   loop_control:
     loop_var: peer
   notify:
+    - Rebuild Peer Pubkeys iked
     - Restart OpenBSD iked
 
 

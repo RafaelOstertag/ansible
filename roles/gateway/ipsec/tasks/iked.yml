@@ -21,7 +21,7 @@
 - name: Install CRL
   copy:
     src: ssl/guengel.ch.crl
-    dest: /etc/iked/ca/ca.crl
+    dest: /etc/iked/crls/ca.crl
     mode: "0444"
   notify:
     - Restart OpenBSD iked

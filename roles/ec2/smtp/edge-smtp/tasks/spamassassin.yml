@@ -53,7 +53,7 @@
   cron:
     name: Fetchmail for spam learning
     user: spamd
-    job: "/usr/local/bin/fetchmail -s sa-learn.spam ; /usr/local/bin/fetchmail -s sa-learn.ham"
+    job: "/usr/local/bin/fetchmail -s sa-learn.spam >/dev/null 2>&1; /usr/local/bin/fetchmail -s sa-learn.ham >/dev/null 2>&1"
     weekday: "*"
     day: "*"
     minute: "1"

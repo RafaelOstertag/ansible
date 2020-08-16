@@ -42,6 +42,18 @@
   notify:
     - Restart OpenBSD iked
 
+- name: Install trusted peer certificates
+  copy:
+    src: "ssl/pub/{{ peer }}.crt"
+    dest: "/etc/iked/pubkeys/fqdn/{{ peer }}"
+    mode: "0444"
+  loop: "{{ groups['ec2'] }}"
+  loop_control:
+    loop_var: peer
+  notify:
+    - Restart OpenBSD iked
+
+
 - name: Enable iked
   lineinfile:
     path: /etc/rc.conf.local

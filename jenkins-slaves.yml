@@ -61,27 +61,30 @@
 
     - name: Linux packages
       when: "ansible_distribution == 'Debian'"
-      apt:
-        name:
-          - autoconf
-          - automake
-          - autopoint
-          - docbook-xsl
-          - g++
-          - gettext
-          - git
-          - libargon2-0-dev
-          - libcppunit-dev
-          - libncurses-dev
-          - libpcre3-dev
-          - libtool
-          - nodejs
-          - npm
-          - openjdk-11-jdk
-          - w3m
-          - xsltproc
-          - xvfb
-        state: present
+      block:
+        - apt:
+            name:
+              - autoconf
+              - automake
+              - autopoint
+              - docbook-xsl
+              - g++
+              - gettext
+              - git
+              - libargon2-0-dev
+              - libcppunit-dev
+              - libncurses-dev
+              - libpcre3-dev
+              - libtool
+              - nodejs
+              - npm
+              - openjdk-11-jdk
+              - w3m
+              - xsltproc
+              - xvfb
+            state: present
+        - import_role:
+            name: raspberrypi/yellowfish-buildhost
 
     - name: OpenBSD packages
       when: "ansible_distribution == 'OpenBSD'"

@@ -1,0 +1,17 @@
+---
+
+- name: Add adminstrator ssh keys for root
+  authorized_key:
+    state: present
+    key: '{{ item }}'
+    user: pi
+    manage_dir: yes
+  with_items: '{{ ssh_keys_administrators }}'
+
+- name: Remove ssh keys
+  authorized_key:
+    state: absent
+    key: '{{ item }}'
+    user: pi
+    manage_dir: yes
+  with_items: '{{ delete_ssh_keys_administrators }}'

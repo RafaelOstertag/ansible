@@ -77,6 +77,7 @@ harvester.kruemel.home
 ;
 [jenkins_slaves]
 dash.virtual.kruemel.home
+pi3.wlan.kruemel.home
 merlin.virtual.kruemel.home
 aurora.virtual.kruemel.home
 # Because of docker
@@ -107,3 +108,9 @@ ec2-18-157-49-147.eu-central-1.compute.amazonaws.com hostname=app-2 public_ip=18
 
 [ec2_sec]
 ec2-54-93-164-159.eu-central-1.compute.amazonaws.com hostname=sec-1 public_ip=54.93.164.159
+
+[raspberry_pi]
+pi1.wlan.kruemel.home
+pi2.wlan.kruemel.home
+pi3.wlan.kruemel.home
+pi4.wlan.kruemel.home

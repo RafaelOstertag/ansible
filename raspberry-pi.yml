@@ -1,0 +1,9 @@
+---
+
+- name: Raspberry PIs
+  hosts: raspberry_pi
+  tasks:
+    - import_role:
+        name: raspberrypi/ssh-keys
+    - import_role:
+        name: raspberrypi/yellowfish-buildhost

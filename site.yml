@@ -35,3 +35,5 @@
 - import_playbook: jenkins-slaves.yml
 
 - import_playbook: db-setup.yml
+
+- import_playbook: raspberry-pi.yml

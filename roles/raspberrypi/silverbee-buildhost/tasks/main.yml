@@ -1,0 +1,11 @@
+---
+
+- name: Install development packages
+  apt:
+    name:
+      - cmake
+      - g++
+      - git
+      - libgtkmm-3.0-dev
+      - libgstreamer1.0-dev
+    state: present

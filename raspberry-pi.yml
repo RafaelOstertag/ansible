@@ -1,5 +1,4 @@
 ---
-
 - name: Raspberry PIs
   hosts: raspberry_pi
   tasks:
@@ -7,3 +6,5 @@
         name: raspberrypi/ssh-keys
     - import_role:
         name: raspberrypi/yellowfish-buildhost
+    - import_role:
+        name: raspberrypi/silverbee-buildhost

@@ -1,7 +1,7 @@
 $ORIGIN .
 $TTL 86400      ; 1 day
 dhcp.kruemel.home       IN SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                                202009160      ; serial
+                                202009161      ; serial
                                 7200       ; refresh (2 hours)
                                 3600       ; retry (1 hour)
                                 86400      ; expire (1 day)
@@ -10,15 +10,15 @@ dhcp.kruemel.home       IN SOA  optimusprime.kruemel.home. postmaster.kruemel.ho
                         NS      viking.kruemel.home.
                         NS      optimusprime.kruemel.home.
 $ORIGIN dhcp.kruemel.home.
-dhclient-1             A       192.168.100.60
-dhclient-2             A       192.168.100.61
-dhclient-3             A       192.168.100.62
-dhclient-4             A       192.168.100.63
-dhclient-5             A       192.168.100.64
-pxeboot-1              A       192.168.100.65
-pxeboot-2              A       192.168.100.66
-pxeboot-3              A       192.168.100.67
-pxeboot-4              A       192.168.100.68
-pxeboot-5              A       192.168.100.69
+dhclient-60            A       192.168.100.60
+dhclient-61            A       192.168.100.61
+dhclient-62            A       192.168.100.62
+dhclient-63            A       192.168.100.63
+dhclient-64            A       192.168.100.64
+pxeboot-65             A       192.168.100.65
+pxeboot-66             A       192.168.100.66
+pxeboot-67             A       192.168.100.67
+pxeboot-68             A       192.168.100.68
+pxeboot-69             A       192.168.100.69
 
 

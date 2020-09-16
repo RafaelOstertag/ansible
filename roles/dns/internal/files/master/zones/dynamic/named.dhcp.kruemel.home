@@ -1,7 +1,7 @@
 $ORIGIN .
 $TTL 86400      ; 1 day
 dhcp.kruemel.home       IN SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                                46031      ; serial
+                                202009160      ; serial
                                 7200       ; refresh (2 hours)
                                 3600       ; retry (1 hour)
                                 86400      ; expire (1 day)
@@ -10,44 +10,15 @@ dhcp.kruemel.home       IN SOA  optimusprime.kruemel.home. postmaster.kruemel.ho
                         NS      viking.kruemel.home.
                         NS      optimusprime.kruemel.home.
 $ORIGIN dhcp.kruemel.home.
-dhclient-60             A       192.168.100.60
-dhclient-61             A       192.168.100.61
-dhclient-62             A       192.168.100.62
-dhclient-63             A       192.168.100.63
-dhclient-64             A       192.168.100.64
-dhclient-65             A       192.168.100.65
-dhclient-66             A       192.168.100.66
-dhclient-67             A       192.168.100.67
-dhclient-68             A       192.168.100.68
-dhclient-69             A       192.168.100.69
-dhclient-70             A       192.168.100.70
-dhclient-71             A       192.168.100.71
-dhclient-72             A       192.168.100.72
-dhclient-73             A       192.168.100.73
-dhclient-74             A       192.168.100.74
-dhclient-75             A       192.168.100.75
-dhclient-76             A       192.168.100.76
-dhclient-77             A       192.168.100.77
-dhclient-78             A       192.168.100.78
-dhclient-79             A       192.168.100.79
-dhclient-80             A       192.168.100.80
-pxeboot-40              A       192.168.100.40
-pxeboot-41              A       192.168.100.41
-pxeboot-42              A       192.168.100.42
-pxeboot-43              A       192.168.100.43
-pxeboot-44              A       192.168.100.44
-pxeboot-45              A       192.168.100.45
-pxeboot-46              A       192.168.100.46
-pxeboot-47              A       192.168.100.47
-pxeboot-48              A       192.168.100.48
-pxeboot-49              A       192.168.100.49
-pxeboot-50              A       192.168.100.50
-pxeboot-51              A       192.168.100.51
-pxeboot-52              A       192.168.100.52
-pxeboot-53              A       192.168.100.53
-pxeboot-54              A       192.168.100.54
-pxeboot-55              A       192.168.100.55
-pxeboot-56              A       192.168.100.56
-pxeboot-57              A       192.168.100.57
-pxeboot-58              A       192.168.100.58
-pxeboot-59              A       192.168.100.59
+dhclient-1             A       192.168.100.60
+dhclient-2             A       192.168.100.61
+dhclient-3             A       192.168.100.62
+dhclient-4             A       192.168.100.63
+dhclient-5             A       192.168.100.64
+pxeboot-1              A       192.168.100.65
+pxeboot-2              A       192.168.100.66
+pxeboot-3              A       192.168.100.67
+pxeboot-4              A       192.168.100.68
+pxeboot-5              A       192.168.100.69
+
+

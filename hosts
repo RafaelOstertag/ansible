@@ -114,3 +114,9 @@ pi1.wlan.kruemel.home
 pi2.wlan.kruemel.home
 pi3.wlan.kruemel.home
 pi4.wlan.kruemel.home
+
+[pi_kube]
+pi-1.k8s.kruemel.home master=True
+pi-2.k8s.kruemel.home master=False
+pi-3.k8s.kruemel.home master=False
+pi-4.k8s.kruemel.home master=False

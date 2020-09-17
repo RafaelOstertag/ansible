@@ -1,0 +1,8 @@
+---
+
+- name: Install k8s packages on master
+  apt:
+    name:
+      - kubelet
+      - kubeadm
+      - kubectl

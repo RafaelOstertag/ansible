@@ -1,0 +1,27 @@
+---
+- name: Load br_netfilter upon start
+  copy:
+    src: br-netfilter.conf
+    dest: /etc/modules-load.d/br-netfilter.conf
+    mode: "0644"
+    owner: root
+    group: root
+
+- name: Load br_netfilter
+  modprobe:
+    name: br_netfilter
+    state: present
+
+- name: Set IPv6 bridge filter
+  sysctl:
+    name: net.bridge.bridge-nf-call-ip6tables
+    value: "1"
+    state: present
+    sysctl_file: /etc/sysctl.d/k8s.conf
+
+- name: Set IPv4 bridge filter
+  sysctl:
+    name: net.bridge.bridge-nf-call-iptables
+    value: "1"
+    state: present
+    sysctl_file: /etc/sysctl.d/k8s.conf

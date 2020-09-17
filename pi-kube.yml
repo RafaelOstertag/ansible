@@ -1,0 +1,20 @@
+---
+- name: Pi Kubernetes
+  hosts: pi_kube
+  tasks:
+    - import_role:
+        name: raspberrypi/ssh-keys
+    - import_role:
+        name: raspberrypi/docker
+    - import_role:
+        name: k8s/set-hostname
+    - import_role:
+        name: k8s/disable-swap
+    - import_role:
+        name: k8s/configure-docker
+    - import_role:
+        name: k8s/bridging
+    - import_role:
+        name: k8s/k8s-repo
+    - import_role:
+        name: k8s/k8s-packages

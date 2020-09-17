@@ -1,0 +1,12 @@
+---
+- name: Install Kubernetes repo key
+  apt_key:
+    state: present
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+- name: Add Kubernetes repository
+  apt_repository:
+    repo: "deb [arch=armhf] https://apt.kubernetes.io/ kubernetes-xenial main"
+    state: present
+    update_cache: yes
+    filename: kubernetes

@@ -1,0 +1,34 @@
+---
+- name: Install prerequisites
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+
+- name: Install docker repo key
+  apt_key:
+    state: present
+    url: https://download.docker.com/linux/raspbian/gpg
+
+- name: Add Docker Raspbian repository
+  apt_repository:
+    repo: "deb [arch=armhf] https://download.docker.com/linux/raspbian buster stable"
+    state: present
+    update_cache: yes
+    filename: docker
+
+- name: Install docker
+  apt:
+    name: docker-ce
+    install_recommends: no
+    state: present
+
+- name: Enable docker
+  systemd:
+    name: docker
+    enabled: yes
+
+- name: Start docker
+  systemd:
+    name: docker
+    state: started

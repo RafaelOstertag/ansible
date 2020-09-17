@@ -8,3 +8,6 @@
         name: raspberrypi/yellowfish-buildhost
     - import_role:
         name: raspberrypi/silverbee-buildhost
+    - include_role:
+        name: raspberrypi/docker
+      when: "ansible_fqdn == 'pi3'"

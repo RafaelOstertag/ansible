@@ -1,3 +1,0 @@
----
-ansible_user: root
-ansible_become: no

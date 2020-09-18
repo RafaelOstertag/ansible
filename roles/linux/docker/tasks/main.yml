@@ -1,5 +1,4 @@
 ---
-
 - name: Install pre-req packages
   apt:
     state: present
@@ -15,11 +14,19 @@
     url: https://download.docker.com/linux/debian/gpg
     state: present
 
-- name: Add docker repo
+- name: Add docker repo (x86_64)
   apt_repository:
     update_cache: yes
     state: present
     repo: "deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
+  when: "ansible_machine == 'x86_64'"
+
+- name: Add docker repo (aarch64)
+  apt_repository:
+    repo: "deb [arch=arm64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
+    state: present
+    update_cache: yes
+  when: "ansible_machine == 'aarch64'"
 
 - name: Install docker
   apt:
@@ -34,8 +41,13 @@
     name: docker
     enabled: yes
 
-- name: Start docker
+- name: Start docker (x86_64)
   systemd:
-    name: docker
+    name: docker.service
     state: started
+  when: "ansible_machine == 'x86_64'"
 
+- name: Start docker (aarch64)
+  shell:
+    cmd: "systemctl start docker"
+  when: "ansible_machine == 'aarch64'"

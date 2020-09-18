@@ -1,23 +1,18 @@
 ---
 - name: Pi Kubernetes
+  user: root
   hosts: pi_kube
   tasks:
     - import_role:
-        name: raspberrypi/ssh-keys
-      when: "ansible_machine == 'armv7l'"
-    - import_role:
         name: common/ssh-keys
-      when: "ansible_machine == 'x86_64'"
     - import_role:
-        name: raspberrypi/docker
-      when: "ansible_machine == 'armv7l'"
+        name: k8s/resolvconf
     - import_role:
         name: linux/docker
-      when: "ansible_machine == 'x86_64'"
     - import_role:
         name: k8s/set-hostname
     - import_role:
-        name: k8s/disable-swap
+        name: k8s/nfs-client
     - import_role:
         name: k8s/configure-docker
     - import_role:

@@ -1,5 +1,4 @@
 ---
-
 - name: Install master zones
   copy:
     src: "master/zones/master/{{ item }}"
@@ -18,6 +17,7 @@
     - named.kruemel.home
     - named.virtual.kruemel.home
     - named.k8s.kruemel.home
+    - named.app.k8s.kruemel.home
   notify:
     - Restart FreeBSD bind
 

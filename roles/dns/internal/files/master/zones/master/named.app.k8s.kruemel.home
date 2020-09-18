@@ -1,0 +1,16 @@
+; Maintained by Ansible
+$ORIGIN app.k8s.kruemel.home.
+$TTL 6h
+@                       IN      SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
+                                202009180 ; Serial
+                                1d        ; Refresh
+                                1h        ; Retry
+                                1w        ; Expire
+                                1h        ; Negative Cache TTL
+                                )
+                        IN      NS   optimusprime.kruemel.home.
+                        IN      NS   viking.kruemel.home.
+                                MX   10 colossus.kruemel.home.
+
+*                  IN  A   192.168.100.19
+

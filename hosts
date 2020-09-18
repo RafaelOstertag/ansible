@@ -58,16 +58,12 @@ merlin.virtual.kruemel.home
 ;
 [linux_servers]
 harvester.kruemel.home
-maersk.kruemel.home
 
 [linux_user_hosts:children]
 linux_virtual_hosts
 
 [linux_virtual_hosts]
 dash.virtual.kruemel.home
-
-[docker_hosts]
-maersk.kruemel.home
 
 [graylog_servers]
 harvester.kruemel.home
@@ -80,8 +76,6 @@ dash.virtual.kruemel.home
 pi3.wlan.kruemel.home
 merlin.virtual.kruemel.home
 aurora.virtual.kruemel.home
-# Because of docker
-maersk.kruemel.home
 
 ;
 ; EC2 instances
@@ -116,7 +110,8 @@ pi3.wlan.kruemel.home
 pi4.wlan.kruemel.home
 
 [pi_kube]
-pi-1.k8s.kruemel.home master=True
-pi-2.k8s.kruemel.home master=False
-pi-3.k8s.kruemel.home master=False
-pi-4.k8s.kruemel.home master=False
+master.k8s.kruemel.home
+pi-1.k8s.kruemel.home
+pi-2.k8s.kruemel.home
+pi-3.k8s.kruemel.home
+pi-4.k8s.kruemel.home

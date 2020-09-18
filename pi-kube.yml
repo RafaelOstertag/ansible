@@ -4,8 +4,16 @@
   tasks:
     - import_role:
         name: raspberrypi/ssh-keys
+      when: "ansible_machine == 'armv7l'"
+    - import_role:
+        name: common/ssh-keys
+      when: "ansible_machine == 'x86_64'"
     - import_role:
         name: raspberrypi/docker
+      when: "ansible_machine == 'armv7l'"
+    - import_role:
+        name: linux/docker
+      when: "ansible_machine == 'x86_64'"
     - import_role:
         name: k8s/set-hostname
     - import_role:

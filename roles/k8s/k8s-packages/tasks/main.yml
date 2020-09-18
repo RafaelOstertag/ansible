@@ -1,6 +1,5 @@
 ---
-
-- name: Install k8s packages on master
+- name: Install k8s packages
   apt:
     name:
       - kubelet

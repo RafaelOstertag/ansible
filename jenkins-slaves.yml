@@ -1,5 +1,4 @@
 ---
-
 - name: Jenkins Slaves
   hosts: jenkins_slaves
   user: root
@@ -60,9 +59,10 @@
         state: present
 
     - name: Linux packages
-      when: "ansible_distribution == 'Debian'"
+      when: "ansible_distribution == 'Debian' and not ansible_machine == 'aarch64'"
       block:
-        - apt:
+        - name: Linux Packages non aarch64
+          apt:
             name:
               - autoconf
               - automake
@@ -85,6 +85,13 @@
             state: present
         - import_role:
             name: raspberrypi/yellowfish-buildhost
+
+    - name: Linux packages aarch64
+      when: "ansible_distribution == 'Debian' and ansible_machine == 'aarch64'"
+      apt:
+        name:
+          - openjdk-11-jdk
+        state: present
 
     - name: OpenBSD packages
       when: "ansible_distribution == 'OpenBSD'"
@@ -130,4 +137,3 @@
         name: linux/javacerts
       tags:
         - javacerts
-

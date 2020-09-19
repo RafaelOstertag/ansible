@@ -8,25 +8,40 @@
       - gnupg2
       - software-properties-common
 
-- name: Install docker repo key
+- name: Install Debian docker repo key
   apt_key:
     id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
     url: https://download.docker.com/linux/debian/gpg
     state: present
+  when: "ansible_distribution == 'Debian'"
 
-- name: Add docker repo (x86_64)
+- name: Install Debian docker repo key
+  apt_key:
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  when: "ansible_distribution == 'Ubuntu'"
+
+- name: Add Debian docker repo (x86_64)
   apt_repository:
     update_cache: yes
     state: present
     repo: "deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
-  when: "ansible_machine == 'x86_64'"
+  when: "ansible_machine == 'x86_64' and ansible_distribution == 'Debian'"
 
-- name: Add docker repo (aarch64)
+- name: Add Debian docker repo (aarch64)
   apt_repository:
     repo: "deb [arch=arm64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
     state: present
     update_cache: yes
-  when: "ansible_machine == 'aarch64'"
+  when: "ansible_machine == 'aarch64' and ansible_distribution == 'Debian'"
+
+- name: Add Ubuntu docker repo (aarch64)
+  apt_repository:
+    repo: "deb [arch=arm64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+    update_cache: yes
+  when: "ansible_machine == 'aarch64' and ansible_distribution == 'Ubuntu'"
 
 - name: Install docker
   apt:
@@ -41,13 +56,7 @@
     name: docker
     enabled: yes
 
-- name: Start docker (x86_64)
+- name: Start docker
   systemd:
     name: docker.service
     state: started
-  when: "ansible_machine == 'x86_64'"
-
-- name: Start docker (aarch64)
-  shell:
-    cmd: "systemctl start docker"
-  when: "ansible_machine == 'aarch64'"

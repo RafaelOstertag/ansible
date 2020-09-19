@@ -7,8 +7,7 @@
     owner: "root"
     group: "root"
   notify:
-    - Restart Docker (x86_64)
-    - Restart Docker (aarch64)
+    - Restart Docker
 
 - name: Create systemd directory
   file:

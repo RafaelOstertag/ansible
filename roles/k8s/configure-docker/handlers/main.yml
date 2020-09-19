@@ -1,12 +1,6 @@
 ---
-- name: Restart Docker (x86_64)
+- name: Restart Docker
   systemd:
     name: docker.service
     daemon_reload: yes
     state: restarted
-  when: "ansible_machine == 'x86_64'"
-
-- name: Restart Docker (aarch64)
-  shell:
-    cmd: "systemctl daemon-reload && systemctl restart docker"
-  when: "ansible_machine == 'aarch64'"

@@ -63,6 +63,8 @@
       block:
         - import_role:
             name: k8s/k8s-repo
+        - import_role:
+            name: k8s/helm
         - name: Linux Packages non aarch64
           apt:
             name:

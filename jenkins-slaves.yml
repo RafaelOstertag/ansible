@@ -58,9 +58,11 @@
           - w3m
         state: present
 
-    - name: Linux packages
+    - name: Linux packages Debian
       when: "ansible_distribution == 'Debian' and not ansible_machine == 'aarch64'"
       block:
+        - import_role:
+            name: k8s/k8s-repo
         - name: Linux Packages non aarch64
           apt:
             name:
@@ -71,6 +73,7 @@
               - g++
               - gettext
               - git
+              - kubectl
               - libargon2-0-dev
               - libcppunit-dev
               - libncurses-dev
@@ -86,8 +89,8 @@
         - import_role:
             name: raspberrypi/yellowfish-buildhost
 
-    - name: Linux packages aarch64
-      when: "ansible_distribution == 'Debian' and ansible_machine == 'aarch64'"
+    - name: Linux packages Ubuntu aarch64
+      when: "ansible_distribution == 'Ubuntu' and ansible_machine == 'aarch64'"
       apt:
         name:
           - openjdk-11-jdk
@@ -132,7 +135,7 @@
         - javacerts
 
     - name: Install guengel.ch certificate
-      when: "ansible_distribution == 'Debian'"
+      when: "ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'"
       import_role:
         name: linux/javacerts
       tags:

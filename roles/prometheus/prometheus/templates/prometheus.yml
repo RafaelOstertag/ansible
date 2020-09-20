@@ -42,8 +42,6 @@ scrape_configs:
   - job_name: 'applications'
     static_configs:
     - targets:
-      # imageserver
-      - colossus.kruemel.home:40005
       # funnel-retriever
       - app-2:40003
       # funnel-persistence

@@ -14,7 +14,6 @@
 - import_playbook: freebsd-prometheus-servers.yml
 - import_playbook: freebsd-rsync-servers.yml
 - import_playbook: freebsd-servers.yml
-- import_playbook: freebsd-thin-jails.yml
 - import_playbook: freebsd-poudriere-hosts.yml
 - import_playbook: freebsd-user-server.yml
 - import_playbook: freebsd-nfsv4-servers.yml

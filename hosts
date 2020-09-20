@@ -22,9 +22,6 @@ aurora.virtual.kruemel.home
 [lean_jail_servers]
 colossus.kruemel.home
 
-[thin_jail_servers]
-colossus.kruemel.home
-
 [prometheus_hosts:children]
 openbsd_prometheus_hosts
 freebsd_prometheus_hosts

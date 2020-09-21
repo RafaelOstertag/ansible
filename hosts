@@ -73,7 +73,6 @@ dash.virtual.kruemel.home
 pi3.wlan.kruemel.home
 merlin.virtual.kruemel.home
 aurora.virtual.kruemel.home
-pi-1.k8s.kruemel.home
 
 ;
 ; EC2 instances

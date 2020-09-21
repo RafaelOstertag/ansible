@@ -59,12 +59,17 @@
         state: present
 
     - name: Linux packages Debian
-      when: "ansible_distribution == 'Debian' and not ansible_machine == 'aarch64'"
+      when: "ansible_distribution == 'Debian'"
       block:
         - import_role:
             name: k8s/k8s-repo
+          when: "ansible_machine == 'x86_64'"
         - import_role:
             name: k8s/helm
+          when: "ansible_machine == 'x86_64'"
+        - import_role:
+            name: linux/docker
+          when: "ansible_machine == 'x86_64'"
         - name: Linux Packages non aarch64
           apt:
             name:
@@ -90,13 +95,6 @@
             state: present
         - import_role:
             name: raspberrypi/yellowfish-buildhost
-
-    - name: Linux packages Ubuntu aarch64
-      when: "ansible_distribution == 'Ubuntu' and ansible_machine == 'aarch64'"
-      apt:
-        name:
-          - openjdk-11-jdk
-        state: present
 
     - name: OpenBSD packages
       when: "ansible_distribution == 'OpenBSD'"

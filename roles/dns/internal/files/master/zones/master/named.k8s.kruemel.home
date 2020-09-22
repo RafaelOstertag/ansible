@@ -2,7 +2,7 @@
 $ORIGIN k8s.kruemel.home.
 $TTL 6h
 @                       IN      SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                                202009170 ; Serial
+                                202009220 ; Serial
                                 1d        ; Refresh
                                 1h        ; Retry
                                 1w        ; Expire
@@ -17,3 +17,4 @@ pi-1                    IN  A   192.168.100.20
 pi-2                    IN  A   192.168.100.21
 pi-3                    IN  A   192.168.100.22
 pi-4                    IN  A   192.168.100.23
+builder                 IN  A   192.168.100.30

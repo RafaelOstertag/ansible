@@ -67,9 +67,6 @@
         - import_role:
             name: k8s/helm
           when: "ansible_machine == 'x86_64'"
-        - import_role:
-            name: linux/docker
-          when: "ansible_machine == 'x86_64'"
         - name: Linux Packages non aarch64
           apt:
             name:
@@ -95,6 +92,12 @@
             state: present
         - import_role:
             name: raspberrypi/yellowfish-buildhost
+
+    - name: Linux packages Ubuntu
+      when: "ansible_distribution == 'Ubuntu' and ansible_machine == 'aarch64'"
+      apt:
+        name:
+          - openjdk-11-jdk
 
     - name: OpenBSD packages
       when: "ansible_distribution == 'OpenBSD'"

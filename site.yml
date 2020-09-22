@@ -35,3 +35,6 @@
 - import_playbook: db-setup.yml
 
 - import_playbook: raspberry-pi.yml
+
+- import_playbook: pi-kube.yml
+- import_playbook: docker-build.yml

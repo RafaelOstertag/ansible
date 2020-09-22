@@ -1,0 +1,9 @@
+---
+- name: Docker Build Hosts
+  hosts: docker_build
+  user: root
+  tasks:
+    - import_role:
+        name: common/ssh-keys
+    - import_role:
+        name: linux/docker

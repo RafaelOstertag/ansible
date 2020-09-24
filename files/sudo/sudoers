@@ -2,8 +2,8 @@
 
 # Host alias specification
 Host_Alias	SERVERS	= gargoyle.kruemel.home, yayap.dmz.kruemel.home, viking.kruemel.home, optimusprime.kruemel.home, colossus.kruemel.home
-Host_Alias	FREEBSD = viking.kruemel.home, optimusprime.kruemel.home, yayap.dmz.kruemel.home, smtp-1, web-1, db-1, app-1, app-2, sec-1, colossus.kruemel.home
-Host_Alias	EC2_INSTANCES = smtp-1, web-1, db-1, app-1, sec-1, app-2
+Host_Alias	FREEBSD = viking.kruemel.home, optimusprime.kruemel.home, yayap.dmz.kruemel.home, smtp-1, web-1, db-1, app-1, sec-1, colossus.kruemel.home
+Host_Alias	EC2_INSTANCES = smtp-1, web-1, db-1, app-1, sec-1
 Host_Alias	FREEBSD_WKS = aurora.virtual.kruemel.home
 
 # User alias specification

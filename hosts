@@ -96,7 +96,6 @@ ec2-35-156-183-108.eu-central-1.compute.amazonaws.com hostname=db-1 public_ip=35
 
 [ec2_app]
 ec2-3-123-24-250.eu-central-1.compute.amazonaws.com hostname=app-1 public_ip=3.123.24.250
-ec2-18-157-49-147.eu-central-1.compute.amazonaws.com hostname=app-2 public_ip=18.157.49.147
 
 [ec2_sec]
 ec2-54-93-164-159.eu-central-1.compute.amazonaws.com hostname=sec-1 public_ip=54.93.164.159

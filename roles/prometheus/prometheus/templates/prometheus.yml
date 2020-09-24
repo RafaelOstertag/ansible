@@ -39,17 +39,3 @@ scrape_configs:
         - {{ prometheus_host }}:9100
 {% endif %}
 {% endfor %}
-  - job_name: 'applications'
-    static_configs:
-    - targets:
-      # funnel-retriever
-      - app-2:40003
-      # funnel-persistence
-      - app-2:40004
-      # funnel-chronos
-      - app-2:40005
-      # funnel-rest
-      - app-2:40006
-      # funnel-notifier
-      - app-2:40007
-

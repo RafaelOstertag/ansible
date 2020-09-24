@@ -1,5 +1,4 @@
 ---
-
 - name: Add kruemel.home hosts to hosts file
   lineinfile:
     path: /etc/hosts
@@ -29,3 +28,10 @@
     state: present
     regexp: '^192\.168\.100\.5\s+'
     line: "192.168.100.5 optimusprime.kruemel.home"
+
+- name: Add funnel.app.k8s.kruemel.home host to hosts file
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    regexp: '^192\.168\.100\.19\s+'
+    line: "192.168.100.19 funnel.app.k8s.kruemel.home"

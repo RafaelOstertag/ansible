@@ -14,6 +14,7 @@
     group: prometheus
   vars:
     prometheus_hosts: "{{ groups['prometheus_hosts'] + groups['ec2'] }}"
+    k8s_hosts: "{{ groups['pi_kube'] }}"
   notify:
     - Restart FreeBSD prometheus
 

@@ -39,6 +39,9 @@ scrape_configs:
         - {{ prometheus_host }}:9100
 {% endif %}
 {% endfor %}
-{% for prometheus_host in pi_kube %}
+  - job_name: 'k8s'
+    static_configs:
+    - targets:
+{% for prometheus_host in k8s_hosts %}
         - {{ prometheus_host }}:9100
 {% endfor %}

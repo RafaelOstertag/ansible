@@ -39,3 +39,6 @@ scrape_configs:
         - {{ prometheus_host }}:9100
 {% endif %}
 {% endfor %}
+{% for prometheus_host in pi_kube %}
+        - {{ prometheus_host }}:9100
+{% endfor %}

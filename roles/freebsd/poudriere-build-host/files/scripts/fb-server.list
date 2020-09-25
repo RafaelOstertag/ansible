@@ -46,6 +46,7 @@ shells/bash
 sysutils/ansible
 sysutils/coreutils
 sysutils/freeipmi
+sysutils/fusefs-ntfs
 sysutils/grub2-bhyve
 sysutils/ipmitool
 sysutils/node_exporter

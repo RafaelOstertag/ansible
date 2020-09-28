@@ -7,6 +7,5 @@ lean_jails:
   - git
   - nexus
   - rundeck
-  - mongodb
   - jenkins
 

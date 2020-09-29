@@ -110,9 +110,3 @@
       pkgng:
         name: curl
         state: present
-
-    - import_role:
-        name: ec2/app/consul-thin-jail
-      tags:
-        - consul
-

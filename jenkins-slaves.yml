@@ -83,8 +83,6 @@
               - libncurses-dev
               - libpcre3-dev
               - libtool
-              - nodejs
-              - npm
               - openjdk-11-jdk
               - w3m
               - xsltproc
@@ -92,6 +90,8 @@
             state: present
         - import_role:
             name: raspberrypi/yellowfish-buildhost
+        - import_role:
+            name: linux/nodejs
 
     - name: Linux packages Ubuntu
       when: "ansible_distribution == 'Ubuntu' and ansible_machine == 'aarch64'"

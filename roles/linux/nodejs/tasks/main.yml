@@ -17,5 +17,4 @@
   apt:
     name:
       - nodejs
-      - npm
     state: latest

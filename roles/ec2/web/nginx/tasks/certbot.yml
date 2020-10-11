@@ -1,8 +1,7 @@
 ---
-
 - name: Install certbot
   pkgng:
-    name: py36-certbot
+    name: py37-certbot
     state: present
 
 - name: Create certbot www directory
@@ -33,10 +32,10 @@
 
 - debug:
     msg: |
-     ******
-     You can use /usr/local/bin/certbot-guengel.ch.sh to create the
-     certificates for all domains
-     ******
+      ******
+      You can use /usr/local/bin/certbot-guengel.ch.sh to create the
+      certificates for all domains
+      ******
 
 - name: Setup auto renewal of certificates
   cron:
@@ -49,4 +48,3 @@
     hour: "5"
     minute: "42"
     job: "/usr/local/bin/certbot renew"
-

@@ -103,7 +103,7 @@
       when: "ansible_distribution == 'OpenBSD'"
       openbsd_pkg:
         name:
-          - autoconf-2.69p2
+          - autoconf-2.69p3
           - automake-1.15.1
           - cppunit
           - docbook-xsl
@@ -111,8 +111,8 @@
           - gettext-tools
           - git
           - gmake
-          - jdk-1.8.0.252.b09.1v0
-          - jdk-11.0.7.10.2p0v0
+          - jdk-1.8.0.265.b01.1v0
+          - jdk-11.0.8.10.1v0
           - libtool
           - libxslt
           - pcre

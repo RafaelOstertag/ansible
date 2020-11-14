@@ -1,0 +1,33 @@
+---
+
+- name: Install required packages
+  apt:
+    name: nfs-common
+    state: present
+
+- name: Enable idmap in nfs-common
+  lineinfile:
+    path: /etc/default/nfs-common
+    regex: "^NEED_IDMAPD=.*"
+    line: "NEED_IDMAPD=yes"
+    state: present
+  notify:
+    - Linux restart nfs-utils
+
+- name: Install idmapd.conf
+  copy:
+    src: idmapd.conf
+    dest: /etc/idmapd.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify:
+    - Linux restart nfs-utils
+
+- name: Enable nfs-utils
+  systemd:
+    name: nfs-utils.service
+    enabled: true
+
+- name: Setup mounts
+  include: mounts.yml

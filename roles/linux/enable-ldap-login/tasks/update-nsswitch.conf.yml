@@ -1,0 +1,33 @@
+---
+
+- name: Update nsswitch.conf (passwd)
+  lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: '^passwd: .*'
+    line: 'passwd:         files systemd ldap'
+    state: present
+  when: "ansible_distribution == 'Debian'"
+
+- name: Update nsswitch.conf (passwd)
+  lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: '^passwd: .*'
+    line: 'passwd:         files systemd sss ldap'
+    state: present
+  when: "ansible_distribution == 'Ubuntu'"
+
+- name: Update nsswitch.conf (group)
+  lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: '^group: .*'
+    line: 'group:          files systemd ldap'
+    state: present
+  when: "ansible_distribution == 'Debian'"
+
+- name: Update nsswitch.conf (group)
+  lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: '^group: .*'
+    line: 'group:          files systemd sss ldap'
+    state: present
+  when: "ansible_distribution == 'Ubuntu'"

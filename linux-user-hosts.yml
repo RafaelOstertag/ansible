@@ -10,5 +10,9 @@
     - common/motd
     - common/ssh-keys
     - common/ssh-config
-    - linux/amanda-host
-    - linux/exim4-nullhost
+    - name: linux/amanda-host
+      when: "ansible_distribution == 'Debian'"
+    - name: linux/exim4-nullhost
+      when: "ansible_distribution == 'Debian'"
+    - linux/nfs-mounts
+    - linux/enable-ldap-login

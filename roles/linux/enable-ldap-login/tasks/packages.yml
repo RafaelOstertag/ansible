@@ -1,0 +1,7 @@
+---
+
+- name: Install prerequisite packages
+  apt:
+    name:
+      - libnss-ldapd
+      - libpam-ldapd

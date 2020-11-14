@@ -1,0 +1,10 @@
+---
+
+- name: Install packages
+  include: packages.yml
+
+- name: Setup nslcd
+  include: nslcd.yml
+
+- name: Update nsswitch.conf
+  include: update-nsswitch.conf.yml

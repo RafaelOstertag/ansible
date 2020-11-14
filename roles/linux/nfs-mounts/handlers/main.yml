@@ -1,0 +1,6 @@
+---
+
+- name: Linux restart nfs-utils
+  systemd:
+    name: nfs-utils.service
+    state: restarted

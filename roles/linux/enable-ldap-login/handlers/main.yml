@@ -1,0 +1,6 @@
+---
+
+- name: Linux restart nslcd
+  systemd:
+    name: nslcd.service
+    state: restarted

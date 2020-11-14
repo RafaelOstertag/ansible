@@ -58,9 +58,13 @@ harvester.kruemel.home
 
 [linux_user_hosts:children]
 linux_virtual_hosts
+pi_workstations
 
 [linux_virtual_hosts]
 dash.virtual.kruemel.home
+
+[pi_workstations]
+pi-wks-1.kruemel.home
 
 [graylog_servers]
 harvester.kruemel.home

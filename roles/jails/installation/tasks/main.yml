@@ -1,6 +1,6 @@
 ---
 
-# Required for "unarchive" module
+# Required for "unarchive" ansible module
 - name: Install gnutar
   pkgng:
     name: gtar

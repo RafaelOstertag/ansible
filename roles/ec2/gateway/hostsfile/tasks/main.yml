@@ -34,4 +34,4 @@
     path: /etc/hosts
     state: present
     regexp: '^192\.168\.100\.19\s+'
-    line: "192.168.100.19 funnel.app.k8s.kruemel.home portscanner.app.k8s.kruemel.home esp-be-coredata.app.k8s.kruemel.home esp-be-file.app.k8s.kruemel.home esp-be-experience.app.k8s.kruemel.home"
+    line: "192.168.100.19 funnel.app.k8s.kruemel.home portscanner.app.k8s.kruemel.home esp-be-coredata.app.k8s.kruemel.home esp-be-file.app.k8s.kruemel.home esp-be-experience.app.k8s.kruemel.home memberberry.app.k8s.kruemel.home"

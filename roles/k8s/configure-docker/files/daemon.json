@@ -1,4 +1,5 @@
 {
+    "data-root": "/k8s/docker",
     "exec-opts": [
         "native.cgroupdriver=systemd"
     ],

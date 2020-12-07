@@ -1,0 +1,7 @@
+---
+
+- name: Linux restart nrpe
+  systemd:
+    name: nagios-nrpe-server.service
+    daemon_reload: yes
+    state: restarted

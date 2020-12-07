@@ -25,3 +25,7 @@
         name: k8s/k8s-repo
     - import_role:
         name: k8s/k8s-packages
+    - import_role:
+        name: k8s/nrpe
+      tags:
+        - nagios

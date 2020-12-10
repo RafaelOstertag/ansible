@@ -1,8 +1,10 @@
 ---
 
-- name: Install nrpe
+- name: Install packages
   apt:
-    name: nagios-nrpe-server
+    name:
+      - nagios-nrpe-server
+      - monitoring-plugins
     state: present
 
 - name: Make tls cert directory

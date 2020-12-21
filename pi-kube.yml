@@ -29,3 +29,5 @@
         name: k8s/nrpe
       tags:
         - nagios
+    - import_role:
+        name: k8s/sysstat

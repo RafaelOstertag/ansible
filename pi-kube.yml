@@ -30,4 +30,4 @@
       tags:
         - nagios
     - import_role:
-        name: k8s/sysstat
+        name: k8s/system-tools

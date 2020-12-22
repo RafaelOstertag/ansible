@@ -45,3 +45,6 @@ scrape_configs:
 {% for prometheus_host in k8s_hosts %}
         - {{ prometheus_host }}:9100
 {% endfor %}
+{% for prometheus_host in groups['docker_build'] %}
+        - {{ prometheus_host }}:9100
+{% endfor %}

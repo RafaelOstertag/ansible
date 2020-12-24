@@ -8,6 +8,6 @@
     - ec2
   tasks:
     - import_role:
-        name: prometheus/node-exporter
+        name: freebsd/node-exporter
       when: "ansible_distribution == 'FreeBSD'"
 

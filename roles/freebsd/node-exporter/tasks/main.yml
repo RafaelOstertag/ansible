@@ -24,3 +24,19 @@
   service:
     name: node_exporter
     state: started
+
+- name: Install smartmon script
+  copy:
+    src: smartmon.sh
+    dest: /usr/local/sbin/smartmon.sh
+    mode: "0755"
+    owner: root
+    group: wheel
+
+- name: Setup cronjob for smartmon.sh script
+  cron:
+    name: Node exporter smartmon
+    state: present
+    minute: "*/60"
+    user: root
+    job: "mkdir -p /var/cache/node_exporter && /usr/local/sbin/smartmon.sh > /var/cache/node_exporter/smartmon.new && mv /var/cache/node_exporter/smartmon.new /var/cache/node_exporter/smartmon.prom"

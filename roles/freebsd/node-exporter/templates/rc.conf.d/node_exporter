@@ -2,3 +2,4 @@ node_exporter_enable=YES
 {% if not zfs.stat.exists or not zfs.stat.isdir %}
 node_exporter_args="--no-collector.zfs"
 {% endif %}
+node_exporter_textfile_dir=/var/cache/node_exporter

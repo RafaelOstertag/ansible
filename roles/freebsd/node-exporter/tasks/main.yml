@@ -2,7 +2,10 @@
 
 - name: Install node exporter
   pkgng:
-    name: node_exporter
+    name:
+      - node_exporter
+      # Used by smartmon.sh
+      - bash
     state: present
 
 - name: Is ZFS enabled

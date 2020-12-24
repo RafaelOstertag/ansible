@@ -40,6 +40,6 @@
   cron:
     name: Node exporter smartmon
     state: present
-    minute: "*/60"
+    minute: "*/1"
     user: root
     job: "mkdir -p /var/cache/node_exporter && /usr/local/sbin/smartmon.sh > /var/cache/node_exporter/smartmon.new && mv /var/cache/node_exporter/smartmon.new /var/cache/node_exporter/smartmon.prom"

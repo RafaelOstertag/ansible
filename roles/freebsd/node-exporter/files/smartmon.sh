@@ -128,7 +128,7 @@ parse_smartctl_info() {
       esac
     fi
     if [[ "${info_type}" == 'SMART_overall-health_self-assessment_test_result' ]]; then
-      case "${info_value:0:6}" in
+      case "${info_value:1:6}" in
       PASSED) smart_healthy=1 ;;
       *) smart_healthy=0 ;;
       esac
@@ -188,7 +188,7 @@ for device in ${device_list}; do
   case ${type} in
   sat+megaraid*) /usr/local/sbin/smartctl -A -d "${type}" "${disk}" | parse_smartctl_attributes "${disk}" "${type}" ;;
   scsi) /usr/local/sbin/smartctl -A -d "${type}" "${disk}" | parse_smartctl_scsi_attributes "${disk}" "${type}" ;;
-  atacam|sat) /usr/local/sbin/smartctl -A -d "${type}" "${disk}" | parse_smartctl_attributes "${disk}" "${type}" ;;
+  atacam|sat) /usr/local/sbin/smartctl -A -H -d "${type}" "${disk}" | parse_smartctl_attributes "${disk}" "${type}" ;;
   megaraid*) /usr/local/sbin/smartctl -A -d "${type}" "${disk}" | parse_smartctl_scsi_attributes "${disk}" "${type}" ;;
   nvme*) /usr/local/sbin/smartctl -A -d "${type}" "${disk}" | parse_smartctl_scsi_attributes "${disk}" "${type}" ;;
   *)

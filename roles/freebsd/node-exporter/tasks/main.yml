@@ -36,6 +36,11 @@
     owner: root
     group: wheel
 
+- name: Exists smartctl?
+  stat:
+    path: /usr/local/sbin/smartctl
+  register: smartctl
+
 - name: Setup cronjob for smartmon.sh script
   cron:
     name: Node exporter smartmon
@@ -43,3 +48,10 @@
     minute: "*/1"
     user: root
     job: "mkdir -p /var/cache/node_exporter && /usr/local/sbin/smartmon.sh > /var/cache/node_exporter/smartmon.new && mv /var/cache/node_exporter/smartmon.new /var/cache/node_exporter/smartmon.prom"
+  when: smartctl.stat.exists
+
+- name: Remove cronjob for smartmon.sh script
+  cron:
+    name: Node exporter smartmon
+    state: absent
+  when: not smartctl.stat.exists

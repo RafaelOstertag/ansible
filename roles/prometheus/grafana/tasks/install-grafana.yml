@@ -2,7 +2,7 @@
 
 - name: Install grafana
   pkgng:
-    name: grafana6
+    name: grafana7
     state: present
 
 - name: Enable grafana
@@ -20,7 +20,7 @@
     mode: 0750
     owner: root
     group: grafana
-    
+
 - name: Copy ssl public key
   copy:
     src: "ssl/pub/{{ ansible_fqdn }}.crt"
@@ -31,7 +31,7 @@
   notify:
     - Restart FreeBSD grafana
 
-- name: Copy ssl public key
+- name: Copy ssl private key
   copy:
     src: "ssl/priv/{{ ansible_fqdn }}.key"
     dest: /usr/local/etc/grafana.d/tls/server.key

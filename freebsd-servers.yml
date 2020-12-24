@@ -324,8 +324,11 @@
       tags:
         - syslog
         - graylog
-
     - import_role:
         name: common/add-ec2-hosts
       tags:
         - ec2
+    - import_role:
+        name: freebsd/smartmontools
+      tags:
+        - smartmon

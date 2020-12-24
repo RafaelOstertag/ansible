@@ -1,0 +1,6 @@
+---
+
+- name: FreeBSD restart smartd
+  service:
+    name: smartd
+    state: restarted

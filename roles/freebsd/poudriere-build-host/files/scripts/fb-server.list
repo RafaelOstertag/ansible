@@ -20,6 +20,7 @@ misc/amanda-client
 misc/amanda-perl-wrapper
 misc/amanda-server
 misc/mc
+net-mgmt/alertmanager
 net-mgmt/arpwatch
 net-mgmt/monitoring-plugins
 net-mgmt/nagios-check_postgres

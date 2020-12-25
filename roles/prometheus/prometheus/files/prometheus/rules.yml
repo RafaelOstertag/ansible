@@ -13,3 +13,5 @@ groups:
         expr: avg by (job,instance) (node_cpu_temperature_celsius)
       - record: os:cpu:temp:linux:avg:celsius
         expr: avg by (job,instance) (node_hwmon_temp_celsius)
+      - record: os:filesystem:free:pct
+        expr: node_filesystem_avail_bytes  / node_filesystem_size_bytes

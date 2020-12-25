@@ -8,7 +8,9 @@ groups:
       - record: os:swap:avail:bsd:pct
         expr: 1 - node_memory_swap_used_bytes/node_memory_swap_size_bytes
       - record: os:cpu:avail:pct
-        expr: 1 - ((sum by (job,instance) (node_cpu_seconds_total{mode!="idle"}))/(sum by (job,instance) (node_cpu_seconds_total{mode="idle"})))
+        expr: sum without (cpu) (rate(node_cpu_seconds_total{mode="idle"}[1m])) / count without(cpu) (node_cpu_seconds_total)
+      - record: os:cpu:iowait:pct
+        expr: sum without (cpu) (rate(node_cpu_seconds_total{mode="iowait"}[1m])) / count without(cpu) (node_cpu_seconds_total)
       - record: os:cpu:temp:bsd:avg:celsius
         expr: avg by (job,instance) (node_cpu_temperature_celsius)
       - record: os:cpu:temp:linux:avg:celsius

@@ -2,3 +2,8 @@
 
 - name: Install and start prometheus
   include_tasks: prometheus-install.yml
+
+- name: Install and start alertmanager
+  include_tasks: alertmanager-install.yml
+
+

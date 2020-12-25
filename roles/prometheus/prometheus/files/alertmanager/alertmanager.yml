@@ -1,0 +1,14 @@
+---
+global:
+  smtp_smarthost: "colossus.kruemel.home:25"
+  smtp_from: "eye-in-the-sky@k8s.kruemel.home"
+route:
+  receiver: 'root-mails'
+  repeat_interval: 10m
+
+receivers:
+  - name: 'root-mails'
+    email_configs:
+      - to: "root@kruemel.home"
+        tls_config:
+          insecure_skip_verify: true

@@ -1,0 +1,29 @@
+---
+
+- name: Install alertmanager
+  pkgng:
+    name: alertmanager
+    state: present
+
+- name: Configure alertmanager
+  copy:
+    src: alertmanager/alertmanager.yml
+    dest: /usr/local/etc/alertmanager/alertmanager.yml
+    mode: "0644"
+    owner: root
+    group: alertmanager
+  notify:
+    - Restart FreeBSD alertmanager
+
+- name: Enable alertmanager
+  copy:
+    src: rc.conf.d/alertmanager
+    dest: /usr/local/etc/rc.conf.d/
+    mode: "0644"
+    owner: root
+    group: wheel
+
+- name: Start alertmanager
+  service:
+    name: alertmanager
+    state: started

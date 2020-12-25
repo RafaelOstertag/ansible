@@ -15,3 +15,29 @@ groups:
         expr: avg by (job,instance) (node_hwmon_temp_celsius)
       - record: os:filesystem:free:pct
         expr: node_filesystem_avail_bytes  / node_filesystem_size_bytes
+  - name: OS Stat Alerts
+    rules:
+      - alert: Disk Space
+        expr: os:filesystem:free:pct{fstype!="fdescfs",fstype!="procfs"} < 0.20
+        labels:
+          severity: warning
+        annotations:
+          summary: "Filesystem {{ $labels.instance }}--{{ $labels.device }}"
+          description: "Filesystem {{ $labels.device }} mounted on {{ $labels.mountpoint }} on {{ $labels.instance }} is below 20% usage"
+      - alert: CPU Usage
+        expr: os:cpu:avail:pct < 0.25
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage on {{ $labels.instance }}"
+          description: "CPU usage on {{ $labels.instance }} is above 75%"
+      - alert: Node Unavailable
+        expr: up < 1
+        for: 3m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Node {{ $labels.instance }} disappeard"
+          description: "Node {{ $labels.instance }} disappeared for more than 3minutes"
+

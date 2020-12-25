@@ -23,7 +23,7 @@ groups:
           severity: warning
         annotations:
           summary: "Filesystem {{ $labels.instance }}--{{ $labels.device }}"
-          description: "Filesystem {{ $labels.device }} mounted on {{ $labels.mountpoint }} on {{ $labels.instance }} is below 20% usage"
+          description: "Filesystem {{ $labels.device }} mounted on {{ $labels.mountpoint }} on {{ $labels.instance }} is above 80% usage"
       - alert: CPU Usage
         expr: os:cpu:avail:pct < 0.25
         for: 5m

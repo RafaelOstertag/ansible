@@ -18,11 +18,29 @@
   notify:
     - Restart FreeBSD prometheus
 
+- name: Create config dir
+  file:
+    path: /usr/local/etc/prometheus.d
+    state: directory
+    owner: root
+    group: prometheus
+    mode: "0755"
+
+- name: Install rule file
+  copy:
+    src: prometheus/rules.yml
+    dest: /usr/local/etc/prometheus.d/rules.yml
+    mode: "0644"
+    owner: root
+    group: prometheus
+  notify:
+    - Restart FreeBSD prometheus
+
 - name: Enable prometheus
   copy:
     src: rc.conf.d/prometheus
     dest: /usr/local/etc/rc.conf.d/
-    mode: 0644
+    mode: "0644"
     owner: root
     group: wheel
 

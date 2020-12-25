@@ -1,0 +1,15 @@
+groups:
+  - name: Host Stats
+    rules:
+      - record: os:mem:avail:bsd:pct
+        expr: node_memory_free_bytes/node_memory_size_bytes
+      - record: os:mem:avail:linux:pct
+        expr: node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes
+      - record: os:swap:avail:bsd:pct
+        expr: 1 - node_memory_swap_used_bytes/node_memory_swap_size_bytes
+      - record: os:cpu:avail:pct
+        expr: 1 - ((sum by (job,instance) (node_cpu_seconds_total{mode!="idle"}))/(sum by (job,instance) (node_cpu_seconds_total{mode="idle"})))
+      - record: os:cpu:temp:bsd:avg:celsius
+        expr: avg by (job,instance) (node_cpu_temperature_celsius)
+      - record: os:cpu:temp:linux:avg:celsius
+        expr: avg by (job,instance) (node_hwmon_temp_celsius)

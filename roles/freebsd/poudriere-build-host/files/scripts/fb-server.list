@@ -54,7 +54,6 @@ sysutils/smartmontools
 sysutils/tmux
 sysutils/vm-bhyve
 www/apache24
-www/grafana6
 www/grafana7
 www/mod_php72
 www/nginx

@@ -41,5 +41,13 @@ groups:
           severity: warning
         annotations:
           summary: "Node {{ $labels.instance }} disappeard"
-          description: "Node {{ $labels.instance }} disappeared for more than 3minutes"
+          description: "Node {{ $labels.instance }} disappeared for more than 3 minutes"
+      - alert: Swap Space
+        expr: os:swap:avail:bsd:pct < 0.5
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Swap Space on {{ $labels.instance }} low"
+          description: "Swap space on {{ $labels.instance }} is below 50%"
 

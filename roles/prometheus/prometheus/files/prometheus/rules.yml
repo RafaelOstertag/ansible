@@ -17,6 +17,8 @@ groups:
         expr: avg by (job,instance) (node_hwmon_temp_celsius)
       - record: os:filesystem:free:pct
         expr: node_filesystem_avail_bytes  / node_filesystem_size_bytes
+      - record: os:filesystem:used:top10:pct
+        expr: topk(10,1-os:filesystem:free:pct{fstype!~"fdescfs|procfs|nullfs|vfat"})
   - name: OS Stat Alerts
     rules:
       - alert: Disk Space

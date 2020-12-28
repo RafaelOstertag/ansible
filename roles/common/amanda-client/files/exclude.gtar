@@ -15,3 +15,5 @@
 ./system
 ./tmp
 ./var/account
+./db/prometheus
+./var/lib/elasticsearch

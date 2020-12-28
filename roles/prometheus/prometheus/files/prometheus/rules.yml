@@ -52,4 +52,10 @@ groups:
         annotations:
           summary: "Swap Space on {{ $labels.instance }} low"
           description: "Swap space on {{ $labels.instance }} is below 50%"
+      - alert: Zpool
+        expr: zfs_pool_health != 1
+        labels:
+          severity: critical
+        annotation:
+          summary: "Zpool {{ $labels.name }} on {{ $labels.instance }} is unhealthy"
 

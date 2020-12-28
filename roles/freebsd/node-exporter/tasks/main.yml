@@ -28,13 +28,16 @@
     name: node_exporter
     state: started
 
-- name: Install smartmon script
+- name: Install exporter scripts
   copy:
-    src: smartmon.sh
-    dest: /usr/local/sbin/smartmon.sh
+    src: "{{ item }}"
+    dest: "/usr/local/sbin/{{ item }}"
     mode: "0755"
     owner: root
     group: wheel
+  loop:
+    - smartmon.sh
+    - node-exporter-zpool.sh
 
 - name: Exists smartctl?
   stat:
@@ -55,3 +58,19 @@
     name: Node exporter smartmon
     state: absent
   when: not smartctl.stat.exists
+
+- name: Setup cronjob for node-exporter-zpool.sh
+  cron:
+    name: Node exporter node-exporter-zpool.sh
+    state: present
+    minute: "*/1"
+    user: root
+    job: "mkdir -p /var/cache/node_exporter && /usr/local/sbin/node-exporter-zpool.sh > /var/cache/node_exporter/node-exporter-zpool.new && mv /var/cache/node_exporter/node-exporter-zpool.new /var/cache/node_exporter/node-exporter-zpool.prom"
+  when: zfs.stat.exists
+
+- name: Remove cronjob for node-exporter-zpool.sh
+  cron:
+    name: Node exporter node-exporter-zpool.sh
+    state: absent
+  when: not zfs.stat.exists
+

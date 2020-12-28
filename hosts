@@ -25,6 +25,7 @@ colossus.kruemel.home
 [prometheus_hosts:children]
 openbsd_prometheus_hosts
 freebsd_prometheus_hosts
+linux_prometheus_hosts
 
 [freebsd_prometheus_hosts]
 viking.kruemel.home
@@ -34,6 +35,9 @@ colossus.kruemel.home
 
 [openbsd_prometheus_hosts]
 gargoyle.kruemel.home
+
+[linux_prometheus_hosts]
+harvester.kruemel.home
 
 ;
 ; OpenBSD

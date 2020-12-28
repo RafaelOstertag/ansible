@@ -56,6 +56,6 @@ groups:
         expr: zfs_pool_health != 1
         labels:
           severity: critical
-        annotation:
+        annotations:
           summary: "Zpool {{ $labels.name }} on {{ $labels.instance }} is unhealthy"
 

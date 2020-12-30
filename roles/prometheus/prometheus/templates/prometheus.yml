@@ -26,6 +26,11 @@ scrape_configs:
     static_configs:
     - targets: ['localhost:9090']
 
+  - job_name: 'nginx-servers'
+    static_configs:
+      - targets:
+          - web-1:9113
+
 
   - job_name: 'os-stats'
     static_configs:

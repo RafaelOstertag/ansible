@@ -1,0 +1,11 @@
+---
+
+- name: Install node_exporter
+  openbsd_pkg:
+    name: node_exporter
+    state: present
+
+- name: Start node_exporter
+  service:
+    name: node_exporter
+    state: started

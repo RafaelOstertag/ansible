@@ -11,6 +11,9 @@
         name: freebsd/node-exporter
       when: "ansible_distribution == 'FreeBSD'"
     - import_role:
+        name: openbsd/node-exporter
+      when: "ansible_distribution == 'OpenBSD'"
+    - import_role:
         name: linux/node-exporter
       when: "ansible_distribution == 'Debian'"
 

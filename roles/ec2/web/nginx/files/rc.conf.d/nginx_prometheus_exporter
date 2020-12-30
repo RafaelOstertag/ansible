@@ -1,0 +1,2 @@
+nginx_prometheus_exporter_enable=YES
+nginx_prometheus_exporter_scrape_uri=http://127.0.0.1:80/status

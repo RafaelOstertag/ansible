@@ -1,0 +1,21 @@
+---
+
+- name: Install nginx-prometheus-exporter
+  pkgng:
+    name: nginx-prometheus-exporter
+    state: present
+
+- name: Enable nginx-prometheus-exporter
+  copy:
+    src: rc.conf.d/nginx_prometheus_exporter
+    dest: /usr/local/etc/rc.conf.d/
+    owner: root
+    group: wheel
+    mode: 0644
+  notify:
+    - Restart nginx-prometheus-exporter
+
+- name: Start nginx-prometheus-exporter
+  service:
+    name: nginx-prometheus-exporter
+    state: started

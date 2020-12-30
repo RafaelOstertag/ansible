@@ -4,3 +4,8 @@
   service:
     name: nginx
     state: restarted
+
+- name: Restart nginx-prometheus-exporter
+  service:
+    name: nginx-prometheus-exporter
+    state: restarted

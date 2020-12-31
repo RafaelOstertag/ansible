@@ -1,2 +1,2 @@
 prometheus_enable=YES
-prometheus_args="--storage.tsdb.retention.time=60d"
+prometheus_args="--storage.tsdb.retention.time=90d"

@@ -21,7 +21,7 @@
     creates: "/usr/local/keycloak-{{ keycloak_version }}"
     dest: "/usr/local"
     remote_src: yes
-    src: "https://downloads.jboss.org/keycloak/{{ keycloak_version }}/keycloak-{{ keycloak_version }}.tar.gz"
+    src: "https://github.com/keycloak/keycloak/releases/download/{{ keycloak_version }}/keycloak-{{ keycloak_version }}.tar.gz"
     group: wheel
     owner: keycloak
 

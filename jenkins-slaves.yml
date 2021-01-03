@@ -92,6 +92,9 @@
             name: raspberrypi/yellowfish-buildhost
         - import_role:
             name: linux/nodejs
+        - import_role:
+            name: linux/sonar-buildwrapper
+          when: "ansible_machine == 'x86_64'"
 
     - name: Linux packages Ubuntu
       when: "ansible_distribution == 'Ubuntu' and ansible_machine == 'aarch64'"

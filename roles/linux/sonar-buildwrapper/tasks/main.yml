@@ -1,0 +1,10 @@
+---
+
+- name: Fetch buildwrapper
+  unarchive:
+    creates: "/opt/build-wrapper-linux-x86"
+    dest: "/opt/"
+    remote_src: yes
+    src: "https://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip"
+    group: root
+    owner: root

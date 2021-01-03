@@ -89,6 +89,9 @@
               - xvfb
             state: present
         - import_role:
+            name: raspberrypi/silverbee-buildhost
+          when: "ansible_machine == 'x86_64'"
+        - import_role:
             name: raspberrypi/yellowfish-buildhost
         - import_role:
             name: linux/nodejs

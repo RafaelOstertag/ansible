@@ -101,20 +101,3 @@
     path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/server/sbin/rundeckd"
     state: file
     mode: "0755"
-
-
-# - name: Enable rundeck in {{ jail_name }} jail
-#   lineinfile:
-#     path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
-#     create: yes
-#     state: present
-#     regexp: ^rundeck_enable=.*
-#     line: rundeck_enable="YES"
-
-# - name: Enable proxy access for rundeck in {{ jail_name }}
-#   lineinfile:
-#     path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
-#     create: yes
-#     state: present
-#     regexp: ^rundeck_java_opts=.*
-#     line: 'rundeck_java_opts="-Drundeck.jetty.connector.forwarded=true -Dserver.web.context=/rundeck"'

@@ -34,8 +34,16 @@
 
 # This can also be used to update rundeck
 - name: Unpack rundeck after download
-  shell: "chroot {{ jail_root_directory }}/{{ jail_name }} su - rundeck -c '/usr/local/openjdk11/bin/java -jar /opt/rundeck/{{ rundeck_war }} --installonly'"
+  shell: "chroot {{ jail_root_directory }}/{{ jail_name }} su - rundeck -c 'cd /opt/rundeck/ && /usr/local/openjdk11/bin/java -jar {{ rundeck_war }} --installonly'"
   when: "downloaded.changed"
+
+- name: Copy static secrets
+  copy:
+    src: rundeck/static_tokens
+    dest: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/etc/static_tokens"
+    mode: "0400"
+    owner: "5000"
+    group: "5000"
 
 - name: Unmount jail /dev
   include_tasks: helper/umount-temp-dev.yml
@@ -46,6 +54,13 @@
     state: present
     regexp: ^framework\.server\.name =.*
     line: "framework.server.name = colossus.kruemel.home"
+
+- name: Set static token file
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/etc/framework.properties"
+    state: present
+    regexp: ^rundeck\.tokens\.file =.*
+    line: "rundeck.tokens.file = /opt/rundeck/etc/static_tokens"
 
 - name: Set framework server hostname
   lineinfile:

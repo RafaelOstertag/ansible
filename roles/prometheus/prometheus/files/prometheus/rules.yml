@@ -58,6 +58,8 @@ groups:
           severity: critical
         annotations:
           summary: "Zpool {{ $labels.name }} on {{ $labels.instance }} is unhealthy"
+  - name: Hardware Health
+    rules:
       - alert: SMART
         expr: smartmon_device_smart_healthy{disk=~".*da.*"} != 1
         labels:

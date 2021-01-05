@@ -1,7 +1,7 @@
 ---
 global:
-  scrape_interval:     5s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
-  evaluation_interval: 5s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  scrape_interval:     5s
+  evaluation_interval: 5s
   scrape_timeout: 5s
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
@@ -30,6 +30,14 @@ scrape_configs:
     static_configs:
       - targets:
           - web-1:9113
+
+  - job_name: 'jenkins'
+    scrape_interval: 120s
+    scheme: https
+    metrics_path: /jenkins/prometheus
+    static_configs:
+      - targets:
+        - jenkins.guengel.ch
 
 
   - job_name: 'os-stats'

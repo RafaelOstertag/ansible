@@ -100,8 +100,8 @@ www-data:		webmaster
 postgres:		root
 do-not-reply:   /dev/null
 
-anic.ostertag:		anic
 guengel:		rafi
+jenkins:        rafi
 
 rafael.ostertag:	rafi
 rafinb:			rafi

@@ -5,8 +5,8 @@
     name: "{{ php_package }}"
     state: present
   loop:
-    - mod_php72
-    - php72-filter
+    - mod_php74
+    - php74-filter
   loop_control:
     loop_var: php_package
   notify:

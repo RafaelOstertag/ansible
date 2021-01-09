@@ -17,17 +17,24 @@
 
 - name: Add elasticsearch repo
   apt_repository:
-    repo: "deb https://artifacts.elastic.co/packages/oss-6.x/apt stable main"
+    repo: "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
     state: present
+
+- name: Remove elasticsearch-oss
+  apt:
+    name: elasticsearch-oss
+    state: absent
 
 - name: Install elasticsearch
   apt:
-    name: elasticsearch-oss
+    name: elasticsearch
     state: present
+  notify:
+    - Restart elasticsearch
 
 - name: Install graylog repository
   apt:
-    deb: https://packages.graylog2.org/repo/packages/graylog-3.3-repository_latest.deb
+    deb: https://packages.graylog2.org/repo/packages/graylog-4.0-repository_latest.deb
     state: present
 
 - name: Install graylog
@@ -35,4 +42,6 @@
     update_cache: yes
     name: graylog-server
     state: latest
+  notify:
+    - Restart graylog
 

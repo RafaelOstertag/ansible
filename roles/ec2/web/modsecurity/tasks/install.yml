@@ -1,0 +1,29 @@
+---
+
+- name: Install modsecurity for nginx
+  pkgng:
+    name: modsecurity3-nginx
+    state: present
+
+- name: Create CoreRuleSet directory
+  file:
+    path: /usr/local/etc/modsecurity_crs/
+    state: directory
+    owner: root
+    group: wheel
+    mode: "0755"
+
+- name: Fetch CoreRuleSet
+  unarchive:
+      remote_src: true
+      src: "https://github.com/coreruleset/coreruleset/archive/v{{ modsecurity_crs_version }}.tar.gz"
+      dest: /usr/local/etc/modsecurity_crs/
+      creates: "/usr/local/etc/modsecurity_crs/coreruleset-{{ modsecurity_crs_version }}"
+
+- name: Link CoreRuleSet
+  file:
+    src: "/usr/local/etc/modsecurity_crs/coreruleset-{{ modsecurity_crs_version }}"
+    dest: /usr/local/etc/modsecurity_crs/current
+    state: link
+
+

@@ -1,0 +1,16 @@
+---
+
+- name: Enable SecRuleEngine
+  lineinfile:
+    path: /usr/local/etc/modsecurity/modsecurity.conf
+    regexp: "^SecRuleEngine.*"
+    line: "SecRuleEngine On"
+    state: present
+
+- name: Copy crs-setup.conf
+  copy:
+    src: crs-setup.conf
+    dest: /usr/local/etc/modsecurity_crs/current/crs-setup.conf
+    mode: "0444"
+    owner: "root"
+    group: "wheel"

@@ -56,6 +56,12 @@
       tags:
         - storage
     - import_role:
+        name: ec2/web/modsecurity
+      tags:
+        - nginx
+        - www
+        - modsecurity
+    - import_role:
         name: ec2/web/nginx
       tags:
         - nginx

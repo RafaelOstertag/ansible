@@ -1,0 +1,4 @@
+---
+
+# Use guengel repository
+ec2_use_guengel_repository: True

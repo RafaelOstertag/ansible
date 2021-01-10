@@ -20,6 +20,13 @@
       tags:
         - common
         - ssh
+
+    # We need a custom built nginx with modsecurity
+    - import_role:
+        name: ec2/common/disable-default-pkgrepo
+    - import_role:
+        name: ec2/common/guengel-pkgrepo
+
     - import_role:
         name: ec2/common/ssh-whitelist
       tags:

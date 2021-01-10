@@ -9,14 +9,14 @@
     group: wheel
 
 - name: Disable FreeBSD pkg repo
-  when: "use_guengel_repository and 'ec2' not in group_names"
+  when: "ec2_use_guengel_repository"
   copy:
     src: FreeBSD.conf
     dest: /usr/local/etc/pkg/repos
     mode: 0644
 
 - name: Enable FreeBSD pkg repo
-  when: "not use_guengel_repository and 'ec2' not in group_names"
+  when: "not ec2_use_guengel_repository"
   file:
     path: /usr/local/etc/pkg/repos/FreeBSD.conf
     state: absent

@@ -6,6 +6,8 @@
     regexp: "^SecRuleEngine.*"
     line: "SecRuleEngine On"
     state: present
+  notify:
+    - Restart nginx
 
 - name: Copy crs-setup.conf
   copy:
@@ -14,3 +16,31 @@
     mode: "0444"
     owner: "root"
     group: "wheel"
+  notify:
+    - Restart nginx
+
+- name: Main nginx config file
+  copy:
+    src: nginx-modsecurity.conf
+    dest: /usr/local/etc/modsecurity/nginx-modsecurity.conf
+    mode: "0444"
+    owner: "root"
+    group: "wheel"
+  notify:
+    - Restart nginx
+
+- name: Create log file
+  file:
+    path: /var/log/modsec_audit.log
+    state: touch
+    owner: "www"
+    group: "wheel"
+    mode: "0640"
+
+- name: Enable newsyslog for modsecurity
+  copy:
+    src: newsyslog/modsecurity.conf
+    dest: /usr/local/etc/newsyslog.conf.d/
+    mode: "0644"
+    owner: root
+    group: wheel

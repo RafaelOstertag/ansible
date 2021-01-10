@@ -19,6 +19,16 @@
   notify:
     - Restart nginx
 
+- name: Copy allow-index.conf
+  copy:
+    src: allow-index.conf
+    dest: /usr/local/etc/modsecurity/allow-index.conf
+    mode: "0444"
+    owner: "root"
+    group: "wheel"
+  notify:
+    - Restart nginx
+
 - name: Main nginx config file
   copy:
     src: nginx-modsecurity.conf

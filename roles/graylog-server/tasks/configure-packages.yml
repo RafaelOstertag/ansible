@@ -41,6 +41,87 @@
   notify:
     - Restart graylog
 
+- name: Set graylog root email
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^root_email\\s+="
+    line: "root_email = \"root@kruemel.home\""
+  notify:
+    - Restart graylog
+
+- name: Enable email transport
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^transport_email_enabled\\s+="
+    line: "transport_email_enabled = true"
+  notify:
+    - Restart graylog
+
+- name: Set mailserver
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^transport_email_hostname\\s+="
+    line: "transport_email_hostname = colossus.kruemel.home"
+  notify:
+    - Restart graylog
+
+- name: Set email auth
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^transport_email_use_auth\\s+="
+    line: "transport_email_use_auth = false"
+  notify:
+    - Restart graylog
+
+- name: Set email from
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^transport_email_from_email\\s+="
+    line: "transport_email_from_email = graylog@kruemel.home"
+  notify:
+    - Restart graylog
+
+- name: Set email port
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^transport_email_port\\s+="
+    line: "transport_email_port = 587"
+  notify:
+    - Restart graylog
+
+- name: Set email SSL
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^transport_email_use_ssl\\s+="
+    line: "transport_email_use_ssl = false"
+  notify:
+    - Restart graylog
+
+- name: Set email TLS
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^transport_email_use_tls\\s+="
+    line: "transport_email_use_tls = false"
+  notify:
+    - Restart graylog
+
+- name: Set email subject prefix
+  lineinfile:
+    path: /etc/graylog/server/server.conf
+    state: present
+    regexp: "^transport_email_subject_prefix\\s+="
+    line: "transport_email_subject_prefix = [graylog]"
+  notify:
+    - Restart graylog
+
 - name: Enable graylog server
   systemd:
     name: graylog-server.service

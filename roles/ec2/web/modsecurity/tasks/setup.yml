@@ -9,6 +9,15 @@
   notify:
     - Restart nginx
 
+- name: Set log configuration
+  lineinfile:
+    path: /usr/local/etc/modsecurity/modsecurity.conf
+    regexp: "^SecAuditLogParts.*"
+    line: "SecAuditLogParts ABIJDEFHKZ"
+    state: present
+  notify:
+    - Restart nginx
+
 - name: Copy crs-setup.conf
   copy:
     src: crs-setup.conf

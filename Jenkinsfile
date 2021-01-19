@@ -3,7 +3,7 @@ pipeline {
         label 'ansible'
     }
     options {
-        // Running the playbooks multiple times seems a bad idea
+        // Running multiple playbooks in parallel seems like a bad idea
         disableConcurrentBuilds()
         ansiColor('xterm')
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')

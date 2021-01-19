@@ -4,6 +4,8 @@
     remote_src: yes
     src: "https://get.helm.sh/helm-v{{ helm_version }}-linux-amd64.tar.gz"
     dest: /tmp
+  retries: 3
+  delay: 3
 
 - name: Copy helm binary
   shell:

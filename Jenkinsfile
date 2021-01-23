@@ -8,6 +8,7 @@ pipeline {
         ansiColor('xterm')
         buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '30')
         timestamps()
+        timeout(time: 90, unit: 'MINUTES')
     }
 
     parameters {

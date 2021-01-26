@@ -18,11 +18,11 @@ groups:
       - record: os:filesystem:free:pct
         expr: node_filesystem_avail_bytes  / node_filesystem_size_bytes
       - record: os:filesystem:used:top10:pct
-        expr: topk(10,1-os:filesystem:free:pct{fstype!~"fdescfs|procfs|nullfs|vfat"})
+        expr: topk(10,1-os:filesystem:free:pct{fstype!~"fdescfs|procfs|nullfs|vfat|nfs"})
   - name: OS Stat Alerts
     rules:
       - alert: Disk Space
-        expr: os:filesystem:free:pct{fstype!="fdescfs",fstype!="procfs"} < 0.20
+        expr: os:filesystem:free:pct{fstype!~"fdescfs|procfs|nfs"} < 0.20
         labels:
           severity: warning
         annotations:

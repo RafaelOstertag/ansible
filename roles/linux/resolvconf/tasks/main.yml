@@ -1,0 +1,19 @@
+---
+
+- name: Install resolv.conf for virtual host
+  copy:
+    src: resolv.conf.virtualhost
+    dest: /etc/resolv.conf
+    mode: "0644"
+    owner: "root"
+    group: "root"
+  when: "'linux_virtual_hosts' in group_names"
+
+- name: Install resolv.conf for non virtual hosts
+  copy:
+    src: resolv.conf.server
+    dest: /etc/resolv.conf
+    mode: "0644"
+    owner: "root"
+    group: "root"
+  when: "'linux_servers' in group_names or 'pi_workstations' in group_names"

@@ -16,3 +16,4 @@
       when: "ansible_distribution == 'Debian'"
     - linux/nfs-mounts
     - linux/enable-ldap-login
+    - linux/resolvconf

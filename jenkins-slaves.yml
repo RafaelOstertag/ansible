@@ -51,7 +51,7 @@
           - pcre
           - pkgconf
           # Whe building yapet docs
-          - ruby26-gems
+          - ruby27-gems
           - tidy-html5
           # When building agentsmith web page
           - tidy4

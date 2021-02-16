@@ -6,4 +6,5 @@
   user: root
   roles:
     - graylog-server
+    - linux/geoip
 

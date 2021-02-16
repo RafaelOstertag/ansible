@@ -1,0 +1,35 @@
+---
+
+# required for next step
+- name: Install xz-utils
+  apt:
+    name: xz-utils
+    state: present
+
+- name: Install MaxMind GeoIP
+  apt:
+    deb: "https://github.com/maxmind/geoipupdate/releases/download/v{{ geoip_version }}/geoipupdate_{{ geoip_version }}_linux_amd64.deb"
+    state: present
+
+- name: Copy update configuration
+  copy:
+    src: GeoIP.conf
+    dest: /etc/GeoIP.conf
+    mode: "0640"
+    owner: "root"
+    group: "root"
+
+- name: Create GeoIP database
+  shell:
+    cmd: /usr/bin/geoipupdate
+    creates: /usr/share/GeoIP/GeoLite2-City.mmdb
+
+- name: Enable periodic update of GeoIP
+  cron:
+    job: /usr/bin/geoipupdate
+    name: Update GeoIP
+    weekday: "3"
+    hour: "5"
+    minute: "15"
+    state: present
+

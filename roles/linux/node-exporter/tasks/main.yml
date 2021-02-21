@@ -3,3 +3,9 @@
   apt:
     name: prometheus-node-exporter
     state: present
+
+- name: Disable prometheus apt exporter
+  systemd:
+    name: prometheus-node-exporter-apt.timer
+    enabled: no
+    state: stopped

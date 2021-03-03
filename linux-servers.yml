@@ -19,3 +19,4 @@
     - linux/amanda-host
     - linux/exim4-nullhost
     - linux/resolvconf
+    - linux/journald

@@ -11,3 +11,5 @@
         name: k8s/base-setup
     - import_role:
         name: linux/node-exporter
+    - import_role:
+        name: linux/journald

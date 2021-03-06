@@ -16,3 +16,9 @@
     mode: "0755"
     owner: "root"
     group: "root"
+
+- name: Link /var/lib/docker
+  file:
+    path: /var/lib/docker
+    src: /k8s/docker
+    state: link

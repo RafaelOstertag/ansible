@@ -1,0 +1,8 @@
+---
+
+- name: Copy guengel.ch.crt
+  copy:
+    src: ssl/guengel.ch.pem
+    dest: /usr/local/share/ca-certificates/guengel.ch.crt
+  notify:
+    - Update CA Certs

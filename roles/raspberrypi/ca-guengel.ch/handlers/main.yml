@@ -1,0 +1,5 @@
+---
+
+- name: Update CA Certs
+  shell:
+    cmd: update-ca-certificates

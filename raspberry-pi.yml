@@ -8,3 +8,5 @@
         name: raspberrypi/yellowfish-buildhost
     - import_role:
         name: raspberrypi/silverbee-buildhost
+    - import_role:
+        name: raspberrypi/ca-guengel.ch

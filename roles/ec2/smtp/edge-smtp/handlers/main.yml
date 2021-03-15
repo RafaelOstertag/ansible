@@ -18,3 +18,8 @@
   service:
     name: milter-opendkim
     state: restarted
+
+- name: Restart FreeBSD unbound
+  service:
+    name: unbound
+    state: restarted

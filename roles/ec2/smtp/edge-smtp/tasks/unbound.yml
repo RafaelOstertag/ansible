@@ -13,6 +13,16 @@
     owner: root
     group: wheel
 
+- name: Copy unbound conf
+  copy:
+    src: unbound.conf
+    dest: /usr/local/etc/unbound/unbound.conf
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD unbound
+
 - name: Start unbound
   service:
     name: unbound

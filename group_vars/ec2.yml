@@ -26,6 +26,3 @@ nginx_custom_domains:
     - sso.guengel.ch
     - funnel.guengel.ch
     - memberberry.guengel.ch
-    - esp-be-file.guengel.ch
-    - esp-be-coredata.guengel.ch
-    - esp-be-experience.guengel.ch

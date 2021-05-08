@@ -13,3 +13,17 @@
   loop: "{{ pg_databases }}"
   loop_control:
     loop_var: pg_database
+
+- name: Remove public access from database
+  postgresql_privs:
+    login_host: localhost
+    login_user: "{{ pg_admin_user }}"
+    login_password: "{{ pg_admin_password }}"
+    type: database
+    roles: PUBLIC
+    privs: ALL
+    state: absent
+    database: "{{ pg_database.name }}"
+  loop: "{{ pg_databases }}"
+  loop_control:
+    loop_var: pg_database

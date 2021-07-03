@@ -117,12 +117,12 @@
           - gettext-tools
           - git
           - gmake
-          - jdk-1.8.0.265.b01.1v0
-          - jdk-11.0.8.10.1v0
+          - jdk-1.8.0.282.b08.1v0
+          - jdk-11.0.10.9.1v0
           - libtool
           - libxslt
           - pcre
-          - w3m-0.5.3p8
+          - w3m-0.5.3pl20210102p0
           - argon2
         state: present
 

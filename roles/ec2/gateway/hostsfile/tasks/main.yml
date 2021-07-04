@@ -29,9 +29,21 @@
     regexp: '^192\.168\.100\.5\s+'
     line: "192.168.100.5 optimusprime.kruemel.home"
 
+- name: Remove .app.k8s.kruemel.home host to hosts file
+  lineinfile:
+    path: /etc/hosts
+    state: absent
+    regexp: '^192\.168\.100\.19\s+'
+
+- name: Add .app.k8s.kruemel.home host to hosts file
+  lineinfile:
+    path: /etc/hosts
+    state: absent
+    regexp: '^192\.168\.100\.25\s+'
+
 - name: Add .app.k8s.kruemel.home host to hosts file
   lineinfile:
     path: /etc/hosts
     state: present
-    regexp: '^192\.168\.100\.19\s+'
-    line: "192.168.100.19 funnel.app.k8s.kruemel.home portscanner.app.k8s.kruemel.home memberberry.app.k8s.kruemel.home"
+    regexp: '^192\.168\.100\.24\s+'
+    line: "192.168.100.24 funnel.app.k8s.kruemel.home portscanner.app.k8s.kruemel.home memberberry.app.k8s.kruemel.home"

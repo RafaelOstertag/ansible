@@ -123,6 +123,8 @@ pi-1.k8s.kruemel.home
 pi-2.k8s.kruemel.home
 pi-3.k8s.kruemel.home
 pi-4.k8s.kruemel.home
+amd64-1.k8s.kruemel.home
+amd64-2.k8s.kruemel.home
 
 [docker_build]
 builder.k8s.kruemel.home

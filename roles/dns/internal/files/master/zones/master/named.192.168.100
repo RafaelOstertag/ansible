@@ -2,7 +2,7 @@
 $ORIGIN 100.168.192.in-addr.arpa.
 $TTL 1d
 @               IN      SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                        202011140 ; serial
+                        202107040 ; serial
                         1d        ; Refresh
                         1h        ; Retry
                         1w        ; Expire
@@ -19,6 +19,8 @@ $TTL 1d
 21              IN      PTR     pi-2.k8s.kruemel.home.
 22              IN      PTR     pi-3.k8s.kruemel.home.
 23              IN      PTR     pi-4.k8s.kruemel.home.
+24              IN      PTR     amd64-1.k8s.kruemel.home.
+25              IN      PTR     amd64-2.k8s.kruemel.home.
 30              IN      PTR     builder.k8s.kruemel.home.
 100             IN      PTR     pi-wks-1.kruemel.home.
 250             IN      PTR     bumblebee.kruemel.home.

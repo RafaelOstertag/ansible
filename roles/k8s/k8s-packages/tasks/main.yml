@@ -5,3 +5,13 @@
       - kubelet
       - kubeadm
       - kubectl
+
+- name: Hold k8s packages
+  dpkg_selections:
+    name: "{{ item }}"
+    selection: hold
+  loop:
+    - kubelet
+    - kubeadm
+    - kubectl
+

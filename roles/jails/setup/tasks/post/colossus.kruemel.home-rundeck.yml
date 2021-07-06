@@ -26,7 +26,7 @@
 
 - name: Fetch rundeck
   get_url:
-    url: "{{ rundeck_download_url }}/{{ rundeck_war }}"
+    url: "{{ rundeck_download_url }}"
     dest: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/{{ rundeck_war }}"
     group: "5000"
     owner: "5000"

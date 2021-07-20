@@ -6,6 +6,6 @@ listen on lo0 inet6 tls pki {{ ansible_fqdn }}
 
 table aliases file:/etc/mail/aliases
 
-action "relay" relay host smtp+tls://colossus.kruemel.home
+action "relay" relay host smtp+tls://colossus.kruemel.home ca {{ ansible_fqdn }}
 
 match from local for any action "relay"

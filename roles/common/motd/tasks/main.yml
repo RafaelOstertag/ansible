@@ -5,3 +5,19 @@
     src: motd
     dest: /etc/motd
     mode: 0644
+  when: "ansible_distribution != 'FreeBSD'"
+
+- name: Create /etc/motd.template
+  template:
+    src: motd
+    dest: /etc/motd.template
+    mode: 0644
+  when: "ansible_distribution == 'FreeBSD'"
+  notify:
+    - FreeBSD rebuild motd
+
+- name: Delete /etc/motd
+  file:
+    path: /etc/motd
+    state: absent
+  when: "ansible_distribution == 'FreeBSD'"

@@ -1,0 +1,6 @@
+---
+
+- name: FreeBSD rebuild motd
+  service:
+    name: motd
+    state: restarted

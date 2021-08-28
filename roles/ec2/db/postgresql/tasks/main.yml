@@ -1,5 +1,13 @@
 ---
 
+- name: Create log directory
+  file:
+    name: /var/log/postgres
+    state: directory
+    mode: 0700
+    owner: postgres
+    group: postgres
+
 - import_tasks: postgresql-install.yml
 
 - name: Create auxiliary directories
@@ -13,14 +21,6 @@
     - scripts
     - tls
     - "data{{ pg_version }}/conf.d"
-
-- name: Create log directory
-  file:
-    name: /var/log/postgres
-    state: directory
-    mode: 0700
-    owner: postgres
-    group: postgres
 
 - import_tasks: tls.yml
 - import_tasks: scripts.yml

@@ -3,8 +3,8 @@
 - name: Install openldap
   pkgng:
     name:
-      - openldap-server
-      - openldap-client
+      - openldap24-server
+      - openldap24-client
 
 - name: Create configuration directory
   file:

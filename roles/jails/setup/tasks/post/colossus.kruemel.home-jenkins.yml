@@ -6,7 +6,7 @@
 - name: Install packages in {{ jail_name }} jail
   pkgng:
     name:
-      - jenkins
+      - jenkins-lts
       - git
     state: present
     chroot: "{{ jail_root_directory }}/{{ jail_name }}"

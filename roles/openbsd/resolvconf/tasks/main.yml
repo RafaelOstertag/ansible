@@ -1,5 +1,10 @@
 ---
 
+- name: Stop resolvd
+  service:
+    name: resolvd
+    state: stopped
+
 - name: Setup /etc/resolv.conf on lan servers
   when: "'openbsd_servers_lan' in group_names"
   copy:
@@ -27,4 +32,3 @@
     src: resolv.conf.openbsd.workstation
     dest: /etc/resolv.conf
     mode: 0644
-

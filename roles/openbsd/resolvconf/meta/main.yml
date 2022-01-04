@@ -1,0 +1,4 @@
+---
+
+dependencies:
+  - { role: openbsd/rcconflocal, rcvar: "resolvd_flags", value: "NO" }

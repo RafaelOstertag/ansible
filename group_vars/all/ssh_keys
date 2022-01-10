@@ -7,6 +7,7 @@ ssh_keys_administrators:
   - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINeVXwdaQxcbPVJPPgpFULUP2IUb1AhTxlPNjwKwN5LG rafilx@pi-wks-1
   - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBnud7vRzO+Ou6u3OnHsT7kuf0ssCa2pJkP1sIgDQm/L rafi@aurora.virtual.kruemel.home
   - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDrEAgWgKpQVrGklOueNzng/QSvOS6lUZfvo8NvUf7L1 Rundeck Admin Key
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDceoAtyk8Z689LRYv4svmf9mgj+Omq7de1zCVyBJVu2 Jenkins Admin User
 
 
 # Those keys will be deleted unconditionally

@@ -20,6 +20,7 @@
       tags:
         - common
         - ssh
+        - ssh-keys
     - import_role:
         name: ec2/common/ssh-whitelist
       tags:

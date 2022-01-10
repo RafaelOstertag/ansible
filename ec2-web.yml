@@ -20,6 +20,7 @@
       tags:
         - common
         - ssh
+        - ssh-keys
 
     # We need a custom built nginx with modsecurity
     - import_role:

@@ -9,9 +9,13 @@
     - common/motd
     - name: common/ssh-keys
       tags:
+        - ssh-keys
         - ssh
     - common/amanda-client
-    - common/ssh-config
+    - name: common/ssh-config
+      tags:
+        - sshd
+        - ssh
     - openbsd/amanda-hosts
     - openbsd/amanda-enable
     - openbsd/setup-pkg-path

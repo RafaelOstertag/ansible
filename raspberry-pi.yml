@@ -5,6 +5,7 @@
     - import_role:
         name: raspberrypi/ssh-keys
         tags:
+          - ssh-keys
           - ssh
     - import_role:
         name: raspberrypi/yellowfish-buildhost

@@ -10,8 +10,12 @@
     - common/motd
     - name: common/ssh-keys
       tags:
+        - ssh-keys
         - ssh
-    - common/ssh-config
+    - name: common/ssh-config
+      tags:
+        - sshd
+        - ssh
     - name: linux/amanda-host
       when: "ansible_distribution == 'Debian'"
     - name: linux/exim4-nullhost

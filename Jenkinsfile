@@ -45,7 +45,7 @@ done
                 ansiblePlaybook forks: 10,
                     disableHostKeyChecking: true,
                     colorized: true,
-                    credentialsId: 'rafi-ssh-key',
+                    credentialsId: 'c9342123-1fc9-4ba3-a681-e5b0dd647322',
                     inventory: 'hosts',
                     vaultCredentialsId: 'ansible-vault',
                     installation: 'FreeBSD Ansible',

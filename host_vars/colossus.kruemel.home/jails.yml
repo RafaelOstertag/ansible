@@ -1,3 +1,3 @@
 ---
-rundeck_war: rundeck-3.3.13-20210614.war
+rundeck_war: rundeck-3.4.9-20211221.war
 rundeck_download_url: "https://packagecloud.io/pagerduty/rundeck/packages/java/org.rundeck/{{ rundeck_war }}/artifacts/{{ rundeck_war }}/download"

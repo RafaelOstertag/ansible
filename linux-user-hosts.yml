@@ -8,7 +8,9 @@
     - common/ca-guengel.ch
     - common/etcfiles
     - common/motd
-    - common/ssh-keys
+    - name: common/ssh-keys
+      tags:
+        - ssh
     - common/ssh-config
     - name: linux/amanda-host
       when: "ansible_distribution == 'Debian'"

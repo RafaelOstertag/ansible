@@ -5,6 +5,8 @@
   tasks:
     - import_role:
         name: common/ssh-keys
+        tags:
+          - ssh
     - import_role:
         name: k8s/resolvconf
     - import_role:

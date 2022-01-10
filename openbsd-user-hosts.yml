@@ -7,7 +7,9 @@
   roles:
     - common/etcfiles
     - common/motd
-    - common/ssh-keys
+    - name: common/ssh-keys
+      tags:
+        - ssh
     - common/amanda-client
     - common/ssh-config
     - openbsd/amanda-hosts

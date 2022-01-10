@@ -4,9 +4,9 @@
   tasks:
     - import_role:
         name: raspberrypi/ssh-keys
-        tags:
-          - ssh-keys
-          - ssh
+      tags:
+        - ssh-keys
+        - ssh
     - import_role:
         name: raspberrypi/yellowfish-buildhost
     - import_role:

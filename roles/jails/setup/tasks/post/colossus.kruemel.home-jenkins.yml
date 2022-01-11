@@ -7,6 +7,7 @@
   pkgng:
     name:
       - jenkins-lts
+      - openjdk11
       - git
     state: present
     chroot: "{{ jail_root_directory }}/{{ jail_name }}"
@@ -18,16 +19,26 @@
 # is not able to run in the jail...
 - name: Install java on host
   pkgng:
-    name: openjdk8
+    name:
+      - openjdk8
     state: present
 
-- name: Install Guengel CA in keystore
+- name: Install Guengel CA in keystore java 8
   java_cert:
     cert_alias: guengel.ch
     cert_path: /etc/ssl/guengel.ch.pem
     keystore_create: false
     keystore_pass: changeit
     keystore_path: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/openjdk8/jre/lib/security/cacerts"
+    state: present
+
+- name: Install Guengel CA in keystore java 11
+  java_cert:
+    cert_alias: guengel.ch
+    cert_path: /etc/ssl/guengel.ch.pem
+    keystore_create: false
+    keystore_pass: changeit
+    keystore_path: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/openjdk11/lib/security/cacerts"
     state: present
 
 - name: Enable jenkins in {{ jail_name }} jail
@@ -37,3 +48,11 @@
     state: present
     regexp: ^jenkins_enable=.*
     line: jenkins_enable="YES"
+
+- name: Use java 11 for jenkins in {{ jail_name }} jail
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
+    create: yes
+    state: present
+    regexp: ^jenkins_java_home=.*
+    line: jenkins_java_home="/usr/local/openjdk11"

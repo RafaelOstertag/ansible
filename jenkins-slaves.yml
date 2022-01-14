@@ -44,7 +44,6 @@
           - libargon2
           - libtool
           - libxslt
-          - node
           - npm
           - openjdk11
           - openjdk8

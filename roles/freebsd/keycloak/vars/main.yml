@@ -1,6 +1,6 @@
 ---
 
-keycloak_version: 12.0.3
+keycloak_version: 16.1.0
 postgresql_jdbc_version: 42.2.12
 postgresql_url: jdbc:postgresql://db-1/keycloak
 postgresql_user: keycloak

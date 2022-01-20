@@ -34,3 +34,18 @@
     keystore_path: /usr/local/openjdk11/lib/security/cacerts
     state: present
   when: keytool.stat.exists and java11_keystore.stat.exists
+
+- name: Is Java 17 keystore available
+  stat:
+    path: /usr/local/openjdk17/lib/security/cacerts
+  register: java17_keystore
+
+- name: Install guengel.ch in java 17 keystore certs
+  java_cert:
+    cert_alias: guengel.ch
+    cert_path: /etc/ssl/guengel.ch.pem
+    keystore_create: false
+    keystore_pass: changeit
+    keystore_path: /usr/local/openjdk17/lib/security/cacerts
+    state: present
+  when: keytool.stat.exists and java17_keystore.stat.exists

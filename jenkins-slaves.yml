@@ -45,6 +45,7 @@
           - libtool
           - libxslt
           - npm
+          - openjdk17
           - openjdk11
           - openjdk8
           - pcre
@@ -66,7 +67,7 @@
         - import_role:
             name: k8s/helm
           when: "ansible_machine == 'x86_64'"
-        - name: Linux Packages non aarch64
+        - name: Linux Packages
           apt:
             name:
               - autoconf
@@ -87,6 +88,11 @@
               - xsltproc
               - xvfb
             state: present
+        - name: Linux amd64 packages
+          apt:
+            name:
+              - openjdk-17-jdk
+          when: "ansible_machine == 'x86_64'"
         - import_role:
             name: raspberrypi/silverbee-buildhost
           when: "ansible_machine == 'x86_64'"
@@ -103,6 +109,7 @@
       apt:
         name:
           - openjdk-11-jdk
+          - openjdk-17-jdk
 
     - name: OpenBSD packages
       when: "ansible_distribution == 'OpenBSD'"

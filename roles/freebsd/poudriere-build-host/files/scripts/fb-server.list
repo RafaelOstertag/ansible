@@ -56,7 +56,7 @@ sysutils/tmux
 sysutils/vm-bhyve
 www/apache24
 www/grafana7
-www/mod_php74
+www/mod_php80
 www/nginx
 
 # required by ec2 hosts

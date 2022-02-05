@@ -28,3 +28,4 @@ nginx_custom_domains:
     - sso.guengel.ch
     - funnel.guengel.ch
     - memberberry.guengel.ch
+    - astro.guengel.ch

@@ -2,7 +2,7 @@
 $ORIGIN guengel.ch.
 $TTL 6h    ; 6 hours
 @            IN     SOA    optimusprime.guengel.ch. postmaster.guengel.ch. (
-                    202104030 ; serial
+                    202202050 ; serial
                     1d        ; Refresh
                     1h        ; Retry
                     1w        ; Expire
@@ -39,5 +39,6 @@ jenkins      IN     CNAME   ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.
 sso          IN     CNAME   ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.
 funnel       IN     CNAME   ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.
 memberberry  IN     CNAME   ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.
+astro        IN     CNAME   ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.
 ssh          IN     CNAME   yayap.guengel.ch.
 vpn          IN     CNAME   yayap.wlan.kruemel.home.

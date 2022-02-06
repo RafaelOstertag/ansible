@@ -29,6 +29,7 @@
       when: "ansible_distribution == 'FreeBSD'"
       pkgng:
         name:
+          - jq
           - autoconf
           - automake
           - cppunit
@@ -77,6 +78,7 @@
               - g++
               - gettext
               - git
+              - jq
               - kubectl
               - libargon2-0-dev
               - libcppunit-dev
@@ -115,6 +117,7 @@
       when: "ansible_distribution == 'OpenBSD'"
       openbsd_pkg:
         name:
+          - argon2
           - autoconf-2.69p3
           - automake-1.15.1
           - cppunit
@@ -125,11 +128,11 @@
           - gmake
           - jdk-1.8.0.302.b08.1p0v0
           - jdk-11.0.12.7.1v0
+          - jq
           - libtool
           - libxslt
           - pcre
           - w3m-0.5.3pl20210102p0
-          - argon2
         state: present
 
     - name: OpenBSD fixes

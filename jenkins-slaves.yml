@@ -27,37 +27,41 @@
 
     - name: FreeBSD packages
       when: "ansible_distribution == 'FreeBSD'"
-      pkgng:
-        name:
-          - jq
-          - autoconf
-          - automake
-          - cppunit
-          # When building agentsmith web page
-          - docbook-xsl
-          - gettext
-          - gettext-tools
-          - git
-          - gmake
-          - gradle
-          # When building agentsmith web page
-          - hs-pandoc
-          - libargon2
-          - libtool
-          - libxslt
-          - npm
-          - openjdk17
-          - openjdk11
-          - openjdk8
-          - pcre
-          - pkgconf
-          # Whe building yapet docs
-          - ruby27-gems
-          - tidy-html5
-          # When building agentsmith web page
-          - tidy4
-          - w3m
-        state: present
+      block:
+        - name: install packages
+          pkgng:
+            name:
+              - jq
+              - autoconf
+              - automake
+              - cppunit
+              # When building agentsmith web page
+              - docbook-xsl
+              - gettext
+              - gettext-tools
+              - git
+              - gmake
+              - gradle
+              # When building agentsmith web page
+              - hs-pandoc
+              - libargon2
+              - libtool
+              - libxslt
+              - npm
+              - openjdk17
+              - openjdk11
+              - openjdk8
+              - pcre
+              - pkgconf
+              # Whe building yapet docs
+              - ruby27-gems
+              - tidy-html5
+              # When building agentsmith web page
+              - tidy4
+              - w3m
+            state: present
+        - import_role:
+            name: freebsd/npm-cert-store
 
     - name: Linux packages Debian
       when: "ansible_distribution == 'Debian'"

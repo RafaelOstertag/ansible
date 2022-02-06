@@ -1,0 +1,12 @@
+---
+
+- name: Install ca_root_nss
+  pkgng:
+    name: ca_root_nss
+    state: present
+
+- name: Create npm cert store
+  assemble:
+    dest: /etc/ssl/npm-certstore.pem
+    regexp: "(cert\\.pem|guengel\\.ch\\.pem)"
+    src: /etc/ssl/

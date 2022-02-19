@@ -12,4 +12,6 @@
     - import_role:
         name: raspberrypi/silverbee-buildhost
     - import_role:
-        name: raspberrypi/ca-guengel.ch
+        name: common/ca-guengel.ch
+    - import_role:
+        name: linux/ca-guengel.ch

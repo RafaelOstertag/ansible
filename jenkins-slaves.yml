@@ -94,6 +94,8 @@
               - xsltproc
               - xvfb
             state: present
+        - import_role:
+            name: linux/npm-cert-store
         - name: Linux amd64 packages
           apt:
             name:

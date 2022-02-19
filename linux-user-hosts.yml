@@ -24,3 +24,4 @@
     - linux/enable-ldap-login
     - linux/resolvconf
     - linux/journald
+    - linux/ca-guengel.ch

@@ -1,0 +1,7 @@
+---
+
+- name: Create npm cert store
+  file:
+    src: /etc/ssl/certs/ca-certificates.crt
+    dest: /etc/ssl/npm-certstore.pem
+    state: link

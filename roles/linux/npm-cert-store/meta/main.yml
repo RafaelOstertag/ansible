@@ -1,0 +1,5 @@
+---
+
+dependencies:
+  - role: common/ca-guengel.ch
+  - role: linux/ca-guengel.ch

@@ -17,3 +17,5 @@
 ./var/account
 ./db/prometheus
 ./var/lib/elasticsearch
+# jenkins jobs
+./jobs

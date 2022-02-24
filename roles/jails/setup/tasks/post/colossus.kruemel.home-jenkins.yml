@@ -63,7 +63,7 @@
     create: yes
     state: present
     regexp: ^jenkins_java_opts=.*
-    line: jenkins_java_opts="-Xmx8G"
+    line: jenkins_java_opts="-Xmx4G -XX:+UseShenandoahGC"
 
 - name: Set arguments for jenkins in {{ jail_name }} jail
   lineinfile:

@@ -56,3 +56,12 @@
     state: present
     regexp: ^jenkins_java_home=.*
     line: jenkins_java_home="/usr/local/openjdk11"
+
+- name: Limit heap space for jenkins in {{ jail_name }} jail
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
+    create: yes
+    state: present
+    regexp: ^jenkins_java_opts=.*
+    line: jenkins_java_opts="-Xmx5G"
+

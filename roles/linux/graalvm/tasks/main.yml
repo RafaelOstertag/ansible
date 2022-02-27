@@ -1,0 +1,28 @@
+---
+
+- name: Download graalvm {{ graalvm_version }} amd64
+  unarchive:
+    remote_src: yes
+    src: "https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-{{ graalvm_version }}/graalvm-ce-java11-linux-amd64-{{ graalvm_version }}.tar.gz"
+    dest: /opt
+    creates: "/opt/graalvm-ce-java11-{{ graalvm_version }}"
+  when: "ansible_machine == 'x86_64'"
+
+- name: Download graalvm {{ graalvm_version }} aarch64
+  unarchive:
+    remote_src: yes
+    src: "https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-{{ graalvm_version }}/graalvm-ce-java11-linux-aarch64-{{ graalvm_version }}.tar.gz"
+    dest: /opt
+    creates: "/opt/graalvm-ce-java11-{{ graalvm_version }}"
+  when: "ansible_machine == 'aarch64'"
+
+- name: Link to graalvm
+  file:
+    src: "/opt/graalvm-ce-java11-{{ graalvm_version }}"
+    dest: /opt/graalvm
+    state: link
+
+- name: Install native-image
+  shell:
+    cmd: "/opt/graalvm/bin/gu install native-image"
+    creates: /opt/graalvm/bin/native-image

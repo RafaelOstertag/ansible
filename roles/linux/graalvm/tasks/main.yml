@@ -26,3 +26,10 @@
   shell:
     cmd: "/opt/graalvm/bin/gu install native-image"
     creates: /opt/graalvm/bin/native-image
+
+- name: Install pre-requisites for native-image
+  apt:
+    name:
+      - build-essential
+      - libz-dev
+      - zlib1g-dev

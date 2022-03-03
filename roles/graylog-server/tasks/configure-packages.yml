@@ -8,6 +8,15 @@
     line: 'cluster.name: graylog'
   notify: Restart elasticsearch
 
+- name: Configure elasticsearch jvm
+  copy:
+    src: elasticsearch/heap-size.options
+    dest: /etc/elasticsearch/jvm.options.d/
+    mode: "0644"
+    owner: root
+    group: root
+  notify: Restart elasticsearch
+
 - name: Enable elasticsearch
   systemd:
     name: elasticsearch.service

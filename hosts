@@ -77,9 +77,9 @@ pi-wks-1.kruemel.home
 harvester.kruemel.home
 
 ;
-; Jenkins Slaves
+; Jenkins Build Nodes
 ;
-[jenkins_slaves]
+[jenkins_build_nodes]
 dash.virtual.kruemel.home
 pi3.wlan.kruemel.home
 merlin.virtual.kruemel.home

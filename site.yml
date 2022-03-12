@@ -30,7 +30,7 @@
 - import_playbook: linux-servers.yml
 - import_playbook: linux-graylog-servers.yml
 
-- import_playbook: jenkins-slaves.yml
+- import_playbook: jenkins-build-nodes.yml
 
 - import_playbook: db-setup.yml
 

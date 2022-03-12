@@ -1,6 +1,6 @@
 ---
-- name: Jenkins Slaves
-  hosts: jenkins_slaves
+- name: Jenkins Build Nodes
+  hosts: jenkins_build_nodes
   user: root
   tasks:
     - name: Create slave user

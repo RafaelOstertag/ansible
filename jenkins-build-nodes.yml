@@ -96,6 +96,8 @@
             state: present
         - import_role:
             name: linux/npm-cert-store
+        - import_role:
+            name: linux/ca-guengel.ch
         - name: Linux amd64 packages
           apt:
             name:
@@ -125,6 +127,8 @@
               - openjdk-17-jdk
         - import_role:
             name: linux/graalvm
+        - import_role:
+            name: linux/ca-guengel.ch
 
     - name: OpenBSD packages
       when: "ansible_distribution == 'OpenBSD'"

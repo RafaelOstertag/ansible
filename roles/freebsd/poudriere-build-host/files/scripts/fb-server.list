@@ -46,6 +46,7 @@ security/yapet
 shells/bash
 sysutils/ansible
 sysutils/coreutils
+sysutils/dmidecode
 sysutils/freeipmi
 sysutils/fusefs-ntfs
 sysutils/grub2-bhyve

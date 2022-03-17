@@ -42,7 +42,7 @@ done
                 }
             }
             steps {
-                ansiblePlaybook forks: 2,
+                ansiblePlaybook forks: 4,
                     disableHostKeyChecking: true,
                     colorized: true,
                     credentialsId: 'c9342123-1fc9-4ba3-a681-e5b0dd647322',

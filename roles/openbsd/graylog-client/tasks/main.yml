@@ -1,9 +1,33 @@
 ---
 
-- name: Enable remote logging
+- name: Disable general remote logging
   lineinfile:
     path: /etc/syslog.conf
     regex: '^\*\.info.*@'
-    line: "*.info          @harvester.kruemel.home:5514"
+    state: absent
+  notify:
+    - Restart OpenBSD syslog
+
+- name: Enable mail remote logging
+  lineinfile:
+    path: /etc/syslog.conf
+    regex: '^mail\..*@'
+    line: "mail.info          @harvester.kruemel.home:5514"
+  notify:
+    - Restart OpenBSD syslog
+
+- name: Enable auth remote logging
+  lineinfile:
+    path: /etc/syslog.conf
+    regex: '^auth\..*@'
+    line: "auth.info          @harvester.kruemel.home:5514"
+  notify:
+    - Restart OpenBSD syslog
+
+- name: Enable authpriv remote logging
+  lineinfile:
+    path: /etc/syslog.conf
+    regex: '^authpriv\..*@'
+    line: "authpriv.debug          @harvester.kruemel.home:5514"
   notify:
     - Restart OpenBSD syslog

@@ -33,3 +33,13 @@
       - build-essential
       - libz-dev
       - zlib1g-dev
+
+- name: Install guengel.ch in Graalvm keystore certs
+  java_cert:
+    executable: /opt/graalvm/bin/keytool
+    cert_alias: guengel.ch
+    cert_path: /etc/ssl/guengel.ch.pem
+    keystore_create: false
+    keystore_pass: changeit
+    keystore_path: /opt/graalvm/lib/security/cacerts
+    state: present

@@ -38,3 +38,4 @@
 
 - import_playbook: pi-kube.yml
 - import_playbook: docker-build.yml
+- import_playbook: circleci-runners.yml

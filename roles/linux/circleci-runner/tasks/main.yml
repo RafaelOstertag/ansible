@@ -1,0 +1,95 @@
+---
+
+- name: Install required packages
+  apt:
+    name:
+      - tar
+      - gzip
+      - coreutils
+      - git
+
+- name: Create group
+  group:
+    name: circleci
+    state: present
+
+- name: Create User
+  user:
+    create_home: yes
+    group: circleci
+    home: /opt/circleci
+    name: circleci
+    password: "!"
+    password_lock: yes
+    shell: /bin/bash
+    state: present
+
+- name: Set permissions on binary dir
+  file:
+    path: /opt/circleci
+    state: directory
+    mode: "0750"
+    owner: "circleci"
+    group: "circleci"
+
+- name: Create workdir
+  file:
+    path: /var/circleci
+    state: directory
+    mode: "0700"
+    owner: circleci
+    group: circleci
+
+- name: Copy install script
+  copy:
+    src: install-runner.sh
+    dest: /tmp
+    mode: "0750"
+
+- name: Install runner on ARM64
+  when: ansible_machine == 'aarch64'
+  shell:
+    cmd: 'env PLATFORM=linux/arm64 /tmp/install-runner.sh'
+    creates: /opt/circleci/circleci-launch-agent
+
+- name: Install runner on AMD64
+  when: ansible_machine == 'x86_64'
+  shell:
+    cmd: 'env PLATFORM=linux/amd64 /tmp/install-runner.sh'
+    creates: /opt/circleci/circleci-launch-agent
+
+- name: Install runner configuration ARM64
+  when: ansible_machine == 'aarch64'
+  template:
+    src: "launch-agent-config-arm64.yaml"
+    dest: "/opt/circleci/launch-agent-config.yaml"
+    mode: "0600"
+    owner: "root"
+  notify:
+    - Restart CircleCI runner
+
+- name: Install runner configuration AMD64
+  when: ansible_machine == 'x86_64'
+  template:
+    src: "launch-agent-config-amd64.yaml"
+    dest: "/opt/circleci/launch-agent-config.yaml"
+    mode: "0600"
+    owner: "root"
+  notify:
+    - Restart CircleCI runner
+
+- name: Install circleci.service
+  copy:
+    src: "circleci.service"
+    dest: "/lib/systemd/system/circleci.service"
+    mode: "0644"
+    owner: "root"
+    group: "root"
+
+- name: Start circle ci runner
+  systemd:
+    daemon_reload: yes
+    enabled: yes
+    name: circleci
+    state: started
+

@@ -1,0 +1,7 @@
+---
+- name: Circle CI Runner
+  hosts: circle_ci_runners
+  user: root
+  tasks:
+    - import_role:
+        name: linux/circleci-runner

@@ -1,0 +1,10 @@
+api:
+  auth_token: {{ auth_token_arm64 }}
+  # On server, set url to the hostname of your server installation. For example,
+  # url: https://circleci.example.com
+
+runner:
+  name: {{ ansible_fqdn }}
+  command_prefix: ["sudo", "-niHu", "circleci", "--"]
+  working_directory: /var/circleci/workdir/%s
+  cleanup_working_directory: true

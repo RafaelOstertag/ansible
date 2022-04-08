@@ -128,3 +128,6 @@ amd64-2.k8s.kruemel.home
 
 [docker_build]
 builder.k8s.kruemel.home
+
+[circle_ci_runners]
+builder.k8s.kruemel.home

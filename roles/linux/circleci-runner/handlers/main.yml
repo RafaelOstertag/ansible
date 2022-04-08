@@ -1,0 +1,6 @@
+---
+
+- name: Restart CircleCI runner
+  systemd:
+    name: circleci
+    state: restarted

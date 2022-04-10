@@ -1,5 +1,6 @@
 ---
-- name: Fetch helm
+- name: Fetch helm amd64
+  when: "ansible_machine == 'x86_64'"
   unarchive:
     remote_src: yes
     src: "https://get.helm.sh/helm-v{{ helm_version }}-linux-amd64.tar.gz"
@@ -7,10 +8,27 @@
   retries: 3
   delay: 3
 
-- name: Copy helm binary
+- name: Copy helm binary amd64
+  when: "ansible_machine == 'x86_64'"
   shell:
     cmd: "cp /tmp/linux-amd64/helm /usr/local/bin/helm-{{ helm_version }}"
     creates: "/usr/local/bin/helm-{{ helm_version }}"
+
+- name: Fetch helm arm64
+  when: "ansible_machine == 'aarch64'"
+  unarchive:
+    remote_src: yes
+    src: "https://get.helm.sh/helm-v{{ helm_version }}-linux-arm64.tar.gz"
+    dest: /tmp
+  retries: 3
+  delay: 3
+
+- name: Copy helm binary arm64
+  when: "ansible_machine == 'aarch64'"
+  shell:
+    cmd: "cp /tmp/linux-arm64/helm /usr/local/bin/helm-{{ helm_version }}"
+    creates: "/usr/local/bin/helm-{{ helm_version }}"
+
 
 - name: Link helm binary to 'helm'
   file:

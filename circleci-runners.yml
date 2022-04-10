@@ -5,3 +5,21 @@
   tasks:
     - import_role:
         name: linux/circleci-runner
+    - import_role:
+          name: k8s/k8s-repo
+
+    - import_role:
+        name: k8s/helm
+    - name: Linux packages Ubuntu/Debian
+      when: "ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'"
+      block:
+        - name: Install packages
+          apt:
+            name:
+              - openjdk-11-jdk
+              - openjdk-17-jdk
+              - kubectl
+        - import_role:
+            name: linux/graalvm
+        - import_role:
+            name: linux/ca-guengel.ch

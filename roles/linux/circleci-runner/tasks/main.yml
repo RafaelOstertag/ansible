@@ -17,6 +17,7 @@
   user:
     create_home: yes
     group: circleci
+    groups: docker
     home: /opt/circleci
     name: circleci
     password: "!"

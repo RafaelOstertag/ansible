@@ -2,7 +2,10 @@
 
 - name: Install PostgreSQL packages
   pkgng:
-    name: "postgresql{{ pg_version }}-client,postgresql{{ pg_version }}-contrib, postgresql{{ pg_version }}-server"
+    name:
+     - "postgresql{{ pg_version }}-client"
+     - "postgresql{{ pg_version }}-contrib"
+     - "postgresql{{ pg_version }}-server"
     state: present
 
 - name: Change postgres user home

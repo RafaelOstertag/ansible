@@ -6,5 +6,5 @@ api:
 runner:
   name: {{ ansible_fqdn }}
   command_prefix: ["sudo", "-niHu", "circleci", "--"]
-  working_directory: /var/circleci/workdir/%s
+  working_directory: /var/circleci/project
   cleanup_working_directory: true

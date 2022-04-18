@@ -6,8 +6,9 @@
     - import_role:
         name: linux/circleci-runner
     - import_role:
+        name: linux/circleci-runner-kubeconfig
+    - import_role:
           name: k8s/k8s-repo
-
     - import_role:
         name: k8s/helm
     - name: Linux packages Ubuntu/Debian

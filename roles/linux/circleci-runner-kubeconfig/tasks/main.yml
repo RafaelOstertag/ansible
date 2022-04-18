@@ -1,0 +1,16 @@
+---
+- name: Create config directory
+  file:
+    path: /var/circleci/.kube
+    state: directory
+    mode: "0700"
+    owner: "circleci"
+    group: "circleci"
+
+- name: Install kubeconfig
+  copy:
+    src: kubeconfig
+    dest: /var/circleci/.kube/config
+    mode: "0600"
+    owner: "circleci"
+    group: "circleci"

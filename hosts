@@ -131,3 +131,4 @@ builder.k8s.kruemel.home
 
 [circle_ci_runners]
 builder.k8s.kruemel.home
+dash.virtual.kruemel.home

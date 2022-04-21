@@ -21,6 +21,7 @@
               - openjdk-17-jdk
               - kubectl
               - maven
+              - jq
         - import_role:
             name: linux/graalvm
         - import_role:

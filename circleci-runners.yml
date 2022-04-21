@@ -22,6 +22,8 @@
               - kubectl
               - maven
               - jq
+              - git
+              - curl
         - import_role:
             name: linux/graalvm
         - import_role:

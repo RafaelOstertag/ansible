@@ -1,0 +1,33 @@
+version: 2.1
+
+executors:
+  ansible-machine:
+    machine:
+      image: ubuntu-2004:current
+    resource_class: medium
+
+jobs:
+  check-syntax:
+    executor: ansible-machine
+    steps:
+      - checkout
+      - run:
+          name: Install ansible
+          command: |
+            sudo apt update
+            sudo apt install software-properties-common
+            sudo apt-add-repository --yes --update ppa:ansible/ansible
+            sudo apt install ansible
+      - run:
+          name: Check syntax
+          command: |
+            for pb in *.yml
+            do
+              ansible-playbook -i hosts --syntax-check $pb || exit 1
+            done
+
+workflows:
+  version: 2
+  ansible:
+    jobs:
+      - check-syntax

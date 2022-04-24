@@ -24,6 +24,7 @@
               - jq
               - git
               - curl
+              - python-setuptools
         - import_role:
             name: linux/graalvm
         - import_role:

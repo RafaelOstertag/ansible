@@ -25,6 +25,7 @@
               - git
               - curl
               - python-setuptools
+              - python3-setuptools
         - import_role:
             name: linux/graalvm
         - import_role:

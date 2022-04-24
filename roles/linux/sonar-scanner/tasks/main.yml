@@ -1,0 +1,16 @@
+---
+
+- name: Install sonar-scanner
+  unarchive:
+    dest: "/opt"
+    remote_src: yes
+    src: "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-{{ sonar_scanner_version }}-linux.zip"
+    creates: "/opt/sonar-scanner-{{ sonar_scanner_version }}-linux"
+    owner: "root"
+    group: "root"
+
+- name: Link to /opt/sonar-scanner
+  file:
+    src: "/opt/sonar-scanner-{{ sonar_scanner_version }}-linux"
+    dest: "/opt/sonar-scanner"
+    state: link

@@ -36,3 +36,6 @@
     - import_role:
         name: linux/sonar-buildwrapper
       when: "ansible_machine == 'x86_64'"
+    - import_role:
+        name: linux/sonar-scanner
+      when: "ansible_machine == 'x86_64'"

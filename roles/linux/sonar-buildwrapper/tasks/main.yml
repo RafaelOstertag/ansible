@@ -6,5 +6,5 @@
     dest: "/opt/"
     remote_src: yes
     src: "https://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip"
-    group: root
-    owner: root
+    group: "root"
+    owner: "root"

@@ -1,0 +1,9 @@
+---
+
+- name: Install go and utilities
+  pkgng:
+    name:
+      - go
+      - gmake
+      - git
+    state: present

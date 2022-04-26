@@ -104,6 +104,13 @@
     insertafter: EOF
     line: "export RDECK_JVM=\"$RDECK_JVM -Dserver.servlet.context-path=/rundeck\""
 
+- name: Set memory
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/etc/profile"
+    state: present
+    insertafter: EOF
+    line: "export RDECK_JVM=\"$RDECK_JVM -Xmx3000m -XX:MaxMetaspaceSize=512m\""
+
 - name: Set bash on rundeckd
   lineinfile:
     path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/server/sbin/rundeckd"

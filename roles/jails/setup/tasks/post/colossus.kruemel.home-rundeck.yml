@@ -16,7 +16,7 @@
   vars:
     jail_user: "{{ jail_name }}"
 
-- name: Create nexus directory
+- name: Create rundeck directory
   file:
     path: "{{ jail_root_directory }}/{{ jail_name }}/opt/rundeck/"
     owner: "5000"

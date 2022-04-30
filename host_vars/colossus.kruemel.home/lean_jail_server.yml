@@ -6,5 +6,4 @@ jail_arch: amd64
 lean_jails:
   - git
   - rundeck
-  - jenkins
 

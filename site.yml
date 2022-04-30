@@ -30,8 +30,6 @@
 - import_playbook: linux-servers.yml
 - import_playbook: linux-graylog-servers.yml
 
-- import_playbook: jenkins-build-nodes.yml
-
 - import_playbook: db-setup.yml
 
 - import_playbook: raspberry-pi.yml

@@ -31,15 +31,6 @@ scrape_configs:
       - targets:
           - web-1:9113
 
-  - job_name: 'jenkins'
-    scrape_interval: 30s
-    scheme: https
-    metrics_path: /jenkins/prometheus
-    static_configs:
-      - targets:
-        - jenkins.guengel.ch
-
-
   - job_name: 'os-stats'
     static_configs:
     - targets:

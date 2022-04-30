@@ -66,27 +66,4 @@ groups:
           severity: critical
         annotations:
           summary: "Disk {{ $labels.disk }} on {{ $labels.instance }} is failed"
-  - name: Jenkins Alerts
-    rules:
-      - alert: Jenkins Jobs Pending
-        expr: jenkins_queue_pending_value > 1
-        for: 45m
-        labels:
-          severity: warning
-        annotations:
-          summary: "Pending jobs on {{ $labels.instance }}"
-      - alert: Jenkins Jobs Blocked
-        expr: jenkins_queue_blocked_value > 1
-        for: 45m
-        labels:
-          severity: warning
-        annotations:
-          summary: "Blocked jobs on {{ $labels.instance }}"
-      - alert: Jenkins Jobs Stuck
-        expr: jenkins_queue_stuck_value > 1
-        for: 45m
-        labels:
-          severity: warning
-        annotations:
-          summary: "Stuck jobs on {{ $labels.instance }}"
-
+ 

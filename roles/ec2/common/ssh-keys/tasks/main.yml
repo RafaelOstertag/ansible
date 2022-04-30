@@ -7,3 +7,11 @@
     key: "{{ item }}"
     exclusive: no
   loop: "{{ ssh_keys_present }}"
+
+- name: Remove ssh keys
+  authorized_key:
+    state: absent
+    key: '{{ item }}'
+    user: root
+    manage_dir: yes
+  with_items: '{{ delete_ssh_keys }}'

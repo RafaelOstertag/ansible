@@ -19,11 +19,12 @@
   template: src=ypldap.conf dest=/etc/ypldap.conf mode=0600 owner=root
 
 - name: setup /etc/login.conf
-  blockinfile:
-    path: /etc/login.conf
-    block: "{{ lookup('file', 'login.conf.block') }}"
-    state: present
-    insertafter: EOF
+  template:
+    src: ldap.conf
+    dest: /etc/login.conf.d/ldap
+    mode: 0600
+    owner: root
+
   notify:
     - OpenBSD make cap db
 

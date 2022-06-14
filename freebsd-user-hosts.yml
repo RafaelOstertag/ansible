@@ -281,6 +281,7 @@
           - git-lfs
           - ImageMagick7
           - exif
+          - p5-Image-ExifTool
         state: present
       tags:
         - packages

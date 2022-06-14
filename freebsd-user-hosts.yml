@@ -282,6 +282,7 @@
           - ImageMagick7
           - exif
           - p5-Image-ExifTool
+          - python310
         state: present
       tags:
         - packages

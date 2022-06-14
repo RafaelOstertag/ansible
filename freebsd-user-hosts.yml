@@ -275,3 +275,12 @@
         name: freebsd/javacerts
       tags:
         - javacerts
+    - name: Install packages
+      pkgng:
+        name:
+          - git-lfs
+          - ImageMagick7
+          - exif
+        state: present
+      tags:
+        - packages

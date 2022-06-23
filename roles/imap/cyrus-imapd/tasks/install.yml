@@ -2,7 +2,7 @@
 
 - name: Install cyrus-imapd
   pkgng:
-    name: cyrus-imapd30
+    name: cyrus-imapd34
     state: present
 
 - name: Enable cyrus-imapd

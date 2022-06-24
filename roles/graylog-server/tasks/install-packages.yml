@@ -34,7 +34,7 @@
 
 - name: Install graylog repository
   apt:
-    deb: https://packages.graylog2.org/repo/packages/graylog-4.2-repository_latest.deb
+    deb: https://packages.graylog2.org/repo/packages/graylog-4.3-repository_latest.deb
     state: present
 
 - name: Install graylog

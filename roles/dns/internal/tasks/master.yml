@@ -18,6 +18,7 @@
     - named.virtual.kruemel.home
     - named.k8s.kruemel.home
     - named.app.k8s.kruemel.home
+    - named.rafaelostertag.photo
   notify:
     - Restart FreeBSD bind
 

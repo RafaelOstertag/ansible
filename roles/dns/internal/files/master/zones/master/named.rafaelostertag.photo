@@ -1,0 +1,25 @@
+; Maintained by Ansible
+$ORIGIN rafaelostertag.photo.
+$TTL 6h    ; 6 hours
+@            IN     SOA    optimusprime.rafaelostertag.photo. postmaster.rafaelostertag.photo. (
+                    202206250 ; serial
+                    1d        ; Refresh
+                    1h        ; Retry
+                    1w        ; Expire
+                    1h        ; Negative Cache TTL
+                    )
+             IN     NS      optimusprime.kruemel.home.
+                    NS      viking.kruemel.home.
+                    MX      10 colossus.rafaelostertag.photo.
+
+colossus     IN     A       192.168.100.2
+                    AAAA    fd3e:be3e:ec34:0::3
+
+viking       IN     A       192.168.100.4
+                    AAAA    fd3e:be3e:ec34:0::4
+
+optimusprime IN     A       192.168.100.5
+                    AAAA    fd3e:be3e:ec34:0::5
+
+
+www          IN     CNAME   ec2-52-29-59-221.eu-central-1.compute.amazonaws.com.

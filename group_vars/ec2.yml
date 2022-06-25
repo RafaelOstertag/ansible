@@ -23,6 +23,7 @@ nginx_domains:
     - www.guengel.ch
     - agentsmith.guengel.ch
     - photos.guengel.ch
+    - www.rafaelostertag.photo
 
 # These domains have custom configurations
 nginx_custom_domains:

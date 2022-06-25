@@ -22,7 +22,6 @@ delete_ssh_keys:
 nginx_domains:
     - www.guengel.ch
     - agentsmith.guengel.ch
-    - photos.guengel.ch
     - www.rafaelostertag.photo
 
 # These domains have custom configurations
@@ -33,3 +32,4 @@ nginx_custom_domains:
     - funnel.guengel.ch
     - memberberry.guengel.ch
     - astro.guengel.ch
+    - photos.guengel.ch

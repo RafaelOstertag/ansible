@@ -17,3 +17,6 @@
 ./var/account
 ./db/prometheus
 ./var/lib/elasticsearch
+./samba4
+./var/log
+./var/lib/graylog-server

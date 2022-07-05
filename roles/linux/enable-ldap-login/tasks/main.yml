@@ -1,10 +1,10 @@
 ---
 
 - name: Install packages
-  include: packages.yml
+  include_tasks: packages.yml
 
 - name: Setup nslcd
-  include: nslcd.yml
+  include_tasks: nslcd.yml
 
 - name: Update nsswitch.conf
-  include: update-nsswitch.conf.yml
+  include_tasks: update-nsswitch.conf.yml

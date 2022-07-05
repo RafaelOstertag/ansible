@@ -6,7 +6,7 @@
     state: present
 
 - name: Create users
-  include: users.yml
+  include_tasks: users.yml
 
 - name: Create databases
-  include: databases.yml
+  include_tasks: databases.yml

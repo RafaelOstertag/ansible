@@ -30,4 +30,4 @@
     enabled: true
 
 - name: Setup mounts
-  include: mounts.yml
+  include_tasks: mounts.yml

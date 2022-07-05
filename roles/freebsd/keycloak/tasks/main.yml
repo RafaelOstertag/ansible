@@ -1,10 +1,10 @@
 ---
 
 - name: Install prerequisites
-  include: prerequisites.yml
+  include_tasks: prerequisites.yml
 
 - name: Install Keycloak
-  include: keycloak-installation.yml
+  include_tasks: keycloak-installation.yml
 
 - name: Keycloak Configuration
-  include: keycloak-configuration.yml
+  include_tasks: keycloak-configuration.yml

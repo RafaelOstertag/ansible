@@ -1,36 +1,17 @@
 ---
 
-- name: Create module directory
-  file:
-    path: "/usr/local/keycloak-{{ keycloak_version }}/modules/system/layers/keycloak/org/postgresql/main/"
-    state: directory
-    owner: keycloak
-    group: wheel
-
-- name: Download postgres JDBC
-  get_url:
-    url: "https://jdbc.postgresql.org/download/postgresql-{{ postgresql_jdbc_version }}.jar"
-    dest: "/usr/local/keycloak-{{ keycloak_version }}/modules/system/layers/keycloak/org/postgresql/main/postgresql-{{ postgresql_jdbc_version }}.jar"
-    owner: keycloak
-    group: wheel
-
-- name: Setup PostgreSQL Module
+- name: Copy config
   template:
-    src: keycloak/modules/postgres/module.xml
-    dest: "/usr/local/keycloak-{{ keycloak_version }}/modules/system/layers/keycloak/org/postgresql/main/module.xml"
-    owner: keycloak
-    group: wheel
+    src: keycloak.conf
+    dest: /usr/local/keycloak/conf/keycloak.conf
+    mode: "0640"
+    owner: root
+    group: keycloak
+  register: result
 
-- name: Configure standalone.xml
-  template:
-    src: keycloak/standalone.xml
-    dest: "/usr/local/keycloak-{{ keycloak_version }}/standalone/configuration/standalone.xml"
-    owner: keycloak
-    group: wheel
+- name: Rebuild config
+  shell:
+    chdir: "/usr/local/keycloak"
+    cmd: "bin/kc.sh build"
+  when: result.changed == True
 
-- name: Wildfly settings
-  copy:
-    src: keycloak/standalone.conf
-    dest: "/usr/local/keycloak-{{ keycloak_version }}/bin/standalone.conf"
-    owner: keycloak
-    group: wheel

@@ -12,13 +12,12 @@ rcvar=keycloak_enable
 user=keycloak
 group=keycloak
 
-keycloak_java_args="'-D[Standalone]' -server -Xms64m -Xmx1g -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED -Dorg.jboss.boot.log.file=/usr/local/keycloak/standalone/log/server.log -Dlogging.configuration=file:/usr/local/keycloak/standalone/configuration/logging.properties -jar /usr/local/keycloak/jboss-modules.jar -mp /usr/local/keycloak/modules org.jboss.as.standalone -Djboss.home.dir=/usr/local/keycloak -Djboss.server.base.dir=/usr/local/keycloak/standalone -b 0.0.0.0"
-
-command="/usr/local/openjdk11/bin/java"
+keycloak_chdir="/usr/local/keycloak"
+command="/usr/local/keycloak/bin/kc.sh"
 pidfile="/var/run/${name}/pid"
 procname="daemon"
 start_precmd="${name}_prestart"
-start_cmd="/usr/sbin/daemon -u ${user} -P ${pidfile} -p ${pidfile}.child -f ${command} ${keycloak_java_args}"
+start_cmd="/usr/sbin/daemon -u ${user} -P ${pidfile} -p ${pidfile}.child -f ${command} start"
 
 keycloak_prestart() {
     install -d -o ${user} -g ${group} /var/run/${name}

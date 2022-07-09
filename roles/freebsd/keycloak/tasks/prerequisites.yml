@@ -5,4 +5,11 @@
     name:
       - openjdk11
       - gtar
+      - bash
     state: present
+
+- name: Link bash
+  file:
+    src: /usr/local/bin/bash
+    dest: /bin/bash
+    state: link

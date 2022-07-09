@@ -40,13 +40,6 @@
     mode: "0700"
     state: directory
 
-- name: Create link to log directory for jboss
-  file:
-    src: "/var/log/keycloak"
-    dest: "/usr/local/keycloak-{{ keycloak_version }}/standalone/log"
-    force: true
-    state: link
-
 - name: Copy rc file
   copy:
     src: rc.d/keycloak

@@ -17,7 +17,7 @@ command="/usr/local/keycloak/bin/kc.sh"
 pidfile="/var/run/${name}/pid"
 procname="daemon"
 start_precmd="${name}_prestart"
-start_cmd="/usr/sbin/daemon -u ${user} -P ${pidfile} -p ${pidfile}.child -f ${command} start"
+start_cmd="/usr/sbin/daemon -u ${user} -P ${pidfile} -p ${pidfile}.child -f env JAVA_OPTS_APPEND='-Xmx1G' ${command} start"
 
 keycloak_prestart() {
     install -d -o ${user} -g ${group} /var/run/${name}

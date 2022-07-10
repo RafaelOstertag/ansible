@@ -33,3 +33,4 @@ nginx_custom_domains:
     - memberberry.guengel.ch
     - astro.guengel.ch
     - photos.guengel.ch
+    - portscanner.ostertag.dev

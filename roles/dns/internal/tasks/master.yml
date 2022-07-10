@@ -19,6 +19,7 @@
     - named.k8s.kruemel.home
     - named.app.k8s.kruemel.home
     - named.rafaelostertag.photo
+    - named.ostertag.dev
   notify:
     - Restart FreeBSD bind
 

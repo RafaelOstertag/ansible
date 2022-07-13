@@ -15,7 +15,6 @@ java/openjdk11
 java/openjdk8
 lang/python
 lang/python3
-mail/cyrus-imapd30
 mail/cyrus-imapd34
 misc/amanda-client
 misc/amanda-perl-wrapper
@@ -31,8 +30,8 @@ net-mgmt/nrpe3
 net-mgmt/prometheus2
 net/isc-dhcp44-server
 net/nss-pam-ldapd
-net/openldap24-client
-net/openldap24-server
+net/openldap26-client
+net/openldap26-server
 net/rsync
 net/samba413
 ports-mgmt/pkg

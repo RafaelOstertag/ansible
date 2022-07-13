@@ -71,6 +71,5 @@ security/strongswan
 sysutils/amazon-ssm-agent
 sysutils/ec2-scripts
 sysutils/firstboot-freebsd-update
-sysutils/firstboot-growfs
 sysutils/firstboot-pkgs
 www/nginx-prometheus-exporter

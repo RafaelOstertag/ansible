@@ -1,3 +1,5 @@
+
+# required by ec2 hosts
 archivers/arj
 archivers/gtar
 archivers/lha
@@ -7,6 +9,7 @@ archivers/unzip
 archivers/unzoo
 archivers/zip
 benchmarks/iperf3
+devel/awscli
 devel/git
 dns/bind918
 ftp/curl
@@ -28,6 +31,8 @@ net-mgmt/nagios-snmp-plugins
 net-mgmt/nagios4
 net-mgmt/nrpe3
 net-mgmt/prometheus2
+net/dual-dhclient
+net/isc-dhcp44-client
 net/isc-dhcp44-server
 net/nss-pam-ldapd
 net/openldap26-client
@@ -41,13 +46,21 @@ security/clamav
 security/cyrus-sasl2
 security/cyrus-sasl2-saslauthd
 security/openvpn
+security/py-acme
+security/py-certbot
+security/strongswan
 security/sudo
 security/yapet
 shells/bash
+sysutils/amazon-ssm-agent
 sysutils/ansible
 sysutils/coreutils
 sysutils/dmidecode
+sysutils/ec2-scripts
+sysutils/firstboot-freebsd-update
+sysutils/firstboot-pkgs
 sysutils/freeipmi
+sysutils/fusefs-exfat
 sysutils/fusefs-ntfs
 sysutils/grub2-bhyve
 sysutils/ipmitool
@@ -59,16 +72,4 @@ www/apache24
 www/grafana7
 www/mod_php80
 www/nginx
-
-# required by ec2 hosts
-devel/awscli
-net/dual-dhclient
-net/isc-dhcp44-client
-security/py-acme
-security/py-certbot
-security/strongswan
-sysutils/amazon-ssm-agent
-sysutils/ec2-scripts
-sysutils/firstboot-freebsd-update
-sysutils/firstboot-pkgs
 www/nginx-prometheus-exporter

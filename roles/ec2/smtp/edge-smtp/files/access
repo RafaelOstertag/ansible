@@ -73,9 +73,10 @@ To:tuxnn@		ERROR: 550 Mailbox disabled
 To:tuxq@		ERROR: 550 Mailbox disabled
 To:gz@			ERROR: 550 Mailbox disabled
 To:uengel@		ERROR: 550 Mailbox disabled
-To:webmasterd@		ERROR: 550 Mailbox disabled
+To:webmasterd@		ERROR: 550 Mailbox disabledß
 To:engel@		ERROR: 550 Mailbox disabled
 To:webmasterdd@		ERROR: 550 Mailbox disabled
+To:newsletter@  ERROR: 550 Mailbox disabled
 #
 #CertIssuer:/C=CH/ST=Aargau/O=guengel.ch/CN=Rafael+20Ostertag/emailAddress=rafi@guengel.ch	RELAY
 #CertIssuer:/C=CH/ST=Thurgau/L=Kefikon/O=guengel.ch/CN=CA+20guengel.ch/emailAddress=postmaster@guengel.ch	RELAY

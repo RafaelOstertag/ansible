@@ -1,5 +1,3 @@
-
-# required by ec2 hosts
 archivers/arj
 archivers/gtar
 archivers/lha
@@ -37,6 +35,7 @@ net/isc-dhcp44-server
 net/nss-pam-ldapd
 net/openldap26-client
 net/openldap26-server
+net/rclone
 net/rsync
 net/samba413
 ports-mgmt/pkg

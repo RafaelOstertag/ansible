@@ -79,8 +79,8 @@ define(`confTLS_SRV_OPTIONS', `')dnl
 define(`confDONT_BLAME_SENDMAIL',`GroupReadableKeyFile')dnl
 
 define(`confAUTH_REALM', `colossus')dnl
-define(`confAUTH_MECHANISMS',`LOGIN CRAM-MD5')dnl
-TRUST_AUTH_MECH(`LOGIN CRAM-MD5')dnl
+define(`confAUTH_MECHANISMS',`LOGIN PLAIN')dnl
+TRUST_AUTH_MECH(`LOGIN PLAIN')dnl
 
 define(`confBIND_OPTS', `WorkAroundBrokenAAAA')
 define(`confNO_RCPT_ACTION', `add-to-undisclosed')

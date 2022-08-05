@@ -24,14 +24,6 @@
     src: colossus.kruemel.home:/export/home
     name: /home
 
-- name: add /export/iso fstab entry
-  mount:
-    state: mounted
-    fstype: nfs4
-    opts: rw
-    src: colossus.kruemel.home:/export/iso
-    name: /mnt/iso
-
 - name: add /export/files fstab entry
   mount:
     state: mounted

@@ -34,8 +34,5 @@
 - name: add /export/home fstab entry
   mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=colossus.kruemel.home:/export/home name=/home
 
-- name: add /export/iso fstab entry
-  mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=colossus.kruemel.home:/export/iso name=/mnt/iso
-
 - name: add /export/files fstab entry
   mount: state=mounted fstype=nfs opts=nfsv4,rw,noinet4,sec=sys src=colossus.kruemel.home:/export/files name=/mnt/files

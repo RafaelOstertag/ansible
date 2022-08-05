@@ -14,6 +14,3 @@
 
 - name: add /export/files fstab entry
   mount: state=mounted fstype=nfs opts=rw src=colossus.kruemel.home:/export/files name=/mnt/files
-
-- name: add /export/config fstab entry
-  mount: state=mounted fstype=nfs opts=rw src=colossus.kruemel.home:/export/config name=/mnt/config

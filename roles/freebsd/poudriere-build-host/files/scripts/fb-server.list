@@ -44,6 +44,7 @@ security/ca_root_nss
 security/clamav
 security/cyrus-sasl2
 security/cyrus-sasl2-saslauthd
+security/nmap
 security/openvpn
 security/py-acme
 security/py-certbot

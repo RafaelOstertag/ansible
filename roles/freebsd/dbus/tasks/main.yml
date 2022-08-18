@@ -1,5 +1,10 @@
 ---
 
+- name: Install dbus
+  pkgng:
+    name: dbus
+    state: present
+
 - name: Copy dbus rc.conf.d file
   copy:
     src: dbus

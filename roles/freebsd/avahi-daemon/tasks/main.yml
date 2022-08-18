@@ -1,5 +1,10 @@
 ---
 
+- name: Install avahi
+  pkgng:
+    name: avahi-app
+    state: present
+
 - name: Copy avahi-daemon rc.conf.d file
   copy:
     src: avahi_daemon

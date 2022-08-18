@@ -286,3 +286,7 @@
         state: present
       tags:
         - packages
+    - import_role:
+        name: freebsd/avahi-daemon
+      tags:
+        - avahi

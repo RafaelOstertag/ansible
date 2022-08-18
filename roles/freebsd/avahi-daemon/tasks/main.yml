@@ -1,0 +1,11 @@
+---
+
+- name: Copy avahi-daemon rc.conf.d file
+  copy:
+    src: avahi_daemon
+    dest: /usr/local/etc/rc.conf.d/avahi_daemon
+    owner: root
+    group: wheel
+    mode: "0644"
+  notify:
+    - FreeBSD restart avahi-daemon

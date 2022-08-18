@@ -1,0 +1,6 @@
+---
+
+- name: FreeBSD restart dbus
+  service:
+    name: dbus
+    state: restarted

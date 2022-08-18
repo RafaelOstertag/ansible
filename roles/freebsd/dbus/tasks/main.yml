@@ -1,0 +1,11 @@
+---
+
+- name: Copy dbus rc.conf.d file
+  copy:
+    src: dbus
+    dest: /usr/local/etc/rc.conf.d/dbus
+    owner: root
+    group: wheel
+    mode: "0644"
+  notify:
+    - FreeBSD restart dbus

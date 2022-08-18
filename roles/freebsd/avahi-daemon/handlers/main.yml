@@ -1,0 +1,6 @@
+---
+
+- name: FreeBSD restart avahi-daemon
+  service:
+    name: avahi-daemon
+    state: restarted

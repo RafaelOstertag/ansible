@@ -336,5 +336,4 @@
         name: freebsd/avahi-daemon
       when: "avahi_enabled is defined and avahi_enabled == True"
       tags:
-        - dbus
         - avahi

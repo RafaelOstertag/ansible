@@ -10,6 +10,11 @@
 # Formatting done via shfmt -i 2
 # https://github.com/mvdan/sh
 
+if [ ! -f /usr/local/sbin/smartctl ]
+then
+  exit 0
+fi
+
 parse_smartctl_attributes_awk="$(
   cat <<'SMARTCTLAWK'
 $1 ~ /^ *[0-9]+$/ && $2 ~ /^[a-zA-Z0-9_-]+$/ {

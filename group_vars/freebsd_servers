@@ -5,3 +5,5 @@ jail: False
 
 # Use guengel repository
 use_guengel_repository: True
+
+smartmontools_enabled: True

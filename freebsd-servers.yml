@@ -330,6 +330,7 @@
         - ec2
     - import_role:
         name: freebsd/smartmontools
+      when: "smartmontools_enabled is defined and smartmontools_enabled"
       tags:
         - smartmon
     - import_role:

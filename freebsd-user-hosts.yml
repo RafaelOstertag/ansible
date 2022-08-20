@@ -236,6 +236,11 @@
     - import_role:
         name: freebsd/reusable/periodic
       vars:
+        varname: "daily_status_uptime_enable"
+        value: "NO"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
         varname: "daily_show_success"
         value: "NO"
     - import_role:

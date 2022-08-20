@@ -32,6 +32,11 @@
       vars:
         varname: "daily_status_disks_enable"
         value: "NO"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "daily_status_uptime_enable"
+        value: "NO"
 
     - import_role:
         name: ec2/common/set-hostname

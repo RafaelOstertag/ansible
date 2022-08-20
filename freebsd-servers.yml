@@ -101,7 +101,7 @@
         name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_disks_enable"
-        value: "YES"
+        value: "NO"
       when: "not jail"
     - import_role:
         name: freebsd/reusable/periodic
@@ -191,7 +191,7 @@
         name: freebsd/reusable/periodic
       vars:
         varname: "security_status_kernelmsg_enable"
-        value: "YES"
+        value: "NO"
       when: "not jail"
     - import_role:
         name: freebsd/reusable/periodic

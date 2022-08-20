@@ -8,6 +8,21 @@
 
   tasks:
     - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "daily_show_success"
+        value: "NO"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "weekly_show_success"
+        value: "NO"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "monthly_show_success"
+        value: "NO"
+    - import_role:
         name: ec2/common/set-hostname
       tags:
         - common

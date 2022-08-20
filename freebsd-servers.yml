@@ -254,6 +254,21 @@
         varname: "daily_status_network_enable"
         value: "YES"
     - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "daily_show_success"
+        value: "NO"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "weekly_show_success"
+        value: "NO"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "monthly_show_success"
+        value: "NO"
+    - import_role:
         name: freebsd/sysctl-defaults
       when: "not jail"
       tags:

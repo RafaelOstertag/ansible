@@ -118,7 +118,7 @@
         name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_ntpd_enable"
-        value: "YES"
+        value: "NO"
       when: "not jail"
     - import_role:
         name: freebsd/reusable/periodic
@@ -252,7 +252,7 @@
         name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_network_enable"
-        value: "YES"
+        value: "NO"
     - import_role:
         name: freebsd/reusable/periodic
       vars:

@@ -11,6 +11,5 @@
     - aliases
     - access
     - local-host-names
-    - virtusertable
   notify:
     - Rebuild sendmail maps

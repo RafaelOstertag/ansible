@@ -32,7 +32,7 @@
   lineinfile:
     path: /usr/local/etc/mail/opendkim.conf
     regex: '^Domain\s+'
-    line: 'Domain guengel.ch'
+    line: 'Domain guengel.ch,rafaelostertag.photo,ostertag.dev'
     state: present
   notify:
     - Restart FreeBSD milter-opendkim

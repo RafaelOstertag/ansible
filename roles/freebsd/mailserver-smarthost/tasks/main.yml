@@ -18,6 +18,7 @@
     - access
     - aliases
     - local-host-names
+    - virtusertable
 
 - name: Unconditionally rebuild sendmail config
   shell: "cd /etc/mail ; make all ; make install"

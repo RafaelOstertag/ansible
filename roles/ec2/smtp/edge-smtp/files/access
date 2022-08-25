@@ -25,12 +25,6 @@ Connect:192.0.2 REJECT
 Connect:224             REJECT
 Connect:255             REJECT
 Connect:.corbina.ru	REJECT
-Connect:.pl		REJECT
-Connect:93.155.244.124	REJECT
-Connect:82.201.198.20	REJECT
-# Those fucking poles
-pl			REJECT
-techmania.ch		REJECT
 # Those are in order to prevent messages to the postmaster because
 # user doesnt exist
 To:online@		ERROR: 550 Mailbox disabled
@@ -82,3 +76,6 @@ To:anic@    ERROR: 550 Mailbox disabled
 #CertIssuer:/C=CH/ST=Aargau/O=guengel.ch/CN=Rafael+20Ostertag/emailAddress=rafi@guengel.ch	RELAY
 #CertIssuer:/C=CH/ST=Thurgau/L=Kefikon/O=guengel.ch/CN=CA+20guengel.ch/emailAddress=postmaster@guengel.ch	RELAY
 Connect:192.168.100.2   RELAY
+To:rafaelostertag.photo RELAY
+To:ostertag.dev         RELAY
+To:guengel.ch           RELAY

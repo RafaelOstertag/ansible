@@ -99,9 +99,7 @@ define(`confBAD_RCPT_THROTTLE',`6')dnl
 dnl this makes sure we use tls/ssl when issuing login/plain auth
 define(`confAUTH_OPTIONS',`p')dnl
 
-FEATURE(`masquerade_entire_domain')dnl
 FEATURE(`always_add_domain')dnl
-FEATURE(`masquerade_envelope')dnl
 FEATURE(`use_cw_file')dnl
 dnl As of 2013-07-01, mails from root@xxxx.kruemel.home to
 dnl root@xxxx.kruemel.home suddenly started being relayed to
@@ -111,6 +109,10 @@ FEATURE(`bestmx_is_local', `kruemel.home')dnl
 
 MASQUERADE_AS(`guengel.ch')dnl
 MASQUERADE_DOMAIN(`kruemel.home')dnl
+MASQUERADE_EXCEPTION(`rafaelostertag.photo')dnl
+MASQUERADE_EXCEPTION(`ostertag.dev')dnl
+FEATURE(`masquerade_entire_domain')dnl
+FEATURE(`masquerade_envelope')dnl
 
 EXPOSED_USER(`root')dnl
 FEATURE(`nouucp', `reject')dnl

@@ -23,11 +23,16 @@ Connect:192.0.2 REJECT
 Connect:224             REJECT
 Connect:255             REJECT
 Connect:.corbina.ru	REJECT
-#
-To:online@guengel.ch		ERROR: 550 Mailbox disabled
-To:rafinn@guengel.ch        ERROR: 550 Mailbox disabled
+# Decommissioned
 To:newsletter@guengel.ch  ERROR: 550 Mailbox disabled
 To:anic@guengel.ch    ERROR: 550 Mailbox disabled
+#
+# Spammers
+#
+To:online@guengel.ch		REJECT
+To:rafinn@guengel.ch        REJECT
+To:454517ea.4080607@guengel.ch REJECT
+To:45560a4d.4090709@guengel.ch REJECT
 #
 # Relaying allowed for these
 #

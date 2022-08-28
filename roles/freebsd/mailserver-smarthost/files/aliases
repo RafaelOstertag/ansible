@@ -16,7 +16,6 @@ root: root@kruemel.home
 MAILER-DAEMON: postmaster
 
 # General redirections for pseudo accounts
-
 _afs:	  	       /dev/null
 _bgpd:		       /dev/null
 _btd:		       /dev/null
@@ -53,48 +52,48 @@ _tcpdump:	       /dev/null
 _tftpd:		       /dev/null
 _x11:		       /dev/null
 _ypldap:	       /dev/null
-abuse:		       postmaster
 bin:		       /dev/null
 bind:		       /dev/null
-biz:		       postmaster
 daemon:		       /dev/null
-ftp-bugs:	       ftp
-ftp:		       postmaster
 games:		       /dev/null
-hostmaster:	       postmaster
-info:		       postmaster
 kmem:		       /dev/null
-logcheck:              root
-mailnull:	       postmaster
 man:		       /dev/null
-marketing:	       postmaster
 named:		       /dev/null
 news:		       /dev/null
 nobody:		       /dev/null
-noc:		       postmaster
 operator:	       /dev/null
 pop:		       /dev/null
 popa3d:		       /dev/null
 proxy: 		       /dev/null
 r00t:		       /dev/null
-sales:	  	       postmaster
-security:	       postmaster
-smmsp:		       postmaster
-spam:		       postmaster
-spamd:                 postmaster
 sshd:		       /dev/null
-support:	       postmaster
 system:		       /dev/null
 t00r:		       /dev/null
 toor:		       /dev/null
 tty:		       /dev/null
-usenet:		       news
 uucp:		       /dev/null
-website:		webmaster
+
+abuse:		       postmaster
+biz:		       postmaster
+ftp-bugs:	       ftp
+ftp:		       postmaster
+hostmaster:	       postmaster
+info:		       postmaster
+logcheck:		   root
+mailnull:	       postmaster
+marketing:	       postmaster
+noc:		       postmaster
+sales:	  	       postmaster
+security:	       postmaster
+smmsp:		       postmaster
+spam:		       postmaster
+spamd:             postmaster
+support:	       postmaster
+usenet:		       news
+website:           webmaster
 www:		       webmaster
 
 # Other aliases
-bugzilla-daemon:	webmaster
 help:			postmaster
 www-data:		webmaster
 postgres:		root

@@ -71,7 +71,7 @@ define(`confINPUT_MAIL_FILTERS', `spamassassin,dkim-filter')dnl
 
 dnl Antispam section
 FEATURE(`nouucp', `reject')dnl
-FEATURE(`blacklist_recipients')dnl
+FEATURE(`blocklist_recipients')dnl
 FEATURE(`enhdnsbl', `zen.spamhaus.org', `"550 Access denied. Spam."')dnl
 FEATURE(`enhdnsbl', `bl.spamcop.net', `"500 Access denied. Spam."', `t')dnl
 FEATURE(`nopercenthack', `reject')dnl

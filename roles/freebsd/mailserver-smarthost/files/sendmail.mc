@@ -52,7 +52,7 @@ OSTYPE(freebsd6)dnl
 DOMAIN(generic)dnl
 
 FEATURE(access_db, `hash -T<TMPF> /etc/mail/access')dnl
-FEATURE(blacklist_recipients)dnl
+FEATURE(blocklist_recipients)dnl
 FEATURE(local_lmtp)dnl
 FEATURE(mailertable, `hash -o /etc/mail/mailertable')dnl
 FEATURE(virtusertable, `hash -o /etc/mail/virtusertable')dnl

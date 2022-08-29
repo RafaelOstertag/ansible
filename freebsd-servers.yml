@@ -273,6 +273,16 @@
       vars:
         varname: "monthly_show_success"
         value: "NO"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "security_status_pfdenied_enable"
+        value: "NO"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "security_status_pkg_checksum_enable"
+        value: "NO"
 
     - import_role:
         name: freebsd/sysctl-defaults

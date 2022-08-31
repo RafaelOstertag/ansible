@@ -29,12 +29,23 @@ To:anic@guengel.ch    ERROR: 550 Mailbox disabled
 #
 # Spammers
 #
+To:20130910132718.632b415adcdf36e08d15ac68@guengel.ch REJECT
+To:454517ea.4080607@guengel.ch REJECT
+To:45460462.6090802@guengel.ch REJECT
+To:45467945.7000004@guengel.ch REJECT
+To:454a687f.4040100@guengel.ch REJECT
+To:45560a4d.4090709@guengel.ch REJECT
+To:a1aaa1azzzz1zaaaaa@guengel.ch REJECT
+To:akstcguengelmnsdgs@guengel.ch REJECT
+To:guengel1@guengel.ch REJECT
+To:guengeln@guengel.ch REJECT
+To:guengelnn@guengel.ch REJECT
+To:iamjustsendingthisleter@guengel.ch REJECT
 To:online@guengel.ch		REJECT
 To:rafinn@guengel.ch        REJECT
-To:454517ea.4080607@guengel.ch REJECT
-To:45560a4d.4090709@guengel.ch REJECT
-To:20130910132718.632b415adcdf36e08d15ac68@guengel.ch REJECT
-To:iamjustsendingthisleter@guengel.ch REJECT
+To:rafiq@guengel.ch REJECT
+To:tuxd@guengel.ch REJECT
+To:webmasterdd@guengel.ch REJECT
 #
 # Relaying allowed for these
 #

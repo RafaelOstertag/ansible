@@ -23,6 +23,8 @@ Connect:192.0.2 REJECT
 Connect:224             REJECT
 Connect:255             REJECT
 Connect:.corbina.ru	REJECT
+Connect:.cn REJECT
+Connect:.ru REJECT
 # Decommissioned
 To:newsletter@guengel.ch  ERROR: 550 Mailbox disabled
 To:anic@guengel.ch    ERROR: 550 Mailbox disabled

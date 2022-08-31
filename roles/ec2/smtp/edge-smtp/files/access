@@ -28,6 +28,7 @@ Connect:.ru REJECT
 # Decommissioned
 To:newsletter@guengel.ch  ERROR: 550 Mailbox disabled
 To:anic@guengel.ch    ERROR: 550 Mailbox disabled
+To:tux@guengel.ch   ERROR: 550 Mailbox disabled
 #
 # Spammers
 #

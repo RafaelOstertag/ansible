@@ -45,9 +45,11 @@ To:guengeln@guengel.ch REJECT
 To:guengelnn@guengel.ch REJECT
 To:iamjustsendingthisleter@guengel.ch REJECT
 To:online@guengel.ch		REJECT
+To:rafin@guengel.ch        REJECT
 To:rafinn@guengel.ch        REJECT
 To:rafiq@guengel.ch REJECT
 To:tuxd@guengel.ch REJECT
+To:tuxdd@guengel.ch REJECT
 To:webmasterdd@guengel.ch REJECT
 #
 # Relaying allowed for these

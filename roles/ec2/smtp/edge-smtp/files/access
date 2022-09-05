@@ -22,9 +22,6 @@ Connect:169.254 REJECT
 Connect:192.0.2 REJECT
 Connect:224             REJECT
 Connect:255             REJECT
-Connect:.corbina.ru	REJECT
-Connect:.cn REJECT
-Connect:.ru REJECT
 # Decommissioned
 To:newsletter@guengel.ch  ERROR: 550 Mailbox disabled
 To:anic@guengel.ch    ERROR: 550 Mailbox disabled
@@ -32,6 +29,10 @@ To:tux@guengel.ch   ERROR: 550 Mailbox disabled
 #
 # Spammers
 #
+Connect:cn REJECT
+Connect:ru REJECT
+From:cn REJECT
+From:ru REJECT
 To:20130910132718.632b415adcdf36e08d15ac68@guengel.ch REJECT
 To:454517ea.4080607@guengel.ch REJECT
 To:45460462.6090802@guengel.ch REJECT

@@ -1,5 +1,24 @@
 ---
 
+- name: Create config dir
+  file:
+    path: /etc/pf.conf.d
+    state: directory
+    mode: "0755"
+    owner: root
+    group: wheel
+
+- name: Copy not welcome
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/pf.conf.d/{{ item }}"
+    mode: "0644"
+    owner: root
+    group: wheel
+  loop:
+    - not-welcome-ru.txt
+    - not-welcome-cn.txt
+
 - name: Copy firewall configuration
   copy:
     src: pf.conf

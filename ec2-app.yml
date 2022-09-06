@@ -138,6 +138,12 @@
       tags:
         - thin-jail
 
+    - import_role:
+        name: ec2/common/firewall
+      tags:
+        - firewall
+        - pf
+
     - name: Facilitate deployment via rundeck
       pkgng:
         name: curl

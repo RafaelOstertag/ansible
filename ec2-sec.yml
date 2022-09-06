@@ -135,3 +135,8 @@
         name: freebsd/javacerts
       tags:
         - keycloak
+    - import_role:
+        name: ec2/common/firewall
+      tags:
+        - firewall
+        - pf

@@ -1,0 +1,38 @@
+---
+
+- name: Copy firewall configuration
+  copy:
+    src: pf.conf
+    dest: /etc/pf.conf
+    mode: 0600
+    owner: root
+    group: wheel
+    validate: "pfctl -nf %s"
+  notify:
+    - Reload FreeBSD pf
+
+- name: Enable pf
+  copy:
+    src: rc.conf.d/pf
+    dest: /etc/rc.conf.d/pf
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Start pf
+  service:
+    name: pf
+    state: started
+
+- name: Enable pflog
+  copy:
+    src: rc.conf.d/pflog
+    dest: /etc/rc.conf.d/pflog
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Start pflog
+  service:
+    name: pflog
+    state: started

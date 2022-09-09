@@ -31,8 +31,10 @@ To:tux@guengel.ch   ERROR: 550 Mailbox disabled
 #
 Connect:cn REJECT
 Connect:ru REJECT
+Connect:pl REJECT
 From:cn REJECT
 From:ru REJECT
+From:pl REJECT
 To:20130910132718.632b415adcdf36e08d15ac68@guengel.ch REJECT
 To:454517ea.4080607@guengel.ch REJECT
 To:45460462.6090802@guengel.ch REJECT

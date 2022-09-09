@@ -97,11 +97,12 @@
       vars:
         rcvar: "sendmail_enable"
         value: "YES"
+
     - import_role:
         name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_disks_enable"
-        value: "NO"
+        value: "YES"
       when: "not jail"
     - import_role:
         name: freebsd/reusable/periodic
@@ -118,7 +119,7 @@
         name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_ntpd_enable"
-        value: "NO"
+        value: "YES"
       when: "not jail"
     - import_role:
         name: freebsd/reusable/periodic
@@ -139,7 +140,7 @@
         name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_security_portaudit_enable"
-        value: "NO"
+        value: "YES"
     - import_role:
         name: freebsd/reusable/periodic
       vars:
@@ -252,37 +253,52 @@
         name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_network_enable"
-        value: "NO"
+        value: "YES"
     - import_role:
         name: freebsd/reusable/periodic
       vars:
         varname: "daily_status_uptime_enable"
-        value: "NO"
+        value: "YES"
     - import_role:
         name: freebsd/reusable/periodic
       vars:
         varname: "daily_show_success"
-        value: "NO"
+        value: "YES"
     - import_role:
         name: freebsd/reusable/periodic
       vars:
         varname: "weekly_show_success"
-        value: "NO"
+        value: "YES"
     - import_role:
         name: freebsd/reusable/periodic
       vars:
         varname: "monthly_show_success"
-        value: "NO"
+        value: "YES"
     - import_role:
         name: freebsd/reusable/periodic
       vars:
         varname: "security_status_pfdenied_enable"
-        value: "NO"
+        value: "YES"
     - import_role:
         name: freebsd/reusable/periodic
       vars:
         varname: "security_status_pkg_checksum_enable"
-        value: "NO"
+        value: "YES"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "daily_output"
+        value: "/var/log/daily.log"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "weekly_output"
+        value: "/var/log/weekly.log"
+    - import_role:
+        name: freebsd/reusable/periodic
+      vars:
+        varname: "monthly_output"
+        value: "/var/log/monthly.log"
 
     - import_role:
         name: freebsd/sysctl-defaults

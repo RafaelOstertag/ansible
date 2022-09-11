@@ -8,17 +8,17 @@
 
   tasks:
     - import_role:
-        name: freebsd/reusable/periodic
+        name: freebsd/reusable/periodicnoquotes
       vars:
         varname: "daily_output"
         value: "/var/log/daily.log"
     - import_role:
-        name: freebsd/reusable/periodic
+        name: freebsd/reusable/periodicnoquotes
       vars:
         varname: "weekly_output"
         value: "/var/log/weekly.log"
     - import_role:
-        name: freebsd/reusable/periodic
+        name: freebsd/reusable/periodicnoquotes
       vars:
         varname: "monthly_output"
         value: "/var/log/monthly.log"

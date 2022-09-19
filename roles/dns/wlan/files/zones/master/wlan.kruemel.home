@@ -1,7 +1,7 @@
 $ORIGIN wlan.kruemel.home.
 $TTL 1d
 @	IN	SOA	yayap.dmz.kruemel.home.	postmaster.kruemel.home. (
-	202008180
+	202209190
 	3h
 	1h
 	1w
@@ -10,7 +10,7 @@ $TTL 1d
 		MX	10 colossus.kruemel.home.
 yayap	IN	A	192.168.101.254
 $GENERATE 1-20	wlan-client-restricted-$	IN	A	192.168.101.$
-$GENERATE 21-30	wlan-client-unrestricted-$	IN	A	192.168.101.$
+$GENERATE 100-130	wlan-client-unrestricted-$	IN	A	192.168.101.$
 
 pi1 IN  A   192.168.101.31
 pi2 IN  A   192.168.101.32

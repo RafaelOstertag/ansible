@@ -17,10 +17,9 @@
     group: wheel
 
 - name: Fetch IP whitelist
-  get_url:
+  copy:
+    src: swiss-ip
     dest: /etc/ip-whitelist
-    url: http://www.ipdeny.com/ipblocks/data/countries/ch.zone
-    force: yes
     mode: 0644
     owner: root
     group: wheel

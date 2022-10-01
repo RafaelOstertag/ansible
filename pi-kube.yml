@@ -11,7 +11,9 @@
     - import_role:
         name: k8s/resolvconf
     - import_role:
-        name: linux/docker
+        name: k8s/crio
+      tags:
+        - crio
     - import_role:
         name: linux/node-exporter
     - import_role:
@@ -22,8 +24,6 @@
         name: k8s/set-hostname
     - import_role:
         name: k8s/nfs-client
-    - import_role:
-        name: k8s/configure-docker
     - import_role:
         name: k8s/bridging
     - import_role:

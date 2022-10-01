@@ -1,0 +1,44 @@
+---
+
+- name: Install backports
+  copy:
+    src: debian10/backports.list
+    dest: /etc/apt/sources.list.d/backports.list
+    owner: root
+    group: root
+    mode: "0644"
+  when: "ansible_distribution_major_version == '10'"
+
+- name: Install libseccomp2
+  apt:
+    name: libseccomp2
+    default_release: buster-backports
+    update_cache: True
+    state: latest
+  when: "ansible_distribution_major_version == '10'"
+
+- name: Install libcontainers apt keys
+  apt_key:
+    state: present
+    url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/{{ os_debian }}/Release.key"
+
+- name: Install libcontainers apt keys
+  apt_key:
+    state: present
+    url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/{{ crio_version }}/{{ os_debian }}/Release.key"
+
+- name: Setup libcontainers repo
+  template:
+    src: debian/devel:kubic:libcontainers:stable.list
+    dest: /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Setup crio repo
+  template:
+    src: debian/devel:kubic:libcontainers:stable:cri-o:VERSION.list
+    dest: "/etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:{{ crio_version }}.list"
+    owner: root
+    group: root
+    mode: "0644"

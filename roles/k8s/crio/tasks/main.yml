@@ -1,0 +1,50 @@
+---
+
+- name: Setup Debian
+  include_tasks: debian.yml
+  when: "ansible_distribution == 'Debian'"
+
+- name: Setup Ubuntu
+  include_tasks: ubuntu.yml
+  when: "ansible_distribution == 'Ubuntu'"
+
+- name: Install crio packages
+  apt:
+    name:
+      - cri-o
+      - cri-o-runc
+    state: present
+    update_cache: True
+
+- name: Enable crio
+  systemd:
+    name: crio
+    enabled: true
+
+- name: Configure crio
+  copy:
+    src: crio.conf
+    dest: /etc/crio/crio.conf
+    mode: "0644"
+    owner: root
+    group: root
+  notify:
+    - Restart crio
+
+- name: Remove docker
+  apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+      - docker
+      - docker-engine
+      - docker.io
+      - containerd
+      - runc
+    state: absent
+    purge: True
+
+
+

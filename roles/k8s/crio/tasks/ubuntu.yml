@@ -1,0 +1,27 @@
+---
+
+- name: Install libcontainers apt keys
+  apt_key:
+    state: present
+    url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/{{ os_ubuntu }}/Release.key"
+
+- name: Install libcontainers apt keys
+  apt_key:
+    state: present
+    url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/{{ crio_version }}/{{ os_ubuntu }}/Release.key"
+
+- name: Setup libcontainers repo
+  template:
+    src: ubuntu/devel:kubic:libcontainers:stable.list
+    dest: /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Setup crio repo
+  template:
+    src: ubuntu/devel:kubic:libcontainers:stable:cri-o:VERSION.list
+    dest: "/etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:{{ crio_version }}.list"
+    owner: root
+    group: root
+    mode: "0644"

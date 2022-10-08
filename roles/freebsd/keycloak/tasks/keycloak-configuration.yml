@@ -15,3 +15,9 @@
     cmd: "bin/kc.sh build"
   when: result.changed == True
 
+- name: Set permission on data/tmp
+  file:
+    path: /usr/local/keycloak/data/tmp
+    mode: "0750"
+    owner: "keycloak"
+    group: "wheel"

@@ -2,7 +2,7 @@
 
 - name: Install grafana
   pkgng:
-    name: grafana7
+    name: grafana9
     state: present
 
 - name: Enable grafana

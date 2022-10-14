@@ -16,7 +16,7 @@
 - name: Create tls directory
   file:
     state: directory
-    path: /usr/local/etc/grafana.d/tls
+    path: /usr/local/etc/grafana/tls
     mode: 0750
     owner: root
     group: grafana
@@ -24,7 +24,7 @@
 - name: Copy ssl public key
   copy:
     src: "ssl/pub/{{ ansible_fqdn }}.crt"
-    dest: /usr/local/etc/grafana.d/tls/server.crt
+    dest: /usr/local/etc/grafana/tls/server.crt
     mode: 0644
     owner: root
     group: wheel
@@ -34,7 +34,7 @@
 - name: Copy ssl private key
   copy:
     src: "ssl/priv/{{ ansible_fqdn }}.key"
-    dest: /usr/local/etc/grafana.d/tls/server.key
+    dest: /usr/local/etc/grafana/tls/server.key
     mode: 0600
     owner: grafana
     group: wheel

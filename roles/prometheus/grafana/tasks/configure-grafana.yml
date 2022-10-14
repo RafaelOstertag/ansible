@@ -3,7 +3,7 @@
 - name: Install configuration
   template:
     src: grafana.conf
-    dest: /usr/local/etc/grafana.conf
+    dest: /usr/local/etc/grafana/grafana.ini
     mode: 0600
     owner: grafana
     group: wheel
@@ -13,7 +13,7 @@
 - name: Install ldap configuration
   template:
     src: ldap.toml
-    dest: /usr/local/etc/grafana.d/
+    dest: /usr/local/etc/grafana/
     mode: 0600
     owner: grafana
     group: wheel

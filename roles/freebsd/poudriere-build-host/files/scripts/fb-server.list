@@ -7,7 +7,7 @@ archivers/unzip
 archivers/unzoo
 archivers/zip
 benchmarks/iperf3
-devel/awscli
+devel/py-awscli
 devel/git
 dns/bind918
 ftp/curl

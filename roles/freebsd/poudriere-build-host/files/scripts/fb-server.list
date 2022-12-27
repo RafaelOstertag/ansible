@@ -70,6 +70,6 @@ sysutils/tmux
 sysutils/vm-bhyve
 www/apache24
 www/grafana9
-www/mod_php80
+www/mod_php81
 www/nginx
 www/nginx-prometheus-exporter

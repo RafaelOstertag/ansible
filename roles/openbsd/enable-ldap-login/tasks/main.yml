@@ -7,7 +7,7 @@
   copy: src=defaultdomain dest=/etc/defaultdomain
 
 - name: Set domain name
-  shell: 'domainname `cat /etc/defaultdomain`'
+  shell: 'test -z `domainname` && domainname `cat /etc/defaultdomain`; true'
 
 - name: Create yp directory
   file: dest=/etc/yp state=directory

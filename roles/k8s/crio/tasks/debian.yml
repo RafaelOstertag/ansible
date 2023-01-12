@@ -9,6 +9,11 @@
     mode: "0644"
   when: "ansible_distribution_major_version == '10'"
 
+- name: Install libcontainers apt keys
+  apt_key:
+    state: present
+    url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/{{ os_debian }}/Release.key"
+
 - name: Install libseccomp2
   apt:
     name: libseccomp2
@@ -16,11 +21,6 @@
     update_cache: True
     state: latest
   when: "ansible_distribution_major_version == '10'"
-
-- name: Install libcontainers apt keys
-  apt_key:
-    state: present
-    url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/{{ os_debian }}/Release.key"
 
 - name: Install libcontainers apt keys
   apt_key:

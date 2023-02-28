@@ -4,3 +4,4 @@
 #*
 vaultpass.static
 ansible.cfg
+.DS_Store

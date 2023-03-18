@@ -3,3 +3,9 @@
   apt:
     name: ntp
     state: present
+
+- name: Install modules extra
+  apt:
+    name: linux-modules-extra-raspi
+    state: present
+  when: "ansible_distribution == 'Ubuntu'"

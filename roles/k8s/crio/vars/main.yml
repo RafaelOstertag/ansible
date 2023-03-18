@@ -1,5 +1,5 @@
 ---
 
-crio_version: 1.24
-os_ubuntu: xUbuntu_20.04
+crio_version: 1.26
+os_ubuntu: xUbuntu_22.04
 os_debian: Debian_10

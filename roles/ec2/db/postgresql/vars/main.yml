@@ -1,4 +1,4 @@
 ---
 
 pg_basedirectory: /data/postgres
-pg_version: 13
+pg_version: 15

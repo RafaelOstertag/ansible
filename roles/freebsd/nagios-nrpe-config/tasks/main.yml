@@ -2,13 +2,18 @@
 
 - name: Install nagios nrpe
   pkgng:
-    name: nrpe3
+    name: nrpe
     state: present
 
-- name: Enable nrpe3 at startup
+- name: Enable nrpe at startup
   copy:
-    src: rc.conf.d/nrpe3
-    dest: /usr/local/etc/rc.conf.d/nrpe3
+    src: rc.conf.d/nrpe
+    dest: /usr/local/etc/rc.conf.d/nrpe
+
+- name: delete old nrpe3 file
+  file:
+    path: /usr/local/etc/rc.conf.d/nrpe3
+    state: absent
 
 - name: Make tls cert directory
   file:
@@ -58,8 +63,7 @@
     mode: 0755
   loop: "{{ custom_nagios_plugins }}"
 
-
-- name: Start nrpe3
+- name: Start nrpe
   service:
-    name: nrpe3
+    name: nrpe
     state: started

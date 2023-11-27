@@ -7,8 +7,8 @@
   loop:
     - nagios4
     - nagios-check_postgres
-    # This is required so that we have check_nrpe3
-    - nrpe3
+    # This is required so that we have check_nrpe
+    - nrpe
     # This is used for check_external_ip
     - curl
     # This is to sync the configuration

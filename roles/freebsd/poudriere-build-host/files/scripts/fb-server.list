@@ -27,7 +27,7 @@ net-mgmt/monitoring-plugins
 net-mgmt/nagios-check_postgres
 net-mgmt/nagios-snmp-plugins
 net-mgmt/nagios4
-net-mgmt/nrpe3
+net-mgmt/nrpe
 net-mgmt/prometheus2
 net/dual-dhclient
 net/isc-dhcp44-client
@@ -38,6 +38,7 @@ net/openldap26-server
 net/rclone
 net/rsync
 net/samba413
+converters/p5-Encode
 ports-mgmt/pkg
 ports-mgmt/poudriere
 security/ca_root_nss

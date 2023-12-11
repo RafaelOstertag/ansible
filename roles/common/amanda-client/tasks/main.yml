@@ -12,19 +12,19 @@
     mode: 0644
 
 - name: Touch amanda-security file FreeBSD
-  when: 'not amanda_server and ansible_distribution == "FreeBSD"'
-  file:
-    path: /usr/local/etc/amanda/amanda-security.conf
-    state: touch
+  when: 'ansible_distribution == "FreeBSD"'
+  copy:
+    src: amanda-security.conf
+    dest: /usr/local/etc/amanda/amanda-security.conf
     owner: root
     group: amanda
-    mode: 0640
+    mode: "0644"
 
 - name: Touch amanda-security file OpenBSD
-  when: 'not amanda_server and ansible_distribution == "OpenBSD"'
-  file:
-    path: /etc/amanda-security.conf
-    state: touch
-    mode: 0640
+  when: 'ansible_distribution == "OpenBSD"'
+  copy:
+    src: amanda-security.conf
+    dest: /etc/amanda-security.conf
+    mode: "0644"
     owner: root
     group: operator

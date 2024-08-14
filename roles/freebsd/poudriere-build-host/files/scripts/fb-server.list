@@ -40,7 +40,7 @@ net/openldap26-client
 net/openldap26-server
 net/rclone
 net/rsync
-net/samba413
+net/samba419
 ports-mgmt/pkg
 ports-mgmt/poudriere
 security/ca_root_nss

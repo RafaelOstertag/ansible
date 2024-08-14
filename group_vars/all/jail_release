@@ -2,4 +2,4 @@
 ---
 
 # FreeBSD release used to install jails
-jail_release: 13.0-RELEASE
+jail_release: 13.3-RELEASE

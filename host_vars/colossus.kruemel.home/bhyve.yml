@@ -4,7 +4,6 @@ bhyve_autostart_vms:
   - merlin
   - dash
   - aurora
-  - harvester
   - k8s-master
   - amd64-1
   - amd64-2

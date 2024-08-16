@@ -9,3 +9,13 @@
     group: wheel
   notify:
     - Restart FreeBSD syslog
+  when: graylog_enabled
+
+- name: Remove graylog syslogd config snippet
+  file:
+    name: /usr/local/etc/syslog.d/graylog.conf
+    state: absent
+  notify:
+    - Restart FreeBSD syslog
+  when: not graylog_enabled
+

@@ -7,6 +7,7 @@
     state: absent
   notify:
     - Restart OpenBSD syslog
+  when: graylog_enabled
 
 - name: Enable mail remote logging
   lineinfile:
@@ -15,6 +16,7 @@
     line: "mail.info          @harvester.kruemel.home:5514"
   notify:
     - Restart OpenBSD syslog
+  when: graylog_enabled
 
 - name: Enable auth remote logging
   lineinfile:
@@ -23,6 +25,7 @@
     line: "auth.info          @harvester.kruemel.home:5514"
   notify:
     - Restart OpenBSD syslog
+  when: graylog_enabled
 
 - name: Enable authpriv remote logging
   lineinfile:
@@ -31,3 +34,35 @@
     line: "authpriv.debug          @harvester.kruemel.home:5514"
   notify:
     - Restart OpenBSD syslog
+  when: graylog_enabled
+
+##
+## removing when disabled below
+##
+
+- name: Disable mail remote logging
+  lineinfile:
+    path: /etc/syslog.conf
+    line: "mail.info          @harvester.kruemel.home:5514"
+    state: absent
+  notify:
+    - Restart OpenBSD syslog
+  when: not graylog_enabled
+
+- name: Disable auth remote logging
+  lineinfile:
+    path: /etc/syslog.conf
+    line: "auth.info          @harvester.kruemel.home:5514"
+    state: absent
+  notify:
+    - Restart OpenBSD syslog
+  when: not graylog_enabled
+
+- name: Disable authpriv remote logging
+  lineinfile:
+    path: /etc/syslog.conf
+    line: "authpriv.debug          @harvester.kruemel.home:5514"
+    state: absent
+  notify:
+    - Restart OpenBSD syslog
+  when: not graylog_enabled

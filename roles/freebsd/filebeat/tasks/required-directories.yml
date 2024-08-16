@@ -12,3 +12,17 @@
     - /var/cache/filebeat
   loop_control:
     loop_var: path
+  when: graylog_enabled
+
+- name: Remove directories
+  file:
+    path: "{{ path }}"
+    state: absent
+  loop:
+    - /var/log/filebeat
+    - /var/cache/filebeat
+  loop_control:
+    loop_var: path
+  when: not graylog_enabled
+
+

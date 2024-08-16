@@ -4,9 +4,25 @@
   pkgng:
     name: gtar
     state: present
+  when: graylog_enabled
 
 - name: Unpack filebeat
   unarchive:
     remote_src: no
     src: filebeat.tgz
     dest: /
+  when: graylog_enabled
+
+- name: Remove filebeat
+  file:
+    path: "{{ path }}"
+    state: absent
+  loop:
+    - /usr/local/bin/filebeat
+    - /usr/local/etc/filebeat
+    - /usr/local/etc/rc.d/filebeat
+    - /usr/local/lib/filebeat
+  loop_control:
+    loop_var: path
+  when: not graylog_enabled
+

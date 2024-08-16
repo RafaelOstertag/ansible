@@ -9,6 +9,7 @@
     group: wheel
   notify:
     - Restart FreeBSD filebeat
+  when: graylog_enabled
 
 - name: Enable filebeat
   copy:
@@ -17,4 +18,17 @@
     mode: 0644
     owner: root
     group: wheel
+  when: graylog_enabled
+
+- name: Remove configuration
+  file:
+    path: "{{ path }}"
+    state: absent
+  loop:
+    - /usr/local/etc/filebeat/filebeat.yml
+    - /usr/local/etc/rc.conf.d/filebeat
+  loop_control:
+    loop_var: path
+  when: not graylog_enabled
+
 

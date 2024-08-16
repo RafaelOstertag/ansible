@@ -28,7 +28,7 @@
 
 - import_playbook: linux-user-hosts.yml
 - import_playbook: linux-servers.yml
-- import_playbook: linux-graylog-servers.yml
+# - import_playbook: linux-graylog-servers.yml
 
 - import_playbook: db-setup.yml
 

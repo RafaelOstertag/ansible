@@ -7,7 +7,7 @@
   pkgng:
     name:
       - bash
-      - openjdk11
+      - openjdk17
     state: present
     chroot: "{{ jail_root_directory }}/{{ jail_name }}"
 
@@ -34,7 +34,7 @@
 
 # This can also be used to update rundeck
 - name: Unpack rundeck after download
-  shell: "chroot {{ jail_root_directory }}/{{ jail_name }} su - rundeck -c 'cd /opt/rundeck/ && /usr/local/openjdk11/bin/java -jar {{ rundeck_war }} --installonly'"
+  shell: "chroot {{ jail_root_directory }}/{{ jail_name }} su - rundeck -c 'cd /opt/rundeck/ && /usr/local/openjdk17/bin/java -jar {{ rundeck_war }} --installonly'"
   when: "downloaded.changed"
 
 - name: Copy static secrets

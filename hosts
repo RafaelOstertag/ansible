@@ -63,7 +63,7 @@ merlin.virtual.kruemel.home
 ; Linux
 ;
 [linux_servers]
-harvester.kruemel.home
+; harvester.kruemel.home
 
 [linux_user_hosts:children]
 linux_virtual_hosts

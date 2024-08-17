@@ -22,7 +22,7 @@ groups:
   - name: OS Stat Alerts
     rules:
       - alert: Disk Space
-        expr: os:filesystem:free:pct{fstype!~"fdescfs|procfs|nfs"} < 0.20
+        expr: os:filesystem:free:pct{fstype!~"fdescfs|procfs|nfs"} < 0.15
         labels:
           severity: warning
         annotations:
@@ -66,4 +66,3 @@ groups:
           severity: critical
         annotations:
           summary: "Disk {{ $labels.disk }} on {{ $labels.instance }} is failed"
- 

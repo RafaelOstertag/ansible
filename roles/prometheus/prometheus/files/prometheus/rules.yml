@@ -22,12 +22,12 @@ groups:
   - name: OS Stat Alerts
     rules:
       - alert: Disk Space
-        expr: os:filesystem:free:pct{fstype!~"fdescfs|procfs|nfs"} < 0.15
+        expr: os:filesystem:free:pct{fstype!~"fdescfs|procfs|nfs"} < 0.10
         labels:
           severity: warning
         annotations:
           summary: "Filesystem {{ $labels.instance }}--{{ $labels.device }}"
-          description: "Filesystem {{ $labels.device }} mounted on {{ $labels.mountpoint }} on {{ $labels.instance }} is above 80% usage"
+          description: "Filesystem {{ $labels.device }} mounted on {{ $labels.mountpoint }} on {{ $labels.instance }} is above 90% usage"
       - alert: CPU Usage
         expr: os:cpu:avail:pct < 0.25
         for: 5m

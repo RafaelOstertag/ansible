@@ -41,7 +41,6 @@ gargoyle.kruemel.home
 merlin.virtual.kruemel.home
 
 [linux_prometheus_hosts]
-harvester.kruemel.home
 dash.virtual.kruemel.home
 
 ;

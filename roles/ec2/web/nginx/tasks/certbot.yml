@@ -1,7 +1,7 @@
 ---
 - name: Install certbot
   pkgng:
-    name: py39-certbot
+    name: py311-certbot
     state: present
 
 - name: Create certbot www directory

@@ -2,7 +2,7 @@
 
 - name: Install certbot
   pkgng:
-    name: py39-certbot
+    name: py311-certbot
     state: present
 
 - name: Setup auto renewal of certificates

@@ -30,3 +30,9 @@
     decrypt: true
   notify:
     - Restart agentsmith
+
+- name: Remove agentsmith cert
+  when: 'not agentsmith_cert'
+  file:
+    path: /etc/agentsmith/ssl
+    state: absent

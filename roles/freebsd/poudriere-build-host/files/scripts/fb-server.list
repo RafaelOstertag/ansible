@@ -2,6 +2,7 @@ archivers/arj
 archivers/gtar
 archivers/lha
 archivers/lzo2
+archivers/py-borgbackup
 archivers/rar
 archivers/unzip
 archivers/unzoo

@@ -1,0 +1,36 @@
+---
+
+- name: Mount jail /dev
+  include_tasks: helper/mount-temp-dev.yml
+
+- name: Install borg in {{ jail_name }} jail
+  pkgng:
+    name: py311-borgbackup
+    state: present
+    chroot: "{{ jail_root_directory }}/{{ jail_name }}"
+
+- name: Unmount jail /dev
+  include_tasks: helper/umount-temp-dev.yml
+
+- name: Enable sshd
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/rc.conf"
+    state: present
+    regexp: "^sshd_enable="
+    line: 'sshd_enable="YES"'
+    create: yes
+    mode: 0644
+    owner: root
+    group: wheel
+
+- name: Make sshd listen on port 2222
+  lineinfile:
+    path: "{{ jail_root_directory }}/{{ jail_name }}/etc/ssh/sshd_config"
+    state: present
+    regexp: "^Port[\\s]+"
+    line: "Port 2222"
+
+- name: Create jail user
+  include_tasks: helper/create-jail-user.yml
+  vars:
+    jail_user: "{{ jail_name }}"

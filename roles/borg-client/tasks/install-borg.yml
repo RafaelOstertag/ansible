@@ -1,0 +1,14 @@
+---
+
+- name: Install Borg on OpenBSD
+  when: "ansible_distribution == 'OpenBSD'"
+  openbsd_pkg:
+    name: borgbackup-1.2.7
+    state: present
+
+
+- name: Install Borg on FreeBSD
+  when: "ansible_distribution == 'FreeBSD'"
+  pkgng:
+    name: py311-borgbackup
+    state: present

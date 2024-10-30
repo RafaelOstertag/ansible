@@ -1,0 +1,60 @@
+---
+
+- name: Copy SSH Private key
+  copy:
+    src: "borg/ssh/{{ ansible_fqdn }}"
+    dest: "/root/.ssh/borg"
+    mode: "0600"
+    owner: root
+
+- name: Copy SSH Public key
+  copy:
+    src: "borg/ssh/{{ ansible_fqdn }}"
+    dest: "/root/.ssh/borg.pub"
+    mode: "0600"
+    owner: root
+
+- name: Configure ssh
+  ansible.builtin.blockinfile:
+    block: |
+     Host borg.kruemel.home
+       Port 2222
+       User borg
+       IdentityFile /root/.ssh/borg
+    path: /root/.ssh/config
+    marker: "# {mark} ANSIBLE MANAGED BLOCK for borg"
+    create: true
+    mode: "0640"
+    owner: "root"
+    state: present
+
+- name: Borg cache directory
+  file:
+    path: /var/cache/borg
+    state: directory
+    mode: "0700"
+    owner: root
+
+- name: Copy borg-backup.sh
+  copy:
+    src: borg-backup.sh
+    dest: /usr/local/sbin/borg-backup.sh
+    owner: root
+    mode: "0700"
+
+- name: Copy exclude file
+  template:
+    src: borg-exclude
+    dest: /usr/local/etc/borg-exclude
+
+- name: Setup cron
+  cron:
+    name: borg backup
+    state: present
+    job: /usr/local/sbin/borg-backup.sh
+    day: '*'
+    hour: 3
+    minute: 0
+    month: '*'
+    weekday: '*'
+    user: root

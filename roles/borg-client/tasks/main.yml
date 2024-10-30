@@ -1,0 +1,7 @@
+---
+
+- name: Install Borg
+  include_tasks: install-borg.yml
+
+- name: Setup Borg
+  include_tasks: setup-borg.yml

@@ -34,3 +34,36 @@
   include_tasks: helper/create-jail-user.yml
   vars:
     jail_user: "{{ jail_name }}"
+
+- name: Create borg repo directory
+  file:
+    state: directory
+    # We're explicitly using the file system that the jail nullfs mount uses. This avoids issues in case the jail is not running
+    path: "/amandatapes/borg/repos"
+    mode: "0700"
+    owner: 5000
+
+- name: Create host directory
+  file:
+    state: directory
+    # We're explicitly using the file system that the jail nullfs mount uses. This avoids issues in case the jail is not running
+    path: "/amandatapes/borg/repos/{{ host_fqdn }}"
+    mode: "0700"
+    owner: 5000
+  loop: "{{ groups['borg_clients'] }}"
+  loop_control:
+    loop_var: host_fqdn
+
+
+- name: Add authorized_keys
+  lineinfile:
+    # We're explicitly using the file system that the jail nullfs mount uses. This avoids issues in case the jail is not running
+    path: "/amandatapes/borg/.ssh/authorized_keys"
+    line: 'command="cd /var/borg/repos/{{ host_fqdn }} ; borg serve --restrict-to-path /var/borg/repos/{{ host_fqdn }}",restrict {{ lookup("ansible.builtin.file", "borg/ssh/{{ host_fqdn }}.pub") }}'
+    state: present
+    mode: "0600"
+    owner: 5000
+    create: true
+  loop: "{{ groups['borg_clients'] }}"
+  loop_control:
+    loop_var: host_fqdn

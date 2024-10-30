@@ -1,0 +1,23 @@
+amandatapes/*
+tank1/*
+dev/*
+proc/*
+mnt/*
+media/*
+photos/*
+photos-backup/*
+net/*
+swap*
+run/*
+media/*
+usr/jails/*/dev/*
+usr/jails/*/proc/*
+usr/jails/git/var/git/*
+usr/jails/borg/var/borg/*
+var/cache/borg/*
+var/run/*
+tmp/*
+var/db/prometheus/*
+{% if borg_exclude_home is defined and borg_exclude_home %}
+home/*
+{% endif %}

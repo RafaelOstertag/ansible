@@ -31,6 +31,7 @@
 # - import_playbook: linux-graylog-servers.yml
 
 - import_playbook: db-setup.yml
+- import_playbook: borg-clients.yml
 
 - import_playbook: raspberry-pi.yml
 

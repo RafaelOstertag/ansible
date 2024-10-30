@@ -1,0 +1,9 @@
+---
+
+- name: Borg Clients
+  hosts: borg_clients
+  force_handlers: true
+  user: root
+  tasks:
+    - import_role:
+        name: borg-client

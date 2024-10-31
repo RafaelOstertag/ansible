@@ -1,5 +1,0 @@
----
-
-dependencies:
-  - role: freebsd/reusable/enable-inetd
-  - role: common/handlers

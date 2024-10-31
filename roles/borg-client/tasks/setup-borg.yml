@@ -1,5 +1,12 @@
 ---
 
+- name: Create root's ssh directory
+  file:
+    path: /root/.ssh
+    mode: "0750"
+    owner: root
+    state: directory
+
 - name: Copy SSH Private key
   copy:
     src: "borg/ssh/{{ ansible_fqdn }}"

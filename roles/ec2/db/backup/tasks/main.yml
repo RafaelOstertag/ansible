@@ -1,7 +1,0 @@
----
-
-- name: Backup Script
-  include_tasks: backup.yml
-
-- name: Setup Backup Credentials
-  include_tasks: rsync-secrets.yml

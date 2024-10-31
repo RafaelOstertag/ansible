@@ -126,11 +126,6 @@
         - nginx
         - www
 
-    - import_role:
-        name: ec2/web/backup
-      tags:
-        - backup
-
     # We require this because we need access to app-1. Using a host name seems the best solution
     - import_role:
         name: ec2/common/add-peer-instance-hosts

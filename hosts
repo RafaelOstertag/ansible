@@ -133,5 +133,5 @@ optimusprime.kruemel.home
 viking.kruemel.home
 yayap.dmz.kruemel.home
 
-[borg_clients:children]
+[ec2_borg_clients:children]
 ec2

@@ -1,0 +1,10 @@
+---
+
+- name: EC2 Borg Clients
+  hosts: ec2_borg_clients
+  force_handlers: true
+  become: yes
+  become_user: root
+  tasks:
+    - import_role:
+        name: borg-client

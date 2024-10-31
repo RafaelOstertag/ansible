@@ -1,6 +1,0 @@
----
-
-- name: Install rsync
-  pkgng:
-    name: rsync
-    state: present

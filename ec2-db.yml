@@ -116,11 +116,6 @@
         - postgresql
 
     - import_role:
-        name: ec2/db/backup
-      tags:
-        - backup
-
-    - import_role:
         name: freebsd/sysctl-defaults
       tags:
         - sysctl

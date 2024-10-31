@@ -5,3 +5,4 @@
 - import_playbook: ec2-db.yml
 - import_playbook: ec2-app.yml
 - import_playbook: ec2-sec.yml
+- import_playbook: ec2-borg-clients.yml

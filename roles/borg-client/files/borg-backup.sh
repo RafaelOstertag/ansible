@@ -2,6 +2,9 @@
 
 set -u
 
+PATH="/usr/local/bin:${PATH}"
+export PATH
+
 BORG_REPO="borg@borg.kruemel.home:root"
 export BORG_REPO
 BORG_CACHE_DIR=/var/cache/borg

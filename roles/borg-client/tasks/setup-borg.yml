@@ -43,7 +43,7 @@
     owner: root
 
 - name: Copy borg-backup.sh
-  copy:
+  template:
     src: borg-backup.sh
     dest: /usr/local/sbin/borg-backup.sh
     owner: root

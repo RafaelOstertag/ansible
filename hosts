@@ -132,3 +132,6 @@ merlin.virtual.kruemel.home borg_exclude_home=True
 optimusprime.kruemel.home
 viking.kruemel.home
 yayap.dmz.kruemel.home
+
+[borg_clients:children]
+ec2

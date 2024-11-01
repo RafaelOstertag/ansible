@@ -2,7 +2,7 @@
 
 - name: Install psycopg2
   pkgng:
-    name: py39-psycopg2
+    name: py311-psycopg2
     state: present
 
 - name: Create users

@@ -12,3 +12,9 @@
   pkgng:
     name: py311-borgbackup
     state: present
+
+- name: Install Borg on Debian
+  when: "ansible_distribution == 'Debian'"
+  apt:
+    name: borgbackup
+    state: present

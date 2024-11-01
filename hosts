@@ -129,6 +129,7 @@ gargoyle.kruemel.home
 aurora.virtual.kruemel.home borg_exclude_home=True
 colossus.kruemel.home borg_exclude_home=True
 merlin.virtual.kruemel.home borg_exclude_home=True
+dash.virtual.kruemel.home borg_exclude_home=True
 optimusprime.kruemel.home
 viking.kruemel.home
 yayap.dmz.kruemel.home

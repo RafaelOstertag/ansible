@@ -19,6 +19,7 @@ var/run/*
 tmp/*
 var/db/prometheus/*
 data/postgres/data*
+sys/*
 {% if borg_exclude_home is defined and borg_exclude_home %}
 home/*
 {% endif %}

@@ -2,8 +2,12 @@
 
 set -u
 
+{% if ansible_distribution == 'OpenBSD' %}
 PATH="/usr/local/bin:${PATH}"
 export PATH
+HOME="/root"
+export HOME
+{% endif %}
 
 BORG_REPO="borg@borg.kruemel.home:root"
 export BORG_REPO

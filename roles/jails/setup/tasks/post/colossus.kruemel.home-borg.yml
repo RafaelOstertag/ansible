@@ -39,7 +39,7 @@
   file:
     state: directory
     # We're explicitly using the file system that the jail nullfs mount uses. This avoids issues in case the jail is not running
-    path: "/amandatapes/borg/repos"
+    path: "/borg/borg/repos"
     mode: "0700"
     owner: 5000
 
@@ -47,7 +47,7 @@
   file:
     state: directory
     # We're explicitly using the file system that the jail nullfs mount uses. This avoids issues in case the jail is not running
-    path: "/amandatapes/borg/repos/{{ host_fqdn }}"
+    path: "/borg/borg/repos/{{ host_fqdn }}"
     mode: "0700"
     owner: 5000
   loop: "{{ groups['borg_clients'] }}"
@@ -58,7 +58,7 @@
   file:
     state: directory
     # We're explicitly using the file system that the jail nullfs mount uses. This avoids issues in case the jail is not running
-    path: "/amandatapes/borg/repos/{{ hostvars[host_fqdn].hostname }}"
+    path: "/borg/borg/repos/{{ hostvars[host_fqdn].hostname }}"
     mode: "0700"
     owner: 5000
   loop: "{{ groups['ec2_borg_clients'] }}"
@@ -69,7 +69,7 @@
 - name: Add authorized_keys
   lineinfile:
     # We're explicitly using the file system that the jail nullfs mount uses. This avoids issues in case the jail is not running
-    path: "/amandatapes/borg/.ssh/authorized_keys"
+    path: "/borg/borg/.ssh/authorized_keys"
     line: 'command="cd /var/borg/repos/{{ host_fqdn }} ; borg serve --restrict-to-path /var/borg/repos/{{ host_fqdn }}",restrict {{ lookup("ansible.builtin.file", "borg/ssh/{{ host_fqdn }}.pub") }}'
     state: present
     mode: "0600"
@@ -82,7 +82,7 @@
 - name: Add authorized_keys for EC2 hosts
   lineinfile:
     # We're explicitly using the file system that the jail nullfs mount uses. This avoids issues in case the jail is not running
-    path: "/amandatapes/borg/.ssh/authorized_keys"
+    path: "/borg/borg/.ssh/authorized_keys"
     line: 'command="cd /var/borg/repos/{{ hostvars[host_fqdn].hostname }} ; borg serve --restrict-to-path /var/borg/repos/{{ hostvars[host_fqdn].hostname }}",restrict {{ lookup("ansible.builtin.file", "borg/ssh/{{ hostvars[host_fqdn].hostname }}.pub") }}'
     state: present
     mode: "0600"

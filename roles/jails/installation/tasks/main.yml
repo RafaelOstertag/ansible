@@ -16,10 +16,10 @@
     path: "{{ jail_root_directory }}/{{ jail_name }}/etc"
   register: jail_installed
 
-
 - name: Install jail {{ jail_name }}
   when: not jail_installed.stat.exists
   unarchive:
     dest: "{{ jail_root_directory }}/{{ jail_name }}"
     src: "http://ftp.freebsd.org/pub/FreeBSD/releases/{{ jail_arch }}/{{ jail_release }}/base.txz"
     remote_src: yes
+

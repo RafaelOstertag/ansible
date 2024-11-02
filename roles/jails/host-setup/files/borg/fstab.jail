@@ -1,0 +1,15 @@
+/borg/borg /usr/jails/borg/var/borg nullfs rw 0 0
+/borg/borg/repos /usr/jails/borg/var/borg/repos nullfs rw 0 0
+/borg/borg/repos/app-1 /usr/jails/borg/var/borg/repos/app-1 nullfs rw 0 0
+/borg/borg/repos/aurora.virtual.kruemel.home /usr/jails/borg/var/borg/repos/aurora.virtual.kruemel.home nullfs rw 0 0
+/borg/borg/repos/colossus.kruemel.home /usr/jails/borg/var/borg/repos/colossus.kruemel.home nullfs rw 0 0
+/borg/borg/repos/dash.virtual.kruemel.home /usr/jails/borg/var/borg/repos/dash.virtual.kruemel.home nullfs rw 0 0
+/borg/borg/repos/db-1 /usr/jails/borg/var/borg/repos/db-1 nullfs rw 0 0
+/borg/borg/repos/gargoyle.kruemel.home /usr/jails/borg/var/borg/repos/gargoyle.kruemel.home nullfs rw 0 0
+/borg/borg/repos/merlin.virtual.kruemel.home /usr/jails/borg/var/borg/repos/merlin.virtual.kruemel.home nullfs rw 0 0
+/borg/borg/repos/optimusprime.kruemel.home /usr/jails/borg/var/borg/repos/optimusprime.kruemel.home nullfs rw 0 0
+/borg/borg/repos/sec-1 /usr/jails/borg/var/borg/repos/sec-1 nullfs rw 0 0
+/borg/borg/repos/smtp-1 /usr/jails/borg/var/borg/repos/smtp-1 nullfs rw 0 0
+/borg/borg/repos/viking.kruemel.home /usr/jails/borg/var/borg/repos/viking.kruemel.home nullfs rw 0 0
+/borg/borg/repos/web-1 /usr/jails/borg/var/borg/repos/web-1 nullfs rw 0 0
+/borg/borg/repos/yayap.dmz.kruemel.home /usr/jails/borg/var/borg/repos/yayap.dmz.kruemel.home nullfs rw 0 0

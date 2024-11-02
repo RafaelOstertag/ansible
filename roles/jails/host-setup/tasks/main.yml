@@ -5,6 +5,11 @@
     src: "{{ ansible_fqdn }}/jail.conf"
     dest: /etc/jail.conf
 
+- name: Copy borg jail fstab
+  copy:
+    src: borg/fstab.jail
+    dest: /usr/jails/borg.fstab.jail
+
 - name: Enable jail
   lineinfile:
     dest: /etc/rc.conf

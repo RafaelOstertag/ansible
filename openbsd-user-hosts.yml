@@ -11,13 +11,10 @@
       tags:
         - ssh-keys
         - ssh
-    - common/amanda-client
     - name: common/ssh-config
       tags:
         - sshd
         - ssh
-    - openbsd/amanda-hosts
-    - openbsd/amanda-enable
     - openbsd/setup-pkg-path
     - openbsd/resolvconf
     - openbsd/setup-weekly

@@ -15,12 +15,9 @@
         - sshd
     - common/etcfiles
     - common/motd
-    - common/amanda-client
     - openbsd/setup-pkg-path
     - openbsd/resolvconf
     - openbsd/setup-weekly
-    - openbsd/amanda-hosts
-    - openbsd/amanda-enable
     - name: openbsd/nagios-nrpe-config
       tags:
         - nagios
@@ -35,4 +32,4 @@
       tags:
         - syslog
         - graylog
-      
+

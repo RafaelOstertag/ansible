@@ -3,7 +3,7 @@
 - name: Install Borg on OpenBSD
   when: "ansible_distribution == 'OpenBSD'"
   openbsd_pkg:
-    name: borgbackup-1.2.7
+    name: borgbackup-1.4.0
     state: present
 
 

@@ -3,7 +3,7 @@
 - name: Create root's ssh directory
   file:
     path: /root/.ssh
-    mode: "0750"
+    mode: "0700"
     owner: root
     state: directory
 

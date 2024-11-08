@@ -2,7 +2,7 @@
 $ORIGIN kruemel.home.
 $TTL 1d
 @                      IN              SOA  optimusprime.kruemel.home. postmaster.kruemel.home. (
-                                       202410290 ; serial
+                                       202411080 ; serial
                                        1d        ; Refresh
                                        1h        ; Retry
                                        1w        ; Expire
@@ -30,10 +30,6 @@ viking                 IN              A       192.168.100.4
 
 optimusprime           IN              A       192.168.100.5
                                        AAAA    fd3e:be3e:ec34:0::5
-                                       MX      10      colossus.kruemel.home.
-
-sierra                 IN              A       192.168.100.6
-                                       AAAA    fd3e:be3e:ec34:0::7
                                        MX      10      colossus.kruemel.home.
 
 pi-wks-1               IN              A       192.168.100.100

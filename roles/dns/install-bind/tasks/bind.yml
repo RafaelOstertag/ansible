@@ -2,7 +2,7 @@
 
 - name: Install bind
   pkgng:
-    name: bind918
+    name: bind920
     state: present
   notify:
     - Restart FreeBSD bind

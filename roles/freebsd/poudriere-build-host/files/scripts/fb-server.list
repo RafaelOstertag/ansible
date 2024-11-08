@@ -12,7 +12,9 @@ converters/p5-Encode
 converters/p5-Encode-Locale
 devel/git
 devel/py-awscli
-dns/bind918
+dns/bind920
+filesystems/fusefs-exfat
+filesystems/fusefs-ntfs
 ftp/curl
 ftp/wget
 java/openjdk11
@@ -66,8 +68,6 @@ sysutils/ec2-scripts
 sysutils/firstboot-freebsd-update
 sysutils/firstboot-pkgs
 sysutils/freeipmi
-sysutils/fusefs-exfat
-sysutils/fusefs-ntfs
 sysutils/grub2-bhyve
 sysutils/ipmitool
 sysutils/node_exporter

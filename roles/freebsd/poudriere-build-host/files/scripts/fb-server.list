@@ -13,8 +13,8 @@ converters/p5-Encode-Locale
 devel/git
 devel/py-awscli
 dns/bind920
-filesystems/fusefs-exfat
-filesystems/fusefs-ntfs
+filesystems/exfat
+filesystems/ntfs
 ftp/curl
 ftp/wget
 java/openjdk11

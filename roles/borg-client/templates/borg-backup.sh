@@ -75,7 +75,7 @@ if [ ${errval} -ne 0 ]; then
     exit 5
 fi
 
-borg compact
+borg compact --verbose
 errval=$?
 if [ ${errval} -ne 0 ]; then
     log_error "Error while compacting. Error code: ${errval}"

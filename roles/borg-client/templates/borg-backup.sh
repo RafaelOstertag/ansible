@@ -67,7 +67,8 @@ borg prune --verbose \
     --stats \
     --keep-daily 7 \
     --keep-weekly 4 \
-    --keep-monthly 12
+    --keep-monthly 6 \
+    --keep-yearly 2
 errval=$?
 if [ ${errval} -ne 0 ]; then
     log_error "Error while pruning. Error code: ${errval}"

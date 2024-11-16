@@ -91,3 +91,23 @@
   loop: "{{ groups['ec2_borg_clients'] }}"
   loop_control:
     loop_var: host_fqdn
+
+- name: Copy borg repository check script
+  copy:
+    src: "{{ ansible_fqdn }}/borg/check-borg-repos.sh"
+    dest: "{{ jail_root_directory }}/{{ jail_name }}/usr/local/bin"
+    mode: "0755"
+    owner: root
+    group: wheel
+
+- name: Enable periodic check of borg repos
+  cron:
+    name: check borg repositories
+    state: present
+    job: jexec -U borg borg /usr/local/bin/check-borg-repos.sh
+    day: '*'
+    hour: 9
+    minute: 0
+    month: '*'
+    weekday: 7
+    user: root

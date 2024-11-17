@@ -24,9 +24,6 @@ java/openjdk8
 lang/python
 lang/python3
 mail/cyrus-imapd34
-misc/amanda-client
-misc/amanda-perl-wrapper
-misc/amanda-server
 misc/mc
 misc/p5-Locale-US
 net-mgmt/alertmanager

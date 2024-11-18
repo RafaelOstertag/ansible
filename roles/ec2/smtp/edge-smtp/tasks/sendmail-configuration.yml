@@ -21,6 +21,14 @@
     group: wheel
     mode: 0640
 
+- name: Copy mailer.conf
+  copy:
+    src: mailer.conf
+    dest: /etc/mail/mailer.conf
+    mode: 0644
+    owner: root
+    group: wheel
+
 - name: Copy submit configuration
   copy:
     src: submit.mc

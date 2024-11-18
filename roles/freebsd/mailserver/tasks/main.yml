@@ -5,6 +5,16 @@
     src: sendmail.mc
     dest: "/etc/mail/{{ ansible_fqdn }}.mc"
 
+- name: Copy mailer.conf config to non-smarthost
+  copy:
+    src: mailer.conf
+    dest: "/etc/mail/mailer.conf"
+
+- name: Copy mailer.conf config to non-smarthost
+  copy:
+    src: rc.conf.d/sendmail
+    dest: "/etc/rc.conf.d/sendmail"
+
 - name: Copy sendmail submit config to non-smarthost
   copy:
     src: submit.mc

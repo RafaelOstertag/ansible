@@ -19,6 +19,7 @@
     - aliases
     - local-host-names
     - virtusertable
+    - mailer.conf
 
 - name: Unconditionally rebuild sendmail config
   shell: "cd /etc/mail ; make all ; make install"

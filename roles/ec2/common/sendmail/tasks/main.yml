@@ -28,3 +28,23 @@
     group: wheel
   notify:
     - Rebuild sendmail config
+
+- name: Copy mailer.conf
+  copy:
+    src: mailer.conf
+    dest: /etc/mail/mailer.conf
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD sendmail
+
+- name: Copy sendmail rc.conf snippet
+  copy:
+    src: rc.conf.d/sendmail
+    dest: /etc/rc.conf.d
+    mode: 0644
+    owner: root
+    group: wheel
+  notify:
+    - Restart FreeBSD sendmail

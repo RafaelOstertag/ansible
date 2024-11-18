@@ -1,6 +1,8 @@
 #!/bin/sh
 #
 # Query external DNS for guengel.ch and compare with external ip
+PATH=/usr/local/bin:$PATH
+export PATH
 if [ -f /usr/local/libexec/nagios/utils.sh ]
 then
 	. /usr/local/libexec/nagios/utils.sh

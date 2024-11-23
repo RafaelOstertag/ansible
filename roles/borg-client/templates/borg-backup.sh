@@ -51,9 +51,6 @@ borg create --verbose \
     --filter CE \
     --stats \
     --compression lz4 \
-{% if 'ec2_borg_clients' in group_names %}
-    --upload-ratelimit 5000 \
-{% endif %}
     --exclude-from /usr/local/etc/borg-exclude \
     ::'{now}' \
     /

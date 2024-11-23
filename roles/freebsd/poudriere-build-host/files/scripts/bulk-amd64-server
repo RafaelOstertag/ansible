@@ -7,5 +7,8 @@ else
 	poudriere pkgclean -y -j fb14-amd64 -z server -p default -f $HOME/poudriere/fb-server.list
 fi
 
+poudriere logclean -y 1
+poudriere distclean -a -y -J 8
+
 # /root/poudriere/syncpackages.sh
 

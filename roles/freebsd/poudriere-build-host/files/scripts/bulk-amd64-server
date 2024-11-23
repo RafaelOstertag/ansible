@@ -1,12 +1,9 @@
 #!/bin/sh
 if [ $# -ne 0 ]
 then
-	poudriere bulk -j fb13-amd64 -z server -p default "$@"
 	poudriere bulk -j fb14-amd64 -z server -p default "$@"
 else
-	poudriere bulk -j fb13-amd64 -z server -p default -f $HOME/poudriere/fb-server.list && \
 	poudriere bulk -j fb14-amd64 -z server -p default -f $HOME/poudriere/fb-server.list && \
-    poudriere pkgclean -y -j fb13-amd64 -z server -p default -f $HOME/poudriere/fb-server.list && \
 	poudriere pkgclean -y -j fb14-amd64 -z server -p default -f $HOME/poudriere/fb-server.list
 fi
 

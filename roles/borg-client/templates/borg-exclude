@@ -18,6 +18,7 @@ usr/jails/*/dev/*
 usr/jails/*/proc/*
 usr/jails/borg/var/borg/*
 usr/jails/git/var/git/*
+usr/poudriere/*
 var/cache/borg/*
 var/db/dhcpd
 var/db/prometheus/*

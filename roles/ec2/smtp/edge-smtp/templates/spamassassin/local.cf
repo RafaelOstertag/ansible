@@ -40,7 +40,10 @@ shortcircuit ALL_TRUSTED             on
 
 #   and a well-trained bayes DB can save running rules, too
 #
+shortcircuit BAYES_999               spam
 shortcircuit BAYES_99                spam
-# shortcircuit BAYES_00                ham
+shortcircuit BAYES_00                ham
+
+score BAYES_999 200
 
 endif # Mail::SpamAssassin::Plugin::Shortcircuit

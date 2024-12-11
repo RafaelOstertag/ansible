@@ -41,7 +41,6 @@ shortcircuit ALL_TRUSTED             on
 #   and a well-trained bayes DB can save running rules, too
 #
 shortcircuit BAYES_999               spam
-shortcircuit BAYES_99                spam
 shortcircuit BAYES_00                ham
 
 shortcircuit_spam_score 100.0

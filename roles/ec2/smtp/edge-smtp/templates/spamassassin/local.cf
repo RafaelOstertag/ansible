@@ -44,6 +44,8 @@ shortcircuit BAYES_999               spam
 shortcircuit BAYES_99                spam
 shortcircuit BAYES_00                ham
 
-score BAYES_999 200
+shortcircuit_spam_score 100.0
 
 endif # Mail::SpamAssassin::Plugin::Shortcircuit
+
+score BAYES_999 500.0

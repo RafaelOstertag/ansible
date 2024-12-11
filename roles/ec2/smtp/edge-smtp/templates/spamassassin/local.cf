@@ -12,8 +12,6 @@ bayes_ignore_header X-Spam-Status
 dns_available yes
 dns_server 127.0.0.1
 
-loadplugin Mail::SpamAssassin::Plugin::Shortcircuit
-
 #   Some shortcircuiting, if the plugin is enabled
 #
 ifplugin Mail::SpamAssassin::Plugin::Shortcircuit
@@ -46,5 +44,3 @@ shortcircuit BAYES_00                ham
 shortcircuit_spam_score 100.0
 
 endif # Mail::SpamAssassin::Plugin::Shortcircuit
-
-score BAYES_999 500.0

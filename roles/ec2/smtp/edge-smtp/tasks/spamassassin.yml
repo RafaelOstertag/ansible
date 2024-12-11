@@ -13,10 +13,17 @@
     name: fetchmail
     state: present
 
-- name: Copy spamassassin configuration
+- name: Copy spamassassin configuration local.cf
   template:
     src: spamassassin/local.cf
     dest: /usr/local/etc/mail/spamassassin/local.cf
+  notify:
+    - FreeBSD restart spamassassin
+
+- name: Copy spamassassin configuration init.pre
+  template:
+    src: spamassassin/init.pre
+    dest: /usr/local/etc/mail/spamassassin/init.pre
   notify:
     - FreeBSD restart spamassassin
 

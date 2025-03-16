@@ -13,4 +13,3 @@
 /borg/borg/repos/viking.kruemel.home /usr/jails/borg/var/borg/repos/viking.kruemel.home nullfs rw 0 0
 /borg/borg/repos/web-1 /usr/jails/borg/var/borg/repos/web-1 nullfs rw 0 0
 /borg/borg/repos/yayap.dmz.kruemel.home /usr/jails/borg/var/borg/repos/yayap.dmz.kruemel.home nullfs rw 0 0
-/borg/borg/repos/starburst /usr/jails/borg/var/borg/repos/starburst nullfs rw 0 0

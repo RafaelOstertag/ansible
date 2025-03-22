@@ -21,7 +21,7 @@ log_error() {
 }
 
 check_repo() {
-    borg check --repository-only
+    borg info
 }
 
 init_repo() {

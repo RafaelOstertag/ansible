@@ -73,7 +73,7 @@ sysutils/smartmontools
 sysutils/tmux
 sysutils/vm-bhyve
 www/apache24
-www/grafana9
+www/grafana
 www/mod_php82
 www/nginx
 www/nginx-prometheus-exporter

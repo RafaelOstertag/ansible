@@ -68,6 +68,7 @@ sysutils/freeipmi
 sysutils/grub2-bhyve
 sysutils/ipmitool
 sysutils/node_exporter
+sysutils/py-borgmatic
 sysutils/smartmontools
 sysutils/tmux
 sysutils/vm-bhyve

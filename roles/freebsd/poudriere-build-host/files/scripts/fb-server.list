@@ -74,6 +74,6 @@ sysutils/tmux
 sysutils/vm-bhyve
 www/apache24
 www/grafana
-www/mod_php82
+www/mod_php83
 www/nginx
 www/nginx-prometheus-exporter

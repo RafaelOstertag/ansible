@@ -65,6 +65,7 @@ sysutils/ec2-scripts
 sysutils/firstboot-freebsd-update
 sysutils/firstboot-pkgs
 sysutils/freeipmi
+sysutils/goaccess
 sysutils/grub2-bhyve
 sysutils/ipmitool
 sysutils/node_exporter

@@ -36,6 +36,17 @@
   notify:
     - Restart nginx
 
+# this file can be retrieved from git@github.com:ai-robots-txt/ai.robots.txt.git
+- name: Copy nginx ai bots blocker config
+  copy:
+    src: nginx/nginx-block-ai-bots.conf
+    dest: /usr/local/etc/nginx/nginx-block-ai-bots.conf
+    mode: 0640
+    owner: root
+    group: www
+  notify:
+    - Restart nginx
+
 - name: Create nginx data directory
   file:
     path: /data/www

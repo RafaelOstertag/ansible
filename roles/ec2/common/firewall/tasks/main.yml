@@ -26,7 +26,7 @@
     mode: 0600
     owner: root
     group: wheel
-    validate: "pfctl -nf %s"
+    validate: "/sbin/pfctl -nf %s"
   notify:
     - Reload FreeBSD pf
 

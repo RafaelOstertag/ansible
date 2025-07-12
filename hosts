@@ -36,10 +36,10 @@ aurora.virtual.kruemel.home
 
 [openbsd_prometheus_hosts]
 gargoyle.kruemel.home
-merlin.virtual.kruemel.home
+; merlin.virtual.kruemel.home
 
 [linux_prometheus_hosts]
-dash.virtual.kruemel.home
+; dash.virtual.kruemel.home
 
 ;
 ; OpenBSD
@@ -54,7 +54,7 @@ gargoyle.kruemel.home
 openbsd_virtual_hosts
 
 [openbsd_virtual_hosts]
-merlin.virtual.kruemel.home
+; merlin.virtual.kruemel.home
 
 ;
 ; Linux
@@ -67,7 +67,7 @@ linux_virtual_hosts
 pi_workstations
 
 [linux_virtual_hosts]
-dash.virtual.kruemel.home
+; dash.virtual.kruemel.home
 
 [pi_workstations]
 pi-wks-1.kruemel.home
@@ -120,14 +120,14 @@ builder.k8s.kruemel.home
 
 [circle_ci_runners]
 builder.k8s.kruemel.home
-dash.virtual.kruemel.home
+; dash.virtual.kruemel.home
 
 [borg_clients]
 gargoyle.kruemel.home
 aurora.virtual.kruemel.home borg_exclude_home=True
 colossus.kruemel.home borg_exclude_home=True
-merlin.virtual.kruemel.home borg_exclude_home=True
-dash.virtual.kruemel.home borg_exclude_home=True
+; merlin.virtual.kruemel.home borg_exclude_home=True
+; dash.virtual.kruemel.home borg_exclude_home=True
 optimusprime.kruemel.home
 viking.kruemel.home
 yayap.dmz.kruemel.home

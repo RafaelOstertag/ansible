@@ -17,7 +17,7 @@ yayap.dmz.kruemel.home
 freebsd_virtual_hosts
 
 [freebsd_virtual_hosts]
-aurora.virtual.kruemel.home
+; aurora.virtual.kruemel.home
 
 [lean_jail_servers]
 colossus.kruemel.home
@@ -32,7 +32,7 @@ viking.kruemel.home
 optimusprime.kruemel.home
 yayap.dmz.kruemel.home
 colossus.kruemel.home
-aurora.virtual.kruemel.home
+; aurora.virtual.kruemel.home
 
 [openbsd_prometheus_hosts]
 gargoyle.kruemel.home
@@ -124,7 +124,7 @@ builder.k8s.kruemel.home
 
 [borg_clients]
 gargoyle.kruemel.home
-aurora.virtual.kruemel.home borg_exclude_home=True
+; aurora.virtual.kruemel.home borg_exclude_home=True
 colossus.kruemel.home borg_exclude_home=True
 ; merlin.virtual.kruemel.home borg_exclude_home=True
 ; dash.virtual.kruemel.home borg_exclude_home=True

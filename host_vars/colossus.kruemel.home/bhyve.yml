@@ -1,6 +1,6 @@
 ---
 
 bhyve_autostart_vms:
-#  - merlin
-#  - dash
+  - merlin
+  - dash
   - aurora

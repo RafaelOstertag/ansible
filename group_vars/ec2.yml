@@ -28,10 +28,7 @@ nginx_domains:
 nginx_custom_domains:
     - yapet.guengel.ch
     - portscanner.guengel.ch
-    - sso.guengel.ch
-    - funnel.guengel.ch
-    - memberberry.guengel.ch
-    - astro.guengel.ch
     - photos.guengel.ch
     - portscanner.ostertag.dev
     - www.rafaelostertag.photo
+

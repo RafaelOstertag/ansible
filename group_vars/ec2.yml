@@ -31,4 +31,5 @@ nginx_custom_domains:
     - photos.guengel.ch
     - portscanner.ostertag.dev
     - www.rafaelostertag.photo
+    - rafaelostertag.photo
 

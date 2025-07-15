@@ -39,5 +39,3 @@
   notify:
     - Restart nginx
 
-- name: Install nginx-exporter
-  include_tasks: nginx-exporter.yml

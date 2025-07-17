@@ -1,3 +1,6 @@
 #
 # Maintained by Ansible
-CertIssuer:/C=CH/ST=Thurgau/L=Kefikon/O=guengel.ch/CN=CA+202022/emailAddress=postmaster@guengel.ch  RELAY
+CertIssuer:/C=CH/ST=Thurgau/L=Kefikon/O=guengel.ch/CN=CA+2022/emailAddress=postmaster@guengel.ch  RELAY
+# Allows stray \r in messages
+Srv_Features:localhost   u2 g2
+Srv_Features:colossus.kruemel.home   u2 g2

@@ -1,5 +1,6 @@
 amandatapes/*
 borg/*
+borg-replacement/*
 data/postgres/data*
 dev/*
 media/*
@@ -13,6 +14,7 @@ run/*
 swap*
 sys/*
 tank1/*
+tank1-replacement/*
 tmp/*
 usr/jails/*/dev/*
 usr/jails/*/proc/*

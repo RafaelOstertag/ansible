@@ -73,7 +73,7 @@
         - ssh
         - ssh-keys
 
-    # We need a custom built nginx with modsecurity
+    # We need a custom built nginx with brotli
     - import_role:
         name: ec2/common/disable-default-pkgrepo
     - import_role:
@@ -114,12 +114,14 @@
         name: ec2/storage/data
       tags:
         - storage
-    - import_role:
-        name: ec2/web/modsecurity
-      tags:
-        - nginx
-        - www
-        - modsecurity
+    # disabled, since it does not play well with http/3, i.e. it
+    # logs false positives due to missing Host header in the http/3 request
+    # - import_role:
+    #     name: ec2/web/modsecurity
+    #   tags:
+    #     - nginx
+    #     - www
+    #     - modsecurity
     - import_role:
         name: ec2/web/nginx
       tags:
